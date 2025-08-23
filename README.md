@@ -8,6 +8,9 @@ Output = mindmelt_output_20250823-020454.txt
 How to do math with fractions = Physics To Fractions Folder
 
 
+Run The Code Right In Colabs (The Last Cell Is The Most Recent Iteration): https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing
+
+
 The basic logic on why this works on medium and in theory section.
 
 https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2
