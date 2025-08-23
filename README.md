@@ -1,5 +1,7 @@
 # Rosetta-Stone-Of-Physics
 Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I just compressed your entire field into basic arithmetic. 
+
+
 OSF LINK:https://osf.io/56fpm/
 # Rosetta-Stone-Of-Physics
 
