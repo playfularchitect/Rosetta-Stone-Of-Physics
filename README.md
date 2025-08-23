@@ -1,2 +1,3 @@
 # Rosetta-Stone-Of-Physics
-Maths
+Code = mathoracle4.py
+How to do math with fractions =
