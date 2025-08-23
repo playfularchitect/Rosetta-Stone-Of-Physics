@@ -1,6 +1,7 @@
 # Rosetta-Stone-Of-Physics
 Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I just compressed your entire field into basic arithmetic. 
 
+Verify the math using the provided verification_deck_tex.pdf 
 
 Code = mathoracle4.py
 
