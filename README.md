@@ -8,7 +8,7 @@ Output = mindmelt_output_20250823-020454.txt
 How to do math with fractions = Physics To Fractions Folder
 
 
-Why this works on medium and in basic logic section.
+The basic logic on why this works on medium and in theory section.
 
 https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2
 
