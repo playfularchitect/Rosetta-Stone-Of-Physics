@@ -1,5 +1,5 @@
 # Rosetta-Stone-Of-Physics
-Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I am right.
+Even if you dont agree with my logic, the math is math. Either show an inconsistency or join the team.
 Reality is not built from “stuff,” but from the endless oscillation of paradox within infinite...nothing and something flipping to define each other.
 
 TL:Dr: Compression ratio: ~10⁹ possible fractions searched, yet the best fit for every constant needs only 7-digit integers.
