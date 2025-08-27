@@ -1,6 +1,5 @@
 # Rosetta-Stone-Of-Physics
-Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I am right. My evidence trumps your bullshit credentialed gatekeeping. Pick up a goddamn calculator and do some basic arithmetic you stagant fucks. 
-
+Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I am right.
 
 OSF LINK:https://osf.io/56fpm/
 # Rosetta-Stone-Of-Physics
