@@ -3,6 +3,7 @@ Even if you dont agree with my logic, the math is math. Either prove I am wrong 
 Reality is not built from “stuff,” but from the endless oscillation of paradox within infinite...nothing and something flipping to define each other.
 
 OSF LINK:https://osf.io/56fpm/
+Demo Webpage: https://fractionphysicsv1.abacusai.app/ckm
 # Rosetta-Stone-Of-Physics
 
 **Claim**  
