@@ -1,5 +1,5 @@
 # Rosetta-Stone-Of-Physics
-Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I just compressed your entire field into basic arithmetic. 
+Even if you dont agree with my logic, the math is math. Either prove I am wrong or accept that I am right. My evidence trumps your bullshit credentialed gatekeeping. Pick up a goddamn calculator and do some basic arithmetic you stagant fucks. 
 
 
 OSF LINK:https://osf.io/56fpm/
@@ -29,6 +29,8 @@ https://medium.com/@ewesley541/the-adventures-of-unmath-volume-1-77042fd7cbe4
 https://medium.com/@ewesley541/the-universes-simple-building-plan-a-new-way-to-see-reality-d9395744893c  
 https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d  
 https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2
+
+Math Checks folder contains Fraction Physics applied to multiple problems. 
 
 **License & contact**  
 NOTICE & LICENSES (Code = MIT, Content = CC BY 4.0)  
