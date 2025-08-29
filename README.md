@@ -9,7 +9,7 @@ Compression ratio: ~10⁹ possible fractions searched, yet the best fit for ever
 DO NOT hang your skepticism on the wrong hook please.
 Whether or not there is a fancy manifold behind the curtain (there is check theory section please), the raw fact that 19 rational numbers with ≤ 7 digit denominators sit inside every experimental bound to < 1 σ is itself a jaw dropping regularity. 
 
-Theoretical framework (7-dim Calabi–Yau-like manifold + discrete group action) that predicts the 19 rational numbers before any brute force fit. The brute force step is merely selecting the minimal integers consistent with that analytic derivation.
+Theoretical framework that predicts the 19 rational numbers before any brute force fit. The brute force step is merely selecting the minimal integers consistent with that analytic derivation.
 
 
 OSF LINK:https://osf.io/56fpm/
