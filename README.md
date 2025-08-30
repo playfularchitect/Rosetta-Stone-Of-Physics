@@ -45,6 +45,8 @@ https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2
 
 Math Checks folder contains Fraction Physics applied to multiple problems. 
 
+Fraction Physics applied to Neural Networks: https://github.com/playfularchitect/Fraction-Neural-NetworkV2.git
+
 **License & contact**  
 NOTICE & LICENSES (Code = MIT, Content = CC BY 4.0)  
 Project: Reality Encoded  
