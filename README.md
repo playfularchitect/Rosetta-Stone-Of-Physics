@@ -16,6 +16,8 @@ OSF LINK:https://osf.io/56fpm/
 Demo Webpage: https://fractionphysicsv1.abacusai.app/ckm
 # Rosetta-Stone-Of-Physics
 
+For people about the money: https://FractionPhysics4Money.abacusai.app
+
 **Claim**  
 If you fix a single ruler \(v\) and store the Standard Model snapshot as exact fractions, you can reproduce real observables with basic arithmetic. Don’t like the philosophy? Fine. The math is the math. Either break the numbers or accept that a big slice of your field compresses to ratios.
 
