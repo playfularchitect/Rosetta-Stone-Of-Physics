@@ -7,7 +7,8 @@ I am asking you to recognize that the methodology and the mathematical results a
 My work offers a better way to do science, even if my physical claims are ultimately proven wrong. Here's how:
 
 1. A Toolkit for Perfect Reproducibility
-My paper, "Why you should use Fraction Physics," details how replacing floating-point approximations with exact rational numbers eliminates compounding errors. This guarantees that a calculation performed in a lab in California is bit-for-bit identical to one performed in a lab in Geneva. This isn't a theoretical benefit; it's a practical solution to the reproducibility crisis, and you can adopt this method in your own work today.
+My paper on, "Why you should use Fraction Physics," details how replacing floating-point approximations with exact rational numbers eliminates compounding errors. This guarantees that a calculation performed in a lab in California is bit-for-bit identical to one performed in a lab in Geneva. This isn't a theoretical benefit; it's a practical solution to the reproducibility crisis, and you can adopt this method in your own work today.
+https://medium.com/@ewesley541/your-math-is-lying-to-you-how-floating-point-errors-cost-millions-and-how-to-fix-it-ee9b1eb474c0
 
 2. A Framework for Extreme Falsifiability
 My ledgers provide a set of precise, unambiguous, and high-stakes predictions, such as sin(2β) = 119/169 and the pre-registered next digits of the fine-structure constant. These are not vague claims; they are designed to be broken. This feature makes our collective search for truth more efficient by providing sharp targets.
