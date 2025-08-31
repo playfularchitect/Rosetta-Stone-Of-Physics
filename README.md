@@ -25,7 +25,7 @@ If you fix a single ruler \(v\) and store the Standard Model snapshot as exact f
 Open `verification_deck_tex.pdf`. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. No code required; just arithmetic with the provided ratios.
 
 **Core artifacts (this repo)**  
-Code lives in `mathoracle4.py`.  
+Code lives in `mathoracle4(finalcell).py`.  
 Outputs from a full run live in `mindmelt_output_20250823-020454.txt`.  
 “How to do math with fractions” lives in the `Physics To Fractions` folder.  
 A compact, human-readable proof pack lives in `verification_deck_tex.pdf`.
