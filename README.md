@@ -29,6 +29,7 @@ Code lives in `mathoracle4.py`.
 Outputs from a full run live in `mindmelt_output_20250823-020454.txt`.  
 “How to do math with fractions” lives in the `Physics To Fractions` folder.  
 A compact, human-readable proof pack lives in `verification_deck_tex.pdf`.
+Foundational Axioms from Theory section are distilled into 5 easy principles.
 
 **Run it live (Colab)**  
 The most recent one-cell runner is at the link below. Open it, run from top to bottom, and compare printed tables with the PDF deck.  
