@@ -11,6 +11,10 @@ Whether or not there is a fancy manifold behind the curtain (there is check theo
 
 Theoretical framework that predicts the 19 rational numbers before any brute force fit. Check medium articles and dates released. The brute force step is merely selecting the minimal integers consistent with that analytic derivation.
 
+In the Code and Output Folder there is a Ledger Code stuff Folder that contains:
+
+Hard, mathematical evidence that the fundamental constants are not a random collection of numbers, but are instead interconnected parts of a single, underlying algebraic architecture.
+
 
 OSF LINK:https://osf.io/56fpm/
 Demo Webpage: https://fractionphysicsv1.abacusai.app/ckm
