@@ -1,0 +1,175 @@
+# =========================================================
+# Ledger v2.5 — exact-code module (uses existing F if present)
+# =========================================================
+
+from decimal import Decimal, getcontext
+getcontext().prec = 80  # plenty of headroom for prints
+
+# --- use existing exact-rational type F if available; else fallback to Fraction ---
+try:
+    F  # already defined in your session (gmpy2 backend from earlier cells)
+    def _F(p, q=1): return F(int(p), int(q))
+    def pq(x): return (int(x.p), int(x.q))  # our F exposes .p/.q
+except NameError:
+    from fractions import Fraction as _PF
+    def _F(p, q=1): return _PF(int(p), int(q))
+    def pq(x): return (int(x.numerator), int(x.denominator))
+
+def dec(x, prec=50):
+    """Decimal(x) that works for either backend."""
+    p, q = pq(x)
+    old = getcontext().prec
+    getcontext().prec = prec
+    try:
+        return Decimal(p) / Decimal(q)
+    finally:
+        getcontext().prec = old
+
+# ----------------------------
+# Ledger v2.5 constants
+# ----------------------------
+class L25:
+    # Core EW+QCD locks (frozen)
+    sin2thetaW_MZ = _F(25,108)
+    alpha_s_MZ    = _F(23,195)
+    lambda_W      = _F(9,40)
+    A             = _F(21,25)
+
+    # Low-Q^2 weak mixing and running ratio
+    sin2thetaW_lowQ2 = _F(117,490)
+    R_W = sin2thetaW_lowQ2 / sin2thetaW_MZ  # 6318/6125
+
+    # CKM extras
+    rhobar = _F(3,20)
+    etabar = _F(7,20)
+
+    # Neutrino mixing (NO reference)
+    sin2_th12 = _F(31,101)
+    sin2_th13 = _F(1,45)
+    sin2_th23 = _F(5,9)
+    r_ratio   = _F(13,440)
+
+    # PMNS first row (derived, exact)
+    Ue1_2 = ( _F(1,1) - sin2_th12 ) * ( _F(1,1) - sin2_th13 )     # 616/909
+    Ue2_2 =   sin2_th12         * ( _F(1,1) - sin2_th13 )          # 1364/4545
+    Ue3_2 =   sin2_th13                                           # 1/45
+
+    # Cosmology ridge
+    Omega_m   = _F(63,200)
+    Omega_L   = _F(137,200)
+    n_s       = _F(28,29)
+    sigma8    = _F(73,90)
+    Omega_bh2 = _F(14,625)
+    Omega_ch2 = _F(3,25)
+    h         = _F(31,46)
+    f_b       = _F(5,32)
+
+    # Useful deriveds
+    q0  = _F(1,2)*Omega_m - Omega_L                  # -211/400
+    H0  = _F(1550,23)                                # 67.3913... km/s/Mpc
+    OmegaL_over_Omegam = Omega_L / Omega_m           # 137/63
+
+    # Rare-decay anchors (kept as observables; scale factors noted)
+    BR_Kp_pip_nunubar_SM = _F(89,10)   # × 1e-11
+    BR_KL_pi0_nunubar_SM = _F(17,5)    # × 1e-11
+    BR_Bs_mumu_SM        = _F(183,50)  # × 1e-10
+    KL_over_Kp_ratio     = _F(34,89)
+
+    # Composites for alpha prediction (from locks only)
+    R1 = lambda_W / sin2_th13                 # 81/8
+    R2 = _F(1,1) / (alpha_s_MZ * sin2thetaW_MZ)  # 4212/115
+
+    # Alpha seeds (exact)
+    alpha_inv_G1 = _F(11183280301129, 81608342400)  # 137.035993775178...
+    alpha_inv_G2 = _F(370638943017318088595145540361,
+                      2704683041268417903431761920)  # 137.035999177004...
+
+    @staticmethod
+    def alpha_from_alpha_inv(alpha_inv):
+        p,q = pq(alpha_inv)
+        return _F(q,p)
+
+# ----------------------------
+# Alpha prediction formulas
+# ----------------------------
+def alpha_inv_simple4(R1=None, R2=None, A=None):
+    """G.1: α⁻¹ = 10 R1 + R2 − A − 1/(8 R2²)"""
+    C = L25
+    R1 = C.R1 if R1 is None else R1
+    R2 = C.R2 if R2 is None else R2
+    A  = C.A  if A  is None else A
+    return 10*R1 + R2 - A - ( _F(1,8) / (R2**2) )
+
+def alpha_inv_precision10(R1=None, R2=None):
+    """G.2: α⁻¹ = 10R1 + R2 − 5/6 − 1/R1 + 3/R2 + 4/(R1 R2)
+                     − 1/R2² + 3/R2³ + 13/R2⁵ + 25/R2⁷
+    """
+    C = L25
+    R1 = C.R1 if R1 is None else R1
+    R2 = C.R2 if R2 is None else R2
+    one = _F(1,1)
+    return ( 10*R1 + R2
+           - _F(5,6)
+           - (one / R1)
+           + _F(3,1) / R2
+           + _F(4,1) / (R1*R2)
+           - one / (R2**2)
+           + _F(3,1) / (R2**3)
+           + _F(13,1) / (R2**5)
+           + _F(25,1) / (R2**7) )
+
+# ----------------------------
+# QED a_mu(α) through 5 loops (as in your note)
+# ----------------------------
+def a_mu_QED(alpha):
+    """alpha is an exact rational (F or Fraction). Returns Decimal."""
+    C1 = Decimal(1)/Decimal(2)
+    C2 = Decimal("0.765857420")
+    C3 = Decimal("24.05050985")
+    C4 = Decimal("130.8782")
+    C5 = Decimal("751.0")
+    a = dec(alpha, prec=80)
+    x = a / Decimal(str(math.pi))
+    return C1*x + C2*(x**2) + C3*(x**3) + C4*(x**4) + C5*(x**5)
+
+# =========================================================
+# Self-checks + prints (matches your earlier outputs)
+# =========================================================
+import math
+
+C = L25
+
+# Identity checks that should hold exactly
+assert C.Ue1_2 == _F(616,909)
+assert C.Ue2_2 == _F(1364,4545)
+assert C.Ue3_2 == _F(1,45)
+assert C.R_W   == _F(6318,6125)
+
+# G.1 and G.2 reproduction
+a1 = alpha_inv_simple4()
+a2 = alpha_inv_precision10()
+print("α⁻¹ (G.1 simple-4) =", dec(a1, 70))
+print("α⁻¹ (G.2 precision-10) =", dec(a2, 70))
+
+# Verify they equal the ledger seeds exactly
+assert a1 == C.alpha_inv_G1
+assert a2 == C.alpha_inv_G2
+
+# Convert to α
+alpha_G1 = C.alpha_from_alpha_inv(C.alpha_inv_G1)
+alpha_G2 = C.alpha_from_alpha_inv(C.alpha_inv_G2)
+
+# Δα and relative shift
+d_alpha = dec(alpha_G2, 80) - dec(alpha_G1, 80)
+rel = d_alpha / dec(alpha_G2, 80)
+print("Δα =", d_alpha)
+print("Δα/α(G.2) =", rel)
+
+# QED a_mu propagation
+amu_G1 = a_mu_QED(alpha_G1)
+amu_G2 = a_mu_QED(alpha_G2)
+print("a_mu^QED(α_G1) =", amu_G1)
+print("a_mu^QED(α_G2) =", amu_G2)
+print("Δ a_mu^QED =", amu_G2 - amu_G1)
+
+print("\nLedger v2.5 constants wired into code ✅")
