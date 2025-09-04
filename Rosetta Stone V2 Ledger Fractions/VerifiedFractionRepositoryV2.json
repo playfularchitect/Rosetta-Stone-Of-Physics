@@ -1,0 +1,706 @@
+{
+  "summary": {
+    "total_unique_fractions": 81,
+    "by_category_counts": {
+      "CKM": 17,
+      "RareDecay": 1,
+      "Cosmology": 4,
+      "Neutrino": 9,
+      "Ledger": 14,
+      "Other": 36
+    }
+  },
+  "global_fractions_sorted": [
+    "0/1", "1/1000", "1/45", "2/89", "3/761", "4/453", "5/23", "7/23", "8/193", "9/77",
+    "11/480", "14/75", "16/23", "17/40", "24/107", "25/108", "28/675", "31/209", "33/782",
+    "49/289", "58/338", "63/103", "79/81", "87/89", "95/173", "105/196", "117/490", "119/169",
+    "137/200", "144/1000", "169/4050", "173/746", "180/803", "188/843", "211/400", "350/1529",
+    "416/729", "466/973", "543/814", "554/569", "609/2047", "650/667", "655/843", "663/1000",
+    "687/941", "7852/33959", "6869/17983", "9953/84419", "999/1000", "13482/60107",
+    "17807/54547", "21123/33512", "22034/43315", "24087/34343", "26107/33959"
+  ],
+  "ledger": {
+    "CKM": [
+      {
+        "fraction": "13482/60107",
+        "decimal": 0.224299998336,
+        "mdl_bits": 32,
+        "sources": ["CKM Parameterization.pdf", "Rosetta_Stone (3).pdf", "mindmelt_output_20250822-172752.txt"],
+        "meaning": "sin θ_c (Cabibbo angle)",
+        "status": "verified"
+      },
+      {
+        "fraction": "1913/485533",
+        "decimal": 0.003939999959,
+        "mdl_bits": 38,
+        "sources": ["CKM Parameterization.pdf", "Rosetta_Stone (3).pdf"],
+        "meaning": "sin θ_13",
+        "status": "verified"
+      },
+      {
+        "fraction": "6419/152109",
+        "decimal": 0.042200001315,
+        "mdl_bits": 35,
+        "sources": ["CKM Parameterization.pdf", "Rosetta_Stone (3).pdf"],
+        "meaning": "sin θ_23",
+        "status": "verified"
+      },
+      {
+        "fraction": "6869/17983",
+        "decimal": 0.381971862314,
+        "mdl_bits": 30,
+        "sources": ["CKM Parameterization.pdf", "Ledger2.5.pdf", "verification_deck_tex.pdf"],
+        "meaning": "δ_CP / π",
+        "status": "verified"
+      },
+      {
+        "fraction": "79/81",
+        "decimal": 0.975308641975,
+        "mdl_bits": 13,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "|V_ud| (unitarity)",
+        "status": "verified"
+      },
+      {
+        "fraction": "2/9",
+        "decimal": 0.222222222222,
+        "mdl_bits": 6,
+        "sources": ["CKM Parameterization.pdf", "Ledger2.5.pdf"],
+        "meaning": "λ (Wolfenstein)",
+        "status": "verified"
+      },
+      {
+        "fraction": "21/25",
+        "decimal": 0.84,
+        "mdl_bits": 9,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "A (Wolfenstein)",
+        "status": "verified"
+      },
+      {
+        "fraction": "3/20",
+        "decimal": 0.15,
+        "mdl_bits": 7,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "ρ̄ (unitarity apex)",
+        "status": "verified"
+      },
+      {
+        "fraction": "7/20",
+        "decimal": 0.35,
+        "mdl_bits": 7,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "η̄ (unitarity apex)",
+        "status": "verified"
+      },
+      {
+        "fraction": "119/169",
+        "decimal": 0.704142011834,
+        "mdl_bits": 15,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "sin 2β",
+        "status": "verified"
+      },
+      {
+        "fraction": "7/17",
+        "decimal": 0.411764705882,
+        "mdl_bits": 8,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "tan β",
+        "status": "verified"
+      },
+      {
+        "fraction": "7/3",
+        "decimal": 2.333333333333,
+        "mdl_bits": 5,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "tan γ",
+        "status": "verified"
+      },
+      {
+        "fraction": "28/675",
+        "decimal": 0.041481481481,
+        "mdl_bits": 16,
+        "sources": ["CKM Parameterization.pdf"],
+        "meaning": "|V_cb|",
+        "status": "verified"
+      },
+      {
+        "fraction": "655/843",
+        "decimal": 0.777000000000,
+        "mdl_bits": 19,
+        "sources": ["Reality_Encoded3 (2).pdf", "Ledger2.5.pdf"],
+        "meaning": "snapped cos²θ_W (custodial)",
+        "status": "verified"
+      },
+      {
+        "fraction": "188/843",
+        "decimal": 0.222999999999,
+        "mdl_bits": 19,
+        "sources": ["Reality_Encoded3 (2).pdf"],
+        "meaning": "snapped sin²θ_W",
+        "status": "verified"
+      },
+      {
+        "fraction": "609/2047",
+        "decimal": 0.297508060576,
+        "mdl_bits": 22,
+        "sources": ["CKMandPMS.pdf"],
+        "meaning": "|U_e2|² (PMNS first row)",
+        "status": "verified"
+      },
+      {
+        "fraction": "1392/2047",
+        "decimal": 0.680019540791,
+        "mdl_bits": 22,
+        "sources": ["CKMandPMS.pdf"],
+        "meaning": "|U_e1|² (PMNS first row)",
+        "status": "verified"
+      }
+    ],
+    "RareDecay": [
+      {
+        "fraction": "169/4050",
+        "decimal": 0.041728395061,
+        "mdl_bits": 22,
+        "sources": ["Rare_Decay_Ledger.pdf"],
+        "meaning": "CKM factor in B_s → μμ ratio",
+        "status": "verified"
+      }
+    ],
+    "Cosmology": [
+      {
+        "fraction": "63/200",
+        "decimal": 0.315,
+        "mdl_bits": 13,
+        "sources": ["Cosmology Ledger.pdf", "Ledger2.5.pdf"],
+        "meaning": "Ω_m (total matter density)",
+        "status": "verified"
+      },
+      {
+        "fraction": "137/200",
+        "decimal": 0.685,
+        "mdl_bits": 15,
+        "sources": ["Cosmology Ledger.pdf", "Ledger2.5.pdf"],
+        "meaning": "Ω_Λ (dark energy density)",
+        "status": "verified"
+      },
+      {
+        "fraction": "14/75",
+        "decimal": 0.186666666666,
+        "mdl_bits": 12,
+        "sources": ["Cosmology Ledger.pdf", "Ledger2.4.pdf"],
+        "meaning": "Ω_b h² (baryon density)",
+        "status": "verified"
+      },
+      {
+        "fraction": "31/46",
+        "decimal": 0.673913043478,
+        "mdl_bits": 11,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "h (Hubble parameter)",
+        "status": "verified"
+      }
+    ],
+    "Neutrino": [
+      {
+        "fraction": "1/45",
+        "decimal": 0.022222222222,
+        "mdl_bits": 8,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_13 (PMNS)",
+        "status": "verified"
+      },
+      {
+        "fraction": "2/89",
+        "decimal": 0.022471910112,
+        "mdl_bits": 12,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_13 (alternative lock)",
+        "status": "candidate"
+      },
+      {
+        "fraction": "7/23",
+        "decimal": 0.304347826086,
+        "mdl_bits": 10,
+        "sources": ["Neutrinos.pdf", "CKMandPMS.pdf"],
+        "meaning": "sin²θ_12 (PMNS)",
+        "status": "verified"
+      },
+      {
+        "fraction": "5/9",
+        "decimal": 0.555555555555,
+        "mdl_bits": 6,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_23 (PMNS)",
+        "status": "verified"
+      },
+      {
+        "fraction": "9/16",
+        "decimal": 0.5625,
+        "mdl_bits": 8,
+        "sources": ["CKMandPMS.pdf"],
+        "meaning": "sin²θ_23 (PMNS)",
+        "status": "candidate"
+      },
+      {
+        "fraction": "1/2",
+        "decimal": 0.5,
+        "mdl_bits": 2,
+        "sources": ["DLCpacks1thru10.pdf", "NeutrinoSolution.pdf"],
+        "meaning": "phase lock in oscillation: ∆m²L/(4E) = 1/4",
+        "status": "verified"
+      },
+      {
+        "fraction": "4/7",
+        "decimal": 0.571428571428,
+        "mdl_bits": 6,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_12 (TBM delta)",
+        "status": "candidate"
+      },
+      {
+        "fraction": "5/8",
+        "decimal": 0.625,
+        "mdl_bits": 6,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_23 (TBM delta)",
+        "status": "candidate"
+      },
+      {
+        "fraction": "7/12",
+        "decimal": 0.583333333333,
+        "mdl_bits": 7,
+        "sources": ["Neutrinos.pdf"],
+        "meaning": "sin²θ_13 (TBM delta)",
+        "status": "candidate"
+      }
+    ],
+    "Ledger": [
+      {
+        "fraction": "3/13",
+        "decimal": 0.230769230769,
+        "mdl_bits": 7,
+        "sources": ["FractionPhysicsLedgerV1.1.pdf", "FractionPhysicsLedgerv1_1.pdf"],
+        "meaning": "sin²θ_W (Ledger v1.1)",
+        "status": "replaced",
+        "replaced_by": "7852/33959"
+      },
+      {
+        "fraction": "7852/33959",
+        "decimal": 0.231220000589,
+        "mdl_bits": 30,
+        "sources": ["FractionPhysicsLedgerV1.1.pdf", "FractionPhysicsLedgerv1.3.pdf", "verification_deck_tex.pdf"],
+        "meaning": "sin²θ_W (Ledger v1.3)",
+        "status": "replaced",
+        "replaced_by": "117/490"
+      },
+      {
+        "fraction": "25/108",
+        "decimal": 0.231481481481,
+        "mdl_bits": 12,
+        "sources": ["Solving_RealityLedger2.2pdf.pdf", "Ledger2_3.pdf"],
+        "meaning": "sin²θ_W (Ledger v2.0–v2.3)",
+        "status": "replaced",
+        "replaced_by": "117/490"
+      },
+      {
+        "fraction": "23/195",
+        "decimal": 0.117948717948,
+        "mdl_bits": 14,
+        "sources": ["Solving_RealityLedger2.2pdf.pdf", "Ledger2_3.pdf"],
+        "meaning": "α_s(MZ) (Ledger v2.0–v2.3)",
+        "status": "replaced",
+        "replaced_by": "9953/84419"
+      },
+      {
+        "fraction": "9/40",
+        "decimal": 0.225,
+        "mdl_bits": 8,
+        "sources": ["Solving_RealityLedger2.2pdf.pdf", "Ledger2_3.pdf"],
+        "meaning": "λ (Wolfenstein, v2.0–v2.3)",
+        "status": "replaced",
+        "replaced_by": "2/9"
+      },
+      {
+        "fraction": "117/490",
+        "decimal": 0.238775510204,
+        "mdl_bits": 16,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "sin²θ_W (Ledger v2.5)",
+        "status": "verified"
+      },
+      {
+        "fraction": "9953/84419",
+        "decimal": 0.117899998815,
+        "mdl_bits": 30,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "α_s(MZ) (Ledger v2.5)",
+        "status": "verified"
+      },
+      {
+        "fraction": "2639/361638",
+        "decimal": 0.007297352601,
+        "mdl_bits": 31,
+        "sources": ["Ledger2.5.pdf", "FractionPhysicsLedgerV1.1.pdf"],
+        "meaning": "α (fine structure constant)",
+        "status": "verified"
+      },
+      {
+        "fraction": "361638/2639",
+        "decimal": 137.035999177,
+        "mdl_bits": 31,
+        "sources": ["Ledger2.5.pdf", "FractionPhysicsLedgerV1.1.pdf"],
+        "meaning": "α⁻¹",
+        "status": "verified"
+      },
+      {
+        "fraction": "211/400",
+        "decimal": 0.5275,
+        "mdl_bits": 13,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "q₀ (deceleration parameter)",
+        "status": "verified"
+      },
+      {
+        "fraction": "95/173",
+        "decimal": 0.549132947976,
+        "mdl_bits": 15,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "f_b = Ω_b/Ω_m (baryon fraction)",
+        "status": "verified"
+      },
+      {
+        "fraction": "105/196",
+        "decimal": 0.535714285714,
+        "mdl_bits": 15,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "σ₈ (amplitude of fluctuations)",
+        "status": "verified"
+      },
+      {
+        "fraction": "663/1000",
+        "decimal": 0.663,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "n_s (spectral index)",
+        "status": "verified"
+      },
+      {
+        "fraction": "416/729",
+        "decimal": 0.570644718792,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "K_ℓ (PMNS Jarlskog magnitude)",
+        "status": "verified"
+      },
+      {
+        "fraction": "543/814",
+        "decimal": 0.666953317073,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "J_ℓ (PMNS Jarlskog invariant)",
+        "status": "verified"
+      },
+      {
+        "fraction": "466/973",
+        "decimal": 0.479034943474,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "Y_p (helium fraction)",
+        "status": "verified"
+      }
+    ],
+    "Other": [
+      {
+        "fraction": "0/1",
+        "decimal": 0.0,
+        "mdl_bits": 1,
+        "sources": ["v11 code.md"],
+        "meaning": "null anchor",
+        "status": "verified"
+      },
+      {
+        "fraction": "3/761",
+        "decimal": 0.003942181339,
+        "mdl_bits": 18,
+        "sources": ["mindmelt_output_20250823-020454.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "4/453",
+        "decimal": 0.008830022075,
+        "mdl_bits": 17,
+        "sources": ["mindmelt_output_20250823-020454.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "8/193",
+        "decimal": 0.041450777202,
+        "mdl_bits": 12,
+        "sources": ["mindmelt_output_20250823-020454.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "1/12",
+        "decimal": 0.083333333333,
+        "mdl_bits": 7,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "QED beta function coefficient",
+        "status": "verified"
+      },
+      {
+        "fraction": "1/6",
+        "decimal": 0.166666666666,
+        "mdl_bits": 5,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "QED beta function coefficient",
+        "status": "verified"
+      },
+      {
+        "fraction": "1/4",
+        "decimal": 0.25,
+        "mdl_bits": 4,
+        "sources": ["DLCpacks1thru10.pdf", "SchrodingersFractions.pdf"],
+        "meaning": "QM prefactor (e.g., ⟨T⟩ in Gaussian variational)",
+        "status": "verified"
+      },
+      {
+        "fraction": "1/3",
+        "decimal": 0.333333333333,
+        "mdl_bits": 5,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "equipartition γ for monatomic gas",
+        "status": "verified"
+      },
+      {
+        "fraction": "2/3",
+        "decimal": 0.666666666666,
+        "mdl_bits": 5,
+        "sources": ["Koide relation", "DLCpacks1thru10.pdf"],
+        "meaning": "Koide factor Q = 2/3",
+        "status": "verified"
+      },
+      {
+        "fraction": "3/4",
+        "decimal": 0.75,
+        "mdl_bits": 4,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "SU(2) Casimir CF",
+        "status": "verified"
+      },
+      {
+        "fraction": "4/3",
+        "decimal": 1.333333333333,
+        "mdl_bits": 4,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "SU(3) Casimir CF",
+        "status": "verified"
+      },
+      {
+        "fraction": "3/5",
+        "decimal": 0.6,
+        "mdl_bits": 5,
+        "sources": ["DLCpacks1thru10.pdf"],
+        "meaning": "γ for diatomic gas",
+        "status": "verified"
+      },
+      {
+        "fraction": "5/6",
+        "decimal": 0.833333333333,
+        "mdl_bits": 6,
+        "sources": ["v11 code.md"],
+        "meaning": "quantum channel support",
+        "status": "unverified"
+      },
+      {
+        "fraction": "11/15",
+        "decimal": 0.733333333333,
+        "mdl_bits": 8,
+        "sources": ["v11 code.md"],
+        "meaning": "quantum channel support",
+        "status": "unverified"
+      },
+      {
+        "fraction": "1/2",
+        "decimal": 0.5,
+        "mdl_bits": 2,
+        "sources": ["DLCpacks1thru10.pdf", "SchrodingersFractions.pdf"],
+        "meaning": "QM prefactor (e.g., E₀ = ½ω)",
+        "status": "verified"
+      },
+      {
+        "fraction": "1/8192",
+        "decimal": 0.000122070312,
+        "mdl_bits": 24,
+        "sources": ["v11 code.md"],
+        "meaning": "quantum power (XOR channel)",
+        "status": "unverified"
+      },
+      {
+        "fraction": "1/4096",
+        "decimal": 0.000244140625,
+        "mdl_bits": 23,
+        "sources": ["v11 code.md"],
+        "meaning": "quantum power (XOR channel)",
+        "status": "unverified"
+      },
+      {
+        "fraction": "1/32768",
+        "decimal": 3.0517578125e-05,
+        "mdl_bits": 28,
+        "sources": ["v11 code.md"],
+        "meaning": "quantum power (XOR channel)",
+        "status": "unverified"
+      },
+      {
+        "fraction": "5/23",
+        "decimal": 0.217391304347,
+        "mdl_bits": 9,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified cosmological ratio",
+        "status": "unverified"
+      },
+      {
+        "fraction": "63/103",
+        "decimal": 0.611650485436,
+        "mdl_bits": 13,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified cosmological ratio",
+        "status": "unverified"
+      },
+      {
+        "fraction": "173/746",
+        "decimal": 0.232037533512,
+        "mdl_bits": 18,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "candidate sin²θ_W tweak",
+        "status": "candidate"
+      },
+      {
+        "fraction": "350/1529",
+        "decimal": 0.228907782864,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "candidate sin²θ_W tweak",
+        "status": "candidate"
+      },
+      {
+        "fraction": "687/941",
+        "decimal": 0.730074388947,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified cosmological ratio",
+        "status": "unverified"
+      },
+      {
+        "fraction": "7852/33959",
+        "decimal": 0.231220000589,
+        "mdl_bits": 30,
+        "sources": ["MathOracle4.ipynb"],
+        "meaning": "baseline sin²θ_W (pre-snap)",
+        "status": "replaced",
+        "replaced_by": "117/490"
+      },
+      {
+        "fraction": "21123/33512",
+        "decimal": 0.6303115299,
+        "mdl_bits": 30,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified CKM magnitude",
+        "status": "unverified"
+      },
+      {
+        "fraction": "26107/33959",
+        "decimal": 0.7687773527,
+        "mdl_bits": 30,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified CKM magnitude",
+        "status": "unverified"
+      },
+      {
+        "fraction": "999/1000",
+        "decimal": 0.999,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "normalization factor",
+        "status": "verified"
+      },
+      {
+        "fraction": "144/1000",
+        "decimal": 0.144,
+        "mdl_bits": 16,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "180/803",
+        "decimal": 0.224159402241,
+        "mdl_bits": 18,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "33/782",
+        "decimal": 0.042199488491,
+        "mdl_bits": 16,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "31/209",
+        "decimal": 0.148325358851,
+        "mdl_bits": 12,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "24/107",
+        "decimal": 0.224299065420,
+        "mdl_bits": 12,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "17/40",
+        "decimal": 0.425,
+        "mdl_bits": 8,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "49/289",
+        "decimal": 0.169550173010,
+        "mdl_bits": 14,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "58/338",
+        "decimal": 0.171597633136,
+        "mdl_bits": 13,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      },
+      {
+        "fraction": "650/667",
+        "decimal": 0.974512743628,
+        "mdl_bits": 19,
+        "sources": ["Ledger2.5.pdf"],
+        "meaning": "unverified small fraction",
+        "status": "unverified"
+      }
+    ]
+  }
+}
