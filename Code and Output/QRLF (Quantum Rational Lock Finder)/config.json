@@ -1,0 +1,21 @@
+{
+  "ASCII_ONLY": false,
+  "FAST_PVALS": false,
+  "MAX_MDL_NEAREST": 30,
+  "MC_SIMS_EVAL": 1000,
+  "MC_SIMS_FWER": 1000,
+  "MC_SIMS_PRIMARY": 2000,
+  "TINY_K_MIN": 8,
+  "Z_FAMILY": [
+    1.96,
+    2.24,
+    2.58
+  ],
+  "code_fingerprint": "f66dbe998d5b",
+  "ledger_paths": [
+    "./Master ledger sep 4th.md",
+    "/content/Master ledger sep 4th.md"
+  ],
+  "registry_hash": "8484df72e1f6a7bfa06fa53d718b03027b12c4aced32cea687b56128e24ee61a",
+  "seed": 4312025
+}
