@@ -1,0 +1,674 @@
+# %% [markdown]
+# Fraction Physics — Ledger-Aware Hard-Proof+++ (JSON or Markdown ledger)
+# - Auto-loads: VerifiedFractionRepositoryV2.json (JSON) OR "Master ledger sep 4th.md" (Markdown)
+# - Uses your ledger in two modes:
+#   (A) FULL: prior bump for your fractions among all reduced fractions (q ≤ DEN_CAP_Q_BAYES, plus any larger q from ledger)
+#   (B) LEDGER-ONLY: restrict the discrete candidate set to exactly your fractions (within [0,1]), then compare vs Hierarchical baseline
+# - Everything else: multi-seed shards, process nulls, stability, CpG permutation null, S-matrix, LOO-organism predictive BFs
+# - Outputs CSVs for FULL and LEDGER-ONLY modes.
+
+# %% [code]
+!pip -q install biopython numpy pandas scipy requests matplotlib
+
+import os, io, zipfile, math, time, json, random, hashlib, re
+from pathlib import Path
+from fractions import Fraction
+from collections import defaultdict, Counter
+import numpy as np, pandas as pd, requests
+from scipy.stats import beta
+from scipy.special import betaln
+from Bio import SeqIO
+from Bio.Data import CodonTable
+
+# ---------------- CONFIG ----------------
+ACCESSIONS = [
+    "GCF_000005845.2",   # E. coli K-12 MG1655 (works)
+    # Add more to unlock cross-organism power:
+    # "GCF_000009045.1",
+    # "GCF_000006945.2",
+    # "GCF_000007805.1",
+]
+N_SHARDS = 10
+SEEDS = [11, 42, 99]          # multi-seed shardings
+MIN_CODONS_PER_CDS = 60
+
+DEN_CAP_CI = 4096             # CI→MDL cap (binomial)
+DEN_CAP_Q_BAYES = 64          # FULL-mode base candidate cap; ledger can extend beyond this
+UNIFORM_NULL_DRAWS = 20000
+PROCESS_NULL_DRAWS = 5000
+PERMUTATION_NULL_DRAWS = 500  # set 0 to disable CpG shuffle
+S_ENABLE = True
+S_BOOTSTRAPS = 300
+S_DEN_CAP = 1024
+BH_FDR_ALPHA = 0.10
+
+LEDGER_MD_CANDIDATES = [
+    "Master ledger sep 4th.md",
+    "master_ledger_sep_4th.md",
+    "/content/Master ledger sep 4th.md",
+]
+
+RUN_ID = time.strftime("fp_ledgeraware_%Y%m%d-%H%M%S")
+OUTDIR = Path(RUN_ID); OUTDIR.mkdir(exist_ok=True)
+
+# ---------------- LEDGER LOADING (JSON or Markdown) ----------------
+def _parse_md_fractions(text: str):
+    # Extract all a/b pairs; reduce; keep 0<=f<=1
+    frs=set()
+    for p,q in re.findall(r'(\d+)\s*/\s*(\d+)', text):
+        p=int(p); q=int(q)
+        if q==0: continue
+        fr = Fraction(p,q)
+        fr = Fraction(fr.numerator, fr.denominator)
+        x = float(fr)
+        if 0.0 <= x <= 1.0:
+            frs.add(fr)
+    return frs
+
+def load_ledger_json_or_md():
+    # Prefer JSON repository if present; otherwise parse Markdown
+    # Returns: verified_set (set of "p/q" strings), catalog (frac -> set(categories)), source
+    # JSON format expected in VerifiedFractionRepositoryV2.json as before.
+    json_paths = ["VerifiedFractionRepositoryV2.json","/content/VerifiedFractionRepositoryV2.json"]
+    for p in json_paths:
+        if os.path.exists(p):
+            try:
+                data=json.load(open(p))
+                verified=set(); catalog=defaultdict(set)
+                for cat, items in data.get("ledger",{}).items():
+                    for it in items:
+                        frac=str(it.get("fraction","")).strip()
+                        if "/" in frac:
+                            catalog[frac].add(cat)
+                            if str(it.get("status","")).lower()=="verified":
+                                verified.add(frac)
+                print(f"[OK] Ledger JSON loaded: {len(verified)} verified fractions.")
+                return verified, catalog, "json"
+            except Exception as e:
+                print("[WARN] Failed to parse JSON ledger:", e)
+    # Markdown fallback
+    for p in LEDGER_MD_CANDIDATES:
+        if os.path.exists(p):
+            try:
+                text=open(p, 'r', encoding='utf-8', errors='ignore').read()
+                frs = _parse_md_fractions(text)
+                verified = {f"{f.numerator}/{f.denominator}" for f in frs}
+                catalog = defaultdict(set)
+                for s in verified: catalog[s].add("Markdown")
+                print(f"[OK] Ledger MD loaded: {len(verified)} fractions from {p}")
+                return verified, catalog, "markdown"
+            except Exception as e:
+                print("[WARN] Failed to parse MD ledger:", e)
+    print("[WARN] No ledger found → running with NO prior bump and NO ledger-only mode.")
+    return set(), defaultdict(set), "none"
+
+VERIFIED_STRS, CATALOG, LEDGER_SRC = load_ledger_json_or_md()
+VERIFIED_FRACTIONS = {Fraction(int(a),int(b)) for a,b in (s.split('/') for s in VERIFIED_STRS)}
+
+# ---------------- Core helpers ----------------
+NT={'A','C','G','T'}
+
+def mdl_bits(fr: Fraction) -> int:
+    p,q = abs(fr.numerator), abs(fr.denominator)
+    if p==0: return 1+(0 if q==1 else math.ceil(math.log2(q)))
+    return (0 if p==1 else math.ceil(math.log2(p))) + (0 if q==1 else math.ceil(math.log2(q)))
+
+def continued_fraction_pool(x: float, max_den: int = 4096):
+    denoms=[1,2,3,4,5,6,7,8,9,10,12,16,20,24,32,40,48,64,80,96,128,160,192,256,384,512,768,1024,2048,4096]
+    S=set(Fraction(x).limit_denominator(d) for d in denoms if d<=max_den)
+    S.add(Fraction(x).limit_denominator(max_den))
+    return sorted(S, key=float)
+
+def wilson_ci(k,n,z=1.96):
+    if n==0: return 0.0,1.0
+    ph=k/n; zz=z*z; den=1+zz/n
+    cen=ph+zz/(2*n)
+    rad=z*math.sqrt((ph*(1-ph)+zz/(4*n))/n)
+    lo=(cen-rad)/den; hi=(cen+rad)/den
+    return max(0.0,lo), min(1.0,hi)
+
+def jeffreys_ci(k,n,alpha=0.05):
+    if n==0: return 0.0,1.0
+    return float(beta.ppf(alpha/2, k+0.5, n-k+0.5)), float(beta.ppf(1-alpha/2, k+0.5, n-k+0.5))
+
+def ci_mdl_lock_binom(k,n,max_den, ci="wilson"):
+    ph = k/n if n else 0.0
+    lo,hi = (wilson_ci(k,n) if ci=="wilson" else jeffreys_ci(k,n))
+    pool = continued_fraction_pool(ph, max_den=max_den)
+    in_ci=[(f, mdl_bits(f), abs(float(f)-ph)) for f in pool if lo-1e-15<=float(f)<=hi+1e-15]
+    if in_ci:
+        in_ci.sort(key=lambda t:(t[1], t[2]))
+        return in_ci[0][0]
+    return min(pool, key=lambda f: abs(float(f)-ph))
+
+def random_reduced_fraction(qcap:int)->Fraction:
+    q = np.random.randint(1, max(2,qcap+1))
+    p = np.random.randint(0, q+1)
+    fr = Fraction(p,q)
+    return Fraction(fr.numerator, fr.denominator)
+
+# ---------------- Fetch + channels ----------------
+def fetch_cds_records(accession: str):
+    urls=[f"https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/{accession}/download?include_annotation_type=CDS_FASTA&hydrated=FULLY_HYDRATED",
+          f"https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/{accession}/download?include_annotation_type=CDS_FASTA&hydrated=FULLY_HYDRATED"]
+    for url in urls:
+        try:
+            r=requests.get(url, headers={"accept":"application/zip"}, timeout=120)
+            if r.status_code==200 and r.content:
+                with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
+                    cands=[n for n in zf.namelist() if n.endswith("cds_from_genomic.fna")]
+                    if cands:
+                        data=zf.read(cands[0]).decode("utf-8")
+                        recs=list(SeqIO.parse(io.StringIO(data), "fasta"))
+                        if recs:
+                            print(f"[OK] {accession}: {cands[0]} records={len(recs)}")
+                            return recs
+        except Exception as e:
+            print("[WARN] API fail:", e)
+    print(f"[ERR] Could not fetch {accession}")
+    return []
+
+std11 = CodonTable.unambiguous_dna_by_id[11]
+SENSE = set(std11.forward_table.keys())
+FOURFOLD_PREFIX = {
+    "Ala_wobble_GC": "GC",
+    "Pro_wobble_GC": "CC",
+    "Thr_wobble_GC": "AC",
+    "Val_wobble_GC": "GT",
+    "Gly_wobble_GC": "GG",
+}
+
+def clean_cds_seq(s):
+    s=s.upper()
+    s="".join(ch if ch in NT else "N" for ch in s)
+    L=(len(s)//3)*3
+    return s[:L]
+
+def per_cds_channels_and_seq(rec):
+    s=clean_cds_seq(str(rec.seq))
+    if len(s)<3*MIN_CODONS_PER_CDS: return None
+    ch={"GC1":{"1":0,"0":0},"GC2":{"1":0,"0":0},"GC3":{"1":0,"0":0},"CpG":{"1":0,"0":0},
+        **{k:{"1":0,"0":0} for k in FOURFOLD_PREFIX}}
+    for i in range(len(s)-1):
+        a,b=s[i],s[i+1]
+        if a in NT and b in NT:
+            if a=="C" and b=="G": ch["CpG"]["1"]+=1
+            else: ch["CpG"]["0"]+=1
+    for i in range(0,len(s),3):
+        c=s[i:i+3]
+        if len(c)!=3 or any(x not in NT for x in c): continue
+        if c not in SENSE: continue
+        ch["GC1"]["1" if c[0] in ("G","C") else "0"]+=1
+        ch["GC2"]["1" if c[1] in ("G","C") else "0"]+=1
+        ch["GC3"]["1" if c[2] in ("G","C") else "0"]+=1
+        pref=c[:2]
+        for name,px in FOURFOLD_PREFIX.items():
+            if pref==px:
+                ch[name]["1" if c[2] in ("G","C") else "0"]+=1
+    return s, ch
+
+# ---------------- Shards (multi-seed) ----------------
+def build_shards_multi(accessions, n_shards, seeds):
+    all_runs=[]; per_seed_shardseqs={}
+    fingerprints={}
+    for acc in accessions:
+        recs=fetch_cds_records(acc)
+        if not recs: continue
+        h=hashlib.sha256()
+        for r in recs: h.update(str(r.seq).encode("utf-8"))
+        fingerprints[acc]={"cds_records":len(recs),"sha256":h.hexdigest()}
+        units=[]
+        for rec in recs:
+            out=per_cds_channels_and_seq(rec)
+            if out: units.append(out)  # (seq, ch)
+        if not units: continue
+        seqs=[u[0] for u in units]
+        chans=[u[1] for u in units]
+        for sd in seeds:
+            rng=np.random.RandomState(sd)
+            idx=rng.randint(0, n_shards, size=len(units))
+            shard_counts=[defaultdict(lambda:{"1":0,"0":0}) for _ in range(n_shards)]
+            shard_seqs=[[] for _ in range(n_shards)]
+            for g,ch in enumerate(chans):
+                sidx=idx[g]
+                for nm,ct in ch.items():
+                    shard_counts[sidx][nm]["1"]+=ct["1"]; shard_counts[sidx][nm]["0"]+=ct["0"]
+                shard_seqs[sidx].append(seqs[g])
+            for s in range(n_shards):
+                for nm,ct in shard_counts[s].items():
+                    n=ct["1"]+ct["0"]; k=ct["1"]
+                    if n>0:
+                        all_runs.append({"accession":acc,"seed":sd,"shard":s,"channel":nm,"n":n,"k":k})
+            per_seed_shardseqs[(acc,sd)]=shard_seqs
+    return pd.DataFrame(all_runs), fingerprints, per_seed_shardseqs
+
+SHARDS, FINGER, SHARD_SEQS = build_shards_multi(ACCESSIONS, N_SHARDS, SEEDS)
+json.dump(FINGER, open(OUTDIR/"dataset_fingerprints.json","w"), indent=2)
+SHARDS.to_csv(OUTDIR/"shards_multi.csv", index=False)
+
+# ---------------- Recurrence + process/uniform nulls ----------------
+def process_null_p(chan, frs, sup, qcap, df):
+    wins=0
+    sel=df[df["channel"]==chan][["n","k"]].to_numpy()
+    for _ in range(PROCESS_NULL_DRAWS):
+        m=0
+        for n,k in sel:
+            p=k/n
+            k_sim=np.random.binomial(n,p)
+            f=ci_mdl_lock_binom(k_sim,n, max_den=qcap, ci="wilson")
+            if f"{f.numerator}/{f.denominator}"==frs: m+=1
+        if m>=sup: wins+=1
+    return wins/PROCESS_NULL_DRAWS
+
+rec_rows=[]
+for (chan,seed), sub in SHARDS.groupby(["channel","seed"]):
+    support=Counter(); den_by={}
+    for _,r in sub.iterrows():
+        lock=ci_mdl_lock_binom(r.k, r.n, max_den=DEN_CAP_CI, ci="wilson")
+        s=f"{lock.numerator}/{lock.denominator}"
+        support[s]+=1; den_by[s]=lock.denominator
+    if not support: continue
+    frs, sup = max(support.items(), key=lambda kv: kv[1])
+    qcap=den_by[frs]; reps=sub.shape[0]
+    # uniform
+    wins=0; target=Fraction(*map(int, frs.split("/")))
+    for _ in range(UNIFORM_NULL_DRAWS):
+        m=0
+        for _ in range(reps):
+            if random_reduced_fraction(qcap)==target: m+=1
+        if m>=sup: wins+=1
+    p_uni=wins/UNIFORM_NULL_DRAWS
+    p_proc=process_null_p(chan, frs, sup, qcap, sub)
+    rec_rows.append({"seed":seed,"family":"binomial","channel":chan,"fraction":frs,
+                     "support":sup,"reps":reps,"qcap":qcap,"p_uniform":p_uni,"p_process":p_proc})
+rec_df = pd.DataFrame(rec_rows).sort_values(["channel","seed"])
+# FDR per-channel across seeds (optional global FDR is similar)
+def bh_fdr(pvals, alpha=0.10):
+    m=len(pvals); idx=np.argsort(pvals)
+    thr = alpha*(np.arange(1,m+1)/m)
+    passmask = (np.array(pvals)[idx] <= thr)
+    crit = np.array(pvals)[idx][passmask].max() if passmask.any() else None
+    return crit
+crit = bh_fdr(rec_df["p_process"].to_list(), BH_FDR_ALPHA) if not rec_df.empty else None
+rec_df["passes_FDR"] = rec_df["p_process"] <= (crit if crit is not None else -1)
+rec_df.to_csv(OUTDIR/"recurrence_binomial_multiseed.csv", index=False)
+
+# ---------------- Stability ----------------
+stab=[]
+for _,r in SHARDS.iterrows():
+    base=ci_mdl_lock_binom(r.k, r.n, DEN_CAP_CI, "wilson"); base_s=f"{base.numerator}/{base.denominator}"
+    for ci_kind in ["wilson","jeffreys"]:
+        for scale in [0.75, 1.5]:
+            cap=int(max(2, round(DEN_CAP_CI*scale)))
+            alt=ci_mdl_lock_binom(r.k, r.n, cap, ci_kind); alt_s=f"{alt.numerator}/{alt.denominator}"
+            stab.append({"channel":r.channel,"seed":r.seed,"ci_kind":ci_kind,"cap":cap,"agree":int(alt_s==base_s)})
+stab_df=(pd.DataFrame(stab)
+         .groupby(["channel","seed","ci_kind","cap"])["agree"]
+         .mean().reset_index().rename(columns={"agree":"agree_rate"}))
+stab_df.to_csv(OUTDIR/"stability_binomial_multiseed.csv", index=False)
+
+# ---------------- Bayes vs Hierarchical — FULL and LEDGER-ONLY ----------------
+def reduced_fractions_upto(qmax):
+    S=set()
+    for q in range(1,qmax+1):
+        for p in range(0,q+1):
+            fr=Fraction(p,q); S.add(Fraction(fr.numerator, fr.denominator))
+    return sorted(S, key=float)
+
+def extend_with_ledger(Fset, ledger_fracs):
+    # include any ledger fractions (within [0,1]) even if their denominator > qcap
+    out=set(Fset)
+    for fr in ledger_fracs:
+        x=float(fr)
+        if 0.0<=x<=1.0:
+            out.add(Fraction(fr.numerator, fr.denominator))
+    return sorted(out, key=float)
+
+def prior_discrete(F, verified_fracs, bump=0.5, temp=1.0):
+    # MDL prior with optional bump for ledger entries
+    w=[]
+    vset = { (f.numerator, f.denominator) for f in verified_fracs }
+    for f in F:
+        base = 2.0 ** (-mdl_bits(f)/temp)
+        if (f.numerator, f.denominator) in vset:
+            base *= (1.0 + bump)
+        w.append(base)
+    w=np.array(w,dtype=float); w/=w.sum(); return w
+
+def log_lik_point_binom(fr, ks, ns):
+    p=float(fr)
+    if p<=0 or p>=1:
+        if np.any((ks>0)&(p==0)) or np.any((ks<ns)&(p==1)): return -1e300
+    return (ks*np.log(p+1e-300) + (ns-ks)*np.log(1-p+1e-300)).sum()
+
+def log_marg_beta_indep(ks, ns, a=0.5, b=0.5):
+    return (betaln(ks+a, ns-ks+b) - betaln(a,b)).sum()
+
+def fit_hier_beta_moments(ks, ns):
+    ns=ns.astype(float); ks=ks.astype(float)
+    m = ks.sum()/ns.sum()
+    ph = ks/ns
+    var_total = np.average((ph - m)**2, weights=ns)
+    var_binom = m*(1-m)*np.average(1.0/ns)
+    tau2 = max(1e-10, var_total - var_binom)
+    if tau2 <= 0:
+        a=b=0.5
+    else:
+        ab = m*(1-m)/tau2 - 1.0
+        if ab < 1e-6: ab = 1e-6
+        a = max(0.5, m*ab); b = max(0.5, (1-m)*ab)
+    return a,b
+
+def bayes_binomial_channel(df_chan, verified_fracs, mode="FULL", qcap=DEN_CAP_Q_BAYES):
+    ks=df_chan["k"].to_numpy(); ns=df_chan["n"].to_numpy()
+    if mode=="FULL":
+        F = reduced_fractions_upto(qcap)
+        F = extend_with_ledger(F, verified_fracs)  # ensure your ledger fractions are included even if q>qcap
+        prior_w = prior_discrete(F, verified_fracs, bump=0.5, temp=1.0)
+    else:  # LEDGER-ONLY
+        if not verified_fracs:
+            return {"MAP":"(none)","a_hat":np.nan,"b_hat":np.nan,
+                    "log10_BF_star_vs_Hier":np.nan,"log10_BF_mix_vs_Hier":np.nan}
+        F = sorted({Fraction(fr.numerator, fr.denominator) for fr in verified_fracs if 0.0<=float(fr)<=1.0}, key=float)
+        prior_w = np.ones(len(F), dtype=float) / len(F)
+
+    L=np.array([log_lik_point_binom(f, ks, ns) for f in F])
+    a,b = fit_hier_beta_moments(ks, ns)
+    log_hier = log_marg_beta_indep(ks, ns, a, b)
+
+    m = L.max(); log_mix = math.log(np.sum(prior_w*np.exp(L-m))) + m
+    idx_star=int(np.argmax(np.log(prior_w+1e-300)+L))
+    f_star=F[idx_star]; LL_star=L[idx_star]
+    return {
+        "MAP": f"{f_star.numerator}/{f_star.denominator}",
+        "a_hat": a, "b_hat": b,
+        "log10_BF_star_vs_Hier": (LL_star - log_hier)/math.log(10),
+        "log10_BF_mix_vs_Hier": (log_mix - log_hier)/math.log(10),
+    }
+
+# Run per seed + per channel for FULL and LEDGER-ONLY
+bay_full_rows=[]; bay_ledger_rows=[]
+for seed, sub_seed in SHARDS.groupby("seed"):
+    for chan, dfc in sub_seed.groupby("channel"):
+        resF = bayes_binomial_channel(dfc, VERIFIED_FRACTIONS, mode="FULL", qcap=DEN_CAP_Q_BAYES)
+        bay_full_rows.append({"seed":seed,"channel":chan, **resF})
+        resL = bayes_binomial_channel(dfc, VERIFIED_FRACTIONS, mode="LEDGER-ONLY", qcap=DEN_CAP_Q_BAYES)
+        bay_ledger_rows.append({"seed":seed,"channel":chan, **resL})
+
+bay_full_df   = pd.DataFrame(bay_full_rows).sort_values(["channel","seed"])
+bay_ledger_df = pd.DataFrame(bay_ledger_rows).sort_values(["channel","seed"])
+bay_full_df.to_csv(OUTDIR/"bayes_binomial_hier_FULL.csv", index=False)
+bay_ledger_df.to_csv(OUTDIR/"bayes_binomial_hier_LEDGERONLY.csv", index=False)
+
+# ---------------- LOO organism predictive (FULL and LEDGER-ONLY) ----------------
+def loo_org_predictive(SHARDS, verified_fracs, mode="FULL", qcap=DEN_CAP_Q_BAYES):
+    rows=[]
+    chans = SHARDS["channel"].unique()
+    orgs  = SHARDS["accession"].unique()
+    for chan in chans:
+        for acc in orgs:
+            test = SHARDS[(SHARDS.channel==chan)&(SHARDS.accession==acc)]
+            train= SHARDS[(SHARDS.channel==chan)&(SHARDS.accession!=acc)]
+            if test.empty or train.empty: continue
+            ks_tr=train.k.to_numpy(); ns_tr=train.n.to_numpy()
+            ks_te=test.k.to_numpy(); ns_te=test.n.to_numpy()
+            # candidate set + prior
+            if mode=="FULL":
+                F = extend_with_ledger(reduced_fractions_upto(qcap), verified_fracs)
+                prior_w = prior_discrete(F, verified_fracs, bump=0.5, temp=1.0)
+            else:
+                if not verified_fracs: 
+                    rows.append({"channel":chan,"heldout_accession":acc,"mode":mode,"log10_BF_Mix_vs_Hier_pred": np.nan})
+                    continue
+                F = sorted({Fraction(fr.numerator, fr.denominator) for fr in verified_fracs if 0.0<=float(fr)<=1.0}, key=float)
+                prior_w = np.ones(len(F), dtype=float) / len(F)
+            # posterior on train
+            L_tr=np.array([log_lik_point_binom(f, ks_tr, ns_tr) for f in F])
+            post_tr = np.exp((np.log(prior_w+1e-300)+L_tr) - (np.log(prior_w+1e-300)+L_tr).max())
+            post_tr /= post_tr.sum()
+            # predictive on test
+            L_te=np.array([log_lik_point_binom(f, ks_te, ns_te) for f in F])
+            log_mix_pred = math.log(np.sum(post_tr*np.exp(L_te - L_te.max()))) + L_te.max()
+            # Hier baseline fitted on TRAIN, scored on TEST
+            a,b = fit_hier_beta_moments(ks_tr, ns_tr)
+            log_hier_te = log_marg_beta_indep(ks_te, ns_te, a, b)
+            rows.append({"channel":chan,"heldout_accession":acc,"mode":mode,
+                         "log10_BF_Mix_vs_Hier_pred": (log_mix_pred - log_hier_te)/math.log(10)})
+    return pd.DataFrame(rows)
+
+loo_full   = loo_org_predictive(SHARDS, VERIFIED_FRACTIONS, mode="FULL", qcap=DEN_CAP_Q_BAYES)
+loo_ledger = loo_org_predictive(SHARDS, VERIFIED_FRACTIONS, mode="LEDGER-ONLY", qcap=DEN_CAP_Q_BAYES)
+loo_full.to_csv(OUTDIR/"loo_org_predictive_FULL.csv", index=False)
+loo_ledger.to_csv(OUTDIR/"loo_org_predictive_LEDGERONLY.csv", index=False)
+
+# ---------------- CpG permutation (codon-shuffle) ----------------
+def cpg_from_seq_list(seq_list):
+    k=n=0
+    for s in seq_list:
+        for i in range(len(s)-1):
+            a,b=s[i],s[i+1]
+            if a in NT and b in NT:
+                n+=1
+                if a=="C" and b=="G": k+=1
+    return k,n
+
+perm_rows=[]
+if PERMUTATION_NULL_DRAWS>0:
+    # need per-shard sequences from current seeds
+    # reconstruct quick: group SHARD_SEQS (built inside build_shards_multi)
+    # SHARD_SEQS[(acc,seed)] = list of shard -> [seqs]
+    for (acc,seed), shard_seqs in SHARD_SEQS.items():
+        for sidx, seqs in enumerate(shard_seqs):
+            if not seqs: continue
+            obs = SHARDS[(SHARDS.accession==acc)&(SHARDS.seed==seed)&(SHARDS.shard==sidx)&(SHARDS.channel=="CpG")]
+            if obs.empty: continue
+            k_obs, n_obs = int(obs.k.values[0]), int(obs.n.values[0])
+            obs_lock = ci_mdl_lock_binom(k_obs, n_obs, DEN_CAP_CI, "wilson")
+            obs_s = f"{obs_lock.numerator}/{obs_lock.denominator}"
+            # Codon multiset
+            codons=[]
+            for t in seqs:
+                codons += [t[i:i+3] for i in range(0,len(t),3)]
+            wins=0
+            for _ in range(PERMUTATION_NULL_DRAWS):
+                random.shuffle(codons)
+                s_perm = ["".join(codons)]
+                # recompute CpG counts on permuted sequence
+                k_sim,n_sim = cpg_from_seq_list(s_perm)
+                lock = ci_mdl_lock_binom(k_sim, n_sim, DEN_CAP_CI, "wilson")
+                if f"{lock.numerator}/{lock.denominator}"==obs_s: wins+=1
+            perm_rows.append({"accession":acc,"seed":seed,"shard":sidx,"perm_p_match_obs_lock": wins/max(1,PERMUTATION_NULL_DRAWS)})
+perm_df = pd.DataFrame(perm_rows)
+perm_df.to_csv(OUTDIR/"permutation_cpg_multiseed.csv", index=False)
+
+# ---------------- S-matrix (per organism) ----------------
+def safe_prob(arr, axis=None):
+    tot = arr.sum() if axis is None else arr.sum(axis=axis, keepdims=True)
+    return arr/np.where(tot==0, 1, tot)
+
+def gene_counts(seq):
+    s = clean_cds_seq(seq)
+    XY = np.zeros((3,4,20), dtype=np.int64)
+    XiXjY = {(0,1): np.zeros((4,4,20), int),
+             (0,2): np.zeros((4,4,20), int),
+             (1,2): np.zeros((4,4,20), int)}
+    Y = np.zeros(20, dtype=np.int64)
+    table = CodonTable.unambiguous_dna_by_id[11]
+    aa20 = "ACDEFGHIKLMNPQRSTVWY"; aa_to_idx={a:i for i,a in enumerate(aa20)}
+    nt_to_idx={'A':0,'C':1,'G':2,'T':3}
+    for i in range(0,len(s),3):
+        c=s[i:i+3]
+        if len(c)!=3 or any(x not in NT for x in c): continue
+        if c not in table.forward_table: continue
+        aa=table.forward_table[c]
+        if aa not in aa20: continue
+        y=aa_to_idx[aa]
+        nts=[nt_to_idx[c[0]], nt_to_idx[c[1]], nt_to_idx[c[2]]]
+        for pos in range(3): XY[pos, nts[pos], y]+=1
+        XiXjY[(0,1)][nts[0],nts[1],y]+=1
+        XiXjY[(0,2)][nts[0],nts[2],y]+=1
+        XiXjY[(1,2)][nts[1],nts[2],y]+=1
+        Y[y]+=1
+    return XY, XiXjY, Y
+
+def mutual_info_Xi_Y(XY, Y):
+    I=np.zeros(3); pY=safe_prob(Y)
+    for i in range(3):
+        pXY=safe_prob(XY[i])
+        pX=pXY.sum(axis=1, keepdims=True)
+        pXpY=pX @ pY.reshape(1,-1)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            r=np.where((pXY>0)&(pXpY>0), pXY*np.log2(pXY/pXpY), 0.0)
+        I[i]=np.nansum(r)
+    return I
+
+def cond_mutual_info_sym(XiXjY, XY, Y, i, j):
+    pXiXjY = safe_prob(XiXjY[(min(i,j),max(i,j))])
+    if (i,j)==(2,0): pXiXjY = np.transpose(pXiXjY,(1,0,2))
+    if (i,j)==(2,1): pXiXjY = np.transpose(pXiXjY,(1,0,2))
+    pXjY=pXiXjY.sum(axis=0)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        pY_given_XiXj = np.where(pXiXjY.sum(axis=2, keepdims=True)>0, pXiXjY/np.clip(pXiXjY.sum(axis=2, keepdims=True),1,None), 0.0)
+        pY_given_Xj = np.where(pXjY.sum(axis=1, keepdims=True)>0, pXjY/np.clip(pXjY.sum(axis=1, keepdims=True),1,None), 0.0)
+        ratio = np.where((pY_given_XiXj>0)&(pY_given_Xj>0), pY_given_XiXj/pY_given_Xj, 1.0)
+        term = pXiXjY*np.log2(ratio)
+    return np.nansum(term)
+
+def interaction_info_sym(XY, XiXjY, Y):
+    I = mutual_info_Xi_Y(XY, Y)
+    I3=np.zeros((3,3))
+    for i,j in [(0,1),(0,2),(1,2)]:
+        # symmetric approx
+        I3ij = I[i] - cond_mutual_info_sym(XiXjY, XY[j], Y, i,j)
+        I3ji = I[j] - cond_mutual_info_sym(XiXjY, XY[i], Y, j,i)
+        I3[i,j]=I3[j,i]=0.5*(I3ij+I3ji)
+    return I, I3
+
+def build_S(I, I3):
+    S=np.zeros((3,3))
+    Ipos=np.maximum(I,0); Itot=Ipos.sum()
+    if Itot<=0: return np.full((3,3), 1/3.0)
+    for i in range(3): S[i,i]=Ipos[i]/Itot
+    for i in range(3):
+        rem=1.0 - S[i,i]
+        raw=np.array([max(0.0, I3[i,j]) if j!=i else 0.0 for j in range(3)])
+        sr=raw.sum()
+        if sr<=0:
+            for j in range(3):
+                if j!=i: S[i,j]=rem/2.0
+        else:
+            for j in range(3):
+                if j!=i: S[i,j]=rem*raw[j]/sr
+    return S/ S.sum(axis=1, keepdims=True)
+
+def stationary_row(S, tol=1e-12, iters=10000):
+    v=np.ones(3)/3.0
+    for _ in range(iters):
+        v2=v @ S.T
+        if np.linalg.norm(v2-v,1)<tol: break
+        v=v2
+    return v/ v.sum()
+
+def polar_orthogonal(A):
+    U,s,Vt=np.linalg.svd(A, full_matrices=False)
+    return U @ Vt
+
+def euler_zyx(R):
+    sy=math.sqrt(R[0,0]**2 + R[1,0]**2)
+    singular = sy < 1e-8
+    if not singular:
+        x=math.atan2(R[2,1], R[2,2]); y=math.atan2(-R[2,0], sy); z=math.atan2(R[1,0], R[0,0])
+    else:
+        x=math.atan2(-R[1,2], R[1,1]); y=math.atan2(-R[2,0], sy); z=0.0
+    return x,y,z
+
+s_rows=[]
+if S_ENABLE:
+    for acc in ACCESSIONS:
+        recs=fetch_cds_records(acc)
+        seqs=[clean_cds_seq(str(r.seq)) for r in recs if len(clean_cds_seq(str(r.seq)))>=3*MIN_CODONS_PER_CDS]
+        if not seqs: continue
+        # per-CDS counts
+        per=[]
+        for s in seqs:
+            # reuse gene_counts
+            per.append(gene_counts(s))
+        XY_all=np.stack([g[0] for g in per])
+        X01=np.stack([g[1][(0,1)] for g in per])
+        X02=np.stack([g[1][(0,2)] for g in per])
+        X12=np.stack([g[1][(1,2)] for g in per])
+        Y_all=np.stack([g[2] for g in per])
+        S_list=[]; U_list=[]
+        rng=np.random.RandomState(42)
+        for b in range(S_BOOTSTRAPS):
+            idx=rng.randint(0,len(per), size=len(per))
+            XY=XY_all[idx].sum(axis=0)
+            XiXjY={(0,1):X01[idx].sum(axis=0), (0,2):X02[idx].sum(axis=0), (1,2):X12[idx].sum(axis=0)}
+            Y=Y_all[idx].sum(axis=0)
+            I,I3=interaction_info_sym(XY, XiXjY, Y)
+            S=build_S(I,I3)
+            pi=stationary_row(S)
+            Dm12=np.diag(1.0/np.sqrt(pi)); Dp12=np.diag(np.sqrt(pi))
+            U=polar_orthogonal(Dm12 @ S @ Dp12)
+            S_list.append(S); U_list.append(U)
+        S_arr=np.stack(S_list); U_arr=np.stack(U_list)
+        S_mean=S_arr.mean(axis=0); S_se=S_arr.std(axis=0, ddof=1)
+        def sin2s(U): 
+            x,y,z=euler_zyx(U); return np.array([math.sin(x)**2, math.sin(y)**2, math.sin(z)**2])
+        sin2=np.stack([sin2s(u) for u in U_list])
+        sin2_mean=sin2.mean(axis=0); sin2_se=sin2.std(axis=0, ddof=1)
+        # locks
+        def lock_gauss(xbar,se,cap):
+            lo=max(0.0, xbar-1.96*se); hi=min(1.0, xbar+1.96*se)
+            pool=continued_fraction_pool(xbar, max_den=cap)
+            in_ci=[(f, mdl_bits(f), abs(float(f)-xbar)) for f in pool if lo-1e-15<=float(f)<=hi+1e-15]
+            if in_ci:
+                in_ci.sort(key=lambda t:(t[1],t[2])); return in_ci[0][0], lo, hi
+            f=min(pool, key=lambda f: abs(float(f)-xbar)); return f, lo, hi
+        for i in range(3):
+            for j in range(3):
+                f,lo,hi=lock_gauss(float(S_mean[i,j]), float(max(1e-9,S_se[i,j])), S_DEN_CAP)
+                s_rows.append({"accession":acc,"family":"S","channel":f"S{i+1}{j+1}",
+                               "xbar":float(S_mean[i,j]),"se":float(S_se[i,j]),
+                               "lock":f"{f.numerator}/{f.denominator}","ci_lo":lo,"ci_hi":hi})
+        for k,lab in enumerate(["sin2_x","sin2_y","sin2_z"]):
+            f,lo,hi=lock_gauss(float(sin2_mean[k]), float(max(1e-9,sin2_se[k])), S_DEN_CAP)
+            s_rows.append({"accession":acc,"family":"S","channel":lab,
+                           "xbar":float(sin2_mean[k]),"se":float(sin2_se[k]),
+                           "lock":f"{f.numerator}/{f.denominator}","ci_lo":lo,"ci_hi":hi})
+s_df=pd.DataFrame(s_rows)
+s_df.to_csv(OUTDIR/"S_locks.csv", index=False)
+
+# ---------------- Print quick summaries ----------------
+print("\n=== Recurrence (binomial, per seed) ===")
+print(rec_df.to_string(index=False) if not rec_df.empty else "(no rows)")
+
+print("\n=== Stability (binomial, agreement rates per seed) ===")
+print(stab_df.to_string(index=False) if not stab_df.empty else "(no rows)")
+
+print("\n=== Bayes vs Hierarchical — FULL (prior bump + extended candidates) ===")
+print(bay_full_df.to_string(index=False) if not bay_full_df.empty else "(no rows)")
+print("\n=== Bayes vs Hierarchical — LEDGER-ONLY (candidates restricted to your list) ===")
+print(bay_ledger_df.to_string(index=False) if not bay_ledger_df.empty else "(no rows)")
+
+print("\n=== LOO organism predictive (FULL) ===")
+print(loo_full.to_string(index=False) if not loo_full.empty else "(need ≥2 organisms)")
+print("\n=== LOO organism predictive (LEDGER-ONLY) ===")
+print(loo_ledger.to_string(index=False) if not loo_ledger.empty else "(need ≥2 organisms)")
+
+if not perm_df.empty:
+    print("\n=== CpG permutation (codon-shuffle), per seed/shard — head ===")
+    print(perm_df.head(12).to_string(index=False))
+
+if not s_df.empty:
+    print("\n=== S locks (per organism) — head ===")
+    print(s_df.head(12).to_string(index=False))
+
+print("\nLedger source:", LEDGER_SRC, f"(entries={len(VERIFIED_STRS)})")
+print("\nArtifacts in:", OUTDIR.resolve())
+print(" - shards_multi.csv, recurrence_binomial_multiseed.csv")
+print(" - stability_binomial_multiseed.csv")
+print(" - bayes_binomial_hier_FULL.csv, bayes_binomial_hier_LEDGERONLY.csv")
+print(" - loo_org_predictive_FULL.csv, loo_org_predictive_LEDGERONLY.csv")
+print(" - permutation_cpg_multiseed.csv")
+print(" - S_locks.csv")
