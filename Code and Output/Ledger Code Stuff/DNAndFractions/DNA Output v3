@@ -1,0 +1,250 @@
+[OK] Ledger MD loaded: 118 fractions from Master ledger sep 4th.md
+[OK] GCF_000005845.2: ncbi_dataset/data/GCF_000005845.2/cds_from_genomic.fna records=4318
+[OK] GCF_000005845.2: ncbi_dataset/data/GCF_000005845.2/cds_from_genomic.fna records=4318
+
+=== Recurrence (binomial, per seed) ===
+ seed   family       channel fraction  support  reps  qcap  p_uniform  p_process  passes_FDR
+   11 binomial Ala_wobble_GC      5/8        7    10     8    0.00000     1.0000       False
+   42 binomial Ala_wobble_GC      5/8        6    10     8    0.00000     1.0000       False
+   99 binomial Ala_wobble_GC      5/8        9    10     8    0.00000     0.9904       False
+   11 binomial           CpG     3/38        4    10    38    0.00000     0.8374       False
+   42 binomial           CpG     1/13        3    10    13    0.00005     1.0000       False
+   99 binomial           CpG     3/38        5    10    38    0.00000     0.7704       False
+   11 binomial           GC1    13/22        3    10    22    0.00000     1.0000       False
+   42 binomial           GC1    13/22        5    10    22    0.00000     0.9730       False
+   99 binomial           GC1    13/22        4    10    22    0.00000     0.9996       False
+   11 binomial           GC2    11/27        5    10    27    0.00000     0.9460       False
+   42 binomial           GC2     9/22        4    10    22    0.00000     0.9550       False
+   99 binomial           GC2    11/27        3    10    27    0.00000     0.9776       False
+   11 binomial           GC3    13/23        3    10    23    0.00000     0.6276       False
+   42 binomial           GC3     9/16        4    10    16    0.00000     0.9836       False
+   99 binomial           GC3     9/16        6    10    16    0.00000     0.9936       False
+   11 binomial Gly_wobble_GC      5/9        6    10     9    0.00000     0.9576       False
+   42 binomial Gly_wobble_GC      5/9        6    10     9    0.00000     0.9586       False
+   99 binomial Gly_wobble_GC      5/9        6    10     9    0.00000     0.9344       False
+   11 binomial Pro_wobble_GC     7/11        4    10    11    0.00000     0.7070       False
+   42 binomial Pro_wobble_GC      2/3        5    10     3    0.00105     1.0000       False
+   99 binomial Pro_wobble_GC      2/3        5    10     3    0.00075     1.0000       False
+   11 binomial Thr_wobble_GC      5/7        8    10     7    0.00000     1.0000       False
+   42 binomial Thr_wobble_GC      5/7        7    10     7    0.00000     1.0000       False
+   99 binomial Thr_wobble_GC      5/7        6    10     7    0.00000     1.0000       False
+   11 binomial Val_wobble_GC      3/5        5    10     5    0.00000     1.0000       False
+   42 binomial Val_wobble_GC      3/5        5    10     5    0.00005     1.0000       False
+   99 binomial Val_wobble_GC     7/12        5    10    12    0.00000     0.4728       False
+
+=== Stability (binomial, agreement rates per seed) ===
+      channel  seed  ci_kind  cap  agree_rate
+Ala_wobble_GC    11 jeffreys 3072         1.0
+Ala_wobble_GC    11 jeffreys 6144         1.0
+Ala_wobble_GC    11   wilson 3072         1.0
+Ala_wobble_GC    11   wilson 6144         1.0
+Ala_wobble_GC    42 jeffreys 3072         1.0
+Ala_wobble_GC    42 jeffreys 6144         1.0
+Ala_wobble_GC    42   wilson 3072         1.0
+Ala_wobble_GC    42   wilson 6144         1.0
+Ala_wobble_GC    99 jeffreys 3072         1.0
+Ala_wobble_GC    99 jeffreys 6144         1.0
+Ala_wobble_GC    99   wilson 3072         1.0
+Ala_wobble_GC    99   wilson 6144         1.0
+          CpG    11 jeffreys 3072         1.0
+          CpG    11 jeffreys 6144         1.0
+          CpG    11   wilson 3072         1.0
+          CpG    11   wilson 6144         1.0
+          CpG    42 jeffreys 3072         1.0
+          CpG    42 jeffreys 6144         1.0
+          CpG    42   wilson 3072         1.0
+          CpG    42   wilson 6144         1.0
+          CpG    99 jeffreys 3072         1.0
+          CpG    99 jeffreys 6144         1.0
+          CpG    99   wilson 3072         1.0
+          CpG    99   wilson 6144         1.0
+          GC1    11 jeffreys 3072         1.0
+          GC1    11 jeffreys 6144         1.0
+          GC1    11   wilson 3072         1.0
+          GC1    11   wilson 6144         1.0
+          GC1    42 jeffreys 3072         1.0
+          GC1    42 jeffreys 6144         1.0
+          GC1    42   wilson 3072         1.0
+          GC1    42   wilson 6144         1.0
+          GC1    99 jeffreys 3072         1.0
+          GC1    99 jeffreys 6144         1.0
+          GC1    99   wilson 3072         1.0
+          GC1    99   wilson 6144         1.0
+          GC2    11 jeffreys 3072         1.0
+          GC2    11 jeffreys 6144         1.0
+          GC2    11   wilson 3072         1.0
+          GC2    11   wilson 6144         1.0
+          GC2    42 jeffreys 3072         1.0
+          GC2    42 jeffreys 6144         1.0
+          GC2    42   wilson 3072         1.0
+          GC2    42   wilson 6144         1.0
+          GC2    99 jeffreys 3072         1.0
+          GC2    99 jeffreys 6144         1.0
+          GC2    99   wilson 3072         1.0
+          GC2    99   wilson 6144         1.0
+          GC3    11 jeffreys 3072         1.0
+          GC3    11 jeffreys 6144         1.0
+          GC3    11   wilson 3072         1.0
+          GC3    11   wilson 6144         1.0
+          GC3    42 jeffreys 3072         1.0
+          GC3    42 jeffreys 6144         1.0
+          GC3    42   wilson 3072         1.0
+          GC3    42   wilson 6144         1.0
+          GC3    99 jeffreys 3072         1.0
+          GC3    99 jeffreys 6144         1.0
+          GC3    99   wilson 3072         1.0
+          GC3    99   wilson 6144         1.0
+Gly_wobble_GC    11 jeffreys 3072         1.0
+Gly_wobble_GC    11 jeffreys 6144         1.0
+Gly_wobble_GC    11   wilson 3072         1.0
+Gly_wobble_GC    11   wilson 6144         1.0
+Gly_wobble_GC    42 jeffreys 3072         1.0
+Gly_wobble_GC    42 jeffreys 6144         1.0
+Gly_wobble_GC    42   wilson 3072         1.0
+Gly_wobble_GC    42   wilson 6144         1.0
+Gly_wobble_GC    99 jeffreys 3072         1.0
+Gly_wobble_GC    99 jeffreys 6144         1.0
+Gly_wobble_GC    99   wilson 3072         1.0
+Gly_wobble_GC    99   wilson 6144         1.0
+Pro_wobble_GC    11 jeffreys 3072         1.0
+Pro_wobble_GC    11 jeffreys 6144         1.0
+Pro_wobble_GC    11   wilson 3072         1.0
+Pro_wobble_GC    11   wilson 6144         1.0
+Pro_wobble_GC    42 jeffreys 3072         1.0
+Pro_wobble_GC    42 jeffreys 6144         1.0
+Pro_wobble_GC    42   wilson 3072         1.0
+Pro_wobble_GC    42   wilson 6144         1.0
+Pro_wobble_GC    99 jeffreys 3072         1.0
+Pro_wobble_GC    99 jeffreys 6144         1.0
+Pro_wobble_GC    99   wilson 3072         1.0
+Pro_wobble_GC    99   wilson 6144         1.0
+Thr_wobble_GC    11 jeffreys 3072         1.0
+Thr_wobble_GC    11 jeffreys 6144         1.0
+Thr_wobble_GC    11   wilson 3072         1.0
+Thr_wobble_GC    11   wilson 6144         1.0
+Thr_wobble_GC    42 jeffreys 3072         1.0
+Thr_wobble_GC    42 jeffreys 6144         1.0
+Thr_wobble_GC    42   wilson 3072         1.0
+Thr_wobble_GC    42   wilson 6144         1.0
+Thr_wobble_GC    99 jeffreys 3072         1.0
+Thr_wobble_GC    99 jeffreys 6144         1.0
+Thr_wobble_GC    99   wilson 3072         1.0
+Thr_wobble_GC    99   wilson 6144         1.0
+Val_wobble_GC    11 jeffreys 3072         1.0
+Val_wobble_GC    11 jeffreys 6144         1.0
+Val_wobble_GC    11   wilson 3072         1.0
+Val_wobble_GC    11   wilson 6144         1.0
+Val_wobble_GC    42 jeffreys 3072         1.0
+Val_wobble_GC    42 jeffreys 6144         1.0
+Val_wobble_GC    42   wilson 3072         1.0
+Val_wobble_GC    42   wilson 6144         1.0
+Val_wobble_GC    99 jeffreys 3072         1.0
+Val_wobble_GC    99 jeffreys 6144         1.0
+Val_wobble_GC    99   wilson 3072         1.0
+Val_wobble_GC    99   wilson 6144         1.0
+
+=== Bayes vs Hierarchical — FULL (prior bump + extended candidates) ===
+ seed       channel   MAP        a_hat        b_hat  log10_BF_star_vs_Hier  log10_BF_mix_vs_Hier
+   11 Ala_wobble_GC   5/8 4.815758e+03 2.857761e+03              -2.265198             -4.647943
+   42 Ala_wobble_GC   5/8 1.931295e+03 1.146067e+03              -6.199574             -8.582319
+   99 Ala_wobble_GC   5/8 8.974685e+03 5.325746e+03              -1.348613             -3.731358
+   11           CpG  4/51 6.290861e+03 7.373745e+04              -7.379677            -10.687623
+   42           CpG  4/51 5.240883e+03 6.143028e+04              -9.190521            -12.498467
+   99           CpG  4/51 2.230045e+04 2.613917e+05              -1.608539             -4.916485
+   11           GC1 16/27 1.434590e+04 9.857204e+03              -7.967623            -11.566436
+   42           GC1 16/27 2.900811e+04 1.993174e+04              -3.074765             -6.673578
+   99           GC1 16/27 2.648064e+04 1.819509e+04              -3.621859             -7.220672
+   11           GC2 11/27 9.834431e+08 1.430737e+09              -0.002575             -3.583140
+   42           GC2 11/27 3.777408e+04 5.495466e+04              -1.192640             -4.773206
+   99           GC2 11/27 3.812503e+04 5.546523e+04              -1.193187             -4.773753
+   11           GC3  9/16 5.099529e+03 3.974685e+03             -26.156879            -29.296345
+   42           GC3  9/16 5.213706e+03 4.063677e+03             -25.501911            -28.641376
+   99           GC3  9/16 2.110514e+04 1.644981e+04              -4.691907             -7.831372
+   11 Gly_wobble_GC   5/9 4.036069e+03 3.227583e+03              -1.112060             -3.943732
+   42 Gly_wobble_GC   5/9 5.422267e+03 4.336105e+03              -0.656003             -3.487675
+   99 Gly_wobble_GC   5/9 3.950323e+03 3.159014e+03              -1.175915             -4.007587
+   11 Pro_wobble_GC 15/23 2.453144e+03 1.304015e+03              -1.429729             -4.600803
+   42 Pro_wobble_GC 15/23 3.981392e+03 2.116383e+03              -0.656586             -3.827660
+   99 Pro_wobble_GC 15/23 4.916091e+04 2.613240e+04              -0.032999             -3.204073
+   11 Thr_wobble_GC 12/17 1.464910e+09 6.083149e+08              -0.037062             -3.328723
+   42 Thr_wobble_GC 12/17 2.454792e+03 1.019371e+03              -2.074016             -5.365676
+   99 Thr_wobble_GC 12/17 3.151942e+03 1.308867e+03              -1.424320             -4.715981
+   11 Val_wobble_GC 10/17 5.029735e+03 3.528988e+03              -0.817628             -4.083360
+   42 Val_wobble_GC 10/17 2.005535e+03 1.407134e+03              -3.185212             -6.450944
+   99 Val_wobble_GC 10/17 8.560749e+03 6.006436e+03              -0.363399             -3.629130
+
+=== Bayes vs Hierarchical — LEDGER-ONLY (candidates restricted to your list) ===
+ seed       channel        MAP        a_hat        b_hat  log10_BF_star_vs_Hier  log10_BF_mix_vs_Hier
+   11 Ala_wobble_GC        5/8 4.815758e+03 2.857761e+03              -2.265198             -4.337080
+   42 Ala_wobble_GC        5/8 1.931295e+03 1.146067e+03              -6.199574             -8.271456
+   99 Ala_wobble_GC        5/8 8.974685e+03 5.325746e+03              -1.348613             -3.420495
+   11           CpG       1/12 6.290861e+03 7.373745e+04            -265.496553           -267.568435
+   42           CpG       1/12 5.240883e+03 6.143028e+04            -267.307397           -269.379279
+   99           CpG       1/12 2.230045e+04 2.613917e+05            -259.725415           -261.797297
+   11           GC1 7497/12500 1.434590e+04 9.857204e+03             -67.343267            -69.415149
+   42           GC1 7497/12500 2.900811e+04 1.993174e+04             -62.450409            -64.522291
+   99           GC1 7497/12500 2.648064e+04 1.819509e+04             -62.997503            -65.069385
+   11           GC2       7/17 9.834431e+08 1.430737e+09             -23.166446            -25.238328
+   42           GC2       7/17 3.777408e+04 5.495466e+04             -24.356511            -26.428393
+   99           GC2       7/17 3.812503e+04 5.546523e+04             -24.357058            -26.428940
+   11           GC3       9/16 5.099529e+03 3.974685e+03             -26.156879            -28.228761
+   42           GC3       9/16 5.213706e+03 4.063677e+03             -25.501911            -27.573793
+   99           GC3       9/16 2.110514e+04 1.644981e+04              -4.691907             -6.763789
+   11 Gly_wobble_GC        5/9 4.036069e+03 3.227583e+03              -1.112060             -3.183901
+   42 Gly_wobble_GC        5/9 5.422267e+03 4.336105e+03              -0.656003             -2.727844
+   99 Gly_wobble_GC        5/9 3.950323e+03 3.159014e+03              -1.175915             -3.247756
+   11 Pro_wobble_GC        2/3 2.453144e+03 1.304015e+03             -12.214986            -14.200749
+   42 Pro_wobble_GC        2/3 3.981392e+03 2.116383e+03             -11.441842            -13.427606
+   99 Pro_wobble_GC        2/3 4.916091e+04 2.613240e+04             -10.818256            -12.804019
+   11 Thr_wobble_GC    119/169 1.464910e+09 6.083149e+08              -0.446957             -2.507010
+   42 Thr_wobble_GC    119/169 2.454792e+03 1.019371e+03              -2.483910             -4.543964
+   99 Thr_wobble_GC    119/169 3.151942e+03 1.308867e+03              -1.834215             -3.894269
+   11 Val_wobble_GC       7/12 5.029735e+03 3.528988e+03              -2.385479             -4.457361
+   42 Val_wobble_GC       7/12 2.005535e+03 1.407134e+03              -4.753063             -6.824946
+   99 Val_wobble_GC       7/12 8.560749e+03 6.006436e+03              -1.931250             -4.003132
+
+=== LOO organism predictive (FULL) ===
+(need ≥2 organisms)
+
+=== LOO organism predictive (LEDGER-ONLY) ===
+(need ≥2 organisms)
+
+=== CpG permutation (codon-shuffle), per seed/shard — head ===
+      accession  seed  shard  perm_p_match_obs_lock
+GCF_000005845.2    11      0                    0.0
+GCF_000005845.2    11      1                    0.0
+GCF_000005845.2    11      2                    0.0
+GCF_000005845.2    11      3                    0.0
+GCF_000005845.2    11      4                    0.0
+GCF_000005845.2    11      5                    0.0
+GCF_000005845.2    11      6                    0.0
+GCF_000005845.2    11      7                    0.0
+GCF_000005845.2    11      8                    0.0
+GCF_000005845.2    11      9                    0.0
+GCF_000005845.2    42      0                    0.0
+GCF_000005845.2    42      1                    0.0
+
+=== S locks (per organism) — head ===
+      accession family channel     xbar       se   lock    ci_lo    ci_hi
+GCF_000005845.2      S     S11 0.416108 0.000146 52/125 0.415822 0.416394
+GCF_000005845.2      S     S12 0.295131 0.000075  18/61 0.294983 0.295278
+GCF_000005845.2      S     S13 0.288761 0.000100  13/45 0.288564 0.288958
+GCF_000005845.2      S     S21 0.276264 0.000115  21/76 0.276039 0.276490
+GCF_000005845.2      S     S22 0.446842 0.000221  21/47 0.446410 0.447275
+GCF_000005845.2      S     S23 0.276894 0.000130  18/65 0.276638 0.277149
+GCF_000005845.2      S     S31 0.426277 0.000157  26/61 0.425969 0.426585
+GCF_000005845.2      S     S32 0.436674 0.000180  24/55 0.436320 0.437027
+GCF_000005845.2      S     S33 0.137050 0.000322   7/51 0.136418 0.137681
+GCF_000005845.2      S  sin2_x 0.581049 0.000371  18/31 0.580321 0.581777
+GCF_000005845.2      S  sin2_y 0.412943 0.000213  19/46 0.412525 0.413361
+GCF_000005845.2      S  sin2_z 0.127064 0.000171   8/63 0.126728 0.127400
+
+Ledger source: markdown (entries=118)
+
+Artifacts in: /content/fp_ledgeraware_20250905-020839
+ - shards_multi.csv, recurrence_binomial_multiseed.csv
+ - stability_binomial_multiseed.csv
+ - bayes_binomial_hier_FULL.csv, bayes_binomial_hier_LEDGERONLY.csv
+ - loo_org_predictive_FULL.csv, loo_org_predictive_LEDGERONLY.csv
+ - permutation_cpg_multiseed.csv
+ - S_locks.csv
