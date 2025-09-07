@@ -1,0 +1,406 @@
+[note] v13.6-onecell-registryfused (Minimal Mode) running fresh with registry V2 embedded.
+
+=== CANDIDATE BLOCKS ===
+
+[CAND] file=02_54_ALL.xlsx sheet=5 tag=cols7_9_10_11 C={"00": 101836175, "01": 4861, "10": 689, "11": 101813165} tot=203,654,890
+  -> A: p̂=0.500066735  CI=0.499998064..0.500135407 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> B: p̂=0.50004625  CI=0.499977578..0.500114922 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> XOR: p̂=2.725e-05  CI=2.654e-05..2.798e-05 | CI+MDL=1/32768(mdl=15,nearest) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=02_54_ALL.xlsx sheet=5 tag=cols3_5_6_7 C={"00": 101848252, "01": 642, "10": 5404, "11": 101836175} tot=203,690,473
+  -> A: p̂=0.500017956  CI=0.49994929..0.500086622 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> B: p̂=0.500041335  CI=0.499972669..0.500110001 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> XOR: p̂=2.968e-05  CI=2.894e-05..3.044e-05 | CI+MDL=1/32768(mdl=15,nearest) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=03_43_ALL.xlsx sheet=5 tag=cols7_9_10_11 C={"00": 53542083, "01": 2745, "10": 395, "11": 53530329} tot=107,075,552
+  -> A: p̂=0.50006586  CI=0.499971153..0.500160567 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> B: p̂=0.500043913  CI=0.499949206..0.50013862 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> XOR: p̂=2.933e-05  CI=2.832e-05..3.037e-05 | CI+MDL=1/32768(mdl=15,nearest) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=03_43_ALL.xlsx sheet=5 tag=cols3_5_6_7 C={"00": 53572917, "01": 370, "10": 3013, "11": 53542083} tot=107,118,383
+  -> A: p̂=0.500131588  CI=0.5000369..0.500226276 | CI+MDL=2048/4095(mdl=23,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2048/4095(mdl=23), 1732/3463(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> B: p̂=0.500156262  CI=0.500061574..0.500250949 | CI+MDL=2048/4095(mdl=23,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 1732/3463(mdl=23), 2048/4095(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> XOR: p̂=3.158e-05  CI=3.054e-05..3.266e-05 | CI+MDL=1/32768(mdl=15,nearest) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=19_45_ALL.xlsx sheet=5 tag=cols7_9_10_11 C={"00": 91349219, "01": 4532, "10": 682, "11": 91269977} tot=182,624,410
+  -> A: p̂=0.500227494  CI=0.500154976..0.500300012 | CI+MDL=1732/3463(mdl=23,nearest) || Posterior=1732/3463(mdl=23)
+     Posterior top5: 1732/3463(mdl=23), 1/2(mdl=1), 2048/4095(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> B: p̂=0.500206413  CI=0.500133895..0.500278931 | CI+MDL=1732/3463(mdl=23,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 1732/3463(mdl=23), 2048/4095(mdl=23), 2047/4095(mdl=23), 1974/3949(mdl=23)
+
+  -> XOR: p̂=2.855e-05  CI=2.779e-05..2.934e-05 | CI+MDL=1/32768(mdl=15,nearest) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=19_45_ALL.xlsx sheet=5 tag=cols3_5_6_7 C={"00": 91339858, "01": 638, "10": 5002, "11": 91349219} tot=182,694,717
+  -> A: p̂=0.499962437  CI=0.499889933..0.500034942 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2047/4095(mdl=23), 1974/3949(mdl=23), 1930/3861(mdl=23), 1909/3819(mdl=23)
+
+  -> B: p̂=0.499986324  CI=0.49991382..0.500058828 | CI+MDL=1/2(mdl=1,ci-mdl) || Posterior=1/2(mdl=1)
+     Posterior top5: 1/2(mdl=1), 2047/4095(mdl=23), 1974/3949(mdl=23), 1930/3861(mdl=23), 1909/3819(mdl=23)
+
+  -> XOR: p̂=3.087e-05  CI=3.008e-05..3.169e-05 | CI+MDL=1/32768(mdl=15,ci-mdl) || Posterior=1/32768(mdl=15)
+     Posterior top5: 1/32768(mdl=15), 1/65536(mdl=16), 1/16384(mdl=14), 1/8192(mdl=13), 1/4096(mdl=12)
+
+[CAND] file=02_54_ALL.xlsx sheet=5 tag=cols2_4_5_6 C={"00": 799, "01": 1364, "10": 642, "11": 5404} tot=8,209
+  -> A: p̂=0.26349129  CI=0.254073722..0.273130115 | CI+MDL=4/15(mdl=6,ci-mdl) || Posterior=4/15(mdl=6)
+     Posterior top5: 4/15(mdl=6), 1/4(mdl=2), 5/19(mdl=8), 6/23(mdl=8), 7/27(mdl=8)
+
+  -> B: p̂=0.175539043  CI=0.167461658..0.183919964 | CI+MDL=2/11(mdl=5,ci-mdl) || Posterior=1/6(mdl=3)
+     Posterior top5: 1/6(mdl=3), 2/11(mdl=5), 3/17(mdl=7), 4/23(mdl=7), 5/28(mdl=8)
+
+  -> XOR: p̂=0.24436594  CI=0.235191113..0.253779915 | CI+MDL=1/4(mdl=2,ci-mdl) || Posterior=1/4(mdl=2)
+     Posterior top5: 1/4(mdl=2), 7/29(mdl=8), 6/25(mdl=8), 8/33(mdl=9), 5/21(mdl=8)
+
+[CAND] file=19_45_ALL.xlsx sheet=34567 tag=cols2_4_5_6 C={"00": 3346, "01": 6961, "10": 3229, "11": 25290} tot=38,826
+  -> A: p̂=0.26546644  CI=0.261097364..0.269881923 | CI+MDL=4/15(mdl=6,ci-mdl) || Posterior=4/15(mdl=6)
+     Posterior top5: 4/15(mdl=6), 5/19(mdl=8), 13/49(mdl=10), 7/26(mdl=8), 9/34(mdl=10)
+
+  -> B: p̂=0.169345284  CI=0.165647328..0.173108667 | CI+MDL=1/6(mdl=3,ci-mdl) || Posterior=1/6(mdl=3)
+     Posterior top5: 1/6(mdl=3), 8/47(mdl=9), 7/41(mdl=9), 5/29(mdl=8), 6/35(mdl=9)
+
+  -> XOR: p̂=0.262452995  CI=0.258100267..0.266852727 | CI+MDL=4/15(mdl=6,ci-mdl) || Posterior=5/19(mdl=8)
+     Posterior top5: 5/19(mdl=8), 6/23(mdl=8), 4/15(mdl=6), 7/27(mdl=8), 16/61(mdl=10)
+
+JSONL → /mnt/data/qrlf_rosetta_registry_20250904-185503/locks.jsonl
+
+=== Evidence for A/B balance ===
+• ΔlnL = ln L(MLE) − ln L(1/2)  (positive ⇒ data favors MLE over 1/2)
+  blocks: 16  | mean ΔlnL: 1036.081  | median: 3.710  | 5%..95%: 0.131..4443.630
+
+• lnBF_1/2_vs_Mixture = ln p(data|p=1/2) − ln p(data|MDL-mixture over ledger \ {1/2})
+  (positive ⇒ favors 1/2 against a composite alternative)
+  blocks: 16  | mean lnBF: -1015.024  | median: 22.324  | 5%..95%: -4432.634..26.160
+
+=== Registry Fusion (V2) ===
+
+[Registry] Summary
+  total_unique_fractions: 81
+  by_category_counts: {'CKM': 17, 'RareDecay': 1, 'Cosmology': 4, 'Neutrino': 9, 'Ledger': 14, 'Other': 36} 
+
+[Registry] Overlap with Quantum Ledger
+  * 1/2  MDL=1  Channels=A/B  Support=11
+      Registry cats=['Neutrino', 'Other']  status=['verified']
+      meaning: QM prefactor (e.g., E₀ = ½ω); phase lock in oscillation: ∆m²L/(4E) = 1/4
+
+  * 1/6  MDL=3  Channels=B  Support=2
+      Registry cats=['Other']  status=['verified']
+      meaning: QED beta function coefficient
+
+  * 1/32768  MDL=15  Channels=XOR  Support=6
+      Registry cats=['Other']  status=['unverified']
+      meaning: quantum power (XOR channel)
+
+[Registry] CI-coverage by channel (registry ∩ LEDGER fractions inside CI)
+  A: 4/8 blocks had ≥1 registry fraction inside CI
+  B: 5/8 blocks had ≥1 registry fraction inside CI
+  XOR: 2/8 blocks had ≥1 registry fraction inside CI
+
+[Registry] MDL/Decimal consistency
+  MDL mismatches: 55
+    - 13482/60107 : repo_mdl=32 vs local_mdl=30 (cat=CKM)
+    - 1913/485533 : repo_mdl=38 vs local_mdl=30 (cat=CKM)
+    - 6419/152109 : repo_mdl=35 vs local_mdl=31 (cat=CKM)
+    - 6869/17983 : repo_mdl=30 vs local_mdl=28 (cat=CKM)
+    - 79/81 : repo_mdl=13 vs local_mdl=14 (cat=CKM)
+    - 2/9 : repo_mdl=6 vs local_mdl=5 (cat=CKM)
+    - 21/25 : repo_mdl=9 vs local_mdl=10 (cat=CKM)
+    - 7/20 : repo_mdl=7 vs local_mdl=8 (cat=CKM)
+    - 28/675 : repo_mdl=16 vs local_mdl=15 (cat=CKM)
+    - 655/843 : repo_mdl=19 vs local_mdl=20 (cat=CKM)
+    ... (+45 more)
+  Decimal mismatches: 8
+    - 655/843 : repo_dec=0.777 vs exact=0.7769869513641756 (cat=CKM)
+    - 188/843 : repo_dec=0.222999999999 vs exact=0.22301304863582444 (cat=CKM)
+    - 609/2047 : repo_dec=0.297508060576 vs exact=0.2975085490962384 (cat=CKM)
+    - 361638/2639 : repo_dec=137.035999177 vs exact=137.03599848427436 (cat=Ledger)
+    - 543/814 : repo_dec=0.666953317073 vs exact=0.6670761670761671 (cat=Ledger)
+    - 466/973 : repo_dec=0.479034943474 vs exact=0.4789311408016444 (cat=Ledger)
+    - 173/746 : repo_dec=0.232037533512 vs exact=0.23190348525469168 (cat=Other)
+    - 26107/33959 : repo_dec=0.7687773527 vs exact=0.7687799994110545 (cat=Other)
+
+[Registry] Roster (grouped by category)
+  ## CKM
+    - 13482/60107  (mdl=32, status=verified)  :: sin θ_c (Cabibbo angle)
+    - 1913/485533  (mdl=38, status=verified)  :: sin θ_13
+    - 6419/152109  (mdl=35, status=verified)  :: sin θ_23
+    - 6869/17983  (mdl=30, status=verified)  :: δ_CP / π
+    - 79/81  (mdl=13, status=verified)  :: |V_ud| (unitarity)
+    - 2/9  (mdl=6, status=verified)  :: λ (Wolfenstein)
+    - 21/25  (mdl=9, status=verified)  :: A (Wolfenstein)
+    - 3/20  (mdl=7, status=verified)  :: ρ̄ (unitarity apex)
+    - 7/20  (mdl=7, status=verified)  :: η̄ (unitarity apex)
+    - 119/169  (mdl=15, status=verified)  :: sin 2β
+    - 7/17  (mdl=8, status=verified)  :: tan β
+    - 7/3  (mdl=5, status=verified)  :: tan γ
+    - 28/675  (mdl=16, status=verified)  :: |V_cb|
+    - 655/843  (mdl=19, status=verified)  :: snapped cos²θ_W (custodial)
+    - 188/843  (mdl=19, status=verified)  :: snapped sin²θ_W
+    - 609/2047  (mdl=22, status=verified)  :: |U_e2|² (PMNS first row)
+    - 1392/2047  (mdl=22, status=verified)  :: |U_e1|² (PMNS first row)
+
+  ## Cosmology
+    - 63/200  (mdl=13, status=verified)  :: Ω_m (total matter density)
+    - 137/200  (mdl=15, status=verified)  :: Ω_Λ (dark energy density)
+    - 14/75  (mdl=12, status=verified)  :: Ω_b h² (baryon density)
+    - 31/46  (mdl=11, status=verified)  :: h (Hubble parameter)
+
+  ## Ledger
+    - 3/13  (mdl=7, status=replaced)  :: sin²θ_W (Ledger v1.1)
+    - 7852/33959  (mdl=30, status=replaced)  :: sin²θ_W (Ledger v1.3)
+    - 25/108  (mdl=12, status=replaced)  :: sin²θ_W (Ledger v2.0–v2.3)
+    - 23/195  (mdl=14, status=replaced)  :: α_s(MZ) (Ledger v2.0–v2.3)
+    - 9/40  (mdl=8, status=replaced)  :: λ (Wolfenstein, v2.0–v2.3)
+    - 117/490  (mdl=16, status=verified)  :: sin²θ_W (Ledger v2.5)
+    - 9953/84419  (mdl=30, status=verified)  :: α_s(MZ) (Ledger v2.5)
+    - 2639/361638  (mdl=31, status=verified)  :: α (fine structure constant)
+    - 361638/2639  (mdl=31, status=verified)  :: α⁻¹
+    - 211/400  (mdl=13, status=verified)  :: q₀ (deceleration parameter)
+    - 95/173  (mdl=15, status=verified)  :: f_b = Ω_b/Ω_m (baryon fraction)
+    - 105/196  (mdl=15, status=verified)  :: σ₈ (amplitude of fluctuations)
+    - 663/1000  (mdl=19, status=verified)  :: n_s (spectral index)
+    - 416/729  (mdl=19, status=verified)  :: K_ℓ (PMNS Jarlskog magnitude)
+    - 543/814  (mdl=19, status=verified)  :: J_ℓ (PMNS Jarlskog invariant)
+    - 466/973  (mdl=19, status=verified)  :: Y_p (helium fraction)
+
+  ## Neutrino
+    - 1/45  (mdl=8, status=verified)  :: sin²θ_13 (PMNS)
+    - 2/89  (mdl=12, status=candidate)  :: sin²θ_13 (alternative lock)
+    - 7/23  (mdl=10, status=verified)  :: sin²θ_12 (PMNS)
+    - 5/9  (mdl=6, status=verified)  :: sin²θ_23 (PMNS)
+    - 9/16  (mdl=8, status=candidate)  :: sin²θ_23 (PMNS)
+    - 1/2  (mdl=2, status=verified)  :: phase lock in oscillation: ∆m²L/(4E) = 1/4
+    - 4/7  (mdl=6, status=candidate)  :: sin²θ_12 (TBM delta)
+    - 5/8  (mdl=6, status=candidate)  :: sin²θ_23 (TBM delta)
+    - 7/12  (mdl=7, status=candidate)  :: sin²θ_13 (TBM delta)
+
+  ## Other
+    - 0/1  (mdl=1, status=verified)  :: null anchor
+    - 3/761  (mdl=18, status=unverified)  :: unverified small fraction
+    - 4/453  (mdl=17, status=unverified)  :: unverified small fraction
+    - 8/193  (mdl=12, status=unverified)  :: unverified small fraction
+    - 1/12  (mdl=7, status=verified)  :: QED beta function coefficient
+    - 1/6  (mdl=5, status=verified)  :: QED beta function coefficient
+    - 1/4  (mdl=4, status=verified)  :: QM prefactor (e.g., ⟨T⟩ in Gaussian variational)
+    - 1/3  (mdl=5, status=verified)  :: equipartition γ for monatomic gas
+    - 2/3  (mdl=5, status=verified)  :: Koide factor Q = 2/3
+    - 3/4  (mdl=4, status=verified)  :: SU(2) Casimir CF
+    - 4/3  (mdl=4, status=verified)  :: SU(3) Casimir CF
+    - 3/5  (mdl=5, status=verified)  :: γ for diatomic gas
+    - 5/6  (mdl=6, status=unverified)  :: quantum channel support
+    - 11/15  (mdl=8, status=unverified)  :: quantum channel support
+    - 1/2  (mdl=2, status=verified)  :: QM prefactor (e.g., E₀ = ½ω)
+    - 1/8192  (mdl=24, status=unverified)  :: quantum power (XOR channel)
+    - 1/4096  (mdl=23, status=unverified)  :: quantum power (XOR channel)
+    - 1/32768  (mdl=28, status=unverified)  :: quantum power (XOR channel)
+    - 5/23  (mdl=9, status=unverified)  :: unverified cosmological ratio
+    - 63/103  (mdl=13, status=unverified)  :: unverified cosmological ratio
+    - 173/746  (mdl=18, status=candidate)  :: candidate sin²θ_W tweak
+    - 350/1529  (mdl=19, status=candidate)  :: candidate sin²θ_W tweak
+    - 687/941  (mdl=19, status=unverified)  :: unverified cosmological ratio
+    - 7852/33959  (mdl=30, status=replaced)  :: baseline sin²θ_W (pre-snap)
+    - 21123/33512  (mdl=30, status=unverified)  :: unverified CKM magnitude
+    - 26107/33959  (mdl=30, status=unverified)  :: unverified CKM magnitude
+    - 999/1000  (mdl=19, status=verified)  :: normalization factor
+    - 144/1000  (mdl=16, status=unverified)  :: unverified small fraction
+    - 180/803  (mdl=18, status=unverified)  :: unverified small fraction
+    - 33/782  (mdl=16, status=unverified)  :: unverified small fraction
+    - 31/209  (mdl=12, status=unverified)  :: unverified small fraction
+    - 24/107  (mdl=12, status=unverified)  :: unverified small fraction
+    - 17/40  (mdl=8, status=unverified)  :: unverified small fraction
+    - 49/289  (mdl=14, status=unverified)  :: unverified small fraction
+    - 58/338  (mdl=13, status=unverified)  :: unverified small fraction
+    - 650/667  (mdl=19, status=unverified)  :: unverified small fraction
+
+  ## RareDecay
+    - 169/4050  (mdl=22, status=verified)  :: CKM factor in B_s → μμ ratio
+
+=== Proof P1: XOR dyadic hits (blocks) ===
+- XOR blocks: 8 | Observed dyadic hits: 7  | of which tiny (≤1/256): 6
+- Union-bound expected hits λ ≤ 2
+- Poisson tail p-value for ≥7 hits ≤ 0.004533806
+- Tiny-only λ ≤ 1  | p-value for ≥6 tiny hits ≤ 0.000594185
+
+=== Extra Sector Tests (CKM, RareDecay, Neutrino, Cosmology) — Neutral Prior, Ledger-Restricted ===
+
+-- RareDecay: B_s→μ⁺μ⁻ --
+  p̂=3e-09  CI=[2.4e-09, 3.6e-09]
+  Ledger hits in CI: —
+  CI+MDL pick: —
+  Posterior≈ (n≈2,000,000): 1/65536 (mdl=16); top3: 1/65536(mdl=16), 1/32768(mdl=15), 1/16384(mdl=14)
+  Verdict: MISS
+
+-- RareDecay: B→K* μμ (1<q²<6 GeV²) --
+  p̂=1.2e-07  CI=[1.05e-07, 1.35e-07]
+  Ledger hits in CI: —
+  CI+MDL pick: —
+  Posterior≈ (n≈2,000,000): 1/65536 (mdl=16); top3: 1/65536(mdl=16), 1/32768(mdl=15), 1/16384(mdl=14)
+  Verdict: MISS
+
+-- |V_us| --
+  p̂=0.2243  CI=[0.2233, 0.2253]
+  Ledger hits in CI: 9/40(mdl=10, Δc=0.000700)
+  CI+MDL pick: 9/40(mdl=10, Δc=0.000700)
+  Posterior≈ (n≈250,000): 9/40 (mdl=10); top3: 9/40(mdl=10), 2/9(mdl=5), 5/23(mdl=8)
+  Verdict: PASS
+
+-- Wolfenstein A --
+  p̂=0.836  CI=[0.82, 0.85]
+  Ledger hits in CI: 5/6(mdl=6, Δc=0.002667)
+  CI+MDL pick: 5/6(mdl=6, Δc=0.002667)
+  Posterior≈ (n≈1,111): 5/6 (mdl=6); top3: 5/6(mdl=6), 21/25(mdl=10), 14/17(mdl=9)
+  Verdict: PASS
+
+-- ρ̄ (rho-bar) --
+  p̂=0.122  CI=[0.1, 0.14]
+  Ledger hits in CI: 1/8(mdl=3, Δc=0.003000)
+  CI+MDL pick: 1/8(mdl=3, Δc=0.003000)
+  Posterior≈ (n≈1,000): 1/8 (mdl=3); top3: 1/8(mdl=3), 3/20(mdl=7), 1/16(mdl=4)
+  Verdict: PASS
+
+-- η̄ (eta-bar) --
+  p̂=0.355  CI=[0.33, 0.38]
+  Ledger hits in CI: 1/3(mdl=2, Δc=0.021667)
+  CI+MDL pick: 1/3(mdl=2, Δc=0.021667)
+  Posterior≈ (n≈1,000): 7/20 (mdl=8); top3: 7/20(mdl=8), 1/3(mdl=2), 7/17(mdl=8)
+  Verdict: PASS
+
+-- sin²θ₁₂ --
+  p̂=0.307  CI=[0.294, 0.32]
+  Ledger hits in CI: 3/10(mdl=6, Δc=0.007000)
+  CI+MDL pick: 3/10(mdl=6, Δc=0.007000)
+  Posterior≈ (n≈1,479): 7/23 (mdl=8); top3: 7/23(mdl=8), 5/16(mdl=7), 3/10(mdl=6)
+  Verdict: PASS
+
+-- sin²θ₁₃ --
+  p̂=0.0219  CI=[0.021, 0.0228]
+  Ledger hits in CI: 1/45(mdl=6, Δc=0.000322)
+  CI+MDL pick: 1/45(mdl=6, Δc=0.000322)
+  Posterior≈ (n≈308,642): 1/45 (mdl=6); top3: 1/45(mdl=6), 3/20(mdl=7), 2/9(mdl=5)
+  Verdict: PASS
+
+-- sin²θ₂₃ --
+  p̂=0.545  CI=[0.51, 0.58]
+  Ledger hits in CI: 4/7(mdl=5, Δc=0.026429)
+  CI+MDL pick: 4/7(mdl=5, Δc=0.026429)
+  Posterior≈ (n≈1,000): 5/9 (mdl=7); top3: 5/9(mdl=7), 9/16(mdl=8), 4/7(mdl=5)
+  Verdict: PASS
+
+-- Ω_m --
+  p̂=0.315  CI=[0.308, 0.322]
+  Ledger hits in CI: 5/16(mdl=7, Δc=0.002500)
+  CI+MDL pick: 5/16(mdl=7, Δc=0.002500)
+  Posterior≈ (n≈5,102): 5/16 (mdl=7); top3: 5/16(mdl=7), 7/23(mdl=8), 3/10(mdl=6)
+  Verdict: PASS
+
+-- n_s --
+  p̂=0.965  CI=[0.961, 0.969]
+  Ledger hits in CI: —
+  CI+MDL pick: —
+  Posterior≈ (n≈15,625): 5/6 (mdl=6); top3: 5/6(mdl=6), 3/4(mdl=4), 11/15(mdl=8)
+  Verdict: MISS
+
+-- ω_b --
+  p̂=0.02237  CI=[0.02222, 0.02252]
+  Ledger hits in CI: 1/45(mdl=6, Δc=0.000148)
+  CI+MDL pick: 1/45(mdl=6, Δc=0.000148)
+  Posterior≈ (n≈2,000,000): 1/45 (mdl=6); top3: 1/45(mdl=6), 3/20(mdl=7), 2/9(mdl=5)
+  Verdict: PASS
+
+=== P1++ Cluster-robust (datasets as units) ===
+clusters=3 | obs_total=3 | obs_tiny=3
+  [1] 02_54_ALL.xlsx | blocks=3 | obs_total=3 | obs_tiny=2 | p_total_bound≤1 | p_tiny_bound≤0
+  [2] 03_43_ALL.xlsx | blocks=2 | obs_total=2 | obs_tiny=2 | p_total_bound≤0 | p_tiny_bound≤0
+  [3] 19_45_ALL.xlsx | blocks=3 | obs_total=2 | obs_tiny=2 | p_total_bound≤1 | p_tiny_bound≤1
+  Tail (union-bound) total≤0.666666667 | tiny≤0.333333333
+
+=== A/B prior sensitivity (lnBF medians) ===
+  alpha=0.5: median=14.353 | 10%..90%=-1868.996..18.189
+  alpha=1.0: median=22.324 | 10%..90%=-1866.433..26.160
+  alpha=1.5: median=30.295 | 10%..90%=-1864.500..34.131
+  alpha=2.0: median=38.266 | 10%..90%=-1863.073..42.102
+
+Artifacts saved in: /mnt/data/qrlf_rosetta_registry_20250904-185503
+Exposed link: /content/qrlf_registry_20250904-185503
+ZIP copied to: /content/qrlf_rosetta_registry_20250904-185503.zip
+
+=== [DIR LISTING] ===
+ - EXEC_SUMMARY.txt         1,140 bytes
+ - evidence_ab.csv          4,068 bytes
+ - locks.jsonl              6,030 bytes
+ - overlaps.csv             198 bytes
+ - quantum_ledger.json      349 bytes
+ - registry_embedded_v2.json 22,642 bytes
+ - rosetta.csv              220 bytes
+ - rosetta.json             622 bytes
+[hash] locks.jsonl  SHA256=fbd41d754d520e9795685215cd91b0747e3c8abb3a15beb71adbd6267618e453
+[hash] rosetta.json  SHA256=241caa49413fde8a8b03d77e3d3fd38995ffab288534d03464cf23b45eed13f6
+[hash] quantum_ledger.json  SHA256=9da061f572b22a868eccb8eb9f9093b59289c83c5a17e8162c35301640704230
+[hash] EXEC_SUMMARY.txt  SHA256=fb763baa023ea3cb4a7b37603bf8d44757c7749ee650d932e8cdd30db67e24d9
+[hash] registry_embedded_v2.json  SHA256=6bbcc0021b471059e806ab8412fa653b892b9286cff33da3ea6aed87ac1d70e9
+[hash] evidence_ab.csv  SHA256=48057cfd678c29a8ef460f804ea904358a72bf4af5c9b4c7f4318daed3e9c8cf
+
+[preview] EXEC_SUMMARY.txt
+--------------------------------------------------------------------------------
+Q(R)LF Rosetta — EXECUTIVE SUMMARY  [v13.6-onecell-registryfused (Minimal Mode)]
+UTC run: 20250904-185505
+
+A/B Balance Evidence (ΔlnL = ln L(MLE) − ln L(1/2))
+  n=16 | mean=1036.081 | median=3.710 | 5%..95%=0.131..4443.630
+
+A/B Bayes Factor vs MDL-mixture (exclude 1/2) at alpha=1.0
+  n=16 | mean=-1015.024 | median=22.324 | 5%..95%=-4432.634..26.160
+
+Prior sensitivity (lnBF, median over A+B):
+  alpha=0.5: median=14.353 | 10%..90%=-1868.996..18.189
+  alpha=1.0: median=22.324 | 10%..90%=-1866.433..26.160
+  alpha=1.5: median=30.295 | 10%..90%=-1864.500..34.131
+  alpha=2.0: median=38.266 | 10%..90%=-1863.073..42.102
+
+P1 (classic) — XOR dyadic hits via CI-coverage proxy:
+  blocks=8 | hits=7 (tiny≤1/256: 6) | λ≤2 | Poisson tail≤0.004533806
+  tiny-only: λ≤1 | Poisson tail≤0.000594185
+
+P1++ (cluster-robust) — datasets as units (union-bound tail):
+  clusters=3 | obs_total=3 | obs_tiny=3 | tail total≤0.666666667 | tail tiny≤0.333333333
+
+Registry Fusion:
+  registry fractions: 81 | overlap with quantum ledger: 3
+  MDL mismatches: 55 | Decimal mismatches: 8
+
+(See notebook prints above for sector test details.)
+
+
+[preview] evidence_ab.csv (first 10 rows)
+file,sheet,tag,channel,N,k,phat,ci_lo,ci_hi,post,post_mdl,dlnL,lnBF_a0.5,lnBF_a1.0,lnBF_a1.5,lnBF_a2.0,dlnL_perM,lnBF_perM
+02_54_ALL.xlsx,5,cols7_9_10_11,A,203654890,101841036,0.5000667354464211,0.4999980636111064,0.500135407279218,1/2,1,1.814002901315689,14.3526842757351,22.32387685217447,30.295069428613843,38.266262005053214,0.008907239601836661,0.10961620834233085
+02_54_ALL.xlsx,5,cols7_9_10_11,B,203654890,101836864,0.5000462498101568,0.49997757797491066,0.5001149216436581,1/2,1,0.8712539225816727,16.46425759227173,24.4354501687111,32.40664274515047,40.37783532158984,0.004278089873421024,0.11998459830113138
+02_54_ALL.xlsx,5,cols3_5_6_7,A,203690473,101848894,0.5000179561662661,0.49994929032976,0.500086622002095,1/2,1,0.1313493549823761,19.28467311745077,27.255865693890144,35.227058270329515,43.198250846768886,0.0006448478077930336,0.13381021356796663
+02_54_ALL.xlsx,5,cols3_5_6_7,B,203690473,101853656,0.5000413347756328,0.4999726689388761,0.5001100006108303,1/2,1,0.6960362792015076,16.967859791088404,24.93905236752778,32.91024494396715,40.88143752040652,0.0034171273155299098,0.12243602756780765
+03_43_ALL.xlsx,5,cols7_9_10_11,A,107075552,53544828,0.5000658600387136,0.49997115329295144,0.50016056677975,1/2,1,0.9288899898529053,14.503619292859181,22.47481186929855,30.446004445737927,38.4171970221773,0.00867508943454156,0.20989676400919743
+03_43_ALL.xlsx,5,cols7_9_10_11,B,107075552,53542478,0.5000439129186091,0.49994920617317795,0.5001386196608891,1/2,1,0.4129570871591568,15.696372033416964,23.667564609856335,31.638757186295706,39.60994976273508,0.003856688846760807,0.22103612045685586
+03_43_ALL.xlsx,5,cols3_5_6_7,A,107118383,53573287,0.500131588058046,0.5000369002483972,0.5002262758582566,1/2,1,3.7095989882946014,10.804194723014039,18.77538729945341,26.746579875892778,34.71777245233215,0.03463083445065262,0.1752769858321462
+03_43_ALL.xlsx,5,cols3_5_6_7,B,107118383,53575930,0.5001562616941295,0.5000615738849408,0.5002509494921101,1/2,1,5.231172814965248,9.389568579045743,17.360761155485115,25.331953731924486,33.30314630836386,0.04883543485682797,0.16207079185918177
+19_45_ALL.xlsx,5,cols7_9_10_11,A,182624410,91353751,0.5002274942325617,0.5001549760949934,0.5003000123605591,1732/3463,23,18.902951419353485,-1.3954942527419796,6.575698323697395,14.54689090013676,22.51808347657613,0.10350725524234951,0.03600667798843207
+19_45_ALL.xlsx,5,cols7_9_10_11,B,182624410,91349901,0.5002064127133936,0.5001338945749421,0.5002789308431612,1/2,1,15.561867728829384,0.7579098208487451,8.729102397288116,16.700294973727488,24.67148755016686,0.08521241891393042,0.04779811415838724
+✅ DONE — Everything printed above; Registry V2 fused in (embedded).
