@@ -1,0 +1,779 @@
+# Q(R)LF Rosetta — v13.6-onecell-registryfused (Minimal Mode)
+# Self-contained, fresh, and prints everything. No NumPy/Pandas. No external reads.
+# Adds: VerifiedFractionRepositoryV2 embedded + fusion (summary, overlaps, CI hits, MDL checks, roster).
+from __future__ import annotations
+import math, os, json, time, random, hashlib, zipfile, io
+from datetime import datetime, timezone
+from fractions import Fraction
+
+VERSION = "v13.6-onecell-registryfused (Minimal Mode)"
+
+# =============================== Embedded Registry (V2) ===============================
+# Paste-in of your VerifiedFractionRepositoryV2.json (no external file needed).
+REPO_JSON = r'''
+{
+  "summary": {
+    "total_unique_fractions": 81,
+    "by_category_counts": {
+      "CKM": 17,
+      "RareDecay": 1,
+      "Cosmology": 4,
+      "Neutrino": 9,
+      "Ledger": 14,
+      "Other": 36
+    }
+  },
+  "global_fractions_sorted": [
+    "0/1", "1/1000", "1/45", "2/89", "3/761", "4/453", "5/23", "7/23", "8/193", "9/77",
+    "11/480", "14/75", "16/23", "17/40", "24/107", "25/108", "28/675", "31/209", "33/782",
+    "49/289", "58/338", "63/103", "79/81", "87/89", "95/173", "105/196", "117/490", "119/169",
+    "137/200", "144/1000", "169/4050", "173/746", "180/803", "188/843", "211/400", "350/1529",
+    "416/729", "466/973", "543/814", "554/569", "609/2047", "650/667", "655/843", "663/1000",
+    "687/941", "7852/33959", "6869/17983", "9953/84419", "999/1000", "13482/60107",
+    "17807/54547", "21123/33512", "22034/43315", "24087/34343", "26107/33959"
+  ],
+  "ledger": {
+    "CKM": [
+      {"fraction":"13482/60107","decimal":0.224299998336,"mdl_bits":32,"sources":["CKM Parameterization.pdf","Rosetta_Stone (3).pdf","mindmelt_output_20250822-172752.txt"],"meaning":"sin θ_c (Cabibbo angle)","status":"verified"},
+      {"fraction":"1913/485533","decimal":0.003939999959,"mdl_bits":38,"sources":["CKM Parameterization.pdf","Rosetta_Stone (3).pdf"],"meaning":"sin θ_13","status":"verified"},
+      {"fraction":"6419/152109","decimal":0.042200001315,"mdl_bits":35,"sources":["CKM Parameterization.pdf","Rosetta_Stone (3).pdf"],"meaning":"sin θ_23","status":"verified"},
+      {"fraction":"6869/17983","decimal":0.381971862314,"mdl_bits":30,"sources":["CKM Parameterization.pdf","Ledger2.5.pdf","verification_deck_tex.pdf"],"meaning":"δ_CP / π","status":"verified"},
+      {"fraction":"79/81","decimal":0.975308641975,"mdl_bits":13,"sources":["CKM Parameterization.pdf"],"meaning":"|V_ud| (unitarity)","status":"verified"},
+      {"fraction":"2/9","decimal":0.222222222222,"mdl_bits":6,"sources":["CKM Parameterization.pdf","Ledger2.5.pdf"],"meaning":"λ (Wolfenstein)","status":"verified"},
+      {"fraction":"21/25","decimal":0.84,"mdl_bits":9,"sources":["CKM Parameterization.pdf"],"meaning":"A (Wolfenstein)","status":"verified"},
+      {"fraction":"3/20","decimal":0.15,"mdl_bits":7,"sources":["CKM Parameterization.pdf"],"meaning":"ρ̄ (unitarity apex)","status":"verified"},
+      {"fraction":"7/20","decimal":0.35,"mdl_bits":7,"sources":["CKM Parameterization.pdf"],"meaning":"η̄ (unitarity apex)","status":"verified"},
+      {"fraction":"119/169","decimal":0.704142011834,"mdl_bits":15,"sources":["CKM Parameterization.pdf"],"meaning":"sin 2β","status":"verified"},
+      {"fraction":"7/17","decimal":0.411764705882,"mdl_bits":8,"sources":["CKM Parameterization.pdf"],"meaning":"tan β","status":"verified"},
+      {"fraction":"7/3","decimal":2.333333333333,"mdl_bits":5,"sources":["CKM Parameterization.pdf"],"meaning":"tan γ","status":"verified"},
+      {"fraction":"28/675","decimal":0.041481481481,"mdl_bits":16,"sources":["CKM Parameterization.pdf"],"meaning":"|V_cb|","status":"verified"},
+      {"fraction":"655/843","decimal":0.777000000000,"mdl_bits":19,"sources":["Reality_Encoded3 (2).pdf","Ledger2.5.pdf"],"meaning":"snapped cos²θ_W (custodial)","status":"verified"},
+      {"fraction":"188/843","decimal":0.222999999999,"mdl_bits":19,"sources":["Reality_Encoded3 (2).pdf"],"meaning":"snapped sin²θ_W","status":"verified"},
+      {"fraction":"609/2047","decimal":0.297508060576,"mdl_bits":22,"sources":["CKMandPMS.pdf"],"meaning":"|U_e2|² (PMNS first row)","status":"verified"},
+      {"fraction":"1392/2047","decimal":0.680019540791,"mdl_bits":22,"sources":["CKMandPMS.pdf"],"meaning":"|U_e1|² (PMNS first row)","status":"verified"}
+    ],
+    "RareDecay": [
+      {"fraction":"169/4050","decimal":0.041728395061,"mdl_bits":22,"sources":["Rare_Decay_Ledger.pdf"],"meaning":"CKM factor in B_s → μμ ratio","status":"verified"}
+    ],
+    "Cosmology": [
+      {"fraction":"63/200","decimal":0.315,"mdl_bits":13,"sources":["Cosmology Ledger.pdf","Ledger2.5.pdf"],"meaning":"Ω_m (total matter density)","status":"verified"},
+      {"fraction":"137/200","decimal":0.685,"mdl_bits":15,"sources":["Cosmology Ledger.pdf","Ledger2.5.pdf"],"meaning":"Ω_Λ (dark energy density)","status":"verified"},
+      {"fraction":"14/75","decimal":0.186666666666,"mdl_bits":12,"sources":["Cosmology Ledger.pdf","Ledger2.4.pdf"],"meaning":"Ω_b h² (baryon density)","status":"verified"},
+      {"fraction":"31/46","decimal":0.673913043478,"mdl_bits":11,"sources":["Ledger2.5.pdf"],"meaning":"h (Hubble parameter)","status":"verified"}
+    ],
+    "Neutrino": [
+      {"fraction":"1/45","decimal":0.022222222222,"mdl_bits":8,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_13 (PMNS)","status":"verified"},
+      {"fraction":"2/89","decimal":0.022471910112,"mdl_bits":12,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_13 (alternative lock)","status":"candidate"},
+      {"fraction":"7/23","decimal":0.304347826086,"mdl_bits":10,"sources":["Neutrinos.pdf","CKMandPMS.pdf"],"meaning":"sin²θ_12 (PMNS)","status":"verified"},
+      {"fraction":"5/9","decimal":0.555555555555,"mdl_bits":6,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_23 (PMNS)","status":"verified"},
+      {"fraction":"9/16","decimal":0.5625,"mdl_bits":8,"sources":["CKMandPMS.pdf"],"meaning":"sin²θ_23 (PMNS)","status":"candidate"},
+      {"fraction":"1/2","decimal":0.5,"mdl_bits":2,"sources":["DLCpacks1thru10.pdf","NeutrinoSolution.pdf"],"meaning":"phase lock in oscillation: ∆m²L/(4E) = 1/4","status":"verified"},
+      {"fraction":"4/7","decimal":0.571428571428,"mdl_bits":6,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_12 (TBM delta)","status":"candidate"},
+      {"fraction":"5/8","decimal":0.625,"mdl_bits":6,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_23 (TBM delta)","status":"candidate"},
+      {"fraction":"7/12","decimal":0.583333333333,"mdl_bits":7,"sources":["Neutrinos.pdf"],"meaning":"sin²θ_13 (TBM delta)","status":"candidate"}
+    ],
+    "Ledger": [
+      {"fraction":"3/13","decimal":0.230769230769,"mdl_bits":7,"sources":["FractionPhysicsLedgerV1.1.pdf","FractionPhysicsLedgerv1_1.pdf"],"meaning":"sin²θ_W (Ledger v1.1)","status":"replaced","replaced_by":"7852/33959"},
+      {"fraction":"7852/33959","decimal":0.231220000589,"mdl_bits":30,"sources":["FractionPhysicsLedgerV1.1.pdf","FractionPhysicsLedgerv1.3.pdf","verification_deck_tex.pdf"],"meaning":"sin²θ_W (Ledger v1.3)","status":"replaced","replaced_by":"117/490"},
+      {"fraction":"25/108","decimal":0.231481481481,"mdl_bits":12,"sources":["Solving_RealityLedger2.2pdf.pdf","Ledger2_3.pdf"],"meaning":"sin²θ_W (Ledger v2.0–v2.3)","status":"replaced","replaced_by":"117/490"},
+      {"fraction":"23/195","decimal":0.117948717948,"mdl_bits":14,"sources":["Solving_RealityLedger2.2pdf.pdf","Ledger2_3.pdf"],"meaning":"α_s(MZ) (Ledger v2.0–v2.3)","status":"replaced","replaced_by":"9953/84419"},
+      {"fraction":"9/40","decimal":0.225,"mdl_bits":8,"sources":["Solving_RealityLedger2.2pdf.pdf","Ledger2_3.pdf"],"meaning":"λ (Wolfenstein, v2.0–v2.3)","status":"replaced","replaced_by":"2/9"},
+      {"fraction":"117/490","decimal":0.238775510204,"mdl_bits":16,"sources":["Ledger2.5.pdf"],"meaning":"sin²θ_W (Ledger v2.5)","status":"verified"},
+      {"fraction":"9953/84419","decimal":0.117899998815,"mdl_bits":30,"sources":["Ledger2.5.pdf"],"meaning":"α_s(MZ) (Ledger v2.5)","status":"verified"},
+      {"fraction":"2639/361638","decimal":0.007297352601,"mdl_bits":31,"sources":["Ledger2.5.pdf","FractionPhysicsLedgerV1.1.pdf"],"meaning":"α (fine structure constant)","status":"verified"},
+      {"fraction":"361638/2639","decimal":137.035999177,"mdl_bits":31,"sources":["Ledger2.5.pdf","FractionPhysicsLedgerV1.1.pdf"],"meaning":"α⁻¹","status":"verified"},
+      {"fraction":"211/400","decimal":0.5275,"mdl_bits":13,"sources":["Ledger2.5.pdf"],"meaning":"q₀ (deceleration parameter)","status":"verified"},
+      {"fraction":"95/173","decimal":0.549132947976,"mdl_bits":15,"sources":["Ledger2.5.pdf"],"meaning":"f_b = Ω_b/Ω_m (baryon fraction)","status":"verified"},
+      {"fraction":"105/196","decimal":0.535714285714,"mdl_bits":15,"sources":["Ledger2.5.pdf"],"meaning":"σ₈ (amplitude of fluctuations)","status":"verified"},
+      {"fraction":"663/1000","decimal":0.663,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"n_s (spectral index)","status":"verified"},
+      {"fraction":"416/729","decimal":0.570644718792,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"K_ℓ (PMNS Jarlskog magnitude)","status":"verified"},
+      {"fraction":"543/814","decimal":0.666953317073,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"J_ℓ (PMNS Jarlskog invariant)","status":"verified"},
+      {"fraction":"466/973","decimal":0.479034943474,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"Y_p (helium fraction)","status":"verified"}
+    ],
+    "Other": [
+      {"fraction":"0/1","decimal":0.0,"mdl_bits":1,"sources":["v11 code.md"],"meaning":"null anchor","status":"verified"},
+      {"fraction":"3/761","decimal":0.003942181339,"mdl_bits":18,"sources":["mindmelt_output_20250823-020454.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"4/453","decimal":0.008830022075,"mdl_bits":17,"sources":["mindmelt_output_20250823-020454.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"8/193","decimal":0.041450777202,"mdl_bits":12,"sources":["mindmelt_output_20250823-020454.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"1/12","decimal":0.083333333333,"mdl_bits":7,"sources":["DLCpacks1thru10.pdf"],"meaning":"QED beta function coefficient","status":"verified"},
+      {"fraction":"1/6","decimal":0.166666666666,"mdl_bits":5,"sources":["DLCpacks1thru10.pdf"],"meaning":"QED beta function coefficient","status":"verified"},
+      {"fraction":"1/4","decimal":0.25,"mdl_bits":4,"sources":["DLCpacks1thru10.pdf","SchrodingersFractions.pdf"],"meaning":"QM prefactor (e.g., ⟨T⟩ in Gaussian variational)","status":"verified"},
+      {"fraction":"1/3","decimal":0.333333333333,"mdl_bits":5,"sources":["DLCpacks1thru10.pdf"],"meaning":"equipartition γ for monatomic gas","status":"verified"},
+      {"fraction":"2/3","decimal":0.666666666666,"mdl_bits":5,"sources":["Koide relation","DLCpacks1thru10.pdf"],"meaning":"Koide factor Q = 2/3","status":"verified"},
+      {"fraction":"3/4","decimal":0.75,"mdl_bits":4,"sources":["DLCpacks1thru10.pdf"],"meaning":"SU(2) Casimir CF","status":"verified"},
+      {"fraction":"4/3","decimal":1.333333333333,"mdl_bits":4,"sources":["DLCpacks1thru10.pdf"],"meaning":"SU(3) Casimir CF","status":"verified"},
+      {"fraction":"3/5","decimal":0.6,"mdl_bits":5,"sources":["DLCpacks1thru10.pdf"],"meaning":"γ for diatomic gas","status":"verified"},
+      {"fraction":"5/6","decimal":0.833333333333,"mdl_bits":6,"sources":["v11 code.md"],"meaning":"quantum channel support","status":"unverified"},
+      {"fraction":"11/15","decimal":0.733333333333,"mdl_bits":8,"sources":["v11 code.md"],"meaning":"quantum channel support","status":"unverified"},
+      {"fraction":"1/2","decimal":0.5,"mdl_bits":2,"sources":["DLCpacks1thru10.pdf","SchrodingersFractions.pdf"],"meaning":"QM prefactor (e.g., E₀ = ½ω)","status":"verified"},
+      {"fraction":"1/8192","decimal":0.000122070312,"mdl_bits":24,"sources":["v11 code.md"],"meaning":"quantum power (XOR channel)","status":"unverified"},
+      {"fraction":"1/4096","decimal":0.000244140625,"mdl_bits":23,"sources":["v11 code.md"],"meaning":"quantum power (XOR channel)","status":"unverified"},
+      {"fraction":"1/32768","decimal":3.0517578125e-05,"mdl_bits":28,"sources":["v11 code.md"],"meaning":"quantum power (XOR channel)","status":"unverified"},
+      {"fraction":"5/23","decimal":0.217391304347,"mdl_bits":9,"sources":["Ledger2.5.pdf"],"meaning":"unverified cosmological ratio","status":"unverified"},
+      {"fraction":"63/103","decimal":0.611650485436,"mdl_bits":13,"sources":["Ledger2.5.pdf"],"meaning":"unverified cosmological ratio","status":"unverified"},
+      {"fraction":"173/746","decimal":0.232037533512,"mdl_bits":18,"sources":["Ledger2.5.pdf"],"meaning":"candidate sin²θ_W tweak","status":"candidate"},
+      {"fraction":"350/1529","decimal":0.228907782864,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"candidate sin²θ_W tweak","status":"candidate"},
+      {"fraction":"687/941","decimal":0.730074388947,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"unverified cosmological ratio","status":"unverified"},
+      {"fraction":"7852/33959","decimal":0.231220000589,"mdl_bits":30,"sources":["MathOracle4.ipynb"],"meaning":"baseline sin²θ_W (pre-snap)","status":"replaced","replaced_by":"117/490"},
+      {"fraction":"21123/33512","decimal":0.6303115299,"mdl_bits":30,"sources":["Ledger2.5.pdf"],"meaning":"unverified CKM magnitude","status":"unverified"},
+      {"fraction":"26107/33959","decimal":0.7687773527,"mdl_bits":30,"sources":["Ledger2.5.pdf"],"meaning":"unverified CKM magnitude","status":"unverified"},
+      {"fraction":"999/1000","decimal":0.999,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"normalization factor","status":"verified"},
+      {"fraction":"144/1000","decimal":0.144,"mdl_bits":16,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"180/803","decimal":0.224159402241,"mdl_bits":18,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"33/782","decimal":0.042199488491,"mdl_bits":16,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"31/209","decimal":0.148325358851,"mdl_bits":12,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"24/107","decimal":0.224299065420,"mdl_bits":12,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"17/40","decimal":0.425,"mdl_bits":8,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"49/289","decimal":0.169550173010,"mdl_bits":14,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"58/338","decimal":0.171597633136,"mdl_bits":13,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"},
+      {"fraction":"650/667","decimal":0.974512743628,"mdl_bits":19,"sources":["Ledger2.5.pdf"],"meaning":"unverified small fraction","status":"unverified"}
+    ]
+  }
+}
+'''
+
+# =============================== Utilities ===============================
+def now_tag():
+    return datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+
+def fmt_num(x):
+    if isinstance(x, int):
+        return f"{x:,}"
+    if x == 0:
+        return "0"
+    ax = abs(x)
+    if ax>=1e4 or ax<=1e-4:
+        return f"{x:.3e}"
+    return f"{x:.9f}".rstrip("0").rstrip(".")
+
+def mkdirp(path:str):
+    os.makedirs(path, exist_ok=True)
+
+def log_choose(n, k):  # ln nCk
+    return math.lgamma(n+1) - math.lgamma(k+1) - math.lgamma(n-k+1)
+
+def log_binom_pmf(k, n, p):
+    if p<=0:  return 0.0 if k==0 else float("-inf")
+    if p>=1:  return 0.0 if k==n else float("-inf")
+    return log_choose(n,k) + k*math.log(p) + (n-k)*math.log1p(-p)
+
+def logsumexp(vals):
+    m = max(vals)
+    if m == float("-inf"):
+        return m
+    s = sum(math.exp(v - m) for v in vals)
+    return m + math.log(s)
+
+def wilson_ci(k, n, z=1.96):
+    if n==0: return (0.0, 1.0)
+    p = k/n
+    z2=z*z; denom = 1+z2/n
+    center = (p + z2/(2*n))/denom
+    half = z*math.sqrt((p*(1-p)+z2/(4*n))/n)/denom
+    return (max(0.0, center-half), min(1.0, center+half))
+
+def mdl_bits(fr: Fraction) -> int:
+    a = max(1, fr.numerator)
+    b = max(1, fr.denominator)
+    nb = 0 if a==1 else math.ceil(math.log2(a))
+    db = 0 if b==1 else math.ceil(math.log2(b))
+    return max(1, nb+db)
+
+def display_frac(fr: Fraction) -> str:
+    return f"{fr.numerator}/{fr.denominator}"
+
+# =============================== Data Blocks (fresh each run) ===============================
+RUN_BLOCKS = [
+    dict(file="02_54_ALL.xlsx", sheet="5", tag="cols7_9_10_11", C={"00":101836175,"01":4861,"10":689,"11":101813165}),
+    dict(file="02_54_ALL.xlsx", sheet="5", tag="cols3_5_6_7",   C={"00":101848252,"01":642,"10":5404,"11":101836175}),
+    dict(file="03_43_ALL.xlsx", sheet="5", tag="cols7_9_10_11", C={"00":53542083,"01":2745,"10":395,"11":53530329}),
+    dict(file="03_43_ALL.xlsx", sheet="5", tag="cols3_5_6_7",   C={"00":53572917,"01":370,"10":3013,"11":53542083}),
+    dict(file="19_45_ALL.xlsx", sheet="5", tag="cols7_9_10_11", C={"00":91349219,"01":4532,"10":682,"11":91269977}),
+    dict(file="19_45_ALL.xlsx", sheet="5", tag="cols3_5_6_7",   C={"00":91339858,"01":638,"10":5002,"11":91349219}),
+    dict(file="02_54_ALL.xlsx", sheet="5",      tag="cols2_4_5_6", C={"00":799,"01":1364,"10":642,"11":5404}),
+    dict(file="19_45_ALL.xlsx", sheet="34567",  tag="cols2_4_5_6", C={"00":3346,"01":6961,"10":3229,"11":25290}),
+]
+AUX_BLOCKS = [
+    ("IBMQ — EPR_ZZ",       {"00":5021,"01":79,"10":91,"11":4973}),
+    ("Quantinuum — BellXX", {"00":2510,"01":32,"10":28,"11":2496}),
+    ("Rigetti — SPAM chk",  {"00":505,"01":9,"10":12,"11":474}),
+]
+
+# =============================== Ledger Construction ===============================
+def build_ledger():
+    L=set()
+    for k in range(1,17): L.add(Fraction(1,2**k))     # dyadics
+    L.add(Fraction(1,2))
+    for k in range(2,66):                             # neighbors
+        L.add(Fraction(k-1,k)); L.add(Fraction(k,k+1))
+    for den in range(3,67):                           # small-denom rationals
+        for num in range(1,den): L.add(Fraction(num,den))
+    H = [Fraction(31,63),Fraction(32,63),Fraction(30,61),Fraction(31,61),Fraction(29,59),Fraction(30,59),
+         Fraction(28,57),Fraction(29,57),Fraction(22034,43315),Fraction(1732,3463),Fraction(1899,3799),
+         Fraction(1974,3949),Fraction(1930,3861),Fraction(1909,3819),Fraction(1648,3297),Fraction(1369,2739),
+         Fraction(1582,3165),Fraction(2047,4095),Fraction(2048,4095),Fraction(1098,2197),Fraction(1211,2423)]
+    for fr in H: L.add(fr)
+    L.add(Fraction(0,1)); L.add(Fraction(1,1))
+    L=list(L); L.sort(key=lambda fr:(float(fr), mdl_bits(fr))); return L
+LEDGER = build_ledger()
+
+BASE_CATEGORY_MAP = {
+    "BlackHole": set([Fraction(1,2), Fraction(5,6), Fraction(11,15)]),
+    "QuantumPowers": set([Fraction(1,2**k) for k in range(1,17)]),
+    "CKM": set([Fraction(14,17), Fraction(9,40), Fraction(7,20)]),
+    "Neutrino": set([Fraction(3,10), Fraction(5,16), Fraction(7,23), Fraction(1,45)]),
+    "Cosmology": set([Fraction(5,16), Fraction(63,200)]),
+}
+def rosetta_tags(fr: Fraction):
+    tags=[]
+    if fr.numerator==1 and (fr.denominator & (fr.denominator-1))==0:
+        tags.append(f"pow2({display_frac(fr)})")
+    if abs(float(fr)-0.5)<5e-4: tags.append("near(1/2)")
+    for k in range(2,12):
+        if fr==Fraction(k,k+1): tags.append(f"k/(k+1)@{k}")
+        if fr==Fraction(k-1,k): tags.append(f"(k-1)/k@{k}")
+    return ";".join(tags) if tags else "—"
+
+# =============================== Core Stats ===============================
+def split_counts(C:dict):
+    c00,c01,c10,c11 = C["00"],C["01"],C["10"],C["11"]
+    N=c00+c01+c10+c11
+    kA=c00+c01; kB=c00+c10; kX=c01+c10
+    return N,kA,kB,kX
+
+def posterior_map(k, n, prior_alpha=1.0):
+    scored=[]
+    for fr in LEDGER:
+        p=float(fr)
+        ll=log_binom_pmf(k,n,p)
+        if math.isinf(ll) and ll<0: continue
+        prior = -prior_alpha*mdl_bits(fr)*math.log(2.0)
+        scored.append((ll+prior, fr))
+    scored.sort(key=lambda t:(-t[0], mdl_bits(t[1]), float(t[1])))
+    return scored
+
+def ci_mdl_pick(phat, ci):
+    lo,hi = ci
+    in_ci=[(mdl_bits(fr), fr) for fr in LEDGER if lo<=float(fr)<=hi]
+    if in_ci:
+        in_ci.sort()
+        md, pick = in_ci[0][0], in_ci[0][1]
+        return pick, md, "ci-mdl", True
+    best=min(LEDGER, key=lambda fr: abs(float(fr)-phat))
+    return best, mdl_bits(best), "nearest", False
+
+# =============================== Evidence Models ===============================
+def log_evidence_point(k,n,p):
+    return log_binom_pmf(k,n,p)
+
+def log_evidence_mixture(k,n, frs, alpha=1.0, exclude=None):
+    ws=[]
+    for fr in frs:
+        if exclude is not None and fr==exclude: continue
+        w = -alpha*mdl_bits(fr)*math.log(2.0)
+        ws.append((w, fr))
+    vals=[]
+    for w,fr in ws:
+        vals.append(w + log_binom_pmf(k,n,float(fr)))
+    return logsumexp(vals) - math.log(len(vals))  # normalized mixture
+
+# =============================== Registry Fusion Helpers ===============================
+def load_registry():
+    repo = json.loads(REPO_JSON)
+    by_cat = repo.get("ledger", {})
+    idx = {}  # fraction_str -> list of entries (category, entry dict)
+    flat_set = set()
+    for cat, entries in by_cat.items():
+        for e in entries:
+            f = e["fraction"]
+            flat_set.add(f)
+            idx.setdefault(f, []).append({"category": cat, **e})
+    return repo, by_cat, idx, flat_set
+
+def parse_frac_str(s:str) -> Fraction:
+    a,b = s.split("/")
+    return Fraction(int(a), int(b))
+
+# =============================== Printing Helpers ===============================
+def print_header():
+    print(f"[note] {VERSION} running fresh with registry V2 embedded.\n")
+
+def print_block(run, label, ph, ci, pick_ci, post, top5):
+    pick_ci_s=f"{display_frac(pick_ci[0])}(mdl={pick_ci[1]},{pick_ci[2]})"
+    post_s=f"{display_frac(post[0])}(mdl={post[1]})"
+    top_s=", ".join([f"{display_frac(fr)}(mdl={mdl_bits(fr)})" for fr in top5])
+    print(f"  -> {label}: p̂={fmt_num(ph)}  CI={fmt_num(ci[0])}..{fmt_num(ci[1])} | CI+MDL={pick_ci_s} || Posterior={post_s}")
+    print(f"     Posterior top5: {top_s}\n")
+
+# =============================== Main Processing ===============================
+def process_all():
+    print_header()
+
+    # Fresh artifacts roots
+    ts=now_tag()
+    root=f"/mnt/data/qrlf_rosetta_registry_{ts}"
+    expose=f"/content/qrlf_registry_{ts}"
+    mkdirp(root); mkdirp(expose)
+
+    # registry
+    repo, repo_by_cat, repo_index, repo_flat = load_registry()
+
+    # --- Candidate blocks ---
+    print("=== CANDIDATE BLOCKS ===\n")
+    locks=[]; ab_delta_lnL=[]; bf_half_vs_mix=[]
+    for run in RUN_BLOCKS:
+        C=run["C"]; N,kA,kB,kX = split_counts(C)
+        tot=N
+        print(f"[CAND] file={run['file']} sheet={run['sheet']} tag={run['tag']} C={json.dumps(C)} tot={fmt_num(tot)}")
+        for ch,k in (("A",kA),("B",kB),("XOR",kX)):
+            ph=k/N; ci=wilson_ci(k,N)
+            ci_pick=ci_mdl_pick(ph,ci)
+            post=posterior_map(k,N,prior_alpha=1.0)
+            post_pick=(post[0][1], mdl_bits(post[0][1]))
+            print_block(run, ch, ph, ci, ci_pick, post_pick, [t[1] for t in post[:5]])
+            locks.append({"file":run["file"],"sheet":run["sheet"],"tag":run["tag"],"ch":ch,
+                          "N":N,"k":k,"phat":ph,"ci":ci,"ci_mdl":display_frac(ci_pick[0]),"ci_mdl_mdl":ci_pick[1],
+                          "post":display_frac(post_pick[0]),"post_mdl":post_pick[1]})
+            if ch in ("A","B"):
+                ph_mle = 0.0 if k==0 else (1.0 if k==N else k/N)
+                ll_mle = 0.0 if (k==0 or k==N) else log_binom_pmf(k,N,ph_mle)
+                ll_half = log_evidence_point(k,N,0.5)
+                ab_delta_lnL.append(ll_mle - ll_half)
+                log_mix = log_evidence_mixture(k,N,LEDGER,alpha=1.0,exclude=Fraction(1,2))
+                bf_half_vs_mix.append(ll_half - log_mix)
+
+    # save locks
+    with open(os.path.join(root,"locks.jsonl"),"w") as f:
+        for r in locks: f.write(json.dumps(r)+"\n")
+    print(f"JSONL → {os.path.join(root,'locks.jsonl')}\n")
+
+    # Evidence summaries
+    def quantiles(arr, ps):
+        q=sorted(arr)
+        def qv(p): idx=max(0,min(len(q)-1,int(round(p*(len(q)-1))))); return q[idx]
+        return [qv(p) for p in ps]
+
+    if ab_delta_lnL:
+        qs = quantiles(ab_delta_lnL, [0.05,0.5,0.95])
+        mean_dlnL=sum(ab_delta_lnL)/len(ab_delta_lnL)
+        print("=== Evidence for A/B balance ===")
+        print("• ΔlnL = ln L(MLE) − ln L(1/2)  (positive ⇒ data favors MLE over 1/2)")
+        print(f"  blocks: {len(ab_delta_lnL)}  | mean ΔlnL: {mean_dlnL:.3f}  | median: {qs[1]:.3f}  | 5%..95%: {qs[0]:.3f}..{qs[2]:.3f}\n")
+    if bf_half_vs_mix:
+        qs = quantiles(bf_half_vs_mix, [0.05,0.5,0.95])
+        mean_lnBF=sum(bf_half_vs_mix)/len(bf_half_vs_mix)
+        print("• lnBF_1/2_vs_Mixture = ln p(data|p=1/2) − ln p(data|MDL-mixture over ledger \\ {1/2})")
+        print("  (positive ⇒ favors 1/2 against a composite alternative)")
+        print(f"  blocks: {len(bf_half_vs_mix)}  | mean lnBF: {mean_lnBF:.3f}  | median: {qs[1]:.3f}  | 5%..95%: {qs[0]:.3f}..{qs[2]:.3f}\n")
+
+    # Quantum ledger from posterior locks
+    post_counts={}
+    for r in locks:
+        fr=r["post"]
+        post_counts[fr]=post_counts.get(fr,0)+1
+    q_ledger=[]
+    total=len(locks)
+    for fr_s,sup in sorted(post_counts.items(), key=lambda kv:(-kv[1], kv[0])):
+        fr=Fraction(fr_s)
+        if mdl_bits(fr)<=16 and (sup>=3 or sup>=max(1,int(0.10*total))):
+            chs=[]
+            used=[r for r in locks if r["post"]==fr_s]
+            if any(r["ch"]=="A" for r in used): chs.append("A")
+            if any(r["ch"]=="B" for r in used): chs.append("B")
+            if any(r["ch"]=="XOR" for r in used): chs.append("XOR")
+            q_ledger.append({"Fraction":fr_s,"MDL":mdl_bits(fr),"Channels":"/".join(chs) if chs else "—","Support":sup})
+    with open(os.path.join(root,"quantum_ledger.json"),"w") as f: json.dump(q_ledger,f,indent=2)
+
+    # Rosetta categories (BASE + Registry categories)
+    rosetta=[]
+    # Build a merged category map: start with base, then add registry categories.
+    merged_cat = {k:set(v) for k,v in BASE_CATEGORY_MAP.items()}
+    for cat, entries in repo_by_cat.items():
+        S = merged_cat.setdefault(cat, set())
+        for e in entries:
+            try:
+                S.add(parse_frac_str(e["fraction"]))
+            except Exception:
+                pass
+
+    for ent in q_ledger:
+        fr=Fraction(ent["Fraction"]); cats=[]
+        for name,S in merged_cat.items():
+            if fr in S:
+                cats.append(name)
+        if fr==Fraction(1,2):  # ensure key tags
+            if "BlackHole" not in cats: cats.append("BlackHole")
+            if "QuantumPowers" not in cats: cats.append("QuantumPowers")
+        rosetta.append({"Fraction":ent["Fraction"],"MDL":ent["MDL"],"Channels":ent["Channels"],
+                        "Support":ent["Support"],"Categories":",".join(sorted(cats)) if cats else "Other","Tags":rosetta_tags(fr)})
+    with open(os.path.join(root,"rosetta.json"),"w") as f: json.dump(rosetta,f,indent=2)
+    with open(os.path.join(root,"overlaps.csv"),"w") as f:
+        f.write("Ledger,Fraction,MDL,Channels,Support\n")
+        for ent in q_ledger:
+            fr=Fraction(ent["Fraction"])
+            for name,S in merged_cat.items():
+                if fr in S or (name in ("BlackHole","QuantumPowers") and fr==Fraction(1,2)):
+                    f.write(f'{name},{ent["Fraction"]},{ent["MDL"]},{ent["Channels"]},{ent["Support"]}\n')
+
+    # ================= Registry Fusion: summaries, overlaps, checks =================
+    print("=== Registry Fusion (V2) ===\n")
+    # 1) Registry summary
+    s = repo.get("summary", {})
+    print("[Registry] Summary")
+    print(f"  total_unique_fractions: {s.get('total_unique_fractions','?')}")
+    byc = s.get("by_category_counts", {})
+    print("  by_category_counts:", byc, "\n")
+
+    # 2) Intersection with quantum ledger
+    qset = set(Fraction(x["Fraction"]) for x in q_ledger)
+    hits=[]
+    for fr in qset:
+        fr_s = display_frac(fr)
+        if fr_s in repo_index:
+            # merge statuses across categories
+            cats = sorted(set(e["category"] for e in repo_index[fr_s]))
+            statuses = sorted(set(e.get("status","?") for e in repo_index[fr_s]))
+            meanings = sorted(set(e.get("meaning","—") for e in repo_index[fr_s]))
+            hits.append((fr, cats, statuses, meanings))
+    print("[Registry] Overlap with Quantum Ledger")
+    if not hits:
+        print("  (none)\n")
+    else:
+        for fr, cats, statuses, meanings in sorted(hits, key=lambda t: (mdl_bits(t[0]), float(t[0]))):
+            qent = next(e for e in q_ledger if e["Fraction"]==display_frac(fr))
+            print(f"  * {display_frac(fr)}  MDL={mdl_bits(fr)}  Channels={qent['Channels']}  Support={qent['Support']}")
+            print(f"      Registry cats={cats}  status={statuses}")
+            print(f"      meaning: { '; '.join(meanings) }\n")
+
+    # 3) CI-coverage check: count how many registry fractions fall inside observed CIs per channel
+    #    (use all registry fractions that also exist in LEDGER for comparability)
+    reg_fracs = [parse_frac_str(fs) for fs in repo_flat if "/" in fs]
+    reg_in_ledger = [fr for fr in reg_fracs if fr in set(LEDGER)]
+    cover_counts={"A":0,"B":0,"XOR":0}; eval_counts={"A":0,"B":0,"XOR":0}
+    for r in locks:
+        ch=r["ch"]; lo,hi=r["ci"]; eval_counts[ch]+=1
+        if any(lo<=float(fr)<=hi for fr in reg_in_ledger):
+            cover_counts[ch]+=1
+    print("[Registry] CI-coverage by channel (registry ∩ LEDGER fractions inside CI)")
+    for ch in ("A","B","XOR"):
+        print(f"  {ch}: {cover_counts[ch]}/{eval_counts[ch]} blocks had ≥1 registry fraction inside CI")
+    print()
+
+    # 4) MDL and decimal consistency checks between repo and our functions
+    mdls_mismatch=[]
+    decimals_mismatch=[]
+    for fstr, entries in repo_index.items():
+        try:
+            fr = parse_frac_str(fstr)
+        except Exception:
+            continue
+        md_local=mdl_bits(fr)
+        for e in entries:
+            md_repo=e.get("mdl_bits",None)
+            if isinstance(md_repo,(int,float)) and int(md_repo)!=md_local:
+                mdls_mismatch.append((fstr, md_repo, md_local, e["category"]))
+            # decimal match (within 1e-9 relative or 1e-12 absolute)
+            dec=e.get("decimal",None)
+            if isinstance(dec,(int,float)):
+                val=float(fr)
+                if not (abs(val-dec)<=1e-12 or (val!=0 and abs(val-dec)/abs(val)<=1e-9)):
+                    decimals_mismatch.append((fstr, dec, val, e["category"]))
+    print("[Registry] MDL/Decimal consistency")
+    print(f"  MDL mismatches: {len(mdls_mismatch)}")
+    for t in mdls_mismatch[:10]:
+        print(f"    - {t[0]} : repo_mdl={t[1]} vs local_mdl={t[2]} (cat={t[3]})")
+    if len(mdls_mismatch)>10: print(f"    ... (+{len(mdls_mismatch)-10} more)")
+    print(f"  Decimal mismatches: {len(decimals_mismatch)}")
+    for t in decimals_mismatch[:10]:
+        print(f"    - {t[0]} : repo_dec={t[1]} vs exact={t[2]} (cat={t[3]})")
+    if len(decimals_mismatch)>10: print(f"    ... (+{len(decimals_mismatch)-10} more)")
+    print()
+
+    # 5) Print a compact registry roster (all fractions with status/meaning, grouped)
+    print("[Registry] Roster (grouped by category)")
+    for cat in sorted(repo_by_cat.keys()):
+        print(f"  ## {cat}")
+        entries = repo_by_cat[cat]
+        for e in entries:
+            fstr=e["fraction"]; st=e.get("status","?"); md=e.get("mdl_bits","?")
+            m=e.get("meaning","—")
+            print(f"    - {fstr}  (mdl={md}, status={st})  :: {m}")
+        print()
+
+    # ================= Proof Battery P1 (blocks) =================
+    print("=== Proof P1: XOR dyadic hits (blocks) ===")
+    xor_recs=[r for r in locks if r["ch"]=="XOR"]
+    dyadics = [Fraction(1,2**k) for k in range(2,17)]  # 1/4..1/65536
+    tiny_cut = Fraction(1,256)  # tiny dyadics are ≤ 1/256
+    obs_total = sum(1 for r in xor_recs if Fraction(r["post"]) in dyadics)
+    obs_tiny  = sum(1 for r in xor_recs if (Fraction(r["post"]) in dyadics and Fraction(r["post"]) <= tiny_cut))
+    lam = 0.0
+    for r in xor_recs:
+        lo,hi = r["ci"]
+        lam += sum(1 for d in dyadics if lo<=float(d)<=hi)
+    def pois_tail(k, lam):
+        s=0.0
+        for j in range(0,k):
+            s += math.exp(-lam) * (lam**j) / math.factorial(j)
+        return max(0.0, 1.0 - s)
+    print(f"- XOR blocks: {len(xor_recs)} | Observed dyadic hits: {obs_total}  | of which tiny (≤1/256): {obs_tiny}")
+    print(f"- Union-bound expected hits λ ≤ {fmt_num(lam)}")
+    print(f"- Poisson tail p-value for ≥{obs_total} hits ≤ {fmt_num(pois_tail(obs_total, max(1e-12,lam)))}")
+    if obs_tiny>0:
+        lam_tiny = 0.0
+        for r in xor_recs:
+            lo,hi=r["ci"]
+            lam_tiny += sum(1 for d in dyadics if d<=tiny_cut and lo<=float(d)<=hi)
+        print(f"- Tiny-only λ ≤ {fmt_num(lam_tiny)}  | p-value for ≥{obs_tiny} tiny hits ≤ {fmt_num(pois_tail(obs_tiny, max(1e-12,lam_tiny)))}")
+    print()
+
+    # ================= Extra Sector Tests (same neutral prior; ledger-restricted) =================
+    print("=== Extra Sector Tests (CKM, RareDecay, Neutrino, Cosmology) — Neutral Prior, Ledger-Restricted ===\n")
+    def report_sector(name, p_hat, ci_tuple, pool_names, n_eff=None):
+        lo,hi=ci_tuple
+        pool=[]
+        for fr in LEDGER:
+            include=False
+            for nm in pool_names:
+                if nm=="QuantumPowers" and (fr.numerator==1 and (fr.denominator & (fr.denominator-1))==0):
+                    include=True
+                if nm in merged_cat and fr in merged_cat[nm]:
+                    include=True
+            if include: pool.append(fr)
+        if not pool: pool=[Fraction(1,2)]
+        in_ci=[(mdl_bits(fr),fr) for fr in pool if lo<=float(fr)<=hi]
+        pick_ci=None
+        if in_ci: in_ci.sort(); pick_ci=in_ci[0][1]
+        if n_eff is None:
+            width=max(1e-6, hi-lo); n_eff=int(min(2_000_000, max(1000, round(1.0/(width*width)))))
+        k_est=int(round(p_hat*n_eff))
+        scored=[(log_binom_pmf(k_est,n_eff,float(fr)),fr) for fr in pool]
+        scored.sort(key=lambda t:(-t[0], mdl_bits(t[1])))
+        post_pick=scored[0][1]
+        verdict="PASS" if pick_ci or (lo<=float(post_pick)<=hi) else "MISS"
+        hit_txt="—" if not pick_ci else f"{display_frac(pick_ci)}(mdl={mdl_bits(pick_ci)}, Δc={abs(float(pick_ci)-p_hat):.6f})"
+        print(f"-- {name} --")
+        print(f"  p̂={p_hat}  CI=[{ci_tuple[0]}, {ci_tuple[1]}]")
+        print(f"  Ledger hits in CI: {hit_txt}")
+        print(f"  CI+MDL pick: {hit_txt}" if pick_ci else "  CI+MDL pick: —")
+        top3=", ".join([f"{display_frac(fr)}(mdl={mdl_bits(fr)})" for _,fr in scored[:3]])
+        print(f"  Posterior≈ (n≈{fmt_num(n_eff)}): {display_frac(post_pick)} (mdl={mdl_bits(post_pick)}); top3: {top3}")
+        print(f"  Verdict: {verdict}\n")
+
+    # Sector tests (reuse your values; category pools now include Registry categories)
+    report_sector("RareDecay: B_s→μ⁺μ⁻", 3.0e-9, (2.4e-9,3.6e-9), ["QuantumPowers"])
+    report_sector("RareDecay: B→K* μμ (1<q²<6 GeV²)", 1.2e-7, (1.05e-7,1.35e-7), ["QuantumPowers"])
+    report_sector("|V_us|", 0.2243, (0.2233, 0.2253), ["CKM","Other"])
+    report_sector("Wolfenstein A", 0.836, (0.82,0.85), ["BlackHole","CKM"])
+    report_sector("ρ̄ (rho-bar)", 0.122, (0.10,0.14), ["CKM","QuantumPowers"])
+    report_sector("η̄ (eta-bar)", 0.355, (0.33,0.38), ["CKM","Other"])
+    report_sector("sin²θ₁₂", 0.307, (0.294,0.32), ["Neutrino","CKM","Cosmology"])
+    report_sector("sin²θ₁₃", 0.0219, (0.0210,0.0228), ["Neutrino","CKM"])
+    report_sector("sin²θ₂₃", 0.545, (0.51,0.58), ["Neutrino","Other"])
+    report_sector("Ω_m", 0.315, (0.308,0.322), ["Cosmology","Neutrino"])
+    report_sector("n_s", 0.965, (0.961,0.969), ["Other"])
+    report_sector("ω_b", 0.02237, (0.02222,0.02252), ["Neutrino","CKM"])
+
+    # ================= P1++ Cluster-robust (datasets as units) =================
+    # Clusters = datasets (by file). For each dataset, bound hit-prob by sum of Bonferroni per-block dyadics-in-CI, clipped at 1.
+    datasets = {}
+    for r in xor_recs:
+        key=r["file"]
+        lo,hi=r["ci"]
+        # total dyadics in CI; tiny dyadics in CI
+        tot_in = sum(1 for d in dyadics if lo<=float(d)<=hi)
+        tiny_in = sum(1 for d in dyadics if d<=tiny_cut and lo<=float(d)<=hi)
+        post_is_dyadic = Fraction(r["post"]) in dyadics
+        post_is_tiny   = post_is_dyadic and Fraction(r["post"])<=tiny_cut
+        e = datasets.setdefault(key, {"blocks":0,"p_total_bound":0.0,"p_tiny_bound":0.0,"obs_total":0,"obs_tiny":0})
+        e["blocks"]+=1
+        e["p_total_bound"]+=tot_in
+        e["p_tiny_bound"]+=tiny_in
+        if post_is_dyadic: e["obs_total"]+=1
+        if post_is_tiny:   e["obs_tiny"]+=1
+    # clip bounds at 1 per cluster (Bonferroni upper-bound at dataset-level)
+    for k in datasets:
+        datasets[k]["p_total_bound"] = min(1.0, datasets[k]["p_total_bound"])
+        datasets[k]["p_tiny_bound"]  = min(1.0, datasets[k]["p_tiny_bound"])
+
+    # Poisson–binomial tail (conservative): if bounds are 0 or 1, easy. Else approximate: union bound across clusters.
+    # Given obs across clusters equals number of clusters with any hit; our obs is: any cluster with ≥1 dyadic (or tiny).
+    clusters = list(datasets.values())
+    obs_clust_total = sum(1 for c in clusters if c["obs_total"]>0)
+    obs_clust_tiny  = sum(1 for c in clusters if c["obs_tiny"]>0)
+    p_total_sum = sum(c["p_total_bound"] for c in clusters)
+    p_tiny_sum  = sum(c["p_tiny_bound"] for c in clusters)
+    # Union bound tail: P(≥k hits) ≤ min(1, sum p_i / k) repeated conservatively; here k equals observed
+    def union_tail_atleast_k(p_sum, k):
+        if k<=0: return 1.0
+        return min(1.0, p_sum/max(1,k))
+    tail_total = 0.0 if (obs_clust_total and p_total_sum==0.0) else union_tail_atleast_k(p_total_sum, obs_clust_total)
+    tail_tiny  = 0.0 if (obs_clust_tiny  and p_tiny_sum==0.0)  else union_tail_atleast_k(p_tiny_sum,  obs_clust_tiny)
+
+    print("=== P1++ Cluster-robust (datasets as units) ===")
+    print(f"clusters={len(clusters)} | obs_total={obs_clust_total} | obs_tiny={obs_clust_tiny}")
+    for i,(name,c) in enumerate(datasets.items(),1):
+        print(f"  [{i}] {name} | blocks={c['blocks']} | obs_total={c['obs_total']} | obs_tiny={c['obs_tiny']} | "
+              f"p_total_bound≤{c['p_total_bound']:.6g} | p_tiny_bound≤{c['p_tiny_bound']:.6g}")
+    print(f"  Tail (union-bound) total≤{fmt_num(tail_total)} | tiny≤{fmt_num(tail_tiny)}\n")
+
+    # ================= A/B prior sensitivity (alpha in {0.5,1.0,1.5,2.0}) & ablation snapshot =================
+    alphas=[0.5,1.0,1.5,2.0]
+    # recompute lnBF per alpha
+    ab_lnBF_by_alpha=[]
+    for a in alphas:
+        arr=[]
+        for r in locks:
+            if r["ch"] not in ("A","B"): continue
+            k=r["k"]; N=r["N"]
+            ll_half = log_evidence_point(k,N,0.5)
+            ll_mix = log_evidence_mixture(k,N,LEDGER,alpha=a,exclude=Fraction(1,2))
+            arr.append(ll_half-ll_mix)
+        ab_lnBF_by_alpha.append(arr)
+    # summarize
+    def summary_str(arr):
+        q=sorted(arr)
+        def qv(p): idx=max(0,min(len(q)-1,int(round(p*(len(q)-1))))); return q[idx]
+        return f"median={qv(0.5):.3f} | 10%..90%={qv(0.1):.3f}..{qv(0.9):.3f}"
+    print("=== A/B prior sensitivity (lnBF medians) ===")
+    for a,arr in zip(alphas,ab_lnBF_by_alpha):
+        print(f"  alpha={a}: {summary_str(arr)}")
+    print()
+
+    # ================= Artifacts (write for others) + printed directory/preview =================
+    # Evidence AB CSV
+    evid_rows=[["file","sheet","tag","channel","N","k","phat","ci_lo","ci_hi","post","post_mdl","dlnL","lnBF_a0.5","lnBF_a1.0","lnBF_a1.5","lnBF_a2.0","dlnL_perM","lnBF_perM"]]
+    # Precompute lnBF per alpha for each A/B row
+    for r in locks:
+        if r["ch"] not in ("A","B"): continue
+        N=r["N"]; k=r["k"]
+        ph_mle = 0.0 if k==0 else (1.0 if k==N else k/N)
+        ll_mle = 0.0 if (k==0 or k==N) else log_binom_pmf(k,N,ph_mle)
+        ll_half = log_evidence_point(k,N,0.5)
+        dlnL = ll_mle-ll_half
+        lnbfs=[]
+        for a in alphas:
+            ll_mix = log_evidence_mixture(k,N,LEDGER,alpha=a,exclude=Fraction(1,2))
+            lnbfs.append(ll_half-ll_mix)
+        lnbf_a1 = lnbfs[1]
+        evid_rows.append([
+            r["file"], r["sheet"], r["tag"], r["ch"], N, k, r["phat"], r["ci"][0], r["ci"][1],
+            r["post"], r["post_mdl"], dlnL, lnbfs[0], lnbfs[1], lnbfs[2], lnbfs[3],
+            (dlnL*1_000_000.0)/N, (lnbf_a1*1_000_000.0)/N
+        ])
+    # Write CSV
+    evcsv=os.path.join(root,"evidence_ab.csv")
+    with open(evcsv,"w") as f:
+        for row in evid_rows:
+            f.write(",".join([str(x) for x in row])+"\n")
+
+    # Save rosetta.csv
+    with open(os.path.join(root,"rosetta.csv"),"w") as f:
+        f.write("Fraction,MDL,Channels,Support,Categories,Tags\n")
+        for r in rosetta:
+            f.write(f"{r['Fraction']},{r['MDL']},{r['Channels']},{r['Support']},{r['Categories']},{r['Tags']}\n")
+
+    # Save registry snapshot for others
+    with open(os.path.join(root,"registry_embedded_v2.json"),"w") as f:
+        json.dump(json.loads(REPO_JSON), f, indent=2)
+
+    # EXEC summary text
+    exec_txt = io.StringIO()
+    def line(s=""): exec_txt.write(s+"\n")
+    line("Q(R)LF Rosetta — EXECUTIVE SUMMARY  ["+VERSION+"]")
+    line("UTC run: "+now_tag()+"\n")
+    # A/B ΔlnL summary
+    if ab_delta_lnL:
+        qs = quantiles(ab_delta_lnL, [0.05,0.5,0.95])
+        mean_dlnL=sum(ab_delta_lnL)/len(ab_delta_lnL)
+        line(f"A/B Balance Evidence (ΔlnL = ln L(MLE) − ln L(1/2))")
+        line(f"  n={len(ab_delta_lnL)} | mean={mean_dlnL:.3f} | median={qs[1]:.3f} | 5%..95%={qs[0]:.3f}..{qs[2]:.3f}\n")
+    # A/B lnBF summary
+    if bf_half_vs_mix:
+        qs = quantiles(bf_half_vs_mix, [0.05,0.5,0.95])
+        mean_lnBF=sum(bf_half_vs_mix)/len(bf_half_vs_mix)
+        line(f"A/B Bayes Factor vs MDL-mixture (exclude 1/2) at alpha=1.0")
+        line(f"  n={len(bf_half_vs_mix)} | mean={mean_lnBF:.3f} | median={qs[1]:.3f} | 5%..95%={qs[0]:.3f}..{qs[2]:.3f}\n")
+    # Prior sensitivity
+    line("Prior sensitivity (lnBF, median over A+B):")
+    for a,arr in zip(alphas,ab_lnBF_by_alpha):
+        if arr:
+            q=sorted(arr); m=q[int(round(0.5*(len(q)-1)))]
+            q10=q[int(round(0.1*(len(q)-1)))]; q90=q[int(round(0.9*(len(q)-1)))]
+            line(f"  alpha={a}: median={m:.3f} | 10%..90%={q10:.3f}..{q90:.3f}")
+    line("")
+    # P1 blocks
+    line("P1 (classic) — XOR dyadic hits via CI-coverage proxy:")
+    line(f"  blocks={len(xor_recs)} | hits={obs_total} (tiny≤1/256: {obs_tiny}) | λ≤{fmt_num(lam)} | Poisson tail≤{fmt_num(pois_tail(obs_total, max(1e-12,lam)))}")
+    if obs_tiny>0:
+        line(f"  tiny-only: λ≤{fmt_num(lam_tiny)} | Poisson tail≤{fmt_num(pois_tail(obs_tiny, max(1e-12,lam_tiny)))}\n")
+    # P1++ clusters
+    line("P1++ (cluster-robust) — datasets as units (union-bound tail):")
+    line(f"  clusters={len(clusters)} | obs_total={obs_clust_total} | obs_tiny={obs_clust_tiny} | tail total≤{fmt_num(tail_total)} | tail tiny≤{fmt_num(tail_tiny)}\n")
+    # Registry fusion brief
+    line("Registry Fusion:")
+    line(f"  registry fractions: {s.get('total_unique_fractions','?')} | overlap with quantum ledger: {len(hits)}")
+    line(f"  MDL mismatches: {len(mdls_mismatch)} | Decimal mismatches: {len(decimals_mismatch)}")
+    # Sector tests brief
+    line("\n(See notebook prints above for sector test details.)\n")
+    with open(os.path.join(root,"EXEC_SUMMARY.txt"),"w") as f: f.write(exec_txt.getvalue())
+
+    # Zip for others
+    zip_path=os.path.join(root.replace("/mnt/data/","/content/")+".zip")
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+        for fn in os.listdir(root):
+            z.write(os.path.join(root,fn), arcname=fn)
+
+    # Expose: copy essential artifacts to /content
+    for fn in os.listdir(root):
+        src=os.path.join(root,fn); dst=os.path.join(expose,fn)
+        with open(src,"rb") as fsrc, open(dst,"wb") as fdst:
+            fdst.write(fsrc.read())
+
+    # ======= Print artifacts dir listing + previews =======
+    print(f"Artifacts saved in: {root}")
+    print(f"Exposed link: {expose}")
+    print(f"ZIP copied to: {zip_path}\n")
+
+    print("=== [DIR LISTING] ===")
+    sizes=[]
+    for fn in sorted(os.listdir(root)):
+        fp=os.path.join(root,fn); sz=os.path.getsize(fp)
+        sizes.append((fn,sz))
+        print(f" - {fn:<24} {sz:,} bytes")
+    # Hash a couple of key files
+    def sha256_of(path):
+        h=hashlib.sha256()
+        with open(path,"rb") as f:
+            while True:
+                b=f.read(65536)
+                if not b: break
+                h.update(b)
+        return h.hexdigest()
+    key_files=["locks.jsonl","rosetta.json","quantum_ledger.json","EXEC_SUMMARY.txt","registry_embedded_v2.json","evidence_ab.csv"]
+    for kf in key_files:
+        p=os.path.join(root,kf)
+        if os.path.exists(p):
+            print(f"[hash] {kf}  SHA256={sha256_of(p)}")
+
+    # Print EXEC_SUMMARY preview
+    print("\n[preview] EXEC_SUMMARY.txt")
+    print("-"*80)
+    with open(os.path.join(root,"EXEC_SUMMARY.txt"),"r") as f:
+        print(f.read())
+
+    # Print a small slice of evidence_ab.csv
+    print("[preview] evidence_ab.csv (first 10 rows)")
+    try:
+        with open(os.path.join(root,"evidence_ab.csv"),"r") as f:
+            for i,line in enumerate(f):
+                if i>10: break
+                print(line.rstrip("\n"))
+    except Exception as e:
+        print("(could not read evidence_ab.csv:", e, ")")
+
+    print("✅ DONE — Everything printed above; Registry V2 fused in (embedded).")
+
+# =============================== Run ===============================
+if __name__ == "__main__":
+    process_all()
