@@ -1,3 +1,4 @@
+Important: The code explicitly downloads and processes three .xlsx files from the NIST (National Institute of Standards and Technology) Bell test data archive. Check QLRE V11.txt (code that shows files) and v11 output.md (output from the code)
 # Megacell v13.13.9-onecell-megacell++++ — Run Artifacts
 This folder contains a full audit trail: config & environment, ledger registry and hashes, and per-section CSV/JSON outputs.
 
