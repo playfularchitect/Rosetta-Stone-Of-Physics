@@ -1,0 +1,16 @@
+Two-Shell α — Master Cell summary
+Quadrature: gl, NKAPPA=256, NPHI=256, mp.dps=80
+Denominator sum_NB_cos2 = 6210 (raw 6209.999999999871)
+Row-sum witnesses (∑_{NB} cosθ per source-type) ~ 1.0:
+  49_007   : +0.999999999999998
+  49_236   : +1.000000000000001
+  50_017   : +1.000000000000000
+  50_055   : +1.000000000000001
+  50_345   : +1.000000000000006
+
+Continuum c_Pauli (numerical) = +0.001530870559
+alpha^-1 (continuum)        = 137.000011174238
+
+Rigorous lattice–continuum bracket [1, π^2/4]:
+  c_Pauli ∈ [0.001530870559, 0.003777271701]
+  alpha^-1 ∈ [137.000011174238, 137.000027571326]
