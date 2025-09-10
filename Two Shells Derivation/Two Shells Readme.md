@@ -5,6 +5,12 @@ This folder contains the *artifact-complete* two-shell derivation documents, cod
 
 Colab Verifier: https://colab.research.google.com/drive/1y-r8FuK-SknMRiHMJoySK6RIZR2OB-SL?usp=sharing
 
+OSF: 
+https://osf.io/zuy8c/
+
+https://osf.io/pwur5/
+
+
 **Key numbers (recomputed):**
 - \(c_{\rm Pauli} = 0.0015308705589210\)
 - \(\alpha^{-1} = 137.000011174238\)
