@@ -1,0 +1,48 @@
+# 5-Shell Note — Scope, Status, and How It Fits
+
+**What this is.** `5shell.pdf` is a *working theory note* that documents multi-sector extensions to the two-shell framework (center-holonomy / non-abelian contributions, running ledger, and geometry-robustness checks). It is meant to **motivate** and **explain** terms that go beyond the baseline abelian Pauli-kernel computation.
+
+**What it is *not*.** It is **not** the reproducer for the currently released Pauli-only number. The public, methods-complete, reproducible pipeline for the two-shell Pauli result remains the “Master Output/Code Cell” + artifacts in this repo (`angles_*.csv`, `denominator.json`, `pauli_integrals.json`, `pauli_tilewise_bounds.json`, `alpha_prediction.txt`) and the disk-only verifier (`Wesley_VERIFY_README.md`, `verify_summary.json`, `SHA256SUMS.txt`).
+
+---
+
+## Relationship to the Baseline Release
+
+- **Baseline (Pauli-only, abelian):**  
+  Deterministic map  
+  `angles → locked denominator (Σ NB·cos²θ = 6210) → multiplicity-weighted Pauli integrals → c_Pauli → α⁻¹ = 137 + c_Pauli/137`,  
+  shipped with certified intervals and a disk-only verification script.  
+  *This is the number you can reproduce today.*
+
+- **This note (multi-sector, non-abelian extensions):**  
+  Documents center-symmetric “corner” projections (SU(2), SU(3), …), their **parameter-free** contributions, cross-lattice robustness (SC/FCC/BCC style checks), and how these feed a **running ledger** of additional terms.  
+  *These pieces are theory-complete on paper and will be integrated into code in a later release.*
+
+---
+
+## Contents at a Glance (what `5shell.pdf` covers)
+
+- Derivation of **center-holonomy corner projections** and their mapping into the same `c`-normalization used by the Pauli pipeline.  
+- **Running ledger**: how SU(2), SU(3), … center pieces add (sign and magnitude), with clear separation from the abelian Pauli term.  
+- **Geometry-robustness** checks (cross-lattice arguments) indicating these center terms are not artifacts of a particular integer shell embedding.  
+- Discussion of **gauge/rotation invariants** that justify using these contributions in the same ratio structure that defines `c`.
+
+---
+
+## Claims vs. Non-Claims
+
+- ✅ **Claimed here:** a self-contained mathematical derivation for each added center term, and a coherent scheme for aggregating them in a running ledger compatible with the Pauli normalization.  
+- ❌ **Not claimed here:** that the combined (Pauli + multi-sector) prediction equals CODATA. Agreement/disagreement remains an empirical question; this note is about the *derivation* and *structure* of the added terms.  
+- 🔬 **To be tested publicly:** uniqueness/ablation of the specific shell geometry under a stated isotropy criterion; full code integration of the non-abelian terms; and end-to-end certified intervals including these additions.
+
+---
+
+## How to Use This Note Today
+
+1. **Reproduce the baseline** with the shipped artifacts (see `Wesley_VERIFY_README.md`). This validates the locked denominator, the Pauli integrals, and the reported intervals without any long runs.  
+2. **Read `5shell.pdf`** to understand where the *additional* (non-abelian) contributions come from, how they are normalized, and how they will be plugged into the same ratio architecture.  
+3. **Track the ledger**: until the corresponding code is published, treat ledger additions from this note as *documented theoretical inputs* that are pending code-level certification.
+
+---
+
+
