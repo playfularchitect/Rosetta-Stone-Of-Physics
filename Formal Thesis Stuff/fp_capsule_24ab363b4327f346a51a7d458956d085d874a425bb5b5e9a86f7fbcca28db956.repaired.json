@@ -1,0 +1,124 @@
+{
+  "created_utc": "2025-09-13T11:39:43Z",
+  "environment": {
+    "decimal_prec": 220,
+    "platform": "Linux-6.1.123+-x86_64-with-glibc2.35",
+    "python": "3.12.11"
+  },
+  "inline_heads": {
+    "ckm_headline.v1": {
+      "sha256": "6aba6e62a9b3fba1dd35d13d79e77baeac9d86a78cd27640beade87853e403be"
+    },
+    "cosmic_bit_budget.v1": {
+      "sha256": "8ea19dd6847d2f167c97b3b762faef73c62fbfab106af471e7a9c23640530114"
+    },
+    "registry_freeze.v1": {
+      "sha256": "3fe8a9b794d5f8000d9bb8a846b3bce17acfd2becd6fe95ac02d25ca54a2a1bd"
+    }
+  },
+  "leaves": [
+    {
+      "content_len": 584,
+      "content_sha": "3fe8a9b794d5f8000d9bb8a846b3bce17acfd2becd6fe95ac02d25ca54a2a1bd",
+      "label": "registry_freeze.v1"
+    },
+    {
+      "content_len": 123,
+      "content_sha": "6aba6e62a9b3fba1dd35d13d79e77baeac9d86a78cd27640beade87853e403be",
+      "label": "ckm_headline.v1"
+    },
+    {
+      "content_len": 696,
+      "content_sha": "8ea19dd6847d2f167c97b3b762faef73c62fbfab106af471e7a9c23640530114",
+      "label": "cosmic_bit_budget.v1"
+    },
+    {
+      "content_len": 2088,
+      "content_sha": "0c40bda239b71428888da4380965debc401498aa0bee5c5095dc8c6abf743486",
+      "label": "irrational_audit_file:/content/fraction_physics_dlc/irrational_audit/irrational_audit_0c40bda239b71428888da4380965debc401498aa0bee5c5095dc8c6abf743486.json"
+    }
+  ],
+  "merkle_root_sha256": "25dc5fdbb7b52466b5d2353ff26ed8e05f8eaadfaef7b459d1223ee7f8ae1897",
+  "notes": {
+    "ckm_equalities": {
+      "sin2beta": "119/169",
+      "|Vcb|": "28/675",
+      "|Vtd|^2/|Vts|^2": "169/4050"
+    },
+    "cosmo_identity": "Bits_holo == Bits_Landauer_tot exactly (de Sitter).",
+    "irrational_witness_hint": "Set of files produced by the Irrational Audit brick; each included by path+hash."
+  },
+  "registry_frozen": {
+    "CKM": {
+      "A": {
+        "p": "21",
+        "q": "25"
+      },
+      "etabar": {
+        "p": "7",
+        "q": "20"
+      },
+      "lambda": {
+        "p": "2",
+        "q": "9"
+      },
+      "rhobar": {
+        "p": "3",
+        "q": "20"
+      }
+    },
+    "Cosmology": {
+      "H0_km_s_Mpc": {
+        "p": "337",
+        "q": "5"
+      },
+      "Omega_L": {
+        "p": "137",
+        "q": "200"
+      },
+      "Omega_b_over_Omega_c": {
+        "p": "14",
+        "q": "75"
+      },
+      "Omega_m": {
+        "p": "63",
+        "q": "200"
+      }
+    },
+    "Neutrino": {
+      "R21over31": {
+        "p": "2",
+        "q": "65"
+      }
+    },
+    "PMNS": {
+      "delta_symbolic": {
+        "symbolic": "-pi/2"
+      },
+      "sin2_th12": {
+        "p": "7",
+        "q": "23"
+      },
+      "sin2_th13": {
+        "p": "2",
+        "q": "89"
+      },
+      "sin2_th23": {
+        "p": "9",
+        "q": "16"
+      }
+    },
+    "RareDecay": {
+      "Pc": {
+        "p": "2",
+        "q": "5"
+      },
+      "Xt": {
+        "p": "37",
+        "q": "25"
+      }
+    }
+  },
+  "schema": "1.1",
+  "spec": "FractionPhysics/capsule.v1"
+}

@@ -1,0 +1,1 @@
+{"help":"Load capsule JSON, recompute merkle_root from listed leaves, compare.","merkle_rule":{"leaf":"sha256(b'LEAF'||sha256(content)||sha256(label))","node":"sha256(b'NODE'||left||right)","odd":"duplicate last"},"spec":"FractionPhysics/capsule_verifier.v1"}
