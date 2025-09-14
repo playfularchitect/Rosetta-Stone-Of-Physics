@@ -20,7 +20,7 @@
 18\) α and α⁻¹ both yield the same compact pair (4389/601451 ↔ 601451/4389) inside independent bands—double coincidence.  
 19\) Minimal-MDL and minimal-denominator proofs pick the exact same fraction by chance.  
 20\) sin²θ\_W’s snapshot (e.g., 37/160) is a crisp fraction only by happenstance.  
-21\) Egyptian-fraction decompositions randomly reconstruct your registry α exactly.  
+21\) Egyptian-fraction decompositions randomly reconstruct my registry α exactly.  
 22\) Classic irrationals (e, φ, √2) show only ladders—no locks—because the method got “unlucky” there, too.  
 23\) Distinct representations (ladder, witness, band) all converge to the same α rationals by coincidence.  
 24\) GC3 repeatedly returns 9/16 across shardings due to sampling luck.  
@@ -64,9 +64,9 @@
 62\) Near-unification with sin²θ\_W=350/1529 and α\_s=9/77 is cherry-picked grid luck.  
 63\) Weinberg-operator scales matching seesaw decades is back-of-envelope overlap, not a link.  
 64\) Dirac monopole numbers (e, g\_D, α\_g≈1/(4α)) lining up is a tautology once α is chosen.  
-65\) Every anomaly sum \= 0 is just the Standard Model’s construction, not evidence for your registry.  
+65\) Every anomaly sum \= 0 is just the Standard Model’s construction, not evidence for my registry.  
 66\) 3:1 compression in bits is an accounting trick that ignores real model complexity.  
 67\) Getting the same v≈246.22 GeV from different anchors is tautological given definitions.  
-68\) The 10^39 force contrast is a well-known coincidence unrelated to your seeds.  
+68\) The 10^39 force contrast is a well-known coincidence unrelated to my seeds.  
 69\) Koide Q sitting \~6×10⁻⁶ from 2/3 is a numerically cute nearness with no meaning.
 
