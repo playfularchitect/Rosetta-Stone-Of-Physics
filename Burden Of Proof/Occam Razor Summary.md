@@ -31,7 +31,7 @@ It must be \*\*logically sound\*\*, \*\*internally consistent\*\*, \*\*externall
 
 I have met each requirement:
 
-\- \*\*Logic & Axioms:\*\* I state a rational, relational universe built from small exact fractions/ratios.
+\- \*\*Logic & Axioms:\*\* I state a rational, relational universe represented mathematically with small exact fractions/ratios.
 
 \- \*\*Internal Consistency:\*\* Proven via the \*\*Ledger Chain\*\*—the same seed registry reproduces all stated identities.
 
