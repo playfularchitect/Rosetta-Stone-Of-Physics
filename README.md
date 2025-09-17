@@ -26,7 +26,7 @@ For people about the money (Demo Site): https://FractionPhysics4Money.abacusai.a
 If you fix a single ruler \(v\) and store the Standard Model snapshot as exact fractions, you can reproduce real observables with basic arithmetic. Don’t like the philosophy? Fine. The math is the math. Either break the numbers or accept that a big slice of your field compresses to ratios.
 
 **Verify in under a minute**  
-Open `verification_deck_tex.pdf`. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. No code required; just arithmetic with the provided ratios.
+Open `verification_deck_v2.pdf`. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. No code required; just arithmetic with the provided ratios.
 
 **Core artifacts (this repo)**  
 Code lives in `mathoracle4(finalcell).py`.  
