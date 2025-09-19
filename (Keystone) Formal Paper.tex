@@ -173,6 +173,57 @@ Anisotropy: \(Q_\perp\neq 0\Rightarrow\|PUQ_\perp U^\top P\|_F>0\) but \(\langle
 Miscaled \(\ell=1\): Rayleigh gap \(|\lambda-(d-1)^{-1}|\).
 Ward off: \(W(\mathsf{K})=\|\mathsf{K}-P\mathsf{K}P\|_F>0\).
 Therefore, within the stated axioms and observable, \(\alpha\) is unshiftable.
+\begin{lemma}[Exact NB-hole Frobenius gap]\label{lem:NBhole-gap}
+Let $S$ be antipodally closed with $|S|=d$ and let $G$ be the cosine kernel $G_{s,t}=\hat s\!\cdot\!\hat t$.
+Let $G^{\mathrm{hole}}$ be the NB-hole version obtained by zeroing each antipodal entry:
+\[
+(G^{\mathrm{hole}})_{s,t}=\begin{cases}
+0,& t=-s,\\
+G_{s,t},& t\neq -s.
+\end{cases}
+\]
+Then, with $P=I-\frac{1}{d}\mathbf{1}\mathbf{1}^\top$,
+\[
+\bigl\|\,P\,(G^{\mathrm{hole}}-G)\,P\,\bigr\|_F \;=\; \sqrt{d-1}\,.
+\]
+In particular, $\bigl\|\,P(G^{\mathrm{hole}}-G)P\,\bigr\|_F \ge 1$ for all $d\ge 2$.
+\end{lemma}
+
+\begin{proof}
+Define the difference $\Delta:=G^{\mathrm{hole}}-G$. By construction, $\Delta_{s,t}=0$ unless $t=-s$, and for $t=-s$ we have
+\(
+\Delta_{s,-s}=-(\hat s\!\cdot\!(-\hat s))=1.
+\)
+Thus $\Delta$ is exactly the antipodal swap matrix $S$:
+\[
+(\!Sf\!)(s)=\sum_{t}\Delta_{s,t}f(t)=f(-s),\qquad \Delta=S.
+\]
+This $S$ is a symmetric involutive permutation matrix: $S^\top=S$, $S^2=I$, and $S\mathbf{1}=\mathbf{1}$. Since $S$ fixes $\mathbf{1}$, it commutes with $P$:
+\(
+SP=PS
+\)
+(because $S(\mathbf{1}\mathbf{1}^\top)=\mathbf{1}\mathbf{1}^\top$).
+Hence
+\[
+\|P\Delta P\|_F^2=\mathrm{tr}\!\bigl((P S P)^2\bigr)
+=\mathrm{tr}\!\bigl(P S P S P\bigr)
+=\mathrm{tr}\!\bigl(P S^2 P\bigr)
+=\mathrm{tr}(P)=d-1,
+\]
+where we used $SP=PS$ and $S^2=I$. Taking square roots gives the claim.
+\end{proof}
+
+\begin{corollary}[Scaled kernel gap]\label{cor:scaled-gap}
+With $K_1=\frac{1}{d-1}G$ and $K_1^{\mathrm{hole}}=\frac{1}{d-1}G^{\mathrm{hole}}$,
+\[
+\bigl\|\,P(K_1^{\mathrm{hole}}-K_1)P\,\bigr\|_F
+=\frac{1}{d-1}\,\bigl\|\,P(G^{\mathrm{hole}}-G)P\,\bigr\|_F
+=\frac{1}{\sqrt{\,d-1\,}}
+\;\ge\;\frac{1}{d-1}.
+\]
+Thus any NB hole produces a nonzero, explicitly bounded witness on the centered subspace.
+\end{corollary}
+
 
 \section{Ten-Minute Reproducibility Checklist (Exact Arithmetic)}
 \begin{enumerate}
