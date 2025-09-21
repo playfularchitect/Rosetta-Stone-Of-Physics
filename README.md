@@ -51,7 +51,7 @@ A small set of just four rational numbers is shown to lock the entire CKM and PM
 
 The same principle is applied to the cosmic scale. A few simple fractions for the universe's energy budget and expansion rate are shown to derive the complete set of standard background cosmological parameters.
 
-* **Supporting Paper:** **[`Math Checks/Cosmology Ledger.pdf`](./MathChecks/CosmologyLedger.pdf)**
+* **Supporting Paper:** **[`Math Checks/Cosmology Ledger.pdf`](./MathChecks/Cosmology Ledger.pdf)**
 
 ---
 
