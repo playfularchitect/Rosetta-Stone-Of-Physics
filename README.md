@@ -1,67 +1,77 @@
-# Rosetta-Stone-Of-Physics
-Even if you dont agree with my logic, the math is math. Either show an inconsistency or join the team.
-Reality is not built from “stuff,” but from the endless oscillation of paradox within infinite...nothing and something flipping to define each other.
+# Rosetta Stone of Physics
 
-TL:Dr: 
-Compression ratio: ~10⁹ possible fractions searched, yet the best fit for every constant needs only 7-digit integers.
-•  Residuals: every one < 1 σ, several < 0.3 σ. That’s wildly unlikely if the true values were “generic” irrationals.
-•  Predictive edge: g-2 (FNAL 2024, 1.2 σ tension erased), Lamb shift, Λ already post-dicted within new data, plus a pending α_s shift.
-DO NOT hang your skepticism on the wrong hook please.
-Whether or not there is a fancy manifold behind the curtain (there is check theory section please), the raw fact that 19 rational numbers with ≤ 7 digit denominators sit inside every experimental bound to < 1 σ is itself a jaw dropping regularity. 
+A framework showing that the fundamental constants of nature are governed by a small set of simple, exact rational numbers. This repository contains the papers, data, and code that form the complete, verifiable evidence for this claim.
 
-Theoretical framework that predicts the 19 rational numbers before any brute force fit. Check medium articles and dates released. The brute force step is merely selecting the minimal integers consistent with that analytic derivation.
+---
 
-In the Code and Output Folder there is a Ledger Code stuff Folder that contains:
+## ▶️ Run the Live Verification
 
-Hard, mathematical evidence that the fundamental constants are not a random collection of numbers, but are instead interconnected parts of a single, underlying algebraic architecture.
+Open the Google Colab notebook below to run the main verification script. It will reproduce the key tables and results from the mathoracle4(finalcell).py.(The cell used in this repo is all the way at the bottom when you open its colab link. All the other cells are my iterations that you are free to look through!)  No setup is required.
+
+**[► Click Here to Run the Live Verification (Google Colab)](https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing)**
+
+---
+
+## ## The Three Pillars of Evidence
+
+The evidence for this framework is built on three distinct, interlocking pillars.
+
+### 💎 Pillar 1: First-Principles Derivation of the Fine-Structure Constant
+
+The flagship paper demonstrates a derivation of the fine-structure constant ($\alpha$) from a discrete geometric structure with no free parameters, yielding **$\alpha^{-1} \approx 137.03600058$**.
+
+* **(OSF):** [https://osf.io/942ft/](https://osf.io/942ft/)
+* **Supporting Code (Verify Papers Conclusions), (Colab):** (https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing)
+
+### 🕸️ Pillar 2: An Interlocking Model of Particle Physics
+
+A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. This single lock simultaneously predicts dozens of independent observables in tight agreement with experimental data. See math checks and physics to fractions folders!
+
+### 🌌 Pillar 3: A Rational Framework for Cosmology
+
+The same principle is applied to the cosmic scale. A few simple fractions for the universe's energy budget and expansion rate are shown to derive the complete set of standard background cosmological parameters. See math checks and physics to fractions folders!
+
+---
+
+## ## Navigating This Project
+
+### How to Verify the Interlocking (10 Minutes, No Code Required)
+
+Open **`verification_deck_v2.pdf`**. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. All you need is a calculator.
+
+Core Artifacts in this Repository
+
+Keystone Master Paper: Contains the complete, first-principles derivation of the fine-structure constant (Keystone Master Paper.pdf).
+
+Original Code: The main script lives in mathoracle4(finalcell).py.
+
+Full Output Log: A complete output from a full run can be found in mindmelt_output_20250823-020454.txt.
+
+Methodology: The "How to do math with fractions" guide is in the Physics To Fractions folder.
+
+Proof Pack: A compact, human-readable proof pack lives in verification_deck_v2.pdf.
 
 
-OSF LINK:https://osf.io/56fpm/
-Demo Webpage: https://fractionphysicsv1.abacusai.app/ckm
-# Rosetta-Stone-Of-Physics
 
-For people about the money (Demo Site): https://FractionPhysics4Money.abacusai.app
+---
 
-**Claim**  
-If you fix a single ruler \(v\) and store the Standard Model snapshot as exact fractions, you can reproduce real observables with basic arithmetic. Don’t like the philosophy? Fine. The math is the math. Either break the numbers or accept that a big slice of your field compresses to ratios.
+## ## Further Reading & Rationale
 
-**Verify in under a minute**  
-Open `verification_deck_v2.pdf`. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. No code required; just arithmetic with the provided ratios.
+If you want the story and the intuition behind the foundational axioms, the Medium articles provide a deep dive:
 
-**Core artifacts (this repo)**  
-Code lives in `mathoracle4(finalcell).py`.  
-Outputs from a full run live in `mindmelt_output_20250823-020454.txt`.  
-“How to do math with fractions” lives in the `Physics To Fractions` folder.  
-A compact, human-readable proof pack lives in `verification_deck_tex.pdf`.
+* [Paradox Dynamics](https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2)
+* [Topological Inversion](https://medium.com/@ewesley541/topological-inversion-as-the-origin-of-fundamental-constants-9d9f4dc98f0c)
+* [The Adventures of Unmath](https://medium.com/@ewesley541/the-adventures-of-unmath-volume-1-77042fd7cbe4)
+* [The Universe's Simple Building Plan](https://medium.com/@ewesley541/the-universes-simple-building-plan-a-new-way-to-see-reality-d9395744893c)
+* [Epic of Evan](https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d)
+* [This Sentence is a Circle](https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2)
 
-Foundational Axioms from Theory section are distilled into 5 easy principles.
-(Keystone Master Paper.Pdf contains a first principles derivation of the fine structure constant. 
-Master Paper OSF: https://osf.io/942ft/
-Master Paper Colab Supporting Code: https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing
-**Run it live (Colab)**  
-The most recent one-cell runner is at the link below. Open it, run from top to bottom, and compare printed tables with the PDF deck.  
-https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing
+---
 
-**Long-form rationale**  
-If you want the story and the intuition, start here and pick your path:
-https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2  
-https://medium.com/@ewesley541/topological-inversion-as-the-origin-of-fundamental-constants-9d9f4dc98f0c  
-https://medium.com/@ewesley541/the-adventures-of-unmath-volume-1-77042fd7cbe4  
-https://medium.com/@ewesley541/the-universes-simple-building-plan-a-new-way-to-see-reality-d9395744893c  
-https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d  
-https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2
+## ## License & Citation
 
-Math Checks folder contains Fraction Physics applied to multiple problems. 
+* **Code:** All code (`.py`, `.ipynb`, etc.) is licensed under the **MIT License**.
+* **Content:** All papers, text, and non-code assets are licensed under **CC BY 4.0**.
 
-Fraction Physics applied to Neural Networks: https://github.com/playfularchitect/Fraction-Neural-NetworkV2.git
-
-**License & contact**  
-NOTICE & LICENSES (Code = MIT, Content = CC BY 4.0)  
-Project: Reality Encoded  
-Copyright: © 2025 Evan Wesley, The Smartest Idiot Alive  
-Contact: ewesley541@gmail.com
-
-This repository uses a dual-license split. Code (everything under `/src`, `/code`, `/scripts`, notebook code cells, and files like `.py`, `.js`, `.ts`, `.cpp`, `.ipynb` when used as code) is MIT-licensed.  
-Non-code content (papers, LaTeX, PDFs, figures, drafts, diagrams, text in notebooks) is Creative Commons Attribution 4.0 International (CC BY 4.0).  
-Recommended attribution: “Reality Encoded — © 2025 Evan Wesley, The Smartest Idiot Alive, licensed under CC BY 4.0.”  
-If a folder contains a different license file, that folder’s license takes precedence for its contents.
+**Recommended Attribution:** "Rosetta Stone of Physics" by Evan Wesley,The Smartest Idiot Alive licensed under CC BY 4.0.
+**Contact:** ewesley541@gmail.com
