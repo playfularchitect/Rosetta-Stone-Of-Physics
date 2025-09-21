@@ -4,7 +4,7 @@ This folder contains the core scripts used to generate the evidence for the "Ros
 
 ## Primary Script: `MathOracle4.ipynb` (The "Mindmelt" Runner)
 
-This code is the central computational engine of the project. Its purpose is to take a hardcoded **"registry"** of 19 fundamental constants, proposed as exact rational numbers, and use them to calculate a comprehensive array of observables across the Standard Model and cosmology.
+This code is the original computational engine of the project. Its purpose is to take a hardcoded **"registry"** of 19 fundamental constants, proposed as exact rational numbers, and use them to calculate a comprehensive array of observables across the Standard Model and cosmology.
 
 The script is a self-contained "verification deck" in code form, demonstrating the interlocking nature of the framework.
 
