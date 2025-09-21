@@ -63,34 +63,42 @@ This project is organized into several key directories:
 * **`/Math Checks`**: Contains the collection of papers applying the rational framework to specific domains of physics (CKM, Cosmology, Black Holes, etc.).
 * **`/Code and Output`**: The heart of the project's computational evidence.
     * **`/MathOracle`**: Contains the `MathOracle4.ipynb` script (the "Mindmelt" engine) and its full output, demonstrating the predictive power of the 19-fraction registry.
-    * **`/QRLF (Quantum Rational Lock Finder)`**: Contains the "megacell" statistical suite, a powerful set of tools for testing the "rational lock" hypothesis with rigorous statistical methods like Bayesian model comparison and Monte Carlo simulations.
+    * **`/QRLF (Quantum Rational Lock Finder)`**: Contains the "megcell" statistical suite, a powerful set of tools for testing the "rational lock" hypothesis with rigorous statistical methods like Bayesian model comparison and Monte Carlo simulations.
 * **`/Rosetta Stone V2 Ledger Fractions`**: Contains the various versions of the "Master Ledger" of rational numbers that form the basis of the framework.
 * **`/Burden Of Proof`**: Contains documents laying out the logical case for the framework based on principles like Occam's Razor.
-/Physics To Fractions: Contains the guides and worked examples for applying the rational-first methodology. This is where you can learn how to translate standard physics problems into the rational framework. Key documents include:
+* **`/Physics To Fractions`**: Contains the guides and worked examples for applying the rational-first methodology. This is where you can learn how to translate standard physics problems into the rational framework.
 
-FractionalActional.pdf: The core paper formalizing a version of the Standard Model where all parameters are exact rational numbers.
-
-DLCpacks1thru10.pdf & SchrodingersFractions.pdf: Practical "DLC packs" with recipes and fully worked examples for applying the method to core physics concepts, from QED to quantum mechanics.
-
-CosmicBitBalanceSheet.pdf & AnnieAreYouOk.pdf: Demonstrations of the framework's cross-disciplinary power, applying the rational-first approach to cosmology and thermodynamics.
 ---
+
 ## How It Works: The "Physics to Fractions" Methodology
-This framework is more than just a list of results; it's a complete, transportable methodology for re-casting physical laws in terms of simple, rational numbers. The Physics To Fractions folder contains the core documents that explain and demonstrate this process.
 
-The Fractional Action Principle: The core of the methodology is laid out in FractionalActional.pdf. This paper formalizes a version of the Standard Model where all parameters are exact rationals.
+This framework is more than just a list of results; it's a complete, transportable methodology for re-casting physical laws in terms of simple, rational numbers. The `Physics To Fractions` folder contains the core documents that explain and demonstrate this process.
 
-"DLC Packs" & Worked Examples: For a practical guide on how to apply this method, see the "DLC Packs." These are short, focused modules that provide the recipes and rational locks for specific areas of physics. Key examples include:
+* **The Fractional Action Principle:** The core of the methodology is laid out in **`FractionalActional.pdf`**. This paper formalizes a version of the Standard Model where all parameters are exact rationals.
 
-DLCpacks1thru10.pdf: Covers core concepts in QED, QCD, Thermo, and more.
+* **"DLC Packs" & Worked Examples:** For a practical guide on how to apply this method, see the "DLC Packs." These are short, focused modules that provide the recipes and rational locks for specific areas of physics. Key examples include:
+    * **`DLCpacks1thru10.pdf`**: Covers core concepts in QED, QCD, Thermo, and more.
+    * **`SchrodingersFractions.pdf`**: Provides fully worked examples for applying the method to quantum mechanics, from the infinite square well to the harmonic oscillator.
 
-SchrodingersFractions.pdf: Provides fully worked examples for applying the method to quantum mechanics, from the infinite square well to the harmonic oscillator.
+* **Cross-Disciplinary Applications:** The framework is not limited to particle physics. Other papers show its application to diverse fields, demonstrating its potential as a universal principle:
+    * **`CosmicBitBalanceSheet.pdf`**: Applies the rational ledger to cosmology, framing the universe's entropy in terms of bits.
+    * **`AnnieAreYouOk.pdf`**: A paper titled "Water for Physicists" that applies the "fraction-first" approach to thermodynamics and fluid dynamics.
 
-Cross-Disciplinary Applications: The framework is not limited to particle physics. Other papers show its application to diverse fields, demonstrating its potential as a universal principle:
+---
+---
 
-CosmicBitBalanceSheet.pdf: Applies the rational ledger to cosmology, framing the universe's entropy in terms of bits.
+## Further Reading & Rationale
 
-AnnieAreYouOk.pdf: A paper titled "Water for Physicists" that applies the "fraction-first" approach to thermodynamics and fluid dynamics.
+If you want the story and the intuition behind the foundational axioms, the Medium articles provide a deep dive:
 
+* [Paradox Dynamics](https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2)
+* [Topological Inversion](https://medium.com/@ewesley541/topological-inversion-as-the-origin-of-fundamental-constants-9d9f4dc98f0c)
+* [The Adventures of Unmath](https://medium.com/@ewesley541/the-adventures-of-unmath-volume-1-77042fd7cbe4)
+* [The Universe's Simple Building Plan](https://medium.com/@ewesley541/the-universes-simple-building-plan-a-new-way-to-see-reality-d9395744893c)
+* [Epic of Evan](https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d)
+* [This Sentence is a Circle](https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2)
+
+---
 ## License & Citation
 
 * **Code:** All code (`.py`, `.ipynb`, etc.) is licensed under the **MIT License**.
