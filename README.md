@@ -1,66 +1,71 @@
 # Rosetta Stone of Physics
 
-A framework showing that the fundamental constants of nature are governed by a small set of simple, exact rational numbers. This repository contains the papers, data, and code that form the complete, verifiable evidence for this claim.
+This repository contains the complete body of work for a framework showing that the fundamental constants of nature are governed by a small set of simple, exact rational numbers. It includes the foundational papers, the complete mathematical ledgers, all verification code, and the full outputs of every analysis.
+
+This project is organized to be fully transparent, reproducible, and falsifiable.
 
 ---
 
-## ▶️ Run the Live Verification
+## ▶️ How to Verify This Framework
 
-Open the Google Colab notebook below to run the main verification script. It will reproduce the key tables and results from the `mathoracle4(finalcell).py` script.
+There are two paths for verification, depending on your technical level.
 
-(Note: The final, correct cell is at the bottom of the notebook. The other cells are previous iterations you are free to explore.) No setup is required.
+### 1. The 10-Minute Verification (No Code Required)
 
-**[► Click Here to Run the Live Verification (Google Colab)](https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing)**
+For a direct, non-computational check of the framework's core claims, please see the **Verification Deck**:
+
+* **[`Verification_deck_v2.pdf`](./Verification_deck_v2.pdf)**
+
+This document walks you through the arithmetic to verify the interlocking predictions for the electroweak sector, the Higgs boson, the Koide relation, and more, using only the project's core rational numbers and a calculator.
+
+### 2. The Live Code Verification (Google Colab)
+
+To reproduce the full computational results of the project, you can run the primary scripts directly in your browser using Google Colab. No setup is required.
+
+* **[► Run the Fine-Structure Constant Derivation](https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing)**
+    * This notebook contains the code from the flagship paper, deriving $\alpha^{-1} \approx 137.036$ from first principles.
+* **[► Run the "Mindmelt" Physics Engine](https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing)**
+    * This notebook, `MathOracle4`, takes the 19 core registry fractions and derives hundreds of observables across the Standard Model.
 
 ---
 
 ## The Three Pillars of Evidence
 
-The evidence for this framework is built on three distinct, interlocking pillars.
+The evidence for this framework is built on three distinct, interlocking pillars, each supported by the documents and code in this repository.
 
 ### 💎 Pillar 1: First-Principles Derivation of the Fine-Structure Constant
 
-The flagship paper demonstrates a derivation of the fine-structure constant ($\alpha$) from a discrete geometric structure with no free parameters, yielding **$\alpha^{-1} \approx 137.03600058$**.
+The flagship paper demonstrates a derivation of the fine-structure constant ($\alpha$) from a discrete geometric structure with no free parameters.
 
-* **OSF Paper Link:** [https://osf.io/942ft/](https://osf.io/942ft/)
-* **Supporting Code (Colab):** [https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing](https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing)
+* **Primary Paper:** **[`(Keystone)MasterPaper.pdf`](./(Keystone)MasterPaper.pdf)**
+* **Supporting Materials:** See the `Two Shells Derivation` folder.
 
 ### 🕸️ Pillar 2: An Interlocking Model of Particle Physics
 
-A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. This single lock simultaneously predicts dozens of independent observables in tight agreement with experimental data. (See the `Math Checks` and `Physics To Fractions` folders in this repository for details.)
+A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. This single lock simultaneously predicts dozens of independent observables in tight agreement with experimental data.
+
+* **Supporting Papers:** See the PDFs in the `Math Checks` folder (e.g., `CKMandPMS.pdf`, `Rare_Decay_Ledger.pdf`, `MuonG2 (1).pdf`).
+* **Primary Code:** See the `Code and Output/MathOracle` folder.
 
 ### 🌌 Pillar 3: A Rational Framework for Cosmology
 
-The same principle is applied to the cosmic scale. A few simple fractions for the universe's energy budget and expansion rate are shown to derive the complete set of standard background cosmological parameters. (See the `Math Checks` and `Physics To Fractions` folders.)
+The same principle is applied to the cosmic scale. A few simple fractions for the universe's energy budget and expansion rate are shown to derive the complete set of standard background cosmological parameters.
+
+* **Supporting Paper:** **[`Math Checks/Cosmology Ledger.pdf`](./MathChecks/CosmologyLedger.pdf)**
 
 ---
 
-## Navigating This Project
+## Navigating the Repository
 
-### How to Verify the Interlocking (10 Minutes, No Code Required)
+This project is organized into several key directories:
 
-Open **`verification_deck_v2.pdf`**. It walks through the checks directly from the fraction table: the VEV from \(M_W\), \(M_Z\) and \(M_H\) predictions, the collider-level \(H\to\tau\tau\) width and branching ratio, the custodial snapshot, hydrogen’s ground state, Koide, and anomaly cancellation. All you need is a calculator.
-
-### Core Artifacts in this Repository
-
-* **Keystone Master Paper:** Contains the complete, first-principles derivation of the fine-structure constant (`Keystone Master Paper.pdf`).
-* **Original Code:** The main script lives in `mathoracle4(finalcell).py`.
-* **Full Output Log:** A complete output from a full run can be found in `mindmelt_output_20250823-020454.txt`.
-* **Methodology:** The "How to do math with fractions" guide is in the `Physics To Fractions` folder.
-* **Proof Pack:** A compact, human-readable proof pack lives in `verification_deck_v2.pdf`.
-
----
-
-## Further Reading & Rationale
-
-If you want the story and the intuition behind the foundational axioms, the Medium articles provide a deep dive:
-
-* [Paradox Dynamics](https://medium.com/where-thought-bends/paradox-dynamics-30d0e7e768a2)
-* [Topological Inversion](https://medium.com/@ewesley541/topological-inversion-as-the-origin-of-fundamental-constants-9d9f4dc98f0c)
-* [The Adventures of Unmath](https://medium.com/@ewesley541/the-adventures-of-unmath-volume-1-77042fd7cbe4)
-* [The Universe's Simple Building Plan](https://medium.com/@ewesley541/the-universes-simple-building-plan-a-new-way-to-see-reality-d9395744893c)
-* [Epic of Evan](https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d)
-* [This Sentence is a Circle](https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2)
+* **`/Theory`**: Contains the foundational axioms and philosophical framework of the project.
+* **`/Math Checks`**: Contains the collection of papers applying the rational framework to specific domains of physics (CKM, Cosmology, Black Holes, etc.).
+* **`/Code and Output`**: The heart of the project's computational evidence.
+    * **`/MathOracle`**: Contains the `MathOracle4.ipynb` script (the "Mindmelt" engine) and its full output, demonstrating the predictive power of the 19-fraction registry.
+    * **`/QRLF (Quantum Rational Lock Finder)`**: Contains the "megacell" statistical suite, a powerful set of tools for testing the "rational lock" hypothesis with rigorous statistical methods like Bayesian model comparison and Monte Carlo simulations.
+* **`/Rosetta Stone V2 Ledger Fractions`**: Contains the various versions of the "Master Ledger" of rational numbers that form the basis of the framework.
+* **`/Burden Of Proof`**: Contains documents laying out the logical case for the framework based on principles like Occam's Razor.
 
 ---
 
@@ -68,6 +73,7 @@ If you want the story and the intuition behind the foundational axioms, the Medi
 
 * **Code:** All code (`.py`, `.ipynb`, etc.) is licensed under the **MIT License**.
 * **Content:** All papers, text, and non-code assets are licensed under **CC BY 4.0**.
+* **Full License Details:** See the `LICENSES` folder.
 
 **Recommended Attribution:** "Rosetta Stone of Physics" by Evan Wesley, The Smartest Idiot Alive, licensed under CC BY 4.0.
 **Contact:** ewesley541@gmail.com
