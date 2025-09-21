@@ -37,6 +37,7 @@ A compact, human-readable proof pack lives in `verification_deck_tex.pdf`.
 Foundational Axioms from Theory section are distilled into 5 easy principles.
 (Keystone Master Paper.Pdf contains a first principles derivation of the fine structure constant. 
 Master Paper OSF: https://osf.io/942ft/
+Master Paper Colab Supporting Code: https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing
 **Run it live (Colab)**  
 The most recent one-cell runner is at the link below. Open it, run from top to bottom, and compare printed tables with the PDF deck.  
 https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing
