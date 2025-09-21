@@ -63,7 +63,7 @@ This project is organized into several key directories:
 * **`/Math Checks`**: Contains the collection of papers applying the rational framework to specific domains of physics (CKM, Cosmology, Black Holes, etc.).
 * **`/Code and Output`**: The heart of the project's computational evidence.
     * **`/MathOracle`**: Contains the `MathOracle4.ipynb` script (the "Mindmelt" engine) and its full output, demonstrating the predictive power of the 19-fraction registry.
-    * **`/QRLF (Quantum Rational Lock Finder)`**: Contains the "megcell" statistical suite, a powerful set of tools for testing the "rational lock" hypothesis with rigorous statistical methods like Bayesian model comparison and Monte Carlo simulations.
+    * **`/QRLF (Quantum Rational Lock Finder)`**: Contains the "megacell (V13.13.9 Code/Output)" statistical suite, a powerful set of tools for testing the "rational lock" hypothesis with rigorous statistical methods like Bayesian model comparison and Monte Carlo simulations.
 * **`/Rosetta Stone V2 Ledger Fractions`**: Contains the various versions of the "Master Ledger" of rational numbers that form the basis of the framework.
 * **`/Burden Of Proof`**: Contains documents laying out the logical case for the framework based on principles like Occam's Razor.
 * **`/Physics To Fractions`**: Contains the guides and worked examples for applying the rational-first methodology. This is where you can learn how to translate standard physics problems into the rational framework.
