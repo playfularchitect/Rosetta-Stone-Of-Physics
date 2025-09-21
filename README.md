@@ -67,7 +67,17 @@ This project is organized into several key directories:
 * **`/Rosetta Stone V2 Ledger Fractions`**: Contains the various versions of the "Master Ledger" of rational numbers that form the basis of the framework.
 * **`/Burden Of Proof`**: Contains documents laying out the logical case for the framework based on principles like Occam's Razor.
 * **`/Physics To Fractions`**: Contains the guides and worked examples for applying the rational-first methodology. This is where you can learn how to translate standard physics problems into the rational framework.
+/Math Checks/Baseline control: Contains the code and analysis that serves as the "control group" for the entire project. This is where the core methodology of finding rational approximations for irrational numbers is developed and tested. Key components include:
 
+The "Megablockasaurus" Script: This is a self-contained statistical suite that demonstrates and validates the process of finding rational locks. It includes modules for analyzing continued fractions, using the Stern-Brocot tree to find optimal fractions within a given interval, and formal proofs of minimality for those fractions.
+
+The "Irrational Registry Engine": A powerful tool to bulk-generate high-precision values for a wide range of mathematical constants (like π, e,  
+2
+
+​
+ , etc.) and analyze their rational approximations. This serves as a baseline to show how the system behaves with known transcendental and irrational numbers.
+
+The "Composite Minimality Proofs": This is the most rigorous part of the control. It provides exhaustive proofs that a given rational number is the simplest possible one (in terms of bit complexity) that can be found within a given experimental uncertainty band. This is used to certify that the rational locks found are not arbitrary but are mathematically optimal.
 ---
 
 ## How It Works: The "Physics to Fractions" Methodology
