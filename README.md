@@ -67,6 +67,7 @@ This project is organized into several key directories:
 * **`/Rosetta Stone V2 Ledger Fractions`**: Contains the various versions of the "Master Ledger" of rational numbers that form the basis of the framework.
 * **`/Burden Of Proof`**: Contains documents laying out the logical case for the framework based on principles like Occam's Razor.
 * **`/Physics To Fractions`**: Contains the guides and worked examples for applying the rational-first methodology. This is where you can learn how to translate standard physics problems into the rational framework.
+
 /Math Checks/Baseline control: Contains the code and analysis that serves as the "control group" for the entire project. This is where the core methodology of finding rational approximations for irrational numbers is developed and tested. Key components include:
 
 The "Megablockasaurus" Script: This is a self-contained statistical suite that demonstrates and validates the process of finding rational locks. It includes modules for analyzing continued fractions, using the Stern-Brocot tree to find optimal fractions within a given interval, and formal proofs of minimality for those fractions.
@@ -108,6 +109,10 @@ If you want the story and the intuition behind the foundational axioms, the Medi
 * [Epic of Evan](https://medium.com/@ewesley541/epic-of-evan-a-pattern-based-threat-to-traditional-intelligence-cdc035da2b1d)
 * [This Sentence is a Circle](https://medium.com/@ewesley541/this-sentence-is-a-circle-1e7b68264ff2)
 
+
+Side Quests:
+(Demo Website) https://fractionphysics4money.abacusai.app/
+(Demo Website) https://fractionphysicsv1.abacusai.app/constants
 ---
 ## License & Citation
 
