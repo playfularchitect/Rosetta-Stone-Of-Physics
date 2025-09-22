@@ -6,7 +6,7 @@ This project is organized to be fully transparent, reproducible, and falsifiable
 
 ---
 
-## ▶️ How to Verify This Framework
+## ▶ How to Verify This Framework
 
 There are two paths for verification, depending on your technical level.
 
@@ -33,21 +33,21 @@ To reproduce the full computational results of the project, you can run the prim
 
 The evidence for this framework is built on three distinct, interlocking pillars, each supported by the documents and code in this repository.
 
-### 💎 Pillar 1: First-Principles Derivation of the Fine-Structure Constant
+### Pillar 1: First-Principles Derivation of the Fine-Structure Constant
 
 The flagship paper demonstrates a derivation of the fine-structure constant ($\alpha$) from a discrete geometric structure with no free parameters.
 
 * **Primary Paper:** **[`(Keystone)MasterPaper.pdf`](./(Keystone)MasterPaper.pdf)**
 * **Supporting Materials:** See the `Two Shells Derivation` folder.
 
-### 🕸️ Pillar 2: An Interlocking Model of Particle Physics
+###  Pillar 2: An Interlocking Model of Particle Physics
 
 A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. This single lock simultaneously predicts dozens of independent observables in tight agreement with experimental data.
 
 * **Supporting Papers:** See the PDFs in the `Math Checks` folder (e.g., `CKMandPMS.pdf`, `Rare_Decay_Ledger.pdf`, `MuonG2 (1).pdf`).
 * **Primary Code:** See the `Code and Output/MathOracle` folder.
 
-### 🌌 Pillar 3: A Rational Framework for Cosmology
+###  Pillar 3: A Rational Framework for Cosmology
 
 The same principle is applied to the cosmic scale. A few simple fractions for the universe's energy budget and expansion rate are shown to derive the complete set of standard background cosmological parameters.
 
