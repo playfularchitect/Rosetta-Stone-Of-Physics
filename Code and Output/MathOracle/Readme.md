@@ -20,4 +20,4 @@ The script is designed as a single, top-to-bottom run that verifies the conseque
 
 ### How to Use
 
-To run the verification, open the notebook in Google Colab and execute the single large code cell. The full, detailed output is logged to the `mindmelt_logs` directory, which can be compared directly to the `mindmelt_output.txt` file in the main repository.
+To run the verification, open the notebook in Google Colab and execute the final large code cell (scroll to the bottom, the other versions are earlier iterations you are free to look through) . The full, detailed output is logged to the `mindmelt_logs` directory, which can be compared directly to the `mindmelt_output.txt` file in the main repository.
