@@ -1,0 +1,300 @@
+# ==================[ MODULE A7 — Unified Report: MasterPaper Constants + n=2..1000 Sweep ]==================
+# Purpose:
+#   - Use the EXACT constants from (Keystone) Master Paper (already verified in A6) in the report.
+#   - Run a STRONG, RAM-safe sweep over n=2..1000 (r=n^2, r+1) with multiple independent invariants:
+#       V_union, corners_total, edges_total, faces_total  (all must match the n=7 case)
+#   - Print a clear console summary and save both:
+#       1) CSV of the sweep (who passes/fails)
+#       2) JSON sidecar with the MasterPaper constants & identity check
+#   - No graphs/matrices; pure closed-form arithmetic → tiny memory footprint.
+# ------------------------------------------------------------------------------------------------------------
+
+import os, math, json
+import pandas as pd
+from fractions import Fraction
+import matplotlib.pyplot as plt
+from IPython.display import display
+
+# ---------- MasterPaper constants (reuse from A6 if present; otherwise define exactly here) ----------
+def _fpresent(name): return (name in globals())
+
+if all(_fpresent(x) for x in ["x","y","c_u1_sqrt","c_su2","c_su3","c_theory","alpha_inv_paper"]):
+    _x, _y = x, y
+    _c_u1_sqrt, _c_su2, _c_su3 = c_u1_sqrt, c_su2, c_su3
+    _c_theory, _alpha_inv = c_theory, alpha_inv_paper
+else:
+    _x           = Fraction(45, 137)
+    _y           = Fraction(4981312500, 3385758953)   # refined y from MasterPaper
+    _c_u1_sqrt   = Fraction(45, 92)
+    _c_su2       = Fraction(54675, 226324)
+    _c_su3       = Fraction(28800, 10549)
+    _c_theory    = Fraction(151725599807655, 30763005846958)
+    _alpha_inv   = Fraction(577542582341362357, 4214531801033246)
+
+_alpha_inv_calc = Fraction(137,1) + Fraction(1,137) * _c_theory
+_identity_ok = (_alpha_inv_calc == _alpha_inv)
+
+def _fmt(fr: Fraction, prec=15):
+    return f"{fr.numerator}/{fr.denominator} ≈ {float(fr):.{prec}f}"
+
+print("\n================ MASTER PAPER CONSTANTS (from A6 / embedded) ================")
+print(f"x                  = {_fmt(_x)}")
+print(f"y                  = {_fmt(_y)}")
+print(f"c_U(1)^(1/2)      = {_fmt(_c_u1_sqrt)}")
+print(f"c_SU(2)           = {_fmt(_c_su2)}")
+print(f"c_SU(3)           = {_fmt(_c_su3)}")
+print(f"c_theory (sum)    = {_fmt(_c_theory)}")
+print(f"α^(-1) (paper)    = {_fmt(_alpha_inv)}")
+print("----------------------------------------------------------------")
+print(f"Check: α^(-1) ?= 137 + (1/137)*c_theory  →  {'OK ✅' if _identity_ok else 'MISMATCH ❌'}")
+if not _identity_ok:
+    print(f"Computed α^(-1)   = {_fmt(_alpha_inv_calc)}")
+print("================================================================\n")
+
+# ---------- Closed-form linf-shell counts (3D) ----------
+def shell_counts_linf3(r: int):
+    # Surface cube with side (2r+1):
+    # corners=8; edge non-corners = 12*(2r-1); face interiors = 6*(2r-1)^2; total = 24 r^2 + 2
+    L = 2*r + 1
+    corners = 8
+    edges = 12 * (L - 2)
+    faces = 6 * (L - 2) * (L - 2)
+    V = corners + edges + faces
+    return dict(V=V, corners=corners, edges=edges, faces=faces)
+
+def union_counts_linf3(r: int):
+    a = shell_counts_linf3(r)
+    b = shell_counts_linf3(r+1)
+    return dict(
+        V = a["V"] + b["V"],
+        corners = a["corners"] + b["corners"],
+        edges   = a["edges"]   + b["edges"],
+        faces   = a["faces"]   + b["faces"]
+    )
+
+def union_counts_for_square_index(n: int):
+    r = n*n
+    return union_counts_linf3(r)
+
+# ---------- Target invariants for n=7 (r=49,50) ----------
+N_TARGET = 7
+tgt = union_counts_for_square_index(N_TARGET)
+print(f"[INFO] Strong gate target: n={N_TARGET} → r1={N_TARGET*N_TARGET}, r2={N_TARGET*N_TARGET+1}")
+print(f"       V={tgt['V']}, corners={tgt['corners']}, edges={tgt['edges']}, faces={tgt['faces']}\n")
+
+# ---------- Wide sweep n=2..1000 with strong gate ----------
+def sweep_strong_masterpaper(n_min=2, n_max=1000, print_every=25, verbose=True):
+    rows = []
+    passes = []
+    for n in range(n_min, n_max+1):
+        r = n*n
+        u = union_counts_for_square_index(n)
+        pass_gate = (u["V"]      == tgt["V"] and
+                     u["corners"]== tgt["corners"] and
+                     u["edges"]  == tgt["edges"] and
+                     u["faces"]  == tgt["faces"])
+        rows.append({
+            "n_square": n,
+            "r1": r,
+            "r2": r+1,
+            "V_union": u["V"],
+            "corners_total": u["corners"],
+            "edges_total": u["edges"],
+            "faces_total": u["faces"],
+            "pass_gate": pass_gate
+        })
+        if verbose and (pass_gate or (n - n_min) % print_every == 0):
+            tag = "PASS" if pass_gate else "...."
+            print(f"[{tag}] n={n:4d} | r1={r:6d}, r2={r+1:6d} | "
+                  f"V={u['V']}, C={u['corners']}, E={u['edges']}, F={u['faces']}")
+        if pass_gate:
+            passes.append(n)
+
+    df = pd.DataFrame(rows)
+    out_root = "./sc_sweep_outputs/masterpaper_unified"
+    os.makedirs(out_root, exist_ok=True)
+    csv_path = os.path.join(out_root, f"strong_gate_n{n_min}_to_{n_max}.csv")
+    df.to_csv(csv_path, index=False)
+
+    # Sidecar JSON with MasterPaper constants and identity check
+    meta = {
+        "target_n": N_TARGET,
+        "target_r1": N_TARGET*N_TARGET,
+        "target_r2": N_TARGET*N_TARGET + 1,
+        "target_invariants": tgt,
+        "masterpaper_constants": {
+            "x": [int(_x.numerator), int(_x.denominator)],
+            "y": [int(_y.numerator), int(_y.denominator)],
+            "c_u1_sqrt": [int(_c_u1_sqrt.numerator), int(_c_u1_sqrt.denominator)],
+            "c_su2": [int(_c_su2.numerator), int(_c_su2.denominator)],
+            "c_su3": [int(_c_su3.numerator), int(_c_su3.denominator)],
+            "c_theory": [int(_c_theory.numerator), int(_c_theory.denominator)],
+            "alpha_inv": [int(_alpha_inv.numerator), int(_alpha_inv.denominator)],
+            "alpha_identity_ok": bool(_identity_ok)
+        }
+    }
+    json_path = os.path.join(out_root, f"masterpaper_meta_n{n_min}_to_{n_max}.json")
+    with open(json_path, "w") as f:
+        json.dump(meta, f, indent=2)
+
+    print("\n[SUMMARY]")
+    print(f"- Saved sweep CSV to: {csv_path}")
+    print(f"- Saved MasterPaper sidecar JSON to: {json_path}")
+    print(f"- Total n tested: {len(df)} (from {n_min} to {n_max})")
+    print(f"- PASS count: {len(passes)}")
+    print(f"- PASS n values: {passes if passes else '[]'}")
+
+    print("\n[DISPLAY] First 8 rows:")
+    display(df.head(8))
+    print("\n[DISPLAY] PASS rows (if any):")
+    display(df[df['pass_gate'] == True])
+    print("\n[DISPLAY] Last 8 rows:")
+    display(df.tail(8))
+
+    return df, csv_path, json_path
+
+# ---------- Run the unified strong sweep ----------
+df_unified, csv_path, json_path = sweep_strong_masterpaper(n_min=2, n_max=1000, print_every=25, verbose=True)
+
+# Tiny PASS/FAIL stick plot
+plt.figure(dpi=120)
+plt.plot(df_unified["n_square"], df_unified["pass_gate"].astype(int), marker="o")
+plt.yticks([0,1], ["FAIL","PASS"])
+plt.xlabel("n (radii are n^2 and n^2+1)")
+plt.ylabel("Gate status (multi-invariant)")
+plt.title("MasterPaper unified report: PASS only at n=7 across n=2..1000")
+plt.grid(True)
+plt.show()
+
+# =====================================[ END MODULE A7 ]============================================
+# =====================[ MODULE A8 — Undeniability Proof (No Sweep Needed) ]=====================
+# Purpose:
+#   Prove uniqueness of n=7 (r=49,50) for 3D linf shell-union invariants using closed-form,
+#   strictly increasing formulas — no loops, no RAM risk. Also prints guard checks and saves
+#   a small "uniqueness certificate" JSON.
+# -----------------------------------------------------------------------------------------------
+
+import json, os
+
+# Closed-form counts for a single 3D linf shell of radius r:
+#   corners(r) = 8
+#   edges(r)   = 12 * (2r - 1)
+#   faces(r)   = 6  * (2r - 1)^2
+#   V(r)       = 24*r^2 + 2
+#
+# For the union of consecutive shells r and r+1 (our case uses r = n^2):
+#   Corners_total(n) = 8 + 8 = 16                    (constant)
+#   Edges_total(n)   = 12(2r-1) + 12(2(r+1)-1) = 48r = 48 n^2
+#   Faces_total(n)   = 6[(2r-1)^2 + (2r+1)^2] = 48 r^2 + 12 = 48 n^4 + 12
+#   V_union(n)       = (24 r^2 + 2) + (24 (r+1)^2 + 2)
+#                    = 24 [r^2 + (r+1)^2] + 4
+#                    = 24 (2 r^2 + 2r + 1) + 4
+#                    = 48 r^2 + 48 r + 28 = 48 n^4 + 48 n^2 + 28
+#
+# Discrete monotonicity in n (integers n >= 1):
+#   Δedges(n) = edges(n+1) - edges(n) = 48[(n+1)^2 - n^2] = 48(2n+1) > 0
+#   Δfaces(n) = 48[(n+1)^4 - n^4]     = 48(4n^3 + 6n^2 + 4n + 1) > 0
+#   ΔV(n)     = 48[(n+1)^4 - n^4] + 48[(n+1)^2 - n^2]
+#             = 48(4n^3 + 6n^2 + 4n + 1) + 48(2n+1) > 0
+# Therefore edges(n), faces(n), V_union(n) are strictly increasing in n.
+# Since Corners_total(n) is constant (=16), the tuple (V, edges, faces) strictly increases,
+# hence it matches the target tuple at EXACTLY ONE integer n.
+
+def invariants(n: int):
+    r = n*n
+    V     = 48*(r*r) + 48*r + 28        # = 48 n^4 + 48 n^2 + 28
+    edges = 48*r                         # = 48 n^2
+    faces = 48*(r*r) + 12                # = 48 n^4 + 12
+    corners = 16
+    return dict(n=n, r1=r, r2=r+1, V=V, edges=edges, faces=faces, corners=corners)
+
+# Target (n=7 → r=49,50)
+target = invariants(7)
+
+# Pretty print formulas and target
+print("=========== FORMULAS (3D linf shell-union, r=n^2) ===========")
+print("Corners_total(n) = 16")
+print("Edges_total(n)   = 48 n^2")
+print("Faces_total(n)   = 48 n^4 + 12")
+print("V_union(n)       = 48 n^4 + 48 n^2 + 28")
+print("ΔEdges(n)        = 48(2n+1) > 0")
+print("ΔFaces(n)        = 48(4n^3 + 6n^2 + 4n + 1) > 0")
+print("ΔV(n)            = 48(4n^3 + 6n^2 + 4n + 1) + 48(2n+1) > 0")
+print("⇒ (V, edges, faces) strictly increase with n ≥ 1.\n")
+
+print("=========== TARGET (n=7 ⇒ r=49,50) ===========")
+print(f"n=7 → V={target['V']}, edges={target['edges']}, faces={target['faces']}, corners={target['corners']}\n")
+
+# Guard checks: for any n<7, invariants must be strictly smaller; for any n>7, strictly larger.
+# We'll demonstrate with a few samples and with n_max=1_000_000 to satisfy 'scale' concerns.
+
+samples_below = [1,2,3,4,5,6]
+samples_above = [8,12,25,100,10_000,1_000_000]
+
+def cmp_tuple(n):
+    v = invariants(n)
+    return (v['V'], v['edges'], v['faces'])
+
+tgt_tuple = (target['V'], target['edges'], target['faces'])
+
+def relation(n):
+    vt = cmp_tuple(n)
+    if vt == tgt_tuple:
+        return "EQUAL"
+    # lexicographic compare works since all components are monotone in same direction
+    if vt[0] < tgt_tuple[0] and vt[1] < tgt_tuple[1] and vt[2] < tgt_tuple[2]:
+        return "LESS"
+    if vt[0] > tgt_tuple[0] and vt[1] > tgt_tuple[1] and vt[2] > tgt_tuple[2]:
+        return "GREATER"
+    # Given strict monotonicity, mixed should not occur; include for completeness
+    return "MIXED (unexpected)"
+
+print("=========== CHECK: n < 7 are strictly LESS ===========")
+for n in samples_below:
+    v = invariants(n)
+    print(f"n={n:>7} → V={v['V']}, edges={v['edges']}, faces={v['faces']}  :: {relation(n)}")
+
+print("\n=========== CHECK: n > 7 are strictly GREATER (spot checks incl. 1e6) ===========")
+for n in samples_above:
+    v = invariants(n)
+    print(f"n={n:>7} → V={v['V']}, edges={v['edges']}, faces={v['faces']}  :: {relation(n)}")
+
+# Certificate: prove uniqueness algebraically (no brute force):
+# If V(n) = V(7) then 48 n^4 + 48 n^2 + 28 = 48*7^4 + 48*7^2 + 28
+# ⇒ 48(n^4 - 2401) + 48(n^2 - 49) = 0  ⇒ 48[(n^4 - 2401) + (n^2 - 49)] = 0
+# But for integer n, the left-hand side is strictly negative for n < 7 and strictly positive for n > 7
+# because n^4 and n^2 are strictly increasing in |n|. Therefore the only solution is n=7.
+# Since edges and faces are also strictly increasing, the full tuple equality holds only at n=7.
+
+print("\n=========== UNIQUENESS CERTIFICATE (logic) ===========")
+print("Assume V(n) = V(7). Then 48 n^4 + 48 n^2 + 28 = 48*7^4 + 48*7^2 + 28")
+print("⇒ 48[(n^4 - 7^4) + (n^2 - 7^2)] = 0 ⇒ (n^4 - 2401) + (n^2 - 49) = 0")
+print("For integer n:")
+print("  - If n < 7, then n^2 < 49 and n^4 < 2401 ⇒ LHS < 0")
+print("  - If n > 7, then n^2 > 49 and n^4 > 2401 ⇒ LHS > 0")
+print("Hence only n = 7 satisfies V(n) = V(7). Since edges(n) and faces(n) are strictly increasing,")
+print("the full tuple (V, edges, faces) matches the target only at n = 7. QED.\n")
+
+# Save a tiny certificate file with the formulas and target tuple
+cert = {
+    "target_n": 7,
+    "target_invariants": target,
+    "formulas": {
+        "V_union(n)": "48 n^4 + 48 n^2 + 28",
+        "edges_total(n)": "48 n^2",
+        "faces_total(n)": "48 n^4 + 12",
+        "corners_total(n)": "16"
+    },
+    "monotonicity": {
+        "ΔV(n)": "48(4n^3 + 6n^2 + 4n + 1) + 48(2n+1) > 0",
+        "Δedges(n)": "48(2n+1) > 0",
+        "Δfaces(n)": "48(4n^3 + 6n^2 + 4n + 1) > 0"
+    },
+    "statement": "For integer n ≥ 1, (V,edges,faces) strictly increase with n. Therefore only n=7 equals the 49/50 target."
+}
+out_dir = "./sc_sweep_outputs/masterpaper_unified"
+os.makedirs(out_dir, exist_ok=True)
+with open(os.path.join(out_dir, "uniqueness_certificate.json"), "w") as f:
+    json.dump(cert, f, indent=2)
+print(f"[OK] Wrote uniqueness certificate to: {os.path.join(out_dir, 'uniqueness_certificate.json')}")
+# ===================================[ END MODULE A8 ]=============================================
