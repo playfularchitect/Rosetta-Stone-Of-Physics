@@ -1,0 +1,11 @@
+name,best_p,best_p_abs_err,combo_expr,combo_abs_err
+alpha_inverse_CODATA_ref,4,1.724e-14,62·U1 + 62·U2 + 58·U3 + 58·U4,1.370e+02
+alpha_inverse_at_MZ_effective,4,2.897e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,1.280e+02
+sin2_thetaW_MSbar_MZ,4,5.457e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,2.310e-01
+mu_over_e_mass_ratio,4,1.730e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,2.068e+02
+tau_over_mu_mass_ratio,4,1.410e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,1.682e+01
+proton_over_e_mass_ratio,4,5.534e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,1.836e+03
+a_e_leptonic_anom,4,2.384e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,9.736e-04
+a_mu_exp_anom,4,4.140e-13,62·U1 + 62·U2 + 58·U3 + 58·U4,9.798e-04
+Delta_alpha_models,4,1.542e-13,0·U1 + 23·U2 + 15·U3 + -40·U4,7.106e-12
+Delta_c_models,4,2.742e-13,23·U1 + 15·U2 + -46·U3 + -12·U4,7.226e-12

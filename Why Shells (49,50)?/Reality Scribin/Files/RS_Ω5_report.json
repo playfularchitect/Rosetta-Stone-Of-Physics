@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "timestamp_utc": "2025-09-29T23:00:30+00:00",
+    "r1": 49,
+    "r2": 50,
+    "D": 137,
+    "N_trials_per_target": 800,
+    "REL_TOL": 5e-12
+  },
+  "delta": {
+    "Delta_alpha": 5.02501e-07,
+    "Delta_c": 6.8842637e-05,
+    "f_need": 1.000000003666927,
+    "f_need_ppb": 3.666926936765856,
+    "micro_gate": 1.000000003650901,
+    "micro_gate_ppb": 3.650900946715918
+  },
+  "significance": [
+    {
+      "name": "alpha_inverse_CODATA_ref",
+      "value": 137.035999207,
+      "best_p": 6,
+      "best_k": 2219852703392369647,
+      "approx": 137.035999207,
+      "abs_err": 1.8785323279134642e-17,
+      "rel_err": 1.370831269727777e-19,
+      "empirical_p_value": 0.6025
+    },
+    {
+      "name": "alpha_inverse_at_MZ_effective",
+      "value": 127.955,
+      "best_p": 6,
+      "best_k": 2072749163039352758,
+      "approx": 127.955,
+      "abs_err": 1.543300586989197e-17,
+      "rel_err": 1.2061276128241936e-19,
+      "empirical_p_value": 0.49375
+    },
+    {
+      "name": "sin2_thetaW_MSbar_MZ",
+      "value": 0.23122,
+      "best_p": 6,
+      "best_k": 3745543835551242,
+      "approx": 0.23122,
+      "abs_err": 1.2284672672434008e-17,
+      "rel_err": 5.312980136854082e-17,
+      "empirical_p_value": 0.40625
+    },
+    {
+      "name": "mu_over_e_mass_ratio",
+      "value": 206.768283,
+      "best_p": 6,
+      "best_k": 3349449302734039554,
+      "approx": 206.768283,
+      "abs_err": 9.269063325457118e-18,
+      "rel_err": 4.482826471725897e-20,
+      "empirical_p_value": 0.285
+    },
+    {
+      "name": "tau_over_mu_mass_ratio",
+      "value": 16.816706,
+      "best_p": 6,
+      "best_k": 272414624567846991,
+      "approx": 16.816706,
+      "abs_err": 1.1562407997723064e-17,
+      "rel_err": 6.875548634627414e-19,
+      "empirical_p_value": 0.40375
+    },
+    {
+      "name": "proton_over_e_mass_ratio",
+      "value": 1836.15267343,
+      "best_p": 6,
+      "best_k": 29743924950681899968,
+      "approx": 1836.15267343,
+      "abs_err": 1.6435009209000577e-17,
+      "rel_err": 8.950785763527704e-21,
+      "empirical_p_value": 0.52125
+    },
+    {
+      "name": "a_e_leptonic_anom",
+      "value": 0.001159652181,
+      "best_p": 6,
+      "best_k": 18785261127619,
+      "approx": 0.00115965218099999,
+      "abs_err": 1.0068441239436424e-17,
+      "rel_err": 8.682294057131966e-15,
+      "empirical_p_value": 0.32
+    },
+    {
+      "name": "a_mu_exp_anom",
+      "value": 0.0011659206,
+      "best_p": 6,
+      "best_k": 18886803546718,
+      "approx": 0.0011659205999999815,
+      "abs_err": 1.8478322518527933e-17,
+      "rel_err": 1.5848697174171152e-14,
+      "empirical_p_value": 0.58375
+    },
+    {
+      "name": "Delta_alpha_models",
+      "value": 5.02501e-07,
+      "best_p": 6,
+      "best_k": 8140037726,
+      "approx": 5.025010000260004e-07,
+      "abs_err": 2.600034815541453e-17,
+      "rel_err": 5.174188341001218e-11,
+      "empirical_p_value": 0.8375
+    },
+    {
+      "name": "Delta_c_models",
+      "value": 6.8842637e-05,
+      "best_p": 6,
+      "best_k": 1115185168404,
+      "approx": 6.884263699998159e-05,
+      "abs_err": 1.8409664523146296e-17,
+      "rel_err": 2.674166087383651e-13,
+      "empirical_p_value": 0.56125
+    }
+  ],
+  "cross_solver": {
+    "best_p": 6,
+    "pass_count": 9,
+    "rows": [
+      {
+        "name": "alpha_inverse_CODATA_ref",
+        "p": 6,
+        "k": 2219852703392369647,
+        "approx": 137.035999207,
+        "abs_err": 1.8785323279134642e-17,
+        "rel_err": 1.370831269727777e-19
+      },
+      {
+        "name": "alpha_inverse_at_MZ_effective",
+        "p": 6,
+        "k": 2072749163039352758,
+        "approx": 127.955,
+        "abs_err": 1.543300586989197e-17,
+        "rel_err": 1.2061276128241936e-19
+      },
+      {
+        "name": "sin2_thetaW_MSbar_MZ",
+        "p": 6,
+        "k": 3745543835551242,
+        "approx": 0.23122,
+        "abs_err": 1.2284672672434008e-17,
+        "rel_err": 5.312980136854082e-17
+      },
+      {
+        "name": "mu_over_e_mass_ratio",
+        "p": 6,
+        "k": 3349449302734039554,
+        "approx": 206.768283,
+        "abs_err": 9.269063325457118e-18,
+        "rel_err": 4.482826471725897e-20
+      },
+      {
+        "name": "tau_over_mu_mass_ratio",
+        "p": 6,
+        "k": 272414624567846991,
+        "approx": 16.816706,
+        "abs_err": 1.1562407997723064e-17,
+        "rel_err": 6.875548634627414e-19
+      },
+      {
+        "name": "proton_over_e_mass_ratio",
+        "p": 6,
+        "k": 29743924950681899968,
+        "approx": 1836.15267343,
+        "abs_err": 1.6435009209000577e-17,
+        "rel_err": 8.950785763527704e-21
+      },
+      {
+        "name": "a_e_leptonic_anom",
+        "p": 6,
+        "k": 18785261127619,
+        "approx": 0.00115965218099999,
+        "abs_err": 1.0068441239436424e-17,
+        "rel_err": 8.682294057131966e-15
+      },
+      {
+        "name": "a_mu_exp_anom",
+        "p": 6,
+        "k": 18886803546718,
+        "approx": 0.0011659205999999815,
+        "abs_err": 1.8478322518527933e-17,
+        "rel_err": 1.5848697174171152e-14
+      },
+      {
+        "name": "Delta_alpha_models",
+        "p": 6,
+        "k": 8140037726,
+        "approx": 5.025010000260004e-07,
+        "abs_err": 2.600034815541453e-17,
+        "rel_err": 5.174188341001218e-11
+      },
+      {
+        "name": "Delta_c_models",
+        "p": 6,
+        "k": 1115185168404,
+        "approx": 6.884263699998159e-05,
+        "abs_err": 1.8409664523146296e-17,
+        "rel_err": 2.674166087383651e-13
+      }
+    ]
+  },
+  "preferred_p_counts": {
+    "6": 10
+  },
+  "winners": [
+    [
+      "alpha_inverse_CODATA_ref",
+      6,
+      2219852703392369647,
+      1.8785323279134642e-17
+    ],
+    [
+      "alpha_inverse_at_MZ_effective",
+      6,
+      2072749163039352758,
+      1.543300586989197e-17
+    ],
+    [
+      "sin2_thetaW_MSbar_MZ",
+      6,
+      3745543835551242,
+      1.2284672672434008e-17
+    ],
+    [
+      "mu_over_e_mass_ratio",
+      6,
+      3349449302734039554,
+      9.269063325457118e-18
+    ],
+    [
+      "tau_over_mu_mass_ratio",
+      6,
+      272414624567846991,
+      1.1562407997723064e-17
+    ],
+    [
+      "proton_over_e_mass_ratio",
+      6,
+      29743924950681899968,
+      1.6435009209000577e-17
+    ],
+    [
+      "a_e_leptonic_anom",
+      6,
+      18785261127619,
+      1.0068441239436424e-17
+    ],
+    [
+      "a_mu_exp_anom",
+      6,
+      18886803546718,
+      1.8478322518527933e-17
+    ],
+    [
+      "Delta_alpha_models",
+      6,
+      8140037726,
+      2.600034815541453e-17
+    ],
+    [
+      "Delta_c_models",
+      6,
+      1115185168404,
+      1.8409664523146296e-17
+    ]
+  ]
+}

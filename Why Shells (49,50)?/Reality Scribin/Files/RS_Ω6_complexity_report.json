@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "timestamp_utc": "2025-09-29T23:00:31+00:00",
+    "r1": 49,
+    "r2": 50,
+    "D": 137,
+    "PMAX": 4,
+    "KMAX": 1000000,
+    "REL_TOL": 1e-09,
+    "N_TRIALS": 400
+  },
+  "per_target": [
+    {
+      "name": "alpha_inverse_CODATA_ref",
+      "has_fit": true,
+      "p": 0,
+      "k": 335738,
+      "approx": 137.03591836734694,
+      "abs_err": 8.083965306122449e-05,
+      "rel_err": 5.899154494368446e-07,
+      "pass": false,
+      "p_value": 0.1475
+    },
+    {
+      "name": "alpha_inverse_at_MZ_effective",
+      "has_fit": true,
+      "p": 0,
+      "k": 313490,
+      "approx": 127.95510204081633,
+      "abs_err": 0.00010204081632653062,
+      "rel_err": 7.974742395883757e-07,
+      "pass": false,
+      "p_value": 0.18
+    },
+    {
+      "name": "sin2_thetaW_MSbar_MZ",
+      "has_fit": true,
+      "p": 1,
+      "k": 77609,
+      "approx": 0.23122002085505736,
+      "abs_err": 2.0855057351407717e-08,
+      "rel_err": 9.019573285791764e-08,
+      "pass": false,
+      "p_value": 0.0
+    },
+    {
+      "name": "mu_over_e_mass_ratio",
+      "has_fit": true,
+      "p": 0,
+      "k": 506582,
+      "approx": 206.76816326530613,
+      "abs_err": 0.00011973469387755101,
+      "rel_err": 5.790766946473653e-07,
+      "pass": false,
+      "p_value": 0.26
+    },
+    {
+      "name": "tau_over_mu_mass_ratio",
+      "has_fit": true,
+      "p": 0,
+      "k": 41201,
+      "approx": 16.81673469387755,
+      "abs_err": 2.8693877551020408e-05,
+      "rel_err": 1.7062721766688678e-06,
+      "pass": false,
+      "p_value": 0.175
+    },
+    {
+      "name": "proton_over_e_mass_ratio",
+      "has_fit": false
+    },
+    {
+      "name": "a_e_leptonic_anom",
+      "has_fit": true,
+      "p": 2,
+      "k": 53326,
+      "approx": 0.0011596629700950656,
+      "abs_err": 1.078909506557165e-08,
+      "rel_err": 9.303733690448386e-06,
+      "pass": false,
+      "p_value": 0.205
+    },
+    {
+      "name": "a_mu_exp_anom",
+      "has_fit": true,
+      "p": 2,
+      "k": 53614,
+      "approx": 0.0011659260113017448,
+      "abs_err": 5.411301744844136e-09,
+      "rel_err": 4.641226636568679e-06,
+      "pass": false,
+      "p_value": 0.065
+    },
+    {
+      "name": "Delta_alpha_models",
+      "has_fit": true,
+      "p": 4,
+      "k": 433696,
+      "approx": 5.02501154232595e-07,
+      "abs_err": 1.5423259500011598e-13,
+      "rel_err": 3.069299265078398e-07,
+      "pass": false,
+      "p_value": 0.0075
+    },
+    {
+      "name": "Delta_c_models",
+      "has_fit": true,
+      "p": 3,
+      "k": 433696,
+      "approx": 6.884265812986551e-05,
+      "abs_err": 2.112986551501589e-11,
+      "rel_err": 3.069299265078398e-07,
+      "pass": false,
+      "p_value": 0.01
+    }
+  ],
+  "passes_by_p": {
+    "0": [],
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "best_p": 0
+}

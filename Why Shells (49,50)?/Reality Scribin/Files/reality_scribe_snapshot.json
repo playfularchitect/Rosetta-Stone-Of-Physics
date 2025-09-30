@@ -1,0 +1,44 @@
+{
+  "gate": {
+    "n": 7,
+    "r1": 49,
+    "r2": 50,
+    "D": 137
+  },
+  "keystone": {
+    "c_U1_half": "45/92",
+    "c_SU2": "54675/226324",
+    "c_SU3": "28800/10549",
+    "c_total": "151725599807655/30763005846958",
+    "alpha_inv": "577542582341362357/4214531801033246"
+  },
+  "mobius": {
+    "factors": [
+      "1 + 1/24",
+      "1 - 1/48",
+      "sqrt(1 + 1/29258)",
+      "sqrt(1 - 1/720)",
+      "sqrt(1 + 1/534528)"
+    ],
+    "alpha_inv": "137.03600008",
+    "C_env_hint_product": "1.0365297755189193"
+  },
+  "bridges": {
+    "f_need": null,
+    "f_micro_gate": null
+  },
+  "notes": {
+    "proven": [
+      "Strong-gate uniqueness: n=7 uniquely passes SC(n^2)\u222aSC(n^2+1) constraints.",
+      "Exact c_total relation: alpha^{-1} = D + c_total/D."
+    ],
+    "todo": [
+      "Ingest per-order Keystone mix terms (ledger detail) when ready.",
+      "Parameterize additional emc5 multipliers if present (e.g., 4\u03c0^2\u221a2 or C_env variations)."
+    ]
+  },
+  "meta": {
+    "timestamp_utc": "2025-09-29T21:18:28+00:00",
+    "mpmath_dps": 160
+  }
+}
