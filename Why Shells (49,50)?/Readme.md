@@ -79,6 +79,7 @@ m=7 is the parity depth that leads to the theory's novel, falsifiable prediction
 
 topological property of the cosmos.
 
+
 ## Convergence on a Shared "Engine" (c 
 theory
 ​
@@ -106,7 +107,7 @@ theory
 The fact that these two radically different approaches—one counting discrete points on a lattice, the other calculating vacuum energy on a smooth manifold—arrive at the same core correction term to five decimal places is profound evidence of a shared origin.
 
 ## The Grand Lil Synthesis 
-This convergence completes the story I have been building:
+This convergence completes one of the stories I have been building:
 
 The "source code" integers 
 
