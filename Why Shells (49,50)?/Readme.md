@@ -80,29 +80,22 @@ m=7 is the parity depth that leads to the theory's novel, falsifiable prediction
 topological property of the cosmos.
 
 
-## Convergence on a Shared "Engine" (c 
-theory
-​
- ≈4.932)
+## Convergence on a Shared "Engine" 
+(c theory ≈4.932)
+
 The most shocking pattern is how both paths, despite their different methods, produce the same core "engine" for the fine-structure constant. When α⁻¹ is expressed in the form 137 + c_theory / 137, the correction term c_theory is nearly identical in both models.
 
 From n=7 (Discrete Geometry): The Non-Backtracking paper explicitly calculates c_theory by summing a ledger of exact rational numbers derived from counting geometric objects. This bottom-up, combinatorial approach yields:
 
 
-c 
-theory
+ctheory≈4.93208 
 ​
- ≈4.93208 
-
 
 From m=7 (Möbius Parity): The Möbius Parity paper uses continuum quantum field theory to derive α⁻¹ ≈ 137.03600008. By reverse-engineering this result, we find its effective correction term:
 
 
-
-c 
-theory
-​
- =(137.03600008−137)×137≈4.93201
+​ctheory=(137.03600008−137)×137≈4.93201
+ 
 
 The fact that these two radically different approaches—one counting discrete points on a lattice, the other calculating vacuum energy on a smooth manifold—arrive at the same core correction term to five decimal places is profound evidence of a shared origin.
 
