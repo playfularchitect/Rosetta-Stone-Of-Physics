@@ -1,0 +1,34 @@
++--------------------------------------------------------------------------+
+|          Physical Intuition: The Two-Shell Circular Ball (CBU)           |
++--------------------------------------------------------------------------+
+
+Think of each dimensionless constant as a winding count on a pair of
+coupled circles. The universal unit (the "circular ball" or CBU) is
+defined by the formula:
+
+  U(p) = 1 / (49 * 50 * 137^p)
+
+Here, 49 and 50 act like two nested circular shells (a 2 torus), while
+the 137^p term sets the "zoom" or the fineness of the measurement ticks.
+
+A constant's integer "k" is then the number of these CBU ticks that
+"fit" into its value:
+
+  k = round(Value / U(p))
+
+This makes "k" a topological winding number rather than a simple
+floating point parameter.
+
+The "DNA" residues (k mod 23, 49, 50, 137) behave like phase
+coordinates on these circular shells. This is why inverse pairs
+multiply to approximately 1 (as a phase inversion) and why aliases
+share common phases.
+
+Most constants are described at the default depth of p=6, while a few
+(marked as such) use p=10 for a finer measurement lattice.
+
+----------------------------------------------------------------------------
+In short: The two shells (49, 50) define the geometry, 137^p sets the
+scale, and the integers are literal windings on that geometry...a simple,
+testable way to encode structure across the physical constants.
++--------------------------------------------------------------------------+
