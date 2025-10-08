@@ -1,0 +1,29 @@
+## MHA Baseline & Proof — What’s in this output?
+
+**1) Legacy / buggy path (for provenance only).**  
+The first “BASELINE & MHA CHECK” block shows what happens if you **accidentally square R** in the two-shell builder:
+- “(R,R+1)=(7,8)” labels correspond to the actual shells **(49,50)** because \(7^2=49\).
+- “(R,R+1)=(288,289)” actually built **(288², 288²+1)** → **d = 1638** (wrong class).  
+This section is intentionally kept to document the mistake and why its T₄ numbers are not comparable.
+
+**2) Correct counts for the d = 138 class.**  
+We explicitly verify the only two valid consecutive-shell pairs:
+- \(|S_{49}|=54\), \(|S_{50}|=84\) → \(d=138\), \(D=137\)  
+- \(|S_{288}|=36\), \(|S_{289}|=102\) → \(d=138\), \(D=137\)
+
+**3) Rotation-invariant \( \ell=4 \) power (sanity check).**  
+Using \(S_4=\sum_m |a_{4m}|^2\) and \(T_4=S_4/d^2\), we already see \((288,289)\) ≫ \((49,50)\) (ratio ~17.8×).  
+This confirms the *direction* of the MHA decision (smaller anisotropy wins).
+
+**4) Exact paper definition of MHA (authoritative).**  
+We then compute  
+\(\Xi_4(s)=\sum_{t\in S,\ t\neq -s} P_4(\cos\theta(s,t))\), \(T_4=\mathrm{Var}_s[\Xi_4(s)]\)  
+and reproduce the paper’s numbers:
+- \(T_4(49,50)=1.25262240116463\ldots\)  
+- \(T_4(288,289)=15.57886829733423\ldots\)  
+- Ratio ≈ **12.437×** → **MHA selects (49,50)** as the electromagnetic baseline.
+
+> **SciPy note:** You may see a deprecation warning for `scipy.special.sph_harm`.  
+> Replace with `scipy.special.sph_harm_y` or pin SciPy `< 1.17`. The exact-paper T₄ block does **not** depend on SciPy.
+
+**Environment (for reproducibility):** Python 3.x, NumPy ≥ 1.23. The “exact paper T₄” block is pure NumPy.
