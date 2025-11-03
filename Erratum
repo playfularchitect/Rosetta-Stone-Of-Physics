@@ -1,0 +1,60 @@
+
+# Erratum: `α⁻¹` Current Predictions Falsified by Precision Measurement
+
+**Status:** `FALSIFIED`
+**Scope:** "Möbius Parity (emc5)" and "KeyStone V9 (MasterPaper)"
+**Date:** 2025-11-03
+
+> My bad yall, I was rechecking my derivations for consistency and realized once again that I am an idiot. We are retracting the claims of experimental agreement for our predictions of the inverse fine-structure constant, $\alpha^{-1}$. The verification script is correct; our abstract arithmetic and interpretation were not.
+
+---
+
+## Summary
+
+We compared our predicted $\alpha^{-1}$ values to the high-precision experimental value:
+
+* **Experimental $\alpha^{-1}_{\text{exp}}$:** $\mathbf{137.035999207} \pm \mathbf{0.000000011}$
+
+Our predicted values are ppb-level close in relative terms, but this deviation corresponds to dozens or hundreds of standard deviations ($\sigma$). Therefore, our predictions are **not consistent** with experiment.
+
+---
+
+## Corrected Analysis
+
+The formula for parts-per-million is $\text{ppm} = \frac{|\text{theory} - \text{exp}|}{\text{exp}}\times 10^{6}$.
+
+### 1. Möbius Parity (emc5)
+
+```
+
+## Theory: 137.036000080000 |Δ|:    0.000000873000
+
+PPM:    0.006370589 (or 6.37 ppb)
+Sigma:  79.36 σ
+Status: FAIL
+
+```
+
+### 2. KeyStone V9 (MasterPaper)
+
+```
+
+## Theory: 137.036000582501 |Δ|:    0.000001375501
+
+PPM:    0.010037516 (or 10.04 ppb)
+Sigma:  125.05 σ
+Status: FAIL
+
+```
+
+---
+
+## What Went Wrong
+
+1.  **Unit/Scale Error (ppm vs. ppb):** We reported parts-per-billion (ppb) scale numbers but incorrectly labeled them as parts-per-million (ppm), inflating the perceived error by a factor of 1000.
+2.  **Absolute vs. Relative Error (V9):** The absolute difference $|\Delta| \approx 1.38 \times 10^{-6}$ was conflated with the relative ppm fraction (which is $\approx 1.004 \times 10^{-8}$ or 0.01 ppm).
+
+These mistakes affected only the claims of agreement.
+
+> **Near is not enough.** With modern experimental precision, a few-ppb offset is decisively, unambiguously false.
+```
