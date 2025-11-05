@@ -1,4 +1,4 @@
-WHAT IS THE "UNIVERSAL UNIT" (UU)/Circular Ball Unit (CBU)?
+WHAT IS THE "UNIVERSAL UNIT" (UU)/Circular Ball Unit (CBU)?                November 5th, 2025
 ----------------------------------
 • Definition:  U(p) = 1 / (49 * 50 * 137^p), an integer-lattice "zoom" where p is the parity depth (zoom level).
 
