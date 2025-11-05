@@ -1,0 +1,70 @@
+Module	Description
+1	Run bootstrap & registry prelude — opens the run, prints the base registry snapshot used by later checks.
+
+2	Phase closure marker — seals the pre-quantizer/setup phase (just a “COMPLETE” banner).
+
+3	Universal Quantizer (full registry sweep) — fits every target (X) on (U(p)); reports (p,k), ppb deltas, and a top/bottom “tightest/loosest” ledger.
+
+4	Constraint Auditor — custodial-ρ (snapped (c_W^2) → ρ≈1), CKM row-1 + Jarlskog, anomaly sums; PASS/FAIL receipts.
+
+5	Snap-Aware Mass Predictor — treats mass/(v) as snapped (k⋅U(3)); solves (v) and re-predicts the full mass table.
+
+6	Domain (p) selection + re-predict — chooses (p) per domain (CKM, couplings, EW/Higgs, Yukawas…), recomputes values, prints ppb + (k)*bits.
+
+7	DNA rollups & entropy — aggregates DNA residues across domains; quick dispersion/entropy-style summaries.
+
+8	Cross-constraint DNA auditor — checks that chosen (p)’s and DNA residues are consistent; prints “margin to failure” stability windows.
+
+9	MDL-Δ audit (+ stability gate) — MDL-flavored score for precision vs complexity; enforces a stability gate before advancing.
+
+10	Sirlin pre-snap phase close — marks the end of the pre-snap EW consistency pass (COMPLETE).
+
+11	UU EW snapper (pick (p*,k), DNA, (s^2,c^2)) — selects the UU lattice point; exports (p*), (k), DNA, (s_W^2,c_W^2).
+
+12	Couplings bridge — derives (α*{1,2,3}(M_Z)) from UU (s_W^2); 1-loop run to high scales; compares spreads for different (s_W^2) schemes.
+
+13	EW receipt (Δr, (G_F)) + mass re-check — computes Δr, predicts (M_W), derives (v) from (G_F), reprints mass table; stamps a UU receipt.
+
+14	Physics from the UU (compact snapshot) — bundles the UU lattice, Δr, (M_W), CKM/PMNS quick checks, and a GUT snapshot.
+
+15	UU DNA provenance — restates (p*,k,U(p)), expected DNA residues; publishes provenance tags/checksums.
+
+16	UU DNA verifier — recomputes DNA from (k), re-derives (s^2,c^2), and re-checks Δr, (M_W), (v(G_F)).
+
+17	Unification fine-scan (sign-corrected 1-loop) — dense grid over (μ); finds minimal spread, compares vs registry-(s^2) baseline.
+
+18	Full registry rebuild @ UU — regenerates every parameter as (k_X U(3)); prints ppb deltas and DNA per entry.
+
+19	Global (p) optimizer (best zoom) — sweeps (p) globally; shows ppb and (k)_bits trade-offs, highlights improvements.
+
+20	Per-parameter (p) selector — chooses the best (p) per (X); prints chosen (p), (k), (k)_bits, ppb, target diffs.
+
+21	Pareto optimizer (ppb vs (k)_bits vs (p)) — LOW-COMPLEXITY / BALANCED / ULTRA-PRECISION profiles; emits frontier choices.
+
+22	Global cross-checks & canonical ledger — applies consistency gates to chosen (p)’s; emits the canonical snapshot.
+
+23	Visual dash & seed export — text-mode dashboard; exports seeds needed to reproduce the ledger.
+
+24	Canonical seed pack & integrity ID — bundles the canonical seed; stamps an integrity identifier for provenance.
+
+25	One-shot verifier (seed → (k), DNA, checks) — single sweep from seed: rebuild (k), DNA, key physics receipts.
+
+26	Showcase pack (human summary) — compact human-readable 1–2 page summary of the UU point and how to verify.
+
+27	Stress tests (±1e-12) & stability windows — perturbs inputs; reports flips and stability intervals.
+
+28	Robustifier — coarsens (p) where needed so the ledger survives the ±1e-12 stress; emits the ROBUST seed.
+
+29	ROBUST round-trip & back-compat — rebuilds from the ROBUST seed; checks consistency vs BALANCED/canonical.
+
+30	Unified rebuilder (seed → full ledger, DNA, tags) — regenerates the entire ledger from a seed with receipts.
+
+31	Dual-ledger comparator (BALANCED vs ROBUST) — same (X_true); compares ppb at their chosen (p); emits comparator tags.
+
+32	Tag printer & seed exporter (ROBUST) — prints compact one-per-line verification tags for the ROBUST profile.
+
+33	Pre-canonical consistency sweep — housekeeping cross-checks before freezing canonical tag formats/hashes.
+
+34	Canonical checksum regenerator + self-auditor — sweeps value-string formats & hash strategies; freezes the canonical rule; prints canonical-chk tags.
+
+35	Canonical backfill & publisher pack — adopts the frozen rule and publishes the single canonical tag set (plus CSV/JSON).
