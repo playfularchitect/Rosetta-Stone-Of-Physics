@@ -1,5 +1,20 @@
 # README (plain-language)
 
+## TL;DR
+
+* Identities hold (Smarr, first law, Christodoulou–Ruffini).
+* Reversible extraction reaches the global bound; irreversibility creates a shortfall.
+* Near-extremal scaling is clean and consistent.
+* Response, duality, and geometry all line up.
+* A project-wide meta-audit says the numbers are globally tight.
+
+**If you only read one number:** `Unified Ledger Score ≈ 89/100` (higher is better).
+
+**If you only read one sentence:** The full thermodynamic picture checks out—numerically, broadly, and reproducibly.
+
+
+
+
 ### What’s new/interesting here (in one breath)
 
 > * We don’t just “compute numbers.” We **prove numerically** that the textbook thermodynamics of Kerr–Newman black holes holds across a broad state space, including near extremality, with receipts.
