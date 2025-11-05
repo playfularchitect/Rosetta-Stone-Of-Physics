@@ -10567,3 +10567,259 @@ with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
 
 print(f"[ZIP] {zip_path}  ({len(paths)} files)")
 # ===================== /MODULE ======================================
+
+# ===================== MODULE: PRETTY ASCII DIGEST (CKM + PMNS + MATTER/VAC) =====================
+import os, glob, json, csv, math
+from datetime import datetime, timezone
+
+REPORT_DIR = "/content/reports"
+os.makedirs(REPORT_DIR, exist_ok=True)
+
+# ---------- helpers ----------
+def latest(pattern):
+    paths = sorted(glob.glob(os.path.join(REPORT_DIR, pattern)))
+    return paths[-1] if paths else None
+
+def now_utc_stamp():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
+
+def line(c="=", n=100): return c*n
+
+def fmt(x, w=10, p=6):
+    if x is None: return " "*(w-3)+"n/a"
+    if isinstance(x, float):
+        s = f"{x:.{p}f}"
+    else:
+        s = str(x)
+    return s.rjust(w)
+
+def fmt_sci(x, w=12, p=6):
+    if x is None: return " "*(w-3)+"n/a"
+    return f"{x:.{p}e}".rjust(w)
+
+def read_simple_prob_csv(path):
+    """
+    Expect rows like: E_GeV, P_mue, P_mumu, P_ee
+    Returns list of dicts with keys: E, Pmue, Pmumu, Pee
+    Ignores comment lines beginning with '#'.
+    """
+    out = []
+    if not path: return out
+    with open(path, "r") as f:
+        rdr = csv.reader(f)
+        for row in rdr:
+            if not row: continue
+            if row[0].strip().startswith("#"): continue
+            # header?
+            head = [c.strip().lower() for c in row]
+            if "e_gev" in head[0] or "e[gev]" in head[0]:
+                continue
+            try:
+                vals = [float(x) for x in row[:4]]
+            except:
+                continue
+            if len(vals) >= 4:
+                E, pmue, pmumu, pee = vals[:4]
+                out.append(dict(E=E, Pmue=pmue, Pmumu=pmumu, Pee=pee))
+    return out
+
+def col_merge(vac, mat):
+    """
+    Merge by energy (float match). Returns list of (E, Pmue_v, Pmue_m, dPmue, Pmumu_v, Pmumu_m, dPmm, Pee_v, Pee_m, dPee).
+    """
+    byE_v = {round(d["E"],6): d for d in vac}
+    byE_m = {round(d["E"],6): d for d in mat}
+    Es = sorted(set(byE_v.keys()) & set(byE_m.keys()))
+    rows = []
+    for E in Es:
+        v = byE_v[E]; m = byE_m[E]
+        rows.append((
+            E,
+            v["Pmue"], m["Pmue"], m["Pmue"]-v["Pmue"],
+            v["Pmumu"], m["Pmumu"], m["Pmumu"]-v["Pmumu"],
+            v["Pee"],   m["Pee"],   m["Pee"]-v["Pee"]
+        ))
+    return rows
+
+def cp_asym(vac, vacbar, mat, matbar):
+    """return list of (E, A_vac, A_mat) merged on energy."""
+    byE_v  = {round(d["E"],6): d for d in vac}
+    byE_vb = {round(d["E"],6): d for d in vacbar}
+    byE_m  = {round(d["E"],6): d for d in mat}
+    byE_mb = {round(d["E"],6): d for d in matbar}
+    Es = sorted(set(byE_v.keys()) & set(byE_vb.keys()) & set(byE_m.keys()) & set(byE_mb.keys()))
+    rows = []
+    for E in Es:
+        Av = byE_v[E]["Pmue"] - byE_vb[E]["Pmue"]
+        Am = byE_m[E]["Pmue"] - byE_mb[E]["Pmue"]
+        rows.append((E, Av, Am))
+    return rows
+
+def show_mergetable(title, rows):
+    print(title)
+    print("-"*100)
+    print("E[GeV] |  Pmue_v   Pmue_m   ΔPmue  ||  Pmumu_v  Pmumu_m  ΔPμμ  ||  Pee_v    Pee_m    ΔPee")
+    print("-"*100)
+    for (E, pv, pm, dp, tv, tm, dt, ev, em, de) in rows:
+        print(f"{E:6.2f} | {pv:8.6f} {pm:8.6f} {dp:+8.6f}  ||  {tv:8.6f} {tm:8.6f} {dt:+8.6f}  ||  {ev:8.6f} {em:8.6f} {de:+8.6f}")
+    print()
+
+def show_cp(title, rows):
+    print(title)
+    print("-"*60)
+    print("E[GeV]   A_CP(vac)   A_CP(matter)")
+    print("-"*60)
+    for (E, Av, Am) in rows:
+        print(f"{E:6.2f}   {Av:10.6f}   {Am:12.6f}")
+    print()
+
+# ---------- CKM (try to load, else fallback to your last snapshot) ----------
+ckm_card = latest("UPT_texture_card_v4n*.json") or latest("UPT_texture_card_*_v4n*.json")
+ckm = None
+if ckm_card:
+    try:
+        with open(ckm_card,"r") as f: ckm = json.load(f)
+    except Exception:
+        ckm = None
+
+# fallback numbers (your FINAL SNAPSHOT pretty table; harmless if a card exists)
+CKM_FALLBACK = {
+    "Vus_pred": 0.224075254, "Vus_tgt": 0.224298257,
+    "Vcb_pred": 0.042191077, "Vcb_tgt": 0.042199674,
+    "Vub_pred": 0.003926470, "Vub_tgt": 0.003940000,
+    "J_pred":   3.375419526e-05, "J_tgt": 3.384301967e-05,
+    "A": 0.840297, "lam_in": 0.224299065421, "lam_from": 0.224075254,
+    "rhobar": -0.144663, "etabar": -0.378521,
+    "alpha": 50.786, "beta": 18.298, "gamma": 110.916,
+    "knobs": dict(r12=1.078, phi_u=2.297, phi_d=2.282, b_u=1.275, p32=1.763, a_d=1.241, b_d=0.970, g13=0.470,
+                  a_u=1.250, c_u=0.852, c_d=1.621)
+}
+
+def print_ckm_block():
+    print(line())
+    print("CKM — FINAL SNAPSHOT (pretty digest)")
+    print(line("-"))
+    if ckm and isinstance(ckm, dict):
+        # best-effort pull; keys may differ between runs
+        lam_in = ckm.get("lambda_input") or CKM_FALLBACK["lam_in"]
+        pred = ckm.get("pred", {})
+        tgt  = ckm.get("target", {})
+        Vus_p = pred.get("Vus", CKM_FALLBACK["Vus_pred"])
+        Vcb_p = pred.get("Vcb", CKM_FALLBACK["Vcb_pred"])
+        Vub_p = pred.get("Vub", CKM_FALLBACK["Vub_pred"])
+        J_p   = pred.get("J",   CKM_FALLBACK["J_pred"])
+        Vus_t = tgt.get("Vus", CKM_FALLBACK["Vus_tgt"])
+        Vcb_t = tgt.get("Vcb", CKM_FALLBACK["Vcb_tgt"])
+        Vub_t = tgt.get("Vub", CKM_FALLBACK["Vub_tgt"])
+        J_t   = tgt.get("J",   CKM_FALLBACK["J_tgt"])
+        print("[HEADLINES: targets vs predictions]")
+        print("quantity      predicted        target           rel_error")
+        print("---------------------------------------------------------")
+        def re(a,b): return abs(a-b)/b if b else float('nan')
+        print(f"|Vus|        {Vus_p: .9f}   {Vus_t: .9f}   {re(Vus_p,Vus_t):.3e}")
+        print(f"|Vcb|        {Vcb_p: .9f}   {Vcb_t: .9f}   {re(Vcb_p,Vcb_t):.3e}")
+        print(f"|Vub|        {Vub_p: .9f}   {Vub_t: .9f}   {re(Vub_p,Vub_t):.3e}")
+        print(f"J            {J_p: .9e}   {J_t: .9e}   {re(J_p,J_t):.3e}")
+    else:
+        f = CKM_FALLBACK
+        def re(a,b): return abs(a-b)/b if b else float('nan')
+        print("[HEADLINES: targets vs predictions]  (fallback snapshot)")
+        print("quantity      predicted        target           rel_error")
+        print("---------------------------------------------------------")
+        print(f"|Vus|        {f['Vus_pred']: .9f}   {f['Vus_tgt']: .9f}   {re(f['Vus_pred'],f['Vus_tgt']):.3e}")
+        print(f"|Vcb|        {f['Vcb_pred']: .9f}   {f['Vcb_tgt']: .9f}   {re(f['Vcb_pred'],f['Vcb_tgt']):.3e}")
+        print(f"|Vub|        {f['Vub_pred']: .9f}   {f['Vub_tgt']: .9f}   {re(f['Vub_pred'],f['Vub_tgt']):.3e}")
+        print(f"J            {f['J_pred']: .9e}   {f['J_tgt']: .9e}   {re(f['J_pred'],f['J_tgt']):.3e}")
+        print()
+        print("[WOLFENSTEIN & UT]")
+        print(f"λ(from |Vus|) : {f['lam_from']:.9f}   (input λ={f['lam_in']:.12f})")
+        print(f"A              : {f['A']:.6f}")
+        print(f"ρ̄, η̄          : {f['rhobar']:.6f}, {f['etabar']:.6f}")
+        print(f"α, β, γ (deg)  : {f['alpha']:.3f}, {f['beta']:.3f}, {f['gamma']:.3f}")
+        print()
+        print("[KNOBS (keys)]  r12, φ_u, φ_d, b_u, p32, a_d, b_d, g13  |  fixed: a_u, c_u, c_d")
+    print()
+
+# ---------- PMNS (try to load JSON; else fall back to last angles) ----------
+pmns_card = latest("UPT_pmns_osc_card_*.json") or latest("UPT_pmns_card_*.json")
+PMNS_FALLBACK = dict(
+    th12=33.440000, th23=49.200000, th13=8.570000, delta=197.000000,
+    Jcp=-9.689802595543e-03, unitarity=2.496e-16
+)
+
+def print_pmns_block():
+    print(line())
+    print("PMNS — VACUUM SNAPSHOT (pretty digest)")
+    print(line("-"))
+    if pmns_card:
+        try:
+            with open(pmns_card,"r") as f: card = json.load(f)
+        except:
+            card = {}
+        th12 = card.get("theta12_deg", PMNS_FALLBACK["th12"])
+        th23 = card.get("theta23_deg", PMNS_FALLBACK["th23"])
+        th13 = card.get("theta13_deg", PMNS_FALLBACK["th13"])
+        delta= card.get("delta_deg",   PMNS_FALLBACK["delta"])
+        Jcp  = card.get("J_CP",        PMNS_FALLBACK["Jcp"])
+        unif = card.get("unitarity_error", PMNS_FALLBACK["unitarity"])
+    else:
+        th12, th23, th13, delta = PMNS_FALLBACK["th12"], PMNS_FALLBACK["th23"], PMNS_FALLBACK["th13"], PMNS_FALLBACK["delta"]
+        Jcp, unif = PMNS_FALLBACK["Jcp"], PMNS_FALLBACK["unitarity"]
+    print(f"[ANGLES & PHASE]  θ12={th12:.6f}°,  θ23={th23:.6f}°,  θ13={th13:.6f}°,  δ_CP={delta:.6f}°")
+    print(f"J_CP (from U)={Jcp:.12e}")
+    print(f"unitarity error (||U†U−I||_F) = {unif:.3e}")
+    print()
+
+# ---------- Vacuum vs Matter, per experiment ----------
+EXPS = {
+    "T2K":  dict(vac="UPT_vac_T2K_*.csv",   mat="UPT_mat_T2K_*.csv",   vbar="UPT_vacbar_T2K_*.csv",   mbar="UPT_matbar_T2K_*.csv"),
+    "NOvA": dict(vac="UPT_vac_NOvA_*.csv",  mat="UPT_mat_NOvA_*.csv",  vbar="UPT_vacbar_NOvA_*.csv",  mbar="UPT_matbar_NOvA_*.csv"),
+    "DUNE": dict(vac="UPT_vac_DUNE_*.csv",  mat="UPT_mat_DUNE_*.csv",  vbar="UPT_vacbar_DUNE_*.csv",  mbar="UPT_matbar_DUNE_*.csv"),
+}
+
+def print_matter_vacuum_blocks():
+    print(line())
+    print("VACUUM ↔ MATTER — compact deltas + CP asym (auto from latest CSVs)")
+    print(line("-"))
+    for name, pats in EXPS.items():
+        vac   = read_simple_prob_csv(latest(pats["vac"]))
+        mat   = read_simple_prob_csv(latest(pats["mat"]))
+        vbar  = read_simple_prob_csv(latest(pats["vbar"]))
+        mbar  = read_simple_prob_csv(latest(pats["mbar"]))
+        if not (vac and mat):
+            print(f"{name}: no CSVs found — skipping.\n"); continue
+        merged = col_merge(vac, mat)
+        show_mergetable(f"{name}", merged)
+        if vbar and mbar:
+            cp = cp_asym(vac, vbar, mat, mbar)
+            show_cp(f"{name} — A_CP panel", cp)
+
+# ---------- Manifest peek ----------
+def print_manifest_tail():
+    print(line())
+    print("MANIFEST PEEK (latest by category)")
+    print(line("-"))
+    def show(tag, pat):
+        p = latest(pat)
+        if p: print(f"{tag}: {os.path.basename(p)}")
+        else: print(f"{tag}: n/a")
+    show("matter-vs-vacuum", "UPT_matter_vs_vacuum_CONSOLIDATED_*.csv")
+    show("density sweep",    "UPT_density_sweep_*.csv")
+    show("hierarchy comp",   "UPT_hierarchy_compare_*.csv")
+    show("bi-probability",   "UPT_biprob_*_*.csv")
+    show("PREM-lite",        "UPT_prem_lite_*_*.csv")
+    show("E–L sweep (all)",  "UPT_ELsweep_*_all.csv")
+    print()
+
+# ---------- run ----------
+print(line())
+print("ULTRA-PRETTY ASCII DIGEST — CKM + PMNS + Vacuum vs Matter")
+print(f"generated: {now_utc_stamp()}")
+print(line())
+
+print_ckm_block()
+print_pmns_block()
+print_matter_vacuum_blocks()
+print_manifest_tail()
+print("[DONE] pretty digest.")
+# ===================== /MODULE ====================================================================
