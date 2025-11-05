@@ -1,0 +1,75 @@
+====================================================================================================
+CKM TEXTURE — FINAL SNAPSHOT (v4n_plus2 tightened)
+====================================================================================================
+
+[HEADLINES: targets vs predictions]
+quantity      predicted        target           rel_error
+---------------------------------------------------------
+|Vus|         0.224298257     0.224298257      5.086e-14
+|Vcb|         0.042199674     0.042199674      2.943e-14
+|Vub|         0.003940000     0.003940000      1.761e-14
+J             3.384301967e-05 3.384301967e-05  8.089e-14
+
+[CKM MAGNITUDES  | rows: u,c,t  cols: d,s,b ]
+          d            s            b
+u   0.974512580  0.224298257  0.003940000
+c   0.224041526  0.973665539  0.042199674
+t   0.011429201  0.040813104  0.999101428
+
+[UNITARITY & SCORE]
+unitarity error (||V†V−I||_F): 8.882e-16
+score (max rel error on {Vus,Vcb,Vub,0.5*J} + small λ pull): 7.205e-07
+
+[WOLFENSTEIN & UNITARITY TRIANGLE]
+λ(from |Vus|)  : 0.224298257   (input λ=0.224299065421)
+A              : 0.838798
+ρ̄             : -0.146903
+η̄             : -0.378612
+α              : 50.525°
+β              : 18.269°
+γ              : 111.206°
+(α+β+γ ≈ 180.000°)
+
+[KNOBS — FINAL VALUES (O(1) coeffs, phases, and exponents)]
+r12   = 1.078      (LEFT-lopsided factor for (12)_d)
+φ_u   = 2.297 rad  (up-sector phase)
+φ_d   = 2.282 rad  (down-sector phase)
+b_u   = 1.275      (controls (23)_u ~ b_u * λ^2)
+p32   = 1.763      (continuous power on (32)_d: λ^{p32})
+a_d   = 1.241      (controls (12)_d ~ r12 * a_d * λ)
+b_d   = 0.970      (controls (23)_d ~ b_d * λ^2)
+g13   = 0.470      (tiny (13)_u term ~ g13 * λ^3)
+
+[FIXED (held from v4i)]
+a_u = 1.250   c_u = 0.852   c_d = 1.621
+
+[STABILITY — tight jitter around best knobs]
+percentile    score
+--------------------
+median        1.818e-01
+90th          3.602e-01
+99th          5.324e-01
+
+[SENSITIVITY — Δscore for small + bumps (most to least impactful)]
+knob   Δscore (approx)
+----------------------
+b_u    +1.206e-01
+r12    +9.420e-02
+phi_u  +8.280e-02
+b_d    +6.875e-02
+phi_d  +7.114e-02
+p32    +4.472e-02
+a_d    +3.252e-02
+g13    +8.306e-03
+
+[WHY THIS FIT HOLDS]
+• (12)_d ~ r12·a_d·λ with (22)_d ~ λ^2  ⇒ Cabibbo ~ O(λ) without inflating other entries.  
+• (23) blocks ~ λ^2 (tuned by b_u, b_d, and p32) ⇒ |Vcb| ~ O(λ^2).  
+• A tiny (13)_u = g13·λ^3 + two small phases steer |Vub| and J with minimal back-reaction.
+
+[ONE-LINE CARD]
+CKM hit at machine precision with unitary err ~9e-16 using:
+r12=1.078, φ_u=2.297, φ_d=2.282, b_u=1.275, p32=1.763, a_d=1.241, b_d=0.970, g13=0.470
+(fixed: a_u=1.250, c_u=0.852, c_d=1.621).  |Vus|=0.224298257, |Vcb|=0.042199674, |Vub|=0.003940000, J=3.3843e-05.
+
+====================================================================================================
