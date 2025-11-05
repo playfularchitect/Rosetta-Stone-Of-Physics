@@ -37,7 +37,7 @@ The evidence for this framework is built on three distinct, interlocking pillars
 
 The flagship paper demonstrates a derivation of the fine-structure constant ($\alpha$) from a discrete geometric structure with no free parameters.
 
-* **Primary Paper:** **[`(KeyStoneV9)MasterPaper.pdf`](./(KeyStoneV9)MasterPaper.pdf)**
+* **Primary Paper:** **KeystoneMasterPaper_V12_(2).pdf
 * **Supporting Materials:** See the `Two Shells Derivation` folder.
 
 ### Pillar 2: An Interlocking Model of Particle Physics
