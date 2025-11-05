@@ -1,7 +1,9 @@
 WHAT IS THE "UNIVERSAL UNIT" (UU)/Circular Ball Unit (CBU)?
 ----------------------------------
 • Definition:  U(p) = 1 / (49 * 50 * 137^p), an integer-lattice "zoom" where p is the parity depth (zoom level).
+
 • Claim:  Many dimensionless physics targets X are reproduced as X ~= k * U(p) with integer k.
+
 • Auditability:  Each line has an audit TAG with (p, k_bits, residues mod 23/49/50/137) + a 6-hex checksum of the value.
 
 WHY IT'S Important
@@ -49,15 +51,25 @@ CANONICAL SEED (exactly as used in Module 25)
 SAMPLE TAGS (audit handles)
 ---------------------------
 Format: TAG = UU[p=px|kbits=b]::(k mod 23,49,50,137)|chk6
+
   s2_W          -> UU[p=6|kbits=52]::6-40-31-76|ad585b
+  
   alpha_em      -> UU[p=7|kbits=54]::13-46-32-36|7997cc
+  
   alpha_s       -> UU[p=7|kbits=58]::6-6-8-41|ed6fec
+  
   MW_over_v     -> UU[p=6|kbits=53]::21-9-48-38|5e7d9b
+  
   MZ_over_v     -> UU[p=6|kbits=53]::1-41-36-90|f4632e
+  
   W_over_Z      -> UU[p=6|kbits=54]::19-26-26-125|a1b0c4
+  
   tau_over_mu   -> UU[p=6|kbits=58]::16-34-20-57|7d8841
+  
   mt_over_v     -> UU[p=6|kbits=54]::11-20-24-50|2e9a6f
+  
   mb_over_v     -> UU[p=7|kbits=56]::22-13-36-128|9f31c2
+  
   me_over_v     -> UU[p=9|kbits=57]::20-27-46-127|6a5d0e
 
 HOW TO REPRODUCE ANY LINE (3 steps, no code editor needed)
