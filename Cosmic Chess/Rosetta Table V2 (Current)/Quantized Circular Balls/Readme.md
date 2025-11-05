@@ -26,25 +26,45 @@ CANONICAL SEED (exactly as used in Module 25)
 ---------------------------------------------
 {
   "CKM.delta_over_pi": {"p": 6, "k_bits": 53},
+  
   "CKM.s12": {"p": 7, "k_bits": 59},
+  
   "CKM.s13": {"p": 7, "k_bits": 53},
+  
   "CKM.s23": {"p": 7, "k_bits": 57},
+  
   "COUPLINGS.alpha_em": {"p": 7, "k_bits": 54},
+  
   "COUPLINGS.alpha_s": {"p": 7, "k_bits": 58},
+  
   "COUPLINGS.sin2_thetaW": {"p": 6, "k_bits": 52},
+  
   "EW_HIGGS.MH_over_v": {"p": 6, "k_bits": 53},
+  
   "EW_HIGGS.MW_over_v": {"p": 6, "k_bits": 53},
+  
   "EW_HIGGS.MZ_over_v": {"p": 6, "k_bits": 53},
+  
   "EW_HIGGS.W_over_Z": {"p": 6, "k_bits": 54},
+  
   "FLAVOR.tau_over_mu": {"p": 6, "k_bits": 58},
+  
   "QUARK_LIGHT.md_over_v": {"p": 8, "k_bits": 53},
+  
   "QUARK_LIGHT.ms_over_v": {"p": 8, "k_bits": 57},
+  
   "QUARK_LIGHT.mu_over_v": {"p": 9, "k_bits": 59},
+  
   "YUKAWA.mb_over_v": {"p": 7, "k_bits": 56},
+  
   "YUKAWA.mc_over_v": {"p": 7, "k_bits": 54},
+  
   "YUKAWA.me_over_v": {"p": 9, "k_bits": 57},
+  
   "YUKAWA.mmu_over_v": {"p": 8, "k_bits": 57},
+  
   "YUKAWA.mt_over_v": {"p": 6, "k_bits": 54},
+  
   "YUKAWA.mtau_over_v": {"p": 7, "k_bits": 54}
 }
 
