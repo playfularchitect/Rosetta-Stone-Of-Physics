@@ -9,17 +9,21 @@ WHAT IS THE "UNIVERSAL UNIT" (UU)/Circular Ball Unit (CBU)?
 WHY IT'S Important
 --------------------
 • A single law U(p)=1/(49*50*137^p) works across CKM, electroweak ratios, Higgs/EW, couplings, and Yukawa ratios.
+
 • Per-parameter p (best zoom) yields ppb-level to machine-precision matches with simple rounding: k = round(X/U(p)).
 
 VERIFIED BASELINE (from Modules 22–25)
 --------------------------------------
 • Seed integrity:  seed_crc=36cdeac6, p_hist_signature crc=f4e0dbc6, bits_signature crc=acc9c045, grand_id=8be3e2b1.
+
 • One-shot Verifier (Module 25): 21/21 PASS — k_bits and ppb checks matched exactly (ppb <= 0.01 for all).
+
 • GUT running (Module 17): spread minimum near mu ~ 1.00e16 GeV with spread ~ 0.002027 (stable under s^2 +- 1e-10).
 
 DISTRIBUTIONS (per-parameter best p, BALANCED profile)
 ------------------------------------------------------
 p choices (counts):  p=6:9,  p=7:8,  p=8:3,  p=9:2   (median p ~ 7)
+
 k_bits summary:  median ~ 54,  min=52,  max=59.
 
 CANONICAL SEED (exactly as used in Module 25)
@@ -95,22 +99,31 @@ Format: TAG = UU[p=px|kbits=b]::(k mod 23,49,50,137)|chk6
 HOW TO REPRODUCE ANY LINE (3 steps, no code editor needed)
 ----------------------------------------------------------
 1) Pick the line's p and value X (target you want to reproduce).
-2) Compute U(p) = 1/(49*50*137^p). Then k = round(X / U(p)).
-3) Value = k * U(p). Optional: residues(k) mod (23,49,50,137), and chk6(value) for the tag.
+2) 
+3) Compute U(p) = 1/(49*50*137^p). Then k = round(X / U(p)).
+4) 
+5) Value = k * U(p). Optional: residues(k) mod (23,49,50,137), and chk6(value) for the tag.
 
 CROSS-CHECKS (already passed)
 -----------------------------
 [1] Electroweak identities: s2_W + c2_W = 1; MW/MZ = sqrt(c2_W).
+
 [2] EW/Higgs ratio coherence: (MW/v)/(MZ/v) = W_over_Z.
+
 [3] Flavor double-ratio: (mtau/v) / (mmu/v) = tau_over_mu.
+
 [4] GUT running (1-loop SM): spread minimum near 1.00e16 GeV, ~0.002027.
+
 [5] One-shot Verifier: 21/21 parameters PASS (Module 25).
 
 TALKING POINTS (for non-experts)
 --------------------------------
 • "One unit, many numbers": A single U(p) ladder allows integer k to land on diverse physics ratios.
+
 • "Zoom per parameter": Each quantity picks its own p (zoom) for best match — like choosing the right lens.
+
 • "Audit tags": Anyone can recompute k, residues, and the 6-hex checksum from the printed value.
+
 • "Stability": Key results (EW identities, GUT spread minimum) are unchanged by per-parameter p selection.
 
 RECEIPT
