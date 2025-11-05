@@ -1,4 +1,4 @@
-# README (plain-language)
+# README (plain-language) November 5th, 2025
 
 ## TL;DR
 
