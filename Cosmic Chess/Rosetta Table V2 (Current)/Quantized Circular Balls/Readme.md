@@ -99,10 +99,10 @@ Format: TAG = UU[p=px|kbits=b]::(k mod 23,49,50,137)|chk6
 HOW TO REPRODUCE ANY LINE (3 steps, no code editor needed)
 ----------------------------------------------------------
 1) Pick the line's p and value X (target you want to reproduce).
-2) 
-3) Compute U(p) = 1/(49*50*137^p). Then k = round(X / U(p)).
-4) 
-5) Value = k * U(p). Optional: residues(k) mod (23,49,50,137), and chk6(value) for the tag.
+
+2) Compute U(p) = 1/(49*50*137^p). Then k = round(X / U(p)).
+ 
+3) Value = k * U(p). Optional: residues(k) mod (23,49,50,137), and chk6(value) for the tag.
 
 CROSS-CHECKS (already passed)
 -----------------------------
