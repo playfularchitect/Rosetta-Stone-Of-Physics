@@ -1,4 +1,4 @@
-TL;DR — What we showed
+TL;DR — What we showed    November 5th, 2025
 CKM (quark mixing)
 
 We found a compact, near-integer FN/NNI-style λ-power texture that reproduces the observed CKM pattern using only order-one coefficients and two phases, plus two continuous tweaks: a lopsided (12)_d factor and a continuous power p₃₂ on the down (32) entry.
