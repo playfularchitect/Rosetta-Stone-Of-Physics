@@ -1,6 +1,6 @@
 # UR-Law: The Universal Ledger (Ω3)
 
-This repository contains the complete computational workflow and output for my **Universal Ledger (UR-Law)** framework.
+This folder contains the complete computational workflow and output for my **Universal Ledger (UR-Law)** framework.
 
 The core hypothesis is that the fundamental constants of the Standard Model can be derived as **exact integer fractions** from a basis set of `{49, 50, 137}`.
 
