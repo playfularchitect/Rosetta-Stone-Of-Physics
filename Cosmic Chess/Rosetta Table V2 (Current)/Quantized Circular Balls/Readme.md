@@ -8,7 +8,7 @@ WHAT IS THE "UNIVERSAL UNIT" (UU)/Circular Ball Unit (CBU)?                Novem
 
 WHY IT'S Important
 --------------------
-• A single law U(p)=1/(49*50*137^p) works across CKM, electroweak ratios, Higgs/EW, couplings, and Yukawa ratios.
+• A single law U(p)=1/(49*50*137^p) works across CKM, electroweak ratios, Higgs/EW, couplings,blackholes, Yukawa ratios and more.
 
 • Per-parameter p (best zoom) yields ppb-level to machine-precision matches with simple rounding: k = round(X/U(p)).
 
