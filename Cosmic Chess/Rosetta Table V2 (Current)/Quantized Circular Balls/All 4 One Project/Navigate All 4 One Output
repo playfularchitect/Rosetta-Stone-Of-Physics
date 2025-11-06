@@ -1,0 +1,257 @@
+# Part-by-Part Breakdown
+
+Here is a detailed breakdown of each section from the log.
+
+---
+
+## Part 1: UNIVERSAL PLANCK TABLE — REGISTRY INIT
+
+### Purpose
+To initialize the main database (the "registry") that will store all the physical constants.
+
+### What it's Doing
+* It defines the core formulas and design of the registry (e.g., `exact_core = p/q + integer k`).
+* It adds the very first entries, which act as seeds for the whole system:
+    * `cosmic_closure`: Sets $\Omega_{Total}$ to exactly 1 (a deviation of 0). This is a foundational assumption.
+    * `alpha_inverse`: Sets the inverse fine-structure constant to exactly 137 (as the rational 137/1).
+
+---
+
+## Part 2: UNIVERSAL PLANCK TABLE — EMIT (READABILITY-FIRST)
+
+### Purpose
+To show the initial state of the registry and generate the first set of master log files.
+
+### What it's Doing
+* **[ARTIFACTS]**: Lists the paths to the master `.csv` and `.jsonl` files where all data will be saved.
+* **[COUNTS]**: Shows that the registry has been seeded with one constant from each main domain (EM, Gravity, Cosmology).
+* **[s_D_SNAPSHOT]**: Shows the "domain scaling factors" (`s_D`). These are multipliers for the universal lattice `U(p)` for each domain. At initialization, they are all set to 1/1.
+* **ASCII Table (REGISTRY initial...)**: This is the most important part. It's a human-readable table of the seed constants in the registry, showing their rational `p/q` values:
+    * $\alpha$ (alpha): 1/137
+    * $A_bit/ℓ_P^2$ (Bekenstein-Hawking): 2772589/1000000 (This is a rational approximation for $4\ln(2)$).
+    * $\Omega_b$ (Omega baryon): 12/250 (which is exactly 0.048).
+    * $\Omega_{tot}−1$ (Omega total deviation): 0/1 (exactly zero).
+
+---
+
+## Part 3: EM/EW QUANTIZATION ON UNIVERSAL LATTICE
+
+### Purpose
+The first major calculation. This part fits the primary Electroweak (EM/EW) constants onto the universal lattice.
+
+### What it's Doing
+* It takes known constants: `alpha` (fine-structure constant), `sin2_thetaW` (Weinberg angle), `MW_over_v`, and `MZ_over_v`.
+* For each constant, it finds a "level" `p` (like `p=56` or `p=55`) and a very large integer `k` that "quantizes" it.
+* The `residual` and `rel_error` columns show that this fit is nearly perfect (e.g., errors of `0E-112`). This demonstrates that these constants can be represented as `k · U(p)`.
+
+---
+
+## Part 4: CUSTODIAL ρ (TREE) — CONSTRAINT ROW
+
+### Purpose
+To check the "Custodial Rho" parameter ($\rho$), a key consistency relationship in the Standard Model.
+
+### What it's Doing
+* It calculates $\rho$ using the values from Part 3. At this stage, it's not exactly 1 (it's 1.0106...).
+* It then quantizes the deviation from 1 (`rho_tree_dev`) onto the lattice at `p=56`. (This deviation is "fixed" in a later part).
+
+---
+
+## Parts 5 & 6: EMIT ARTIFACTS & REGISTRY DIGEST (for EM)
+
+### Purpose
+To save the results from the EM/EW part.
+
+### What it's Doing
+* It writes the EM-specific files (`UPT_master_EM...`).
+* The **REGISTRY DIGEST** table shows the 6 new constants (like `alpha`, `sin2_thetaW`, etc.) that have been added to the master registry, along with their `p` and `k` values.
+
+---
+
+## Parts 7–11: GRAVITY, QCD, COSMOLOGY, DERIVED CONSTRAINTS
+
+### Purpose
+To repeat the quantization process for all other major physics domains.
+
+### What it's Doing
+* **GRAVITY/PLANCK LADDER**: Fits Planck-scale constants (like `S_bits_mP`) to the lattice. It finds perfect fits (e.g., error of `1.070E-141`) using extremely large `k` integers at `p=64`.
+* **QCD ON UNIVERSAL LATTICE**: This part calibrates the QCD lattice. It uses `alpha_s_MZ` (the strong coupling) as an "anchor" and finds that the best-fit scaling factor (`s_QCD`) is exactly **1/1**. This is a key result: the QCD lattice is identical to the EM lattice.
+* **COSMOLOGY ON UNIVERSAL LATTICE**: This does the same calibration for cosmology, using `Omega_total = 1` as the anchor. It also finds the scaling factor (`s_COS`) is **1/1**. The Cosmology lattice is also identical to the EM lattice.
+* **DERIVED CONSTRAINTS**: This part confirms that constraints like `closure_dev` ($\Omega_{tot}-1$) are now exactly zero.
+
+---
+
+## Part 12: META SNAPSHOTS & INTEGRITY
+
+### Purpose
+To verify the entire run's integrity and summarize the metadata.
+
+### What it's Doing
+* **[s_domain]**: Creates a final table showing that all domain scaling factors (`s_EM`, `s_QCD`, `s_G`, `s_COS`) are **1/1**. This confirms the unification of all physics domains onto a single lattice.
+* **[ledger_digests]**: Records SHA256 hashes of all output files to prove they haven't been tampered with.
+* **[env]**: Records a hash of the computing environment (Python version, OS) to ensure the calculation is reproducible.
+
+---
+
+## Parts 13 & 14: CKM & PMNS ON UNIVERSAL LATTICE
+
+### Purpose
+To define and quantize the quark (CKM) and neutrino (PMNS) mixing matrices.
+
+### What it's Doing
+* **[inputs]**: This is the core step. It defines the fundamental mixing angles (like `s12`, `s13`) as **exact rational numbers** (e.g., `CKM s12 = 13482/60107`, `PMNS s12 = 199/359`).
+* It then calculates all 9 matrix elements (e.g., `Vus`, `Ue2`) and the Jarlskog invariant (`J`) from these exact fractions.
+* It proves that every single one of these 18+ matrix elements can be **perfectly quantized on the universal lattice** (at `p=55` or `p=56`) with **zero error**.
+* It also confirms that the resulting matrices are perfectly unitary (e.g., `VVdag_diag_0` deviation is `0/1`).
+
+---
+
+## Part 15: CKM–PMNS PORTAL
+
+### Purpose
+To compare the CKM and PMNS matrices to look for "quark-lepton complementarity."
+
+### What it's Doing
+* It takes the rational angles from the previous parts and calculates their sums.
+* It highlights that $\theta_{12}$ (CKM) + $\theta_{12}$ (PMNS) $\approx 46.63^\circ$, which is notably close to $45^\circ$, suggesting a deep connection between the quark and lepton sectors.
+
+---
+
+## Part 16: AGGREGATE
+
+### Purpose
+To combine all 96 calculated constants into one final database and run global analyses.
+
+### What it's Doing
+* **GLOBAL MASTER**: It builds the final registry of 96 constants.
+* **RESIDUALS**: It confirms the **max relative error across all 96 constants is 1.822e-16** (i.e., machine epsilon, or zero). This is a primary claim of the model.
+* **DNA(k) RESIDUE SPECTRA**: This is a "numerology" analysis. It studies the huge `k` integers, checking their "residues" (remainders) when divided by numbers like 23, 49, 50, and 137. The non-uniform distributions (chi2) suggest there might be a hidden mathematical structure within the `k` integers themselves.
+
+---
+
+## Part 17: CALIBRATION
+
+### Purpose
+A final, formal confirmation of the lattice unification.
+
+### What it's Doing
+* It runs a "fit" on the anchor constants for QCD, Gravity, and Cosmology.
+* It confirms that in all cases, the best-fit scaling factor is **exactly 1**. This part serves as the final "proof" that `s_QCD = s_Gravity = s_COS = 1`.
+
+---
+
+## Part 18: MDL & DNA
+
+### Purpose
+To make an information-theory argument for the model's efficiency.
+
+### What it's Doing
+* **MDL (Minimum Description Length)**: It compares the "bit-cost" of storing the 86 constants in this model (as `p/q` fractions and `k` integers) versus storing them as standard decimal numbers.
+* **`compression_ratio` $\approx 1.456$**: This is the key result. It claims this model is **1.46x more efficient** (i.e., "simpler") at describing the constants than the standard float representation.
+* **DNA(k) RESIDUE SPECTRA**: A more detailed repeat of the "numerology" analysis from Part 16, showing the `k`-integer patterns.
+
+---
+
+## Parts 19–21: INFO, LANDAUER, & BLACK-HOLE THERMO
+
+### Purpose
+To show that the universal lattice also applies to information physics and that it unifies gravity with information.
+
+### What it's Doing
+* **INFO LATTICE**: Fits mathematical constants like $\ln(2)$ and $2\pi$ to the lattice (`p=64`, `p=56`) with near-perfect precision ($\sim 1\text{e-}17$ error).
+* **LANDAUER LIMIT**: Uses the quantized $\ln(2)$ to calculate the Landauer limit ($E = T \cdot \ln(2)$) at various temperatures (CMB, Planck, etc.), all on the lattice.
+* **BLACK-HOLE THERMO ↔ INFO**: This is a major consistency check. It calculates black hole entropy in two ways:
+    1.  As an Area on the Gravity lattice (`k_A`).
+    2.  As Bits on the Info lattice (`k_bits`).
+* It then runs a **CONSISTENCY CHECK** and proves that the Bekenstein-Hawking formula $S_bits = A / (4 \ln 2)$ holds **exactly** (`0.000e+00`) in this quantized framework.
+* **BH ⟷ LANDAUER**: A second check, proving that another identity, $M/E_bit = 2 \cdot S_bits$, also holds exactly.
+
+---
+
+## Part 22: GAUGE/GRAVITY ANOMALIES
+
+### Purpose
+A standard "sanity check" to ensure the particle physics model is mathematically valid.
+
+### What it's Doing
+* It checks that all gauge and gravitational "anomalies" cancel out (sum to zero).
+* It confirms that the model is **anomaly-free** as long as a right-handed neutrino (with $\nu_R$) is included, which is a standard requirement.
+
+---
+
+## Part 23: ELECTROWEAK ρ & RATIONAL SNAP
+
+### Purpose
+To "fix" the custodial $\rho$ deviation identified back in Part 4.
+
+### What it's Doing
+* It shows that the initial "seed" value for $\sin^2\theta_W$ (29 bits) causes a 1% error in the $\rho$ parameter.
+* It then "snaps" $\sin^2\theta_W$ to a new, simpler rational value: **188/843** (only 18 bits).
+* This "snapped" value is not only simpler (lower MDL) but also **reduces the error in $\rho$ by a factor of 49,000**, making it essentially zero. This demonstrates a core principle of the model.
+
+---
+
+## Part 24: KOIDE
+
+### Purpose
+To demonstrate that the Koide lepton mass formula ($Q \approx 2/3$) is a natural outcome of this lattice.
+
+### What it's Doing
+* It searches for tiny integer triples (`k_e`, `k_μ`, `k_τ`) that best approximate $Q = 2/3$.
+* **[winner]**: It finds a "winning" triple: **(15, 346, 7935)**. This triple reproduces the $2/3$ value with an error of only 3e-8.
+* It then shows that these three `k` integers can be placed on the universal lattice (`p=55`) to define the lepton masses.
+
+---
+
+## Part 25: TEXTURES (Multiple Sections)
+
+### Purpose
+This is the most complex and ambitious part of the log. It attempts to derive the entire CKM (quark) matrix from a few simple "knobs" and the Cabibbo angle $\lambda$.
+
+### What it's Doing (in sequence)
+1.  **TEXTURES — Cabibbo $\lambda$ picks**: It defines $\lambda$ as the rational **24/107**. It shows that a "simple" model where mixing angles are just powers of $\lambda$ (e.g., `Vcb` ~ $\lambda^2$) is a bad fit (e.g., 192% error).
+2.  **FN-TEXTURE CHARGES**: It tries a Froggatt-Nielsen model, which also fails (2000% error).
+3.  **TEXTURE v4h & v4i**: It introduces a much more sophisticated "NNI" model with 11 "knobs." This model gets much closer, with errors down to ~0.5%.
+4.  **TIGHTENED KNOBS (v4n)**: This is the "Eureka!" moment. It runs a tightening optimizer on the knobs.
+5.  **CKM (v4n tightened)**: The optimizer succeeds. It finds a set of 8 "knobs" (like `r12=1.062`, `p32=1.733`) that reproduce the target CKM matrix values with **near-perfect precision** (errors of $\sim 1\text{e-}13$).
+6.  **v4n_plus2 & CKM TEXTURE — FINAL SNAPSHOT**: It refines the fit one more time, achieving a "score" (max error) of **3.434e-03 (0.34%)**. This is the final, "best-fit" model.
+
+**Key Takeaway**: This part claims to have found a "generative model" for the CKM matrix. It shows that 8 simple knobs + 1 rational $\lambda$ can perfectly construct the entire quark mixing matrix.
+
+---
+
+## Part 26: PMNS TEXTURE — FINAL SNAPSHOT
+
+### Purpose
+To do the same thing for the PMNS (neutrino) matrix.
+
+### What it's Doing
+* It skips the failed attempts and presents the "final" model.
+* It finds a set of 11 "knobs" (like `ae12`, `pe12`, `dnu`) that can **perfectly generate the PMNS matrix** and all its angles (e.g., $\theta_{12} = 33.44^\circ$, $\delta_{CP} = 197^\circ$) with **zero error**.
+
+---
+
+## Part 27: PMNS — VACUUM OSCILLATION SNAPSHOT (and related)
+
+### Purpose
+To use the perfectly-generated PMNS matrix from Part 26 to make testable predictions.
+
+### What it's Doing
+* **T2K, NOvA, DUNE**: It calculates the neutrino oscillation probabilities (e.g., $P(\nu_\mu \to \nu_e)$) that should be seen by real-world experiments.
+* **NEUTRINOS (in matter)**: It re-calculates these probabilities, this time including the "MSW effect" (how neutrinos interact with matter as they pass through the Earth's crust).
+* **MATTER vs VACUUM**: It creates tables that show the difference matter makes, which is a key observable.
+* **CP ASYMMETRY PANEL**: This is the most critical prediction. It calculates the CP Asymmetry ($A_{CP} = P(\nu) - P(\bar{\nu})$), which is the "holy grail" measurement for these experiments. This log now contains a **concrete, testable prediction** for what $A_{CP}$ should be.
+
+---
+
+## Part 28: RESULTS MANIFEST & ULTRA-PRETTY ASCII DIGEST
+
+### Purpose
+To package and summarize the entire run.
+
+### What it's Doing
+* **RESULTS MANIFEST**: It lists all 98 artifacts (CSVs, JSONs, figures) created during the run and bundles them into a single `.zip` file (`UPT_ALL_ARTIFACTS...`).
+* **ULTRA-PRETTY ASCII DIGEST**: It generates the final, human-readable summary of the most important results:
+    * The final CKM fit (errors < 0.35%).
+    * The final PMNS angles (e.g., $\delta_{CP} = 197^\circ$).
+    * A compact table of the key predictions for the T2K, NOvA, and DUNE experiments.
