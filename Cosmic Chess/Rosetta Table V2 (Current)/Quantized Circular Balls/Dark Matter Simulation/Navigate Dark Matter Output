@@ -1,0 +1,225 @@
+# Pipeline Overview & Module Breakdown
+
+> Alright, if you're looking at this output, you're seeing the full pipeline I built. I'm breaking it down module by module here so you can navigate the code and understand what's happening at each step.
+>
+> Here’s the flow from start to finish.
+
+---
+
+### Initial Search & Best Candidate (Start)
+
+* **What it is:** This is the very first step, the initial raw search or fit. I'm just running a search algorithm (`searched combos`) to find parameter sets that best match a cost function.
+* **What to look for:** The **Top 10 Matches** are the best-fitting raw results. The **BEST CANDIDATE** is the #1 hit, but notice it's marked **FAIL**—this just means that while it was the best fit in the search, it didn't pass the hard-line checks I apply later.
+* **Artifacts:** The raw data from this search (`JSON`, `CSV`, `BIN`).
+
+---
+
+## ⚙️ Module-by-Module Breakdown
+
+---
+
+### MODULE 18 :: REALITY LEDGER v1
+
+* **What it is:** This is where I define the battlefield. The `Parameter Cube` section lays out the entire N-dimensional parameter space I'm exploring (`mass`, `cross-section`, etc.).
+* **What it does:** It computes the initial `Survivor Mask` based on absolute "hard walls" or fixed constraints. The `Computing Survivor Mask` section shows this in progress.
+* **Key output:** The `Summary` shows the total grid points and the `alive points` after this first simple filter. The `alive frac` ($\approx 10.8\%$) shows what's left before I apply the real, complex constraints.
+
+---
+
+### MODULE 19 :: CPU TURBO BACKEND (AVX2/OpenMP)
+
+* **What it is:** This is a performance and verification step. I'm not just using slow Python; I have custom-built, hardware-accelerated (AVX2/OpenMP) kernels to do the heavy lifting.
+* **What it does:** It benchmarks my kernels (`FX20_HYPERNITRO`, `FX21_CERTFIRE`) to show their performance in Giga-ops/s.
+* **Key output:** The most important line is:
+    ```
+    [CHECK] AVX2 mask == NumPy mask ? True
+    ```
+    This is my proof that the high-speed AVX2 evaluator gets the exact same bit-for-bit answer as the simple (but slow) NumPy calculation. This is how I get no-compromise speed.
+
+---
+
+### MODULE 20 :: REALITY LEDGER v2 (Data Ingest)
+
+* **What it is:** This is the main data ingest. I'm loading the full `Parameter Cube` and applying the "v2" constraints, which are the real-world constraints from actual data (e.g., CMB, Direct-detect envelopes, Dwarfs).
+* **What it does:** The `Query demo` is a key feature: it shows an example of testing a single, specific point against the mask. It not only tells you `survives? : False` but also gives the exact reasons why it failed (e.g., `Dwarfs cap`).
+* **Key output:** The `Diff vs v1` shows that in this run, the new constraints didn't remove any more points than the v1 hard walls, so `$\Delta$ alive : 0`.
+
+---
+
+### MODULE 21 :: REALITY LEDGER EXPLORER
+
+* **What it is:** Now that I have the final v2 "Survivor Mask," this module explores it to understand its properties.
+* **What it does:**
+    * **Coverage Stats:** This is crucial. It shows me which parameter axes are getting hit the hardest. For example, `coverage(warm)` being $\approx 0.412$ means the constraints are heavily slicing up that dimension.
+    * **Frontiers:** I calculate the edge of the allowed parameter space.
+    * **Sampler:** I take a large, 50,000-point random sample from the surviving $\approx 134.7$ million models for later deep analysis.
+
+---
+
+### MODULE 22 :: REALITY BOX
+
+* **What it is:** A simple demo and visualization module.
+* **What it does:** It shows the `reality_query_continuous()` function in action (which can check points that aren't exactly on the grid) and exports the main 2D plots (`panel_m_vs_sigma.png`, etc.) that visualize the final allowed regions.
+
+---
+
+### Post-Module 22 Analysis (Pareto & Impact Study)
+
+* **What it is:** This is a critical analysis of the v2 survivors.
+* **What it does:**
+    * **Pareto fronts:** Saves the exact boundaries of the allowed region at specific mass points.
+    * **Impact study:** This is a sensitivity analysis. I "push" on each constraint (e.g., `Warmth floor` → +2 keV) and see how many survivors it kills. This tells me which constraint is the most powerful (in this case, **Warmth**, which kills **44.42%** of the survivors).
+
+---
+
+### MODULE 24 :: MEASUREMENT PLANNER
+
+* **What it is:** This is the strategic part. It uses the Impact Study data to create an optimal plan for future experiments.
+* **What it does:** It identifies the **Top-10 targets** for each constraint type. These are the exact parameter points (e.g., a specific mass) that, if measured, would be the most effective at killing the most remaining survivors. It's a guide for where to look next.
+
+---
+
+### MODULE 25 :: PRESSURE-AWARE TARGET SELECTOR
+
+* **What it is:** This refines the plan from M24.
+* **What it does:** It finds the absolute **"cheapest win"** for each constraint—the target with the smallest ratio between the current frontier and the experimental cap. This is the most efficient, "pressure-aware" way to select the next measurement.
+
+---
+
+### MODULE 26 :: REALITY SAMPLER + INSTANT CHECK
+
+* **What it is:** A simple sanity-check module.
+* **What it does:** I'm just doing a "smoke test" on the `reality_check` function to make sure it's working and pulling another small sample of survivors to look at their mass distribution by decade.
+
+---
+
+### MODULE 27 :: DELTA-IMPACT SIMULATOR
+
+* **What it is:** This is my "what-if" simulator.
+* **What it does:** I feed it a hypothetical **Plan** of new constraints (e.g., `dd_cap_x, factor: 0.3`), and it calculates the total **Impact** (e.g., `38.688% kill fraction`) without actually changing the baseline mask. It's for testing ideas quickly.
+
+---
+
+### MODULE 28 :: AUTOTUNE PLAN
+
+* **What it is:** This is one of the most powerful modules. I give the system **Budgets** (e.g., "you can't tighten $\sigma_{\text{SI}}$ by more than 10x" and "you only get 3 actions").
+* **What it does:** It **autotunes** the best possible plan to kill the maximum number of survivors within those budgets. You can see its **Chosen plan** (3 steps) and the `kill_fraction` (**40.706%**) it achieved.
+
+---
+
+### MODULE 29 :: PLAN EXECUTOR + RECEIPT SHEET
+
+* **What it is:** This module takes the `Chosen plan` from the Autotuner (M28) and executes it.
+* **What it does:** It applies the changes to the mask, step-by-step, and generates a final **Receipt** (a `JSON` file) that logs the entire transaction—what was done, what was removed, and what's left.
+
+---
+
+### MODULE 30 :: REALITY OPS LIST
+
+* **What it is:** This just cleans up the output from M29.
+* **What it does:** It generates a simple, human-readable list of the operations and a **ONE-LINE HANDOFF** that summarizes the new constraints.
+
+---
+
+### MODULES 31, 32, 33 :: REALITY STRIKE (v1, v2, v3)
+
+* **What it is:** These are the **Reality Strikes**. I'm running a series of increasingly aggressive, pre-defined "what-if" scenarios (v1, v2, v3) against the original baseline to see how much of the parameter space I can kill.
+* **What it does:** This is the main culling. You can see the `kill_fraction` increasing with each strike. By **Strike v3 (M33)**, I've already eliminated **97.160%** of the parameter space, leaving only 3.8M survivors.
+
+---
+
+### MODULE 34 :: RESIDUAL ANATOMY
+
+* **What it is:** After Strike v3, there are still ~3.8 million survivors. This module performs an **Anatomy** on them.
+* **What it does:** It shows where they are (Top-10 mass bins still populated) and what their properties are. I save a 5k sample of these "residual" points to study why they survived.
+
+---
+
+### MODULE 35 :: REALITY STRIKE v4 (99% club)
+
+* **What it is:** Another, even harder strike. This one (v4) pushes the kill fraction to **97.907%**.
+
+---
+
+### MODULE 36 :: REALITY STRIKE v5 (surgical finish)
+
+* **What it is:** This is the final assault. I replay v4, then apply new **Surgical hardening** cuts.
+* **What it does:** The key is the **Pinpoint per-mass squeeze**. I'm now going mass bin by mass bin and applying custom, aggressive cuts until nothing is left.
+* **Key output:** `final_alive : 0`. **100.000% kill fraction**. The entire parameter space is ruled out.
+
+---
+
+### MODULE 37 :: RECEIPTS, REPLAY & MIN-ROLLBACK
+
+* **What it is:** This module is the verifier. It replays the v5 strike, step-by-step, to confirm the 100% kill.
+* **What it does:** It logs the state right before the final pin-point cuts (`alive_before_pins : 1930065`) and then confirms the final "pin" squeeze that killed the last 7,920 points.
+
+---
+
+### MODULE 38 :: PIN SEQUENCE FINISHER + GAP AUDIT
+
+* **What it is:** This is the **Gap Audit**. I'm looking only at the very last mass bin that had survivors ($m \approx 0.0415552 \text{ GeV}$).
+* **What it does:** I'm calculating the exact **gap** between the frontier (where the last survivors were) and the final cap I applied. This quantifies the final "squeeze" factor (e.g., `×shrink = 20.0x`).
+
+---
+
+### MODULE 39 :: MIN-RELAX TO RESURRECT (last-pin mass)
+
+* **What it is:** This is the reverse of the Gap Audit. Now that everything is dead, I ask: "How much do I have to relax my final caps to bring even *one* point back to life?"
+* **What it does:** This module finds that for that last-pin mass, I'd need to relax the caps by a factor of **3.991** (`relax_both_equal_x`). This is the "resurrection margin" for that one bin.
+
+---
+
+### MODULES 40 & 42 :: GLOBAL RESURRECTION MARGINS
+
+* **What it is:** This confirms the "resurrection margin" globally. It proves that the minimum factor to resurrect *any* point *anywhere* in the entire 5D cube is **3.99042**.
+* **What it does:** This is the "margin of error" on my 100% kill. The `Sanity ring` in M42 confirms this: a factor of `3.19...` resurrects nothing, a factor of `3.99...` resurrects the first points.
+
+---
+
+### MODULES 43 & 43c :: MASSWISE RESURRECTION MARGIN
+
+* **What it is:** A full breakdown, mass bin by mass bin, of the "resurrection factor" $\mathbf{x^*}$ needed for each one.
+* **What it does:** This map shows me which mass bins are easiest to resurrect (lowest $\mathbf{x^*}$) and which are hardest.
+
+---
+
+### MODULE 44 :: BINDING-FENCE MAP
+
+* **What it is:** This module looks at the "easiest-to-resurrect" points from M43 and identifies which specific `fence` is binding them (e.g., `bind=sigma_SI`).
+* **What it does:** It automatically generates a new `Triangulation Ops` plan to hit those specific weak points in a future run.
+
+---
+
+### MODULES 45, 46, 47 :: LOCKDOWN GUARDRAILS & RED-LINE
+
+* **What it is:** These modules establish the final "red-line" for the whole parameter space, based on a stricter test.
+* **What it does:** They prove that a global relaxation of $\mathbf{x=5}$ is the point where resurrection occurs. This sets the **Strict Global Red-Line**. Any relaxation factor below 5.0 guarantees no survivors.
+
+---
+
+### MODULE 48 :: SURVIVOR LEDGER v3
+
+* **What it is:** This is the final summary **Ledger** of the entire simulation (which applied the v5 strike).
+* **Key output:** It contains all the final numbers: the **Hard Fences** ($W \ge 10.0 \text{ keV}$, $\sigma/\text{m} \le 0.03$), the **Kill Switch Caps** at the last-pin mass, the **Local $\mathbf{x^*}$ ($\mathbf{3.99}$)**, and the **Global Red-Line ($\mathbf{5.0}$)**.
+
+---
+
+### MODULE 49 :: BRUTALIZER
+
+* **What it is:** This is the final, brute-force re-test.
+* **What it does:** It re-loads the full mask and counts the number of survivors at different relaxation factors ($\mathbf{x=1, 3, 5, 6}$). This provides the final proof: $\mathbf{x=3 \rightarrow \text{count}=0}$, $\mathbf{x=5 \rightarrow \text{count}=107,085}$. The gap is confirmed.
+
+---
+
+### MODULE 50 :: PUBLIC PROOF DECK
+
+* **What it is:** This is the final output, the **Proof Deck**.
+* **What it does:** It's a clean, human-readable summary of all the key numbers from M48 & M49. This is the part I'd post in a paper or on the main GitHub page.
+
+---
+
+### MODULE 51 :: BELT & SUSPENDERS FREEZE
+
+* **What it is:** The final step.
+* **What it does:** It freezes the `Public Proof Deck` by SHA256-hashing it and creating metadata. This ensures the results are reproducible and can be verified against a specific hash. It's the "belt and suspenders" to lock in the final result.
