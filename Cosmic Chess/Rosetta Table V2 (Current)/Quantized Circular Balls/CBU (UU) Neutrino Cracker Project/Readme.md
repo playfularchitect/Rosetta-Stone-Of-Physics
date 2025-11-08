@@ -1,4 +1,4 @@
-Neutrino Cracker — Plain-English 
+Neutrino Cracker — Plain-English November 8th, 2025
 
 What this project is:
 A series of quick, studies (“v38–v62”) exploring how DUNE-like long-baseline data could respond to different modeling assumptions. We focus on how much of the neutrino/antineutrino spectral difference (driven by the CP phase δ) survives once you include realistic systematics and correlations.
