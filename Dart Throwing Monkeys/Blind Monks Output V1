@@ -1,0 +1,150 @@
+========================================================================================================================
+                         ULTRA v2: self-contained, trillion-scale, 256-bucket, your-kernel env                          
+========================================================================================================================
+
+>>> Reusing existing ultra lib: /tmp/ultra_null_n3evb6sa/libultra_codes.so
+========================================================================================================================
+                               RATIO_OS_EW_SHAPE_NULLTEST_v3 — ULTRA v2 (self-contained)                                
+========================================================================================================================
+#params                         : 19
+#SHAPE defs                     : 8
+Baseline all-float MDL          : 1007.0 bits
+Null universes per scale        : 3,000,000,000
+ε-scales tested                 : (0.5, 1.0, 2.0)
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 0.500]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 1007.0
+  Compression factor            : 1.000
+  Snapped params (real)         : 0
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 762.0
+  5th percentile                : 958.0
+  25th percentile               : 1007.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 1002.6
+  std(MDL)                      : 14.482
+
+[Significance vs null]
+  Real MDL                      : 1007.0
+  Empirical p-value             : p ≈ 1
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2739105550
+  snapped =  1   freq = 251106591
+  snapped =  2   freq = 9587006
+  snapped =  3   freq = 198434
+  snapped =  4   freq = 2401
+  snapped =  5   freq = 18
+  snapped =  6   freq = 0
+  snapped =  7   freq = 0
+  snapped =  8   freq = 0
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 1.000]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 620.0
+  Compression factor            : 0.616
+  Snapped params (real)         : 8
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 714.0
+  5th percentile                : 958.0
+  25th percentile               : 1007.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 998.2
+  std(MDL)                      : 20.322
+
+[Significance vs null]
+  Real MDL                      : 620.0
+  Empirical p-value             : p ≈ 0
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2497434881
+  snapped =  1   freq = 465018399
+  snapped =  2   freq = 35991071
+  snapped =  3   freq = 1517153
+  snapped =  4   freq = 37899
+  snapped =  5   freq = 593
+  snapped =  6   freq = 4
+  snapped =  7   freq = 0
+  snapped =  8   freq = 0
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 2.000]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 620.0
+  Compression factor            : 0.616
+  Snapped params (real)         : 8
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 667.0
+  5th percentile                : 957.0
+  25th percentile               : 960.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 989.5
+  std(MDL)                      : 28.291
+
+[Significance vs null]
+  Real MDL                      : 620.0
+  Empirical p-value             : p ≈ 0
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2066899028
+  snapped =  1   freq = 794835153
+  snapped =  2   freq = 126713007
+  snapped =  3   freq = 10968228
+  snapped =  4   freq = 566272
+  snapped =  5   freq = 17950
+  snapped =  6   freq = 357
+  snapped =  7   freq = 5
+  snapped =  8   freq = 0
+
+========================================================================================================================
+                                            Done: ULTRA v2 — self-contained                                             
+========================================================================================================================
+
+========================================================================================================================
+                              RATIO_OS_EW_SHAPE_NULLTEST_v3 — ULTRA σ-significance add-on                               
+========================================================================================================================
+#params                         : 19
+#SHAPE defs                     : 8
+Baseline all-float MDL          : 1007.0 bits
+Null universes per scale        : 3,000,000,000
+ε-scales tested                 : (0.5, 1.0, 2.0)
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 0.500]
+  Real MDL                      : 1007.0 bits   (snapped params = 0)
+  mean_null(MDL)                : 1002.62 bits
+  std_null(MDL)  (population)   : 14.482 bits
+  σ-significance (rough, z)     : z ≈ -0.30
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 1.000]
+  Real MDL                      : 620.0 bits   (snapped params = 8)
+  mean_null(MDL)                : 998.23 bits
+  std_null(MDL)  (population)   : 20.322 bits
+  σ-significance (rough, z)     : z ≈ 18.61
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 2.000]
+  Real MDL                      : 620.0 bits   (snapped params = 8)
+  mean_null(MDL)                : 989.46 bits
+  std_null(MDL)  (population)   : 28.291 bits
+  σ-significance (rough, z)     : z ≈ 13.06
+
+========================================================================================================================
+                                              Done: σ-significance add-on                                               
+========================================================================================================================
