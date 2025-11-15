@@ -5,7 +5,7 @@ November 15th, 2025
 
 ### TL;DR
 
-We found that 8 Standard Model parameters snap to simple fractions with 18.61-sigma significance.
+We found that under our early model 8 Standard Model parameters snap to simple fractions with 18.61-sigma significance.
 Then we discovered something funnier: physicists compress worse than random chance.
 
 ---
