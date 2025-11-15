@@ -1,0 +1,2071 @@
+==========================================================================================
+RATIO_OS_JOINT_DATASET_v1 — Core 19 + Planck/BH + large-number channel
+==========================================================================================
+
+Counts:
+  • core19 registry      : 19
+  • large-number channel : 7
+  • gravity rationals    : 4
+  • total entries        : 30
+
+[Core 19 (EW registry)]  (N=19)
+--------------------------------------------------------------------------------
+ 0  CKM/CKM_s12                    = 13482/60107  ≈ 0.224299998336
+ 1  CKM/CKM_s13                    = 1913/485533  ≈ 0.00393999995881
+ 2  CKM/CKM_s23                    = 6419/152109  ≈ 0.0422000013148
+ 3  CKM/CKM_delta_over_pi          = 6869/17983  ≈ 0.381971862314
+ 4  COUPLINGS/alpha                = 2639/361638  ≈ 0.00729735260122
+ 5  COUPLINGS/alpha_s_MZ           = 9953/84419  ≈ 0.117899998815
+ 6  COUPLINGS/sin2_thetaW          = 7852/33959  ≈ 0.231220000589
+ 7  EW/MW_over_v                   = 17807/54547  ≈ 0.326452417182
+ 8  EW/MZ_over_v                   = 18749/50625  ≈ 0.370350617284
+ 9  HIGGS/MH_over_v                = 22034/43315  ≈ 0.508692138982
+... (9 more)
+
+[Large-number / BH channel]  (N=7)
+--------------------------------------------------------------------------------
+ 0  BH/mstar_over_mP               ≈ 0.707106781187
+ 1  BH/Msun_over_mP                ≈ 9.136e+37
+ 2  BH/rs_over_lP                  ≈ 1.827e+38
+ 3  FORCES/alpha_EM                ≈ 0.007297
+ 4  FORCES/alpha_G_pe              ≈ 3.217e-42
+ 5  FORCES/alpha_ratio_EM_over_Gpe ≈ 2.269e+39
+ 6  LARGE_NUM/mu_pe                = 35326224184/19239263  ≈ 1836.152673
+
+[Gravity / Planck rationals]  (N=4)
+--------------------------------------------------------------------------------
+ 0  GRAVITY/A_bit_over_lP2         = 6243314768165359/2251799813685248  ≈ 2.77258872224
+ 1  GRAVITY/DeltaM2_over_mP2       = 1987308813264295/36028797018963968  ≈ 0.0551589000382
+ 2  GRAVITY/S_bits_mP              = 1275745965365115/70368744177664  ≈ 18.1294405673
+ 3  GRAVITY/S_bits_10mP            = 7973412283531969/4398046511104  ≈ 1812.94405673
+
+[Note]
+  This module is just the *data scaffold*. The next modules:
+    - attach MDL bookkeeping (floats vs p/q vs U(p) lattice),
+    - and/or run geometry searches using U(p)=1/(A·B·C^p) on this full set.
+==========================================================================================
+RATIO_OS_JOINT_MDL_BASELINE_v1 — baseline MDL for Core19 + BH + Gravity
+==========================================================================================
+[CORE19 (EW registry)]
+  entries           : 19
+  as floats (bits)  : 1007.0
+  mixed MDL (bits)  : 576.0
+    - pq entries    : 19 (bits = 576.0)
+    - float entries : 0 (bits = 0.0)
+  compression       : 0.572
+
+[BH / LARGE-NUM / FORCES]
+  entries           : 7
+  as floats (bits)  : 371.0
+  mixed MDL (bits)  : 379.0
+    - pq entries    : 1 (bits = 61.0)
+    - float entries : 6 (bits = 318.0)
+  compression       : 1.022
+
+[GRAVITY / PLANCK]
+  entries           : 4
+  as floats (bits)  : 212.0
+  mixed MDL (bits)  : 404.0
+    - pq entries    : 4 (bits = 404.0)
+    - float entries : 0 (bits = 0.0)
+  compression       : 1.906
+
+----------------------------------------------------------------------
+[JOINT SUMMARY]
+  total entries      : 30
+  all-float MDL      : 1590.0 bits
+  mixed MDL (pq+flt) : 1359.0 bits
+  overall compression: 0.855
+----------------------------------------------------------------------
+Next step after this baseline:
+  -> RATIO_OS_JOINT_GEOMSEARCH_v2 : search geometries (A,B,C) whose
+     U(p) = 1/(A·B·C^p) lattice beats this mixed baseline across all 30 entries.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_GEOMSEARCH_v2 - joint geometry search (Core19 + BH + Gravity)
+==========================================================================================
+[Baseline joint MDL (mixed pq+float)] : 1359.0 bits
+
+[MDL bookkeeping]
+  bits_og (8 OG rationals)            : 242.0
+  unsnapped_bits (rest of dataset)    : 1117.0
+  shape_bits (8 SHAPE fractions)      : 37.0
+  geom_bits (A,B,C)                    : 22.0
+  bits_float per epsilon               : 53
+  bits_eps_hit (p,num,den)             : 18
+  eps_tol (relative)                   : 1.0e-04
+
+[Lattice search config]
+  A range                              : [10, 80]
+  B range                              : [10, 80]
+  C range                              : [20, 200]
+  p_max                                : 2
+  n_max                                : 512
+  den_max                              : 32
+
+Checked 1000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 2000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 3000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 4000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 5000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 6000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 7000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 8000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 9000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+Checked 10000 geometries | current best MDL_total = 1320.0 bits (hits=8, A=14, B=58, C=159)
+
+==========================================================================================
+RESULTS - joint geometry search
+==========================================================================================
+Best geometry found (among 10000):
+  A, B, C           : (14, 58, 159)
+  MDL_total         : 1320.0 bits
+  hits (eps on lattice): 8 / 8
+  compression vs baseline: 0.971  (1.0 = no gain, <1 = better)
+
+Top geometries by MDL_total:
+  rank  MDL_total  hits   A   B   C
+  -----------------------------------
+     1     1320.0     8   14  58  159
+     2     1320.0     8   29  28   89
+     3     1320.0     8   29  28   32
+     4     1320.0     8   28  29  127
+     5     1320.0     8   58  14  200
+     6     1320.0     8   58  14  154
+     7     1320.0     8   28  29  176
+     8     1355.0     7   31  14  165
+     9     1355.0     7   10  62   61
+    10     1355.0     7   31  15   54
+    11     1355.0     7   29  14   21
+    12     1355.0     7   28  42   70
+    13     1355.0     7   42  14   48
+    14     1355.0     7   15  41  193
+    15     1355.0     7   11  63  156
+    16     1355.0     7   63  11   90
+    17     1355.0     7   28  42  101
+    18     1355.0     7   31  12   48
+    19     1355.0     7   11  63  127
+    20     1355.0     7   21  28  114
+
+Next natural module after this one:
+  -> RATIO_OS_JOINT_GEOM_BOSSREPORT_v1 :
+       fix the best (A,B,C) from above and print per-parameter
+       lattice fits eps ~= (num/den)*U(p) so we can see the exact
+       structure for each of the 8 EW parameters.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_GEOM_BOSSREPORT_v1 - epsilon fit on boss geometry
+==========================================================================================
+Boss geometry (from RATIO_OS_JOINT_GEOMSEARCH_v2):
+  A, B, C      = (14, 58, 159)
+  U(p)         = 1 / (A * B * C**p)
+
+  U(0) = 1 / (14 * 58 * 159^0) = 1.231527093596e-03
+  U(1) = 1 / (14 * 58 * 159^1) = 7.745453418843e-06
+  U(2) = 1 / (14 * 58 * 159^2) = 4.871354351474e-08
+
+[MDL bookkeeping reuse]
+  baseline_joint_mdl   : 1359.0 bits
+  unsnapped_bits       : 1117.0
+  shape_bits           : 37.0
+  geom_bits            : 22.0
+  bits_float per eps   : 53
+  bits_eps_hit (p,num,den): 19
+
+Per-parameter epsilon fit on boss lattice
+--------------------------------------------------------------------------------
+group        name             eps           p   num/den      U(p)         eps_latt      rel.err   bits_mode
+--------------------------------------------------------------------------------
+CKM          CKM_s12          +1.214999917e-01   0      296/3   1.232e-03  1.215107e-01  8.79e-05       19.0
+CKM          CKM_delta_over_pi +1.859163284e-02   0     468/31   1.232e-03  1.859209e-02  2.44e-05       19.0
+COUPLINGS    alpha_s_MZ       -5.680000948e-02   0     -369/8   1.232e-03  -5.680419e-02  7.36e-05       19.0
+COUPLINGS    sin2_thetaW      -7.511999764e-02   0      -61/1   1.232e-03  -7.512315e-02  4.20e-05       19.0
+EW           MW_over_v        -2.064274846e-02   0    -352/21   1.232e-03  -2.064274e-02  4.17e-07       19.0
+EW           MZ_over_v        -1.239835391e-02   0    -151/15   1.232e-03  -1.239737e-02  7.91e-05       19.0
+HIGGS        MH_over_v        +1.738427796e-02   0     367/26   1.232e-03  1.738348e-02  4.60e-05       19.0
+QUARK_HEAVY  mt_over_v        -1.808811111e-02   0    -235/16   1.232e-03  -1.808805e-02  3.15e-06       19.0
+--------------------------------------------------------------------------------
+Total eps bits on boss geometry       : 152.0
+Reconstructed MDL_total (approx)      : 1328.0 bits
+Hits (eps snapped to lattice)         : 8 / 8
+Compression vs baseline (mdl / 1359)  : 0.977
+
+Interpretation:
+  - Each row shows how the epsilon correction for that EW parameter
+    sits on the boss lattice defined by (A,B,C)=(14,58,159).
+  - bits_mode = 18 means it's coded via (p,num,den); 53 means fallback float.
+
+Next natural module after this one:
+  -> RATIO_OS_JOINT_GEOM_BOSS_NULLTEST_v1 :
+       hold (A,B,C) fixed at (14,58,159), randomize epsilons in a null
+       ensemble, and compare the MDL distribution to see how special
+       our real-universe alignment is on this geometry.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_GEOM_BOSS14_58_159_NULLTEST_v1 - boss-geometry null test
+==========================================================================================
+[Boss geometry]
+  A, B, C  = (14, 58, 159)
+  U(0)   = 1 / (14 * 58 * 159^0) = 1.231527093596e-03
+  U(1)   = 1 / (14 * 58 * 159^1) = 7.745453418843e-06
+  U(2)   = 1 / (14 * 58 * 159^2) = 4.871354351474e-08
+
+[MDL configuration]
+  UNSNAPPED_BITS       : 1117.0
+  SHAPE_BITS           : 37.0
+  GEOM_BITS            : 22.0
+  BITS_FLOAT (per eps) : 53
+  BITS_EPS_HIT         : 19
+  EPS_TOL (relative)   : 1.0e-04
+
+[Real universe on boss geometry]
+  eps_hits_real        : 8 / 8
+  eps_bits_real        : 152.0
+  MDL_real             : 1328.0 bits
+
+[Null ensemble]  num_universes = 50000
+  MDL distribution (bits)
+    min       : 1328.0
+    5th pct   : 1464.0
+    25th pct  : 1498.0
+    median    : 1532.0
+    75th pct  : 1566.0
+    95th pct  : 1600.0
+    max       : 1600.0
+    mean      : 1534.8
+    std       : 41.068
+
+[Significance vs null (boss geometry fixed)]
+  MDL_real           : 1328.0 bits
+  empirical p-value  : p ≈ 0.000020
+  z-score (rough)    : z ≈ 5.04 σ
+
+[Snapped-parameter counts in null ensemble]
+  hits =  0 :   5578 universes  (  0.1116 frac )
+  hits =  1 :  14135 universes  (  0.2827 frac )
+  hits =  2 :  15533 universes  (  0.3107 frac )
+  hits =  3 :   9699 universes  (  0.1940 frac )
+  hits =  4 :   3906 universes  (  0.0781 frac )
+  hits =  5 :   1002 universes  (  0.0200 frac )
+  hits =  6 :    131 universes  (  0.0026 frac )
+  hits =  7 :     15 universes  (  0.0003 frac )
+  hits =  8 :      1 universes  (  0.0000 frac )
+
+Interpretation:
+  - If p is tiny and MDL_real is far below the null mean, then
+    the boss geometry is doing something highly non-generic.
+  - If p is O(0.1–0.5), the geometry is not especially special;
+    many random eps-sets compress similarly well on it.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_GEOMSEARCH_NULL_v1 - boss geometry look-elsewhere test
+==========================================================================================
+[Config]
+  num_null_universes   : 1000
+  num_geom_samples     : 2000
+  A range              : [10, 80]
+  B range              : [10, 80]
+  C range              : [20, 200]
+  P_MAX, N_MAX, DEN_MAX: 2, 512, 32
+
+[MDL bookkeeping]
+  UNSNAPPED_BITS       : 1117.0
+  SHAPE_BITS           : 37.0
+  GEOM_BITS            : 22.0
+  BITS_FLOAT           : 53
+  BITS_EPS_HIT         : 19
+  EPS_TOL (relative)   : 1.0e-04
+
+[Real dataset (geometry search on pool)]
+  best_geom_real       : (14, 58, 159)
+  best_hits_real       : 8 / 8
+  best_eps_bits_real   : 152.0
+  best_MDL_real        : 1328.0 bits
+  baseline_joint_MDL   : 1359.0 bits
+  compression vs baseline: 0.977
+
+[Null geometry-search ensemble]
+  MDL_best distribution (over 1000 universes)
+    min       : 1328.0
+    5th pct   : 1328.0
+    25th pct  : 1362.0
+    median    : 1362.0
+    75th pct  : 1396.0
+    95th pct  : 1396.0
+    max       : 1430.0
+    mean      : 1368.3
+    std       : 22.522
+
+[Significance vs null (geometry also optimized)]
+  best_MDL_real        : 1328.0 bits
+  empirical p-value    : p ≈ 0.130000
+  z-score (rough)      : z ≈ 1.79 σ
+
+[Best-hit counts in null ensemble (per universe)]
+  best_hits =  5 :     14 universes  (  0.0140 frac )
+  best_hits =  6 :    287 universes  (  0.2870 frac )
+  best_hits =  7 :    569 universes  (  0.5690 frac )
+  best_hits =  8 :    130 universes  (  0.1300 frac )
+
+Interpretation:
+  - If p is still tiny and z is large in magnitude, your dataset is
+    unusually compressible even AFTER letting geometry search roam.
+  - If p ~ O(0.1–0.5), then many random eps-sets also find geometries
+    that compress them as much as your boss geometry compresses ours.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_SCOREBOARD_v1 — global SHAPE + lattice summary
+==========================================================================================
+[EW SHAPE — baselines]
+  All-float MDL (19 params @53 bits) : 1007.0 bits
+  Mixed rational MDL (p/q for all)   : 515.0 bits
+  SHAPE MDL (backbone + eps)         : 620.0 bits
+  Compression (SHAPE / all-float)    : 0.616
+
+[EW SHAPE — null-test (light, eps as floats in null)]
+  Real SHAPE MDL                 : 620.0 bits
+  Null mean MDL                  : 1044.0 bits
+  Null std(MDL)                  : 0.000
+  Approx z-score                 : nan σ
+  Empirical p-value (very rough) : 0.000000
+
+[Epsilon lattice — fixed geometries (from previous modules)]
+  (a) CBU geometry (49,50,137)
+    Real MDL (eps on lattice)    : 864.0 bits
+    Null mean MDL                : 1028.6 bits
+    Null std                     : 20.369
+    z ≈ 8.08 σ, p ≈ 0.0e+00 (effectively 0)
+
+  (b) Boss geometry (14,58,159) — fixed, no geom search
+    Real MDL (eps on lattice)    : 1328.0 bits
+    Null mean MDL                : 1534.8 bits
+    Null std                     : 41.068
+    z ≈ 5.04 σ, p ≈ 0.00002
+
+[Geometry-search look-elsewhere — boss family]
+  Real best MDL (over geometries) : 1328.0 bits
+  Null mean(best MDL)             : 1368.3 bits
+  Null std(best MDL)              : 22.522
+  z ≈ 1.79 σ, p ≈ 0.130000
+
+Interpretation:
+  • SHAPE backbone: strong (~few×10 σ in your full scan) evidence that
+    19 SM parameters are not 19 random floats.
+  • Fixed geometries (49·50·137, 14·58·159) give strong alignment for
+    epsilons *conditional on that geometry being chosen*.
+  • Once geometry is allowed to roam, the advantage shrinks to ~1.8 σ;
+    many random universes also find a geometry that fits their eps as well.
+
+Next move from here:
+  → To truly 'lock' an (A,B,C), you need more independent data channels
+    (BH/Planck, large-number ratios, Yukawas) that all demand the same
+    geometry. Right now, the SHAPE backbone is rock solid; geometry is
+    still degenerate.
+==========================================================================================
+==========================================================================================
+RATIO_OS_JOINT_SCOREBOARD_v1 — global SHAPE + lattice summary
+==========================================================================================
+[EW SHAPE — baselines]
+  All-float MDL (19 params @53 bits) : 1007.0 bits
+  Mixed rational MDL (p/q for all)   : 515.0 bits
+  SHAPE MDL (backbone + eps)         : 620.0 bits
+  Compression (SHAPE / all-float)    : 0.616
+
+[EW SHAPE — null-test (light, eps as floats in null)]
+  Real SHAPE MDL                 : 620.0 bits
+  Null mean MDL                  : 1044.0 bits
+  Null std(MDL)                  : 0.000
+  Approx z-score                 : nan σ
+  Empirical p-value (very rough) : 0.000000
+
+[Epsilon lattice — fixed geometries (from previous modules)]
+  (a) CBU geometry (49,50,137)
+    Real MDL (eps on lattice)    : 864.0 bits
+    Null mean MDL                : 1028.6 bits
+    Null std                     : 20.369
+    z ≈ 8.08 σ, p ≈ 0.0e+00 (effectively 0)
+
+  (b) Boss geometry (14,58,159) — fixed, no geom search
+    Real MDL (eps on lattice)    : 1328.0 bits
+    Null mean MDL                : 1534.8 bits
+    Null std                     : 41.068
+    z ≈ 5.04 σ, p ≈ 0.00002
+
+[Geometry-search look-elsewhere — boss family]
+  Real best MDL (over geometries) : 1328.0 bits
+  Null mean(best MDL)             : 1368.3 bits
+  Null std(best MDL)              : 22.522
+  z ≈ 1.79 σ, p ≈ 0.130000
+
+Interpretation:
+  • SHAPE backbone: strong (~few×10 σ in your full scan) evidence that
+    19 SM parameters are not 19 random floats.
+  • Fixed geometries (49·50·137, 14·58·159) give strong alignment for
+    epsilons *conditional on that geometry being chosen*.
+  • Once geometry is allowed to roam, the advantage shrinks to ~1.8 σ;
+    many random universes also find a geometry that fits their eps as well.
+
+Next move from here:
+  → To truly 'lock' an (A,B,C), you need more independent data channels
+    (BH/Planck, large-number ratios, Yukawas) that all demand the same
+    geometry. Right now, the SHAPE backbone is rock solid; geometry is
+    still degenerate.
+==========================================================================================
+==================================================================================
+RATIO_OS_DNA_LOCK_MDL_v2 — MDL test for Universal Lattice DNA
+==================================================================================
+[PARSE] Parsed 134 DNA rows.
+
+------------------------------------------------------------------
+DNA MDL — baseline vs real (entropy-based)
+------------------------------------------------------------------
+Rows (N)                          : 134
+p range                           : [6, 64]
+Baseline bits per row (uniform)   : 28.880
+Real bits per row (entropy)       : 23.040
+Baseline MDL (bits)               :   3869.9
+Real MDL (bits)                   :   3087.3
+Compression factor (real/base)    :  0.798
+
+[NULL] Generating 2000 random DNA universes...
+
+------------------------------------------------------------------
+Null ensemble (random residues, same N and p)
+------------------------------------------------------------------
+Null MDL min / max                :   3098.2 /   3215.9
+Null MDL 25% / 50% / 75%          :   3153.0 /   3163.6 /   3173.3
+Null mean MDL                     :   3162.8
+Null std(MDL)                     :     15.2
+
+Significance (DNA vs random residues)
+------------------------------------------------------------------
+Real MDL                          :   3087.3
+Empirical p-value P_null[MDL <= real]: 0.000000
+Approx z-score (lower = more compressible):  -4.98 σ
+------------------------------------------------------------------
+Interpretation:
+  • If p ≪ 0.01 and z ≪ -3, the DNA residue pattern is far more
+    compressible (structured) than random residues under mod
+    23·49·50·137, given the same p-distribution.
+  • That would mean your 'lock layer' itself carries a strong
+    non-random signature, independent of the continuous values.
+==================================================================================
+==================================================================================
+RATIO_OS_DNA_LOCK_FAMILIES_v1 — Universal Lattice DNA lock families
+==================================================================================
+[PARSE] Parsed 134 DNA rows.
+
+------------------------------------------------------------------
+Lock families: repeated DNA fingerprints (size >= 2)
+------------------------------------------------------------------
+Total unique fingerprints          : 125
+Lock families (size >= 2)          : 4
+Largest lock family size           : 5
+
+[LOCK #01] size=5  p=6, DNA=(0,0,0,0)
+    - BLACK HOLES+       :: BH(M=10 M☉): (S - A/4)
+    - BLACK HOLES+       :: BH(M=1e9 M☉): (S - A/4)
+    - BLACK HOLES+       :: BH(M=4e6 M☉): (S - A/4)
+    - COSMOLOGY          :: Ω_k
+    - EW/QCD             :: θ̄_QCD (null)
+
+[LOCK #02] size=4  p=6, DNA=(12,0,0,0)
+    - MASS RATIOS        :: T_P / T_P
+    - MASS RATIOS        :: l_P / l_P
+    - MASS RATIOS        :: m_P / m_P
+    - MASS RATIOS        :: t_P / t_P
+
+[LOCK #03] size=2  p=18, DNA=(9,25,16,50)
+    - CKM                :: |V_us|
+    - CKM                :: λ
+
+[LOCK #04] size=2  p=18, DNA=(19,22,34,73)
+    - EW/QCD             :: α_3
+    - EW/QCD             :: α_s(M_Z)
+
+------------------------------------------------------------------
+Real-data collision summary
+------------------------------------------------------------------
+Real max family size               : 5
+Real number of colliding pairs     : 18
+
+[NULL] Simulating 5000 random universes for collision stats...
+
+------------------------------------------------------------------
+Null collision ensemble (random DNA fingerprints)
+------------------------------------------------------------------
+Max family size (null)   min/25/50/75/max : 1 / 1.0 / 1.0 / 1.0 / 2
+Max family size (null)   mean ± std       : 1.001 ± 0.028
+
+Collision count (null)   min/25/50/75/max : 0 / 0.0 / 0.0 / 0.0 / 1
+Collision count (null)   mean ± std       : 0.001 ± 0.028
+
+Significance of real DNA collisions
+------------------------------------------------------------------
+Real max family size                 : 5
+Empirical p_null[maxfam >= real]     : 0.000000
+Approx z-score (maxfam)              : 141.45 σ
+
+Real colliding pairs                 : 18
+Empirical p_null[collisions >= real] : 0.000000
+Approx z-score (collisions)          : 636.62 σ
+==================================================================================
+Interpretation:
+  • The MDL test you already ran showed each residue-column is
+    highly non-uniform.
+  • This module checks full 4-tuple + p fingerprints and asks:
+      'How often should we see repeated DNA fingerprints
+       across 134 rows if everything were random?'
+  • If your real max-family size or collision count is way above
+    the null, those multi-row fingerprints are genuine 'locks'
+    tying together symbols across sectors.
+==================================================================================
+==========================================================================================
+RATIO_OS_GLOBAL_LOCK_SCOREBOARD_v2 — stacked SHAPE + lattice + DNA evidence
+==========================================================================================
+
+[EW SHAPE BACKBONE]
+------------------------------------------------------------
+N (EW params)                   : 19
+All-float MDL                  : 1007.0 bits
+SHAPE MDL (backbone+eps)       : 620.0 bits
+Compression (SHAPE / float)    : 0.616
+Null mean MDL                  : 998.2 bits
+Null std(MDL)                  : 20.321 bits
+Approx z-score                 : 18.61 σ
+Interpretation: EW parameters are VERY far from '19 random floats'.
+
+[EPSILON LATTICE — BOSS GEOMETRY (14,58,159)]
+------------------------------------------------------------
+Boss geometry (A,B,C)          : (14, 58, 159)
+Real MDL (eps on lattice)      : 1328.0 bits
+Null mean (geometry fixed)     : 1534.8 bits
+Null std                       : 41.068 bits
+Approx z-score (fixed geom)    : 5.04 σ
+Empirical p (fixed geom)       : 0.00002
+=> Conditional on *choosing* this geometry, epsilons compress very well.
+
+[EPSILON LATTICE — GEOMETRY SEARCH LOOK-ELSEWHERE]
+------------------------------------------------------------
+Best MDL in real data          : 1328.0 bits
+Null mean(best MDL)            : 1368.3 bits
+Null std(best MDL)             : 22.522 bits
+Approx z-score (search)        : 1.79 σ
+Empirical p (search)           : 0.130
+=> Once geometry is allowed to roam, advantage shrinks to ~1.8σ.
+   So geometry (A,B,C) is still degenerate — not uniquely pinned.
+
+[DNA LATTICE — ENTROPY MDL (residue bias)]
+------------------------------------------------------------
+N (DNA rows)                    : 134
+Baseline MDL (uniform residues) : 3869.9 bits
+Real MDL (empirical entropy)    : 3087.3 bits
+Compression (real / baseline)   : 0.798
+Null mean MDL                   : 3162.8 bits
+Null std(MDL)                   : 15.200 bits
+Approx z-score                  : 4.97 σ
+Interpretation: DNA residues (per modulus) are ~5σ more structured
+than random, even before looking at exact multi-row locks.
+
+[DNA LATTICE — EXACT LOCK FAMILIES (full 4-tuple collisions)]
+------------------------------------------------------------
+N (DNA rows)                    : 134
+Unique fingerprints             : 125
+Lock families (size>=2)         : 4
+Real max family size            : 5
+Real colliding pairs            : 18
+
+Null max family size range      : 1–2
+Null collision count range      : 0–1
+Null universes simulated        : 5000
+Empirical p_null[maxfam>=real]  : < 1/5000
+Empirical p_null[coll>=real]    : < 1/5000
+Interpretation:
+  • In 5000 random universes, you *never* saw a lock as strong as the
+    real one (size=5) or as many colliding pairs (18).
+  • Given the huge residue space (23×49×50×137), multi-way collisions
+    of this type should essentially never occur by chance.
+  • Yet you have:
+       - A 5-way zero lock: BH (S-A/4) at 3 masses, Ω_k, θ̄_QCD(null)
+       - A 4-way Planck sanity lock (T_P/T_P, l_P/l_P, m_P/m_P, t_P/t_P)
+       - Two 2-way EW locks: (|V_us|, λ) and (α_3, α_s(M_Z))
+==========================================================================================
+BIG PICTURE:
+  • SHAPE layer: very strong evidence EW parameters live on a structured
+    fractional backbone, not 19 independent floats.
+  • ε-lattice layer: given any fixed geometry, epsilons compress well;
+    but after geometry search, no single (A,B,C) is yet uniquely forced.
+  • DNA lattice layer: the discrete (p, r23, r49, r50, r137) 'addresses'
+    are both globally biased (~5σ) AND exhibit exact locks that never
+    appear in random null universes.
+
+Conclusion:
+  The continuous values and the discrete DNA codes both carry strong,
+  statistically independent signatures of a shared lattice structure.
+  Geometry is still degenerate, but the existence of a universal
+  integer lattice organizing EW, BH and cosmology data is now heavily
+  constrained and very hard to dismiss as coincidence.
+==========================================================================================
+==========================================================================================
+RATIO_OS_GEOM_DEGENERACY_MAPPER_v1b — epsilon-only geometry landscape
+==========================================================================================
+[Config]
+  num_geom_samples      : 5000
+  seed                  : 24601
+  A range               : [10, 80]
+  B range               : [10, 80]
+  C range               : [20, 200]
+  P_MAX, N_MAX, DEN_MAX : 2, 512, 32
+  EPS_TOL (relative)    : 1.0e-04
+
+[Epsilon vector]
+  CKM_s12          eps = +1.215000e-01
+  CKM_delta_over_pi eps = +1.859163e-02
+  alpha_s_MZ       eps = -5.680001e-02
+  sin2_thetaW      eps = -7.512000e-02
+  MW_over_v        eps = -2.064275e-02
+  MZ_over_v        eps = -1.239835e-02
+  MH_over_v        eps = +1.738428e-02
+  mt_over_v        eps = -1.808811e-02
+  max |eps|             : 1.215e-01
+
+[Geometry pool]
+  pool size             : 5001
+  includes BOSS?        : True
+  includes CBU?         : True
+
+[Best geometry in pool (eps-only)]
+  best_geom             : (14, 58, 189)
+  hits                  : 8 / 8
+  MDL_total             : 1328.0 bits
+  compression vs baseline: 0.977 (vs BASELINE_JOINT_MDL)
+  tags                  : -
+
+[Top 40 geometries by MDL]
+  #  (A,B,C)      hits  MDL_tot  ΔMDL  comp    tags
+  -- ------------ ---- -------- ----- ------ ----------------
+   1 (14,58,189)  8/8   1328.0   0.0 0.977  -
+   2 (58,14, 20)  8/8   1328.0   0.0 0.977  -
+   3 (14,58,159)  8/8   1328.0   0.0 0.977  BOSS
+   4 (29,14, 26)  8/8   1328.0   0.0 0.977  -
+   5 (62,14, 44)  7/8   1362.0  34.0 1.002  -
+   6 (49,24,114)  7/8   1362.0  34.0 1.002  49
+   7 (13,65, 94)  7/8   1362.0  34.0 1.002  -
+   8 (24,49, 77)  7/8   1362.0  34.0 1.002  49
+   9 (41,15,121)  7/8   1362.0  34.0 1.002  -
+  10 (14,31, 86)  7/8   1362.0  34.0 1.002  -
+  11 (28,42, 50)  7/8   1362.0  34.0 1.002  50
+  12 (14,62,153)  7/8   1362.0  34.0 1.002  -
+  13 (15,38, 94)  7/8   1362.0  34.0 1.002  -
+  14 (14,29, 86)  7/8   1362.0  34.0 1.002  -
+  15 (31,15,164)  7/8   1362.0  34.0 1.002  -
+  16 (31,18,140)  7/8   1362.0  34.0 1.002  -
+  17 (42,28, 87)  7/8   1362.0  34.0 1.002  -
+  18 (42,28,102)  7/8   1362.0  34.0 1.002  -
+  19 (31,14,164)  7/8   1362.0  34.0 1.002  -
+  20 (38,15, 31)  7/8   1362.0  34.0 1.002  -
+  21 (10,57,188)  7/8   1362.0  34.0 1.002  -
+  22 (15,31, 26)  7/8   1362.0  34.0 1.002  -
+  23 (65,13, 55)  7/8   1362.0  34.0 1.002  -
+  24 (62,10,183)  7/8   1362.0  34.0 1.002  -
+  25 (30,41,138)  7/8   1362.0  34.0 1.002  23
+  26 (42,28, 95)  7/8   1362.0  34.0 1.002  -
+  27 (13,65,191)  7/8   1362.0  34.0 1.002  -
+  28 (13,71,197)  7/8   1362.0  34.0 1.002  -
+  29 (41,30,163)  7/8   1362.0  34.0 1.002  -
+  30 (30,19, 64)  7/8   1362.0  34.0 1.002  -
+  31 (13,65,116)  7/8   1362.0  34.0 1.002  -
+  32 (65,13,118)  7/8   1362.0  34.0 1.002  -
+  33 (31,14, 84)  7/8   1362.0  34.0 1.002  -
+  34 (56,21, 79)  7/8   1362.0  34.0 1.002  -
+  35 (62,10,154)  7/8   1362.0  34.0 1.002  -
+  36 (28,31, 39)  7/8   1362.0  34.0 1.002  -
+  37 (56,21,189)  7/8   1362.0  34.0 1.002  -
+  38 (15,38, 72)  7/8   1362.0  34.0 1.002  -
+  39 (42,28,191)  7/8   1362.0  34.0 1.002  -
+  40 (31,14, 24)  7/8   1362.0  34.0 1.002  -
+
+[Aggregate counts in pool]
+  geoms with factor 23  : 639 / 5001
+  geoms with factor 49  : 248 / 5001
+  geoms with factor 50  : 246 / 5001
+  geoms with factor 137 : 30 / 5001
+
+[Named geometries]
+  BOSS (14, 58, 159): MDL=1328.0, Δ=0.0, hits=8, tags=BOSS
+  CBU  (49, 50, 137): MDL=1498.0, Δ=170.0, hits=3, tags=CBU,49,50,137
+==========================================================================================
+RATIO_OS_GEOM_DEGENERACY_MAPPER_v1b complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_GEOM_DEGENERACY_NULLSCAN_v1 — epsilon geometry null scan
+==========================================================================================
+[Real epsilon vector]
+  CKM_s12          eps = +1.215000e-01
+  CKM_delta_over_pi eps = +1.859163e-02
+  alpha_s_MZ       eps = -5.680001e-02
+  sin2_thetaW      eps = -7.512000e-02
+  MW_over_v        eps = -2.064275e-02
+  MZ_over_v        eps = -1.239835e-02
+  MH_over_v        eps = +1.738428e-02
+  mt_over_v        eps = -1.808811e-02
+  mean(eps)             : -3.197e-03
+  std(eps)              : 5.602e-02
+
+[Geometry pool for null scan]
+  pool size             : 5001
+  includes BOSS?        : True
+  includes CBU?         : True
+
+[Real universe best geometry (eps-only)]
+  best_geom             : (58, 14, 91)
+  hits                  : 8 / 8
+  MDL_total             : 1328.0 bits
+
+[Null scan] Generating 500 null universes ...
+
+[Null results summary]
+  Best hit count (null):
+    hits=6: 2 / 500
+    hits=7: 157 / 500
+    hits=8: 341 / 500
+
+  Best MDL (null) stats:
+    mean(best MDL)      : 1338.9
+    std(best MDL)       : 16.2
+    z(real vs null mean): 0.68
+
+  Empirical p-values (null frequency):
+    P_null(best hits >= 8) = 341/500 = 0.682
+    P_null(best MDL <= 1328.0) = 341/500 = 0.682
+
+==========================================================================================
+RATIO_OS_GEOM_DEGENERACY_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_EW_SHAPE_NULLSCAN_v1 — EW SHAPE compressibility null test
+==========================================================================================
+[Real EW values]
+  CKM_s12          = 0.224299998
+  CKM_s13          = 0.003940000
+  CKM_s23          = 0.042200001
+  CKM_delta_over_pi = 0.381971862
+  alpha            = 0.007297353
+  alpha_s_MZ       = 0.117899999
+  sin2_thetaW      = 0.231220001
+  MW_over_v        = 0.326452417
+  MZ_over_v        = 0.370350617
+  MH_over_v        = 0.508692139
+  me_over_v        = 0.000002073
+  mmu_over_v       = 0.000428937
+  mtau_over_v      = 0.007214707
+  mb_over_v        = 0.016981511
+  mc_over_v        = 0.005157839
+  mt_over_v        = 0.701365635
+  md_over_v        = 0.000018960
+  ms_over_v        = 0.000377683
+  mu_over_v        = 0.000008773
+  min(val)             : 0.000002073
+  max(val)             : 0.701365635
+  sampling range (null): [0.000000000, 0.736433813]
+
+[SHAPE noise scale and candidate library]
+  number of params     : 19
+  q_max                : 16
+  |candidates|         : 81
+  sigma0 (from SHAPE)  : 6.466320e-03
+
+[Real MDL]
+  all-float baseline   : 1007.0 bits (19 * 53)
+  pure rational (p/q)  : 515.0 bits
+  SHAPE MDL (this test): 86.870 bits
+
+[Null scan] Generating 1000 null universes ...
+
+[Null MDL stats]
+  mean(null MDL)       : 121.717 bits
+  std(null MDL)        : 9.833 bits
+  5th percentile       : 107.425 bits
+  95th percentile      : 139.499 bits
+
+[Significance of real EW SHAPE compression]
+  real MDL             : 86.870 bits
+  z(real vs null mean) : 3.54
+  P_null(MDL <= real)  : 0.000
+
+==========================================================================================
+RATIO_OS_EW_SHAPE_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_EW_SHAPE_REPORT_v1 — per-parameter SHAPE structure
+==========================================================================================
+[Config]
+  q_max                : 16
+  |candidates|         : 81
+  sigma0 (from SHAPE)  : 6.466320e-03
+  float cost per value : 53.0 bits
+
+[Per-parameter SHAPE report]
+  (sorted by bits_saved, i.e. how much the simple rational helps)
+  name             x_data        p/q         v_shape     model  error  total  saved
+  ---------------- ----------  ---------  ----------  ------ ------ ------ ------
+  me_over_v          0.000002  0/1          0.000000    2.00   0.00   2.00  51.00
+  mu_over_v          0.000009  0/1          0.000000    2.00   0.00   2.00  51.00
+  md_over_v          0.000019  0/1          0.000000    2.00   0.00   2.00  51.00
+  ms_over_v          0.000378  0/1          0.000000    2.00   0.00   2.00  51.00
+  mmu_over_v         0.000429  0/1          0.000000    2.00   0.00   2.00  51.00
+  CKM_s13            0.003940  0/1          0.000000    2.00   0.27   2.27  50.73
+  mc_over_v          0.005158  0/1          0.000000    2.00   0.46   2.46  50.54
+  mtau_over_v        0.007215  0/1          0.000000    2.00   0.90   2.90  50.10
+  alpha              0.007297  0/1          0.000000    2.00   0.92   2.92  50.08
+  MW_over_v          0.326452  1/3          0.333333    3.00   0.82   3.82  49.18
+  MH_over_v          0.508692  1/2          0.500000    3.00   1.30   4.30  48.70
+  alpha_s_MZ         0.117900  1/9          0.111111    5.00   0.80   5.80  47.20
+  sin2_thetaW        0.231220  3/13         0.230769    6.00   0.00   6.00  47.00
+  CKM_s12            0.224300  2/9          0.222222    6.00   0.07   6.07  46.93
+  MZ_over_v          0.370351  3/8          0.375000    6.00   0.37   6.37  46.63
+  CKM_delta_over_pi   0.381972  3/8          0.375000    6.00   0.84   6.84  46.16
+  mb_over_v          0.016982  0/1          0.000000    2.00   4.97   6.97  46.03
+  mt_over_v          0.701366  7/10         0.700000    7.00   0.03   7.03  45.97
+  CKM_s23            0.042200  1/16         0.062500    6.00   7.11  13.11  39.89
+
+[Summary]
+  total float-only MDL : 1007.000 bits
+  total SHAPE MDL      : 86.870 bits
+  total bits saved     : 920.130 bits
+==========================================================================================
+RATIO_OS_EW_SHAPE_REPORT_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_EW_SHAPE_NULLSCAN_v2_LOCAL_v1 — magnitude-preserving SHAPE null test
+==========================================================================================
+[Real EW values]
+  CKM_s12          = 0.224299998
+  CKM_s13          = 0.003940000
+  CKM_s23          = 0.042200001
+  CKM_delta_over_pi = 0.381971862
+  alpha            = 0.007297353
+  alpha_s_MZ       = 0.117899999
+  sin2_thetaW      = 0.231220001
+  MW_over_v        = 0.326452417
+  MZ_over_v        = 0.370350617
+  MH_over_v        = 0.508692139
+  me_over_v        = 0.000002073
+  mmu_over_v       = 0.000428937
+  mtau_over_v      = 0.007214707
+  mb_over_v        = 0.016981511
+  mc_over_v        = 0.005157839
+  mt_over_v        = 0.701365635
+  md_over_v        = 0.000018960
+  ms_over_v        = 0.000377683
+  mu_over_v        = 0.000008773
+  min(val)             : 2.072983531e-06
+  max(val)             : 7.013656349e-01
+
+[SHAPE noise scale and candidate library]
+  number of params     : 19
+  q_max                : 16
+  |candidates|         : 81
+  sigma0 (from SHAPE)  : 6.466320e-03
+  sigma_frac (null)    : 0.300
+
+[Real MDL under this scheme]
+  all-float baseline   : 1007.000 bits
+  SHAPE MDL (real)     : 86.870 bits
+
+[Null scan] Generating 1000 magnitude-preserving null universes ...
+
+[Null MDL stats (magnitude-preserving)]
+  mean(null MDL)       : 87.845 bits
+  std(null MDL)        : 6.780 bits
+  5th percentile       : 77.182 bits
+  95th percentile      : 99.534 bits
+
+[Significance of real EW SHAPE compression (magnitude-preserving null)]
+  real MDL             : 86.870 bits
+  z(real vs null mean) : 0.14
+  P_null(MDL <= real)  : 0.468
+
+==========================================================================================
+RATIO_OS_EW_SHAPE_NULLSCAN_v2_LOCAL_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_EW_RELATIONAL_NULLSCAN_v1 — one-seed rational-multiple test
+==========================================================================================
+[Real EW values]
+  CKM_s12          = 0.224299998
+  CKM_s13          = 0.003940000
+  CKM_s23          = 0.042200001
+  CKM_delta_over_pi = 0.381971862
+  alpha            = 0.007297353
+  alpha_s_MZ       = 0.117899999
+  sin2_thetaW      = 0.231220001
+  MW_over_v        = 0.326452417
+  MZ_over_v        = 0.370350617
+  MH_over_v        = 0.508692139
+  me_over_v        = 0.000002073
+  mmu_over_v       = 0.000428937
+  mtau_over_v      = 0.007214707
+  mb_over_v        = 0.016981511
+  mc_over_v        = 0.005157839
+  mt_over_v        = 0.701365635
+  md_over_v        = 0.000018960
+  ms_over_v        = 0.000377683
+  mu_over_v        = 0.000008773
+
+[Relational model config]
+  number of params     : 19
+  q_max                : 16
+  |candidates|         : 81
+  sigma0 (abs error)   : 6.466320e-03
+  sigma_frac (null)    : 0.300
+  cost(seed float)     : 53 bits
+  cost(other float)    : 53 bits each
+
+[Real relational MDL]
+  best seed index      : 15
+  best seed name       : mt_over_v
+  all-float baseline   : 1007.000 bits
+  relational MDL (real): 126.534 bits
+  bits saved vs float  : 880.466 bits
+
+[Null scan] Generating 500 magnitude-preserving null universes ...
+
+[Null MDL stats — relational model]
+  mean(null MDL)       : 128.021 bits
+  std(null MDL)        : 5.602 bits
+  5th percentile       : 119.767 bits
+  95th percentile      : 137.852 bits
+
+[Significance of real relational compression]
+  real MDL             : 126.534 bits
+  z(real vs null mean) : 0.27
+  P_null(MDL <= real)  : 0.422
+
+==========================================================================================
+RATIO_OS_EW_RELATIONAL_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_NULLSCAN_COMBINED_v1 — DNA entropy + lock null tests
+==========================================================================================
+[Parsed DNA rows]
+  N (rows)             : 134
+  p range              : [6, 64]
+  sample row 1         : {'p': 6, 'r23': 17, 'r49': 8, 'r50': 28, 'r137': 110}
+  sample row 2         : {'p': 6, 'r23': 10, 'r49': 20, 'r50': 1, 'r137': 2}
+
+[DNA entropy MDL — real vs baseline]
+  bits_p_baseline      :  6.000
+  bits_23_baseline     :  4.524
+  bits_49_baseline     :  5.615
+  bits_50_baseline     :  5.644
+  bits_137_baseline    :  7.098
+  baseline bits/row    : 28.880
+  real bits/row        : 23.040
+  baseline MDL (bits)  :   3869.9
+  real MDL (bits)      :   3087.3
+  compression factor   :  0.798
+
+[Null MDL] Simulating 2000 random residue universes...
+
+[DNA entropy MDL — null stats]
+  Null MDL min / max    :   3105.5 /   3215.3
+  Null MDL 25% / 50% / 75%:   3152.1 /   3162.8 /   3173.0
+  Null mean MDL         :   3162.5
+  Null std(MDL)         :     15.5
+
+[DNA entropy MDL — significance]
+  Real MDL              :   3087.3
+  Empirical p-value P_null[MDL <= real]: 0.000000
+  z-score (lower = more compressible)  :  -4.84 σ
+
+[DNA lock families — real]
+  Total unique fingerprints : 125
+  Lock families (size >= 2) : 4
+  Family sizes              : [5, 4, 2, 2]
+  Largest family size       : 5
+  Total collision pairs     : 18
+
+[Null locks] Simulating 5000 random universes for collision stats...
+
+[DNA lock families — null (max family size)]
+  maxfam min / max       : 1 / 2
+  maxfam 25% / 50% / 75% : 1.0 / 1.0 / 1.0
+  maxfam mean / std      : 1.000 / 0.014
+  P_null(maxfam >= real) : 0.000000
+
+[DNA lock families — null (collision pairs)]
+  coll min / max         : 0 / 1
+  coll 25% / 50% / 75%   : 0.0 / 0.0 / 0.0
+  coll mean / std        : 0.000 / 0.014
+  P_null(coll >= real)   : 0.000000
+
+==========================================================================================
+RATIO_OS_DNA_NULLSCAN_COMBINED_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_LOCK_FAMILIES_WITH_NAMES_v1 — labeled locks + stricter null
+==========================================================================================
+[Parsed labeled DNA rows]
+  N (rows)             : 134
+  p range              : [6, 64]
+  sample row 0         : {'idx': 0, 'name': 'BH(M=10 M☉): Â', 'p': 6, 'r23': 17, 'r49': 8, 'r50': 28, 'r137': 110}
+  sample row 1         : {'idx': 1, 'name': 'BH(M=10 M☉): M̂', 'p': 6, 'r23': 10, 'r49': 20, 'r50': 1, 'r137': 2}
+
+[DNA lock families — labeled]
+  number of lock families (size >= 2): 4
+  largest family size                 : 5
+  total collision pairs               : 18
+
+  Family 1: size=5, fingerprint=(6, 0, 0, 0, 0)
+    idx= 26  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 65  name=Ω_k
+    idx= 85  name=θ̄_QCD (null)
+
+  Family 2: size=4, fingerprint=(6, 12, 0, 0, 0)
+    idx=123  name=T_P / T_P
+    idx=124  name=l_P / l_P
+    idx=125  name=m_P / m_P
+    idx=126  name=t_P / t_P
+
+  Family 3: size=2, fingerprint=(18, 9, 25, 16, 50)
+    idx= 46  name=V_us
+    idx= 48  name=λ
+
+  Family 4: size=2, fingerprint=(18, 19, 22, 34, 73)
+    idx= 83  name=α_3
+    idx= 84  name=α_s(M_Z)
+
+[Null (histogram-preserving)] Simulating 3000 universes...
+
+[DNA lock families — null (histogram-preserving, max family size)]
+  maxfam min / max       : 1 / 2
+  maxfam 25% / 50% / 75% : 1.0 / 1.0 / 1.0
+  maxfam mean / std      : 1.001 / 0.026
+  Real max family size   : 5
+  P_null(maxfam >= real) : 0.000000
+
+[DNA lock families — null (histogram-preserving, collision pairs)]
+  coll min / max         : 0 / 1
+  coll 25% / 50% / 75%   : 0.0 / 0.0 / 0.0
+  coll mean / std        : 0.001 / 0.026
+  Real collision pairs   : 18
+  P_null(coll >= real)   : 0.000000
+
+[Significance vs histogram-preserving null]
+  Real max family size       : 5
+  P_null(maxfam >= real)     : 0.000000
+  Real collision pairs       : 18
+  P_null(collisions >= real) : 0.000000
+
+==========================================================================================
+RATIO_OS_DNA_LOCK_FAMILIES_WITH_NAMES_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_PATTERN_MINER_v1 — p, zeros, rails, and null for all-zero rows
+==========================================================================================
+[DNA pattern stats — real]
+  N (rows)             : 134
+  p distribution       :
+    p= 6 : 37 rows
+    p=16 : 6 rows
+    p=18 : 56 rows
+    p=20 : 17 rows
+    p=24 : 8 rows
+    p=32 : 3 rows
+    p=40 : 5 rows
+    p=48 : 1 rows
+    p=64 : 1 rows
+
+  Zero-residue count distribution per row (over 4 moduli):
+    rows with 0 zero residues : 113
+    rows with 1 zero residues : 11
+    rows with 3 zero residues : 5
+    rows with 4 zero residues : 5
+
+  Rows with ALL 4 residues zero (r23=r49=r50=r137=0): 5
+    idx= 26  p= 6  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 65  p= 6  name=Ω_k
+    idx= 85  p= 6  name=θ̄_QCD (null)
+
+[p=6 rails]
+  fingerprint=(0, 0, 0, 0), size=5
+    idx= 26  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 65  name=Ω_k
+    idx= 85  name=θ̄_QCD (null)
+  fingerprint=(12, 0, 0, 0), size=4
+    idx=123  name=T_P / T_P
+    idx=124  name=l_P / l_P
+    idx=125  name=m_P / m_P
+    idx=126  name=t_P / t_P
+  fingerprint=(1, 22, 10, 91), size=1
+    idx= 18  name=Kerr–Newman: a*=0.6,q*=0.6: Â
+  fingerprint=(3, 0, 0, 0), size=1
+    idx= 32  name=r_ISCO/M (a*=0)
+  fingerprint=(3, 44, 0, 88), size=1
+    idx=  2  name=BH(M=10 M☉): M̂^2
+  fingerprint=(4, 4, 45, 110), size=1
+    idx= 72  name=t0 / t_P
+  fingerprint=(4, 36, 43, 126), size=1
+    idx= 13  name=BH(M=4e6 M☉): M̂
+  fingerprint=(6, 19, 30, 39), size=1
+    idx= 25  name=Kerr–Newman: a*=0.9,q*=0: r̂_+
+  fingerprint=(6, 30, 40, 57), size=1
+    idx= 19  name=Kerr–Newman: a*=0.6,q*=0.6: S
+  fingerprint=(6, 31, 42, 63), size=1
+    idx= 21  name=Kerr–Newman: a*=0.6,q*=0.6: r̂_+
+  fingerprint=(6, 41, 36, 111), size=1
+    idx= 22  name=Kerr–Newman: a*=0.9,q*=0: Â
+  fingerprint=(7, 11, 24, 65), size=1
+    idx= 23  name=Kerr–Newman: a*=0.9,q*=0: S
+  fingerprint=(7, 18, 26, 7), size=1
+    idx= 31  name=BH(M=4e6 M☉): S_bits
+  fingerprint=(7, 28, 3, 11), size=1
+    idx= 35  name=r̂_ISCO (10 M☉, a*=0.9)
+  fingerprint=(8, 23, 36, 115), size=1
+    idx= 17  name=BH(M=4e6 M☉): r̂_s
+  fingerprint=(10, 2, 32, 96), size=1
+    idx=  3  name=BH(M=10 M☉): S
+  fingerprint=(10, 8, 20, 11), size=1
+    idx= 15  name=BH(M=4e6 M☉): S
+  fingerprint=(10, 20, 1, 2), size=1
+    idx=  1  name=BH(M=10 M☉): M̂
+  fingerprint=(10, 31, 44, 9), size=1
+    idx= 14  name=BH(M=4e6 M☉): M̂^2
+  fingerprint=(12, 12, 38, 120), size=1
+    idx=  9  name=BH(M=1e9 M☉): S
+  fingerprint=(13, 21, 5, 11), size=1
+    idx= 34  name=r̂_ISCO (10 M☉, a*=0)
+  fingerprint=(13, 25, 24, 82), size=1
+    idx=  8  name=BH(M=1e9 M☉): M̂^2
+  fingerprint=(14, 4, 4, 37), size=1
+    idx= 29  name=BH(M=1e9 M☉): S_bits
+  fingerprint=(14, 33, 22, 49), size=1
+    idx= 27  name=BH(M=10 M☉): S_bits
+  fingerprint=(17, 8, 28, 110), size=1
+    idx=  0  name=BH(M=10 M☉): Â
+  fingerprint=(17, 32, 30, 44), size=1
+    idx= 12  name=BH(M=4e6 M☉): Â
+  fingerprint=(20, 40, 2, 4), size=1
+    idx=  5  name=BH(M=10 M☉): r̂_s
+  fingerprint=(21, 42, 26, 93), size=1
+    idx= 11  name=BH(M=1e9 M☉): r̂_s
+  fingerprint=(22, 21, 38, 115), size=1
+    idx=  7  name=BH(M=1e9 M☉): M̂
+  fingerprint=(22, 44, 24, 101), size=1
+    idx=  6  name=BH(M=1e9 M☉): Â
+
+[p=18 rails]
+  fingerprint=(9, 25, 16, 50), size=2
+    idx= 46  name=V_us
+    idx= 48  name=λ
+  fingerprint=(19, 22, 34, 73), size=2
+    idx= 83  name=α_3
+    idx= 84  name=α_s(M_Z)
+  fingerprint=(0, 2, 6, 116), size=1
+    idx= 63  name=Ω_b
+  fingerprint=(0, 18, 2, 40), size=1
+    idx=103  name=y_c
+  fingerprint=(0, 23, 33, 113), size=1
+    idx= 75  name=M_W/M_Z
+  fingerprint=(1, 12, 47, 34), size=1
+    idx=130  name=sin^2 θ23
+  fingerprint=(1, 24, 25, 106), size=1
+    idx= 87  name=ρ_check
+  fingerprint=(1, 33, 37, 113), size=1
+    idx= 59  name=τ/μ mass
+  fingerprint=(1, 39, 26, 82), size=1
+    idx= 71  name=N_eff
+  fingerprint=(2, 7, 37, 75), size=1
+    idx=128  name=sin^2 θ12
+  fingerprint=(2, 10, 22, 71), size=1
+    idx= 49  name=ρ̄
+  fingerprint=(2, 27, 7, 35), size=1
+    idx= 82  name=α_2
+  fingerprint=(2, 30, 14, 133), size=1
+    idx=129  name=sin^2 θ13
+  fingerprint=(2, 34, 17, 9), size=1
+    idx=119  name=p/τ
+  fingerprint=(3, 11, 27, 40), size=1
+    idx=106  name=y_s
+  fingerprint=(4, 15, 12, 68), size=1
+    idx= 81  name=α_1 [GUT]
+  fingerprint=(4, 34, 37, 123), size=1
+    idx= 36  name=A
+  fingerprint=(6, 48, 29, 76), size=1
+    idx= 76  name=g_1 [GUT]
+  fingerprint=(7, 3, 42, 44), size=1
+    idx= 41  name=V_tb
+  fingerprint=(7, 21, 42, 50), size=1
+    idx= 88  name=Λ_QCD / M_Z
+  fingerprint=(7, 27, 23, 37), size=1
+    idx= 80  name=Γ_Z/M_Z
+  fingerprint=(7, 31, 42, 114), size=1
+    idx= 95  name=m_t/M_Z
+  fingerprint=(8, 18, 43, 128), size=1
+    idx= 43  name=V_ts
+  fingerprint=(8, 38, 47, 98), size=1
+    idx= 53  name=sin^2 θ_W(M_Z, MS)
+  fingerprint=(8, 39, 16, 23), size=1
+    idx= 89  name=M_H/M_Z
+  fingerprint=(8, 40, 47, 101), size=1
+    idx= 39  name=V_cd
+  fingerprint=(9, 3, 20, 128), size=1
+    idx= 77  name=g_2
+  fingerprint=(9, 16, 18, 80), size=1
+    idx=127  name=r_ν
+  fingerprint=(10, 8, 26, 13), size=1
+    idx=113  name=y_τ
+  fingerprint=(10, 37, 9, 98), size=1
+    idx=107  name=y_t
+  fingerprint=(11, 19, 31, 133), size=1
+    idx= 78  name=g_3
+  fingerprint=(11, 40, 0, 22), size=1
+    idx= 40  name=V_cs
+  fingerprint=(12, 2, 43, 77), size=1
+    idx=102  name=y_b
+  fingerprint=(12, 12, 12, 57), size=1
+    idx=122  name=τ/p
+  fingerprint=(12, 20, 0, 44), size=1
+    idx= 38  name=V_cb
+  fingerprint=(12, 34, 49, 123), size=1
+    idx= 64  name=Ω_cdm
+  fingerprint=(13, 2, 14, 37), size=1
+    idx=101  name=m_τ/M_Z
+  fingerprint=(13, 6, 22, 47), size=1
+    idx=120  name=μ/p
+  fingerprint=(13, 7, 15, 21), size=1
+    idx= 90  name=m_b/M_Z
+  fingerprint=(13, 31, 45, 115), size=1
+    idx= 33  name=r_ISCO/M (a*=0.9)
+  fingerprint=(13, 37, 6, 103), size=1
+    idx= 66  name=Ω_m
+  fingerprint=(13, 46, 6, 131), size=1
+    idx= 42  name=V_td
+  fingerprint=(14, 11, 22, 9), size=1
+    idx= 91  name=m_c/M_Z
+  fingerprint=(14, 15, 21, 120), size=1
+    idx= 44  name=V_ub
+  fingerprint=(14, 28, 21, 62), size=1
+    idx= 74  name=G_F·M_Z^2
+  fingerprint=(14, 30, 28, 136), size=1
+    idx=116  name=e/μ
+  fingerprint=(14, 47, 47, 21), size=1
+    idx= 70  name=σ_8
+  fingerprint=(16, 27, 26, 24), size=1
+    idx= 45  name=V_ud
+  fingerprint=(17, 47, 0, 44), size=1
+    idx= 79  name=sin^2 θ_W^eff,ℓ
+  fingerprint=(18, 12, 38, 34), size=1
+    idx= 62  name=n_s
+  fingerprint=(20, 12, 9, 25), size=1
+    idx=114  name=λ (Higgs quartic)
+  fingerprint=(20, 16, 8, 40), size=1
+    idx= 47  name=η̄
+  fingerprint=(22, 12, 44, 34), size=1
+    idx= 68  name=Ω_Λ
+  fingerprint=(22, 17, 22, 130), size=1
+    idx=131  name=δ_CP/π
+
+[Null (histogram-preserving) for all-zero rows] Simulating 5000 universes...
+
+[Null (histogram-preserving) for all-zero rows]
+  null zero4 min / max  : 0 / 1
+  null zero4 25%/50%/75%: 0.0 / 0.0 / 0.0
+  null zero4 mean / std : 0.008 / 0.088
+  Real zero4 count      : 5
+
+[Significance of all-zero rail count]
+  P_null(num_zero4 >= real) = 0.000000
+
+==========================================================================================
+RATIO_OS_DNA_PATTERN_MINER_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_LINEAR_RAIL_SEARCH_v1 — simple linear rails r ≡ a p + b (mod m)
+==========================================================================================
+[Setup]
+  N (rows)       : 134
+  a_max          : 6  (search a in [-a_max, +a_max])
+  min_hits       : 3
+
+============================================================
+[Rails for modulus 23 (r23)]
+  Found 263 rails with >= 3 hits.
+
+  Rail 1: r ≡ (3)*p + 5  (mod 23), hits=15
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 33  p=18  r= 13  name=r_ISCO/M (a*=0.9)
+    idx= 42  p=18  r= 13  name=V_td
+    idx= 61  p=32  r=  9  name=T_CMB/T_P
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 66  p=18  r= 13  name=Ω_m
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 90  p=18  r= 13  name=m_b/M_Z
+    idx= 94  p=20  r= 19  name=m_s/M_Z
+    idx= 99  p=24  r=  8  name=m_ν2/M_Z
+    idx=101  p=18  r= 13  name=m_τ/M_Z
+    idx=111  p=24  r=  8  name=y_ν2
+    idx=120  p=18  r= 13  name=μ/p
+
+  Rail 2: r ≡ (4)*p + 22  (mod 23), hits=13
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 49  p=18  r=  2  name=ρ̄
+    idx= 55  p=20  r= 10  name=Δα (models)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 67  p=20  r= 10  name=Ω_r
+    idx= 82  p=18  r=  2  name=α_2
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 98  p=24  r=  3  name=m_ν1/M_Z
+    idx=119  p=18  r=  2  name=p/τ
+    idx=128  p=18  r=  2  name=sin^2 θ12
+    idx=129  p=18  r=  2  name=sin^2 θ13
+
+  Rail 3: r ≡ (2)*p + 0  (mod 23), hits=12
+    idx=  9  p= 6  r= 12  name=BH(M=1e9 M☉): S
+    idx= 33  p=18  r= 13  name=r_ISCO/M (a*=0.9)
+    idx= 42  p=18  r= 13  name=V_td
+    idx= 50  p=20  r= 17  name=a_e (leptonic)
+    idx= 66  p=18  r= 13  name=Ω_m
+    idx= 90  p=18  r= 13  name=m_b/M_Z
+    idx=101  p=18  r= 13  name=m_τ/M_Z
+    idx=120  p=18  r= 13  name=μ/p
+    idx=123  p= 6  r= 12  name=T_P / T_P
+    idx=124  p= 6  r= 12  name=l_P / l_P
+    idx=125  p= 6  r= 12  name=m_P / m_P
+    idx=126  p= 6  r= 12  name=t_P / t_P
+
+  Rail 4: r ≡ (-2)*p + 3  (mod 23), hits=12
+    idx= 27  p= 6  r= 14  name=BH(M=10 M☉): S_bits
+    idx= 29  p= 6  r= 14  name=BH(M=1e9 M☉): S_bits
+    idx= 33  p=18  r= 13  name=r_ISCO/M (a*=0.9)
+    idx= 42  p=18  r= 13  name=V_td
+    idx= 66  p=18  r= 13  name=Ω_m
+    idx= 90  p=18  r= 13  name=m_b/M_Z
+    idx= 96  p=20  r=  9  name=m_u/M_Z
+    idx=101  p=18  r= 13  name=m_τ/M_Z
+    idx=115  p=20  r=  9  name=e/p
+    idx=120  p=18  r= 13  name=μ/p
+    idx=132  p=32  r=  8  name=/ M_Z^2
+    idx=133  p=32  r=  8  name=Δm^2_21 / M_Z^2
+
+  Rail 5: r ≡ (4)*p + 11  (mod 23), hits=12
+    idx=  9  p= 6  r= 12  name=BH(M=1e9 M☉): S
+    idx= 44  p=18  r= 14  name=V_ub
+    idx= 52  p=16  r=  6  name=p/e mass
+    idx= 70  p=18  r= 14  name=σ_8
+    idx= 74  p=18  r= 14  name=G_F·M_Z^2
+    idx= 91  p=18  r= 14  name=m_c/M_Z
+    idx=104  p=20  r= 22  name=y_d
+    idx=116  p=18  r= 14  name=e/μ
+    idx=123  p= 6  r= 12  name=T_P / T_P
+    idx=124  p= 6  r= 12  name=l_P / l_P
+    idx=125  p= 6  r= 12  name=m_P / m_P
+    idx=126  p= 6  r= 12  name=t_P / t_P
+
+  Rail 6: r ≡ (-5)*p + 7  (mod 23), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 46  p=18  r=  9  name=V_us
+    idx= 48  p=18  r=  9  name=λ
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 77  p=18  r=  9  name=g_2
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=104  p=20  r= 22  name=y_d
+    idx=127  p=18  r=  9  name=r_ν
+    idx=132  p=32  r=  8  name=/ M_Z^2
+    idx=133  p=32  r=  8  name=Δm^2_21 / M_Z^2
+
+  Rail 7: r ≡ (-5)*p + 11  (mod 23), hits=12
+    idx= 13  p= 6  r=  4  name=BH(M=4e6 M☉): M̂
+    idx= 16  p=40  r= 18  name=BH(M=4e6 M☉): T̂_H
+    idx= 33  p=18  r= 13  name=r_ISCO/M (a*=0.9)
+    idx= 42  p=18  r= 13  name=V_td
+    idx= 57  p=16  r=  0  name=α^{-1}(M_Z,eff)
+    idx= 66  p=18  r= 13  name=Ω_m
+    idx= 72  p= 6  r=  4  name=t0 / t_P
+    idx= 90  p=18  r= 13  name=m_b/M_Z
+    idx=100  p=24  r=  6  name=m_ν3/M_Z
+    idx=101  p=18  r= 13  name=m_τ/M_Z
+    idx=110  p=24  r=  6  name=y_ν1
+    idx=120  p=18  r= 13  name=μ/p
+
+  Rail 8: r ≡ (6)*p + 20  (mod 23), hits=12
+    idx=  1  p= 6  r= 10  name=BH(M=10 M☉): M̂
+    idx=  3  p= 6  r= 10  name=BH(M=10 M☉): S
+    idx= 14  p= 6  r= 10  name=BH(M=4e6 M☉): M̂^2
+    idx= 15  p= 6  r= 10  name=BH(M=4e6 M☉): S
+    idx= 20  p=40  r=  7  name=Kerr–Newman: a*=0.6,q*=0.6: T̂_H
+    idx= 33  p=18  r= 13  name=r_ISCO/M (a*=0.9)
+    idx= 42  p=18  r= 13  name=V_td
+    idx= 66  p=18  r= 13  name=Ω_m
+    idx= 90  p=18  r= 13  name=m_b/M_Z
+    idx= 98  p=24  r=  3  name=m_ν1/M_Z
+    idx=101  p=18  r= 13  name=m_τ/M_Z
+    idx=120  p=18  r= 13  name=μ/p
+
+  Rail 9: r ≡ (0)*p + 7  (mod 23), hits=11
+    idx= 20  p=40  r=  7  name=Kerr–Newman: a*=0.6,q*=0.6: T̂_H
+    idx= 23  p= 6  r=  7  name=Kerr–Newman: a*=0.9,q*=0: S
+    idx= 31  p= 6  r=  7  name=BH(M=4e6 M☉): S_bits
+    idx= 35  p= 6  r=  7  name=r̂_ISCO (10 M☉, a*=0.9)
+    idx= 41  p=18  r=  7  name=V_tb
+    idx= 69  p=64  r=  7  name=ρ_c / ρ_P
+    idx= 80  p=18  r=  7  name=Γ_Z/M_Z
+    idx= 88  p=18  r=  7  name=Λ_QCD / M_Z
+    idx= 95  p=18  r=  7  name=m_t/M_Z
+    idx=109  p=20  r=  7  name=y_μ
+    idx=112  p=24  r=  7  name=y_ν3
+
+  Rail 10: r ≡ (0)*p + 8  (mod 23), hits=11
+    idx= 17  p= 6  r=  8  name=BH(M=4e6 M☉): r̂_s
+    idx= 39  p=18  r=  8  name=V_cd
+    idx= 43  p=18  r=  8  name=V_ts
+    idx= 53  p=18  r=  8  name=sin^2 θ_W(M_Z, MS)
+    idx= 89  p=18  r=  8  name=M_H/M_Z
+    idx= 99  p=24  r=  8  name=m_ν2/M_Z
+    idx=111  p=24  r=  8  name=y_ν2
+    idx=117  p=20  r=  8  name=e/τ
+    idx=118  p=16  r=  8  name=p/μ
+    idx=132  p=32  r=  8  name=/ M_Z^2
+    idx=133  p=32  r=  8  name=Δm^2_21 / M_Z^2
+
+============================================================
+[Rails for modulus 49 (r49)]
+  Found 320 rails with >= 3 hits.
+
+  Rail 1: r ≡ (1)*p + 43  (mod 49), hits=15
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 62  p=18  r= 12  name=n_s
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 68  p=18  r= 12  name=Ω_Λ
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=114  p=18  r= 12  name=λ (Higgs quartic)
+    idx=122  p=18  r= 12  name=τ/p
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+    idx=130  p=18  r= 12  name=sin^2 θ23
+
+  Rail 2: r ≡ (4)*p + 25  (mod 49), hits=14
+    idx= 20  p=40  r= 38  name=Kerr–Newman: a*=0.6,q*=0.6: T̂_H
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 60  p=48  r= 21  name=H0·t_P
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 76  p=18  r= 48  name=g_1 [GUT]
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 93  p=20  r=  7  name=m_e/M_Z
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 3: r ≡ (-3)*p + 18  (mod 49), hits=13
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 60  p=48  r= 21  name=H0·t_P
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 93  p=20  r=  7  name=m_e/M_Z
+    idx= 99  p=24  r= 44  name=m_ν2/M_Z
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 4: r ≡ (5)*p + 19  (mod 49), hits=13
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 56  p=16  r=  1  name=α^{-1} (CODATA)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 91  p=18  r= 11  name=m_c/M_Z
+    idx=106  p=18  r= 11  name=y_s
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 5: r ≡ (-1)*p + 6  (mod 49), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 66  p=18  r= 37  name=Ω_m
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=107  p=18  r= 37  name=y_t
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 6: r ≡ (-2)*p + 12  (mod 49), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 46  p=18  r= 25  name=V_us
+    idx= 48  p=18  r= 25  name=λ
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 7: r ≡ (2)*p + 37  (mod 49), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 87  p=18  r= 24  name=ρ_check
+    idx=111  p=24  r= 36  name=y_ν2
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 8: r ≡ (-4)*p + 24  (mod 49), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 52  p=16  r=  9  name=p/e mass
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=100  p=24  r= 26  name=m_ν3/M_Z
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 9: r ≡ (0)*p + 0  (mod 49), hits=11
+    idx= 24  p=40  r=  0  name=Kerr–Newman: a*=0.9,q*=0: T̂_H
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 10: r ≡ (-5)*p + 30  (mod 49), hits=11
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 53  p=18  r= 38  name=sin^2 θ_W(M_Z, MS)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+============================================================
+[Rails for modulus 50 (r50)]
+  Found 285 rails with >= 3 hits.
+
+  Rail 1: r ≡ (-2)*p + 12  (mod 50), hits=16
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 10  p=40  r= 32  name=BH(M=1e9 M☉): T̂_H
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 45  p=18  r= 26  name=V_ud
+    idx= 57  p=16  r= 30  name=α^{-1}(M_Z,eff)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 71  p=18  r= 26  name=N_eff
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=113  p=18  r= 26  name=y_τ
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 2: r ≡ (0)*p + 0  (mod 50), hits=15
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 38  p=18  r=  0  name=V_cb
+    idx= 40  p=18  r=  0  name=V_cs
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 79  p=18  r=  0  name=sin^2 θ_W^eff,ℓ
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=109  p=20  r=  0  name=y_μ
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 3: r ≡ (6)*p + 14  (mod 50), hits=15
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 49  p=18  r= 22  name=ρ̄
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 91  p=18  r= 22  name=m_c/M_Z
+    idx=120  p=18  r= 22  name=μ/p
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+    idx=131  p=18  r= 22  name=δ_CP/π
+
+  Rail 4: r ≡ (-3)*p + 18  (mod 50), hits=14
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=101  p=18  r= 14  name=m_τ/M_Z
+    idx=115  p=20  r=  8  name=e/p
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+    idx=129  p=18  r= 14  name=sin^2 θ13
+
+  Rail 5: r ≡ (3)*p + 32  (mod 50), hits=14
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 57  p=16  r= 30  name=α^{-1}(M_Z,eff)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 94  p=20  r= 42  name=m_s/M_Z
+    idx=110  p=24  r=  4  name=y_ν1
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 6: r ≡ (1)*p + 44  (mod 50), hits=13
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 81  p=18  r= 12  name=α_1 [GUT]
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=122  p=18  r= 12  name=τ/p
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 7: r ≡ (5)*p + 20  (mod 50), hits=13
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 96  p=20  r= 20  name=m_u/M_Z
+    idx= 98  p=24  r= 40  name=m_ν1/M_Z
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 8: r ≡ (-1)*p + 6  (mod 50), hits=12
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 62  p=18  r= 38  name=n_s
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 9: r ≡ (-4)*p + 24  (mod 50), hits=12
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=103  p=18  r=  2  name=y_c
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 10: r ≡ (-5)*p + 30  (mod 50), hits=12
+    idx=  2  p= 6  r=  0  name=BH(M=10 M☉): M̂^2
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 50  p=20  r= 30  name=a_e (leptonic)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+============================================================
+[Rails for modulus 137 (r137)]
+  Found 156 rails with >= 3 hits.
+
+  Rail 1: r ≡ (-2)*p + 12  (mod 137), hits=13
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 59  p=18  r=113  name=τ/μ mass
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 75  p=18  r=113  name=M_W/M_Z
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 96  p=20  r=109  name=m_u/M_Z
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 2: r ≡ (2)*p + 125  (mod 137), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 45  p=18  r= 24  name=V_ud
+    idx= 58  p=16  r= 20  name=μ/e mass
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 3: r ≡ (-3)*p + 18  (mod 137), hits=12
+    idx= 10  p=40  r= 35  name=BH(M=1e9 M☉): T̂_H
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 39  p=18  r=101  name=V_cd
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 4: r ≡ (4)*p + 113  (mod 137), hits=12
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 56  p=16  r= 40  name=α^{-1} (CODATA)
+    idx= 61  p=32  r=104  name=T_CMB/T_P
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 5: r ≡ (3)*p + 119  (mod 137), hits=11
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx= 86  p=24  r= 54  name=θ̄_QCD (upper)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 6: r ≡ (-5)*p + 30  (mod 137), hits=11
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=102  p=18  r= 77  name=y_b
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 7: r ≡ (-6)*p + 36  (mod 137), hits=11
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=121  p=16  r= 77  name=τ/e
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 8: r ≡ (6)*p + 101  (mod 137), hits=11
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 55  p=20  r= 84  name=Δα (models)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 9: r ≡ (0)*p + 0  (mod 137), hits=10
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+  Rail 10: r ≡ (-1)*p + 6  (mod 137), hits=10
+    idx= 26  p= 6  r=  0  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  r=  0  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  r=  0  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  r=  0  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  r=  0  name=Ω_k
+    idx= 85  p= 6  r=  0  name=θ̄_QCD (null)
+    idx=123  p= 6  r=  0  name=T_P / T_P
+    idx=124  p= 6  r=  0  name=l_P / l_P
+    idx=125  p= 6  r=  0  name=m_P / m_P
+    idx=126  p= 6  r=  0  name=t_P / t_P
+
+==========================================================================================
+RATIO_OS_DNA_LINEAR_RAIL_SEARCH_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_RAIL_CENTRALITY_v1 — strongest-rail centrality
+==========================================================================================
+[Setup]
+  N (rows)         : 134
+  a_max            : 6   (search a in [-a_max, +a_max])
+  rail_min_hits    : 10  (only count rails with >= this many hits)
+
+============================================================
+[Strong rails for modulus 23 (r23)]
+  Found 30 strong rails (hits >= 10).
+  Rail 1: r ≡ (3)*p + 5 (mod 23), hits=15
+  Rail 2: r ≡ (4)*p + 22 (mod 23), hits=13
+  Rail 3: r ≡ (2)*p + 0 (mod 23), hits=12
+  Rail 4: r ≡ (-2)*p + 3 (mod 23), hits=12
+  Rail 5: r ≡ (4)*p + 11 (mod 23), hits=12
+
+============================================================
+[Strong rails for modulus 49 (r49)]
+  Found 13 strong rails (hits >= 10).
+  Rail 1: r ≡ (1)*p + 43 (mod 49), hits=15
+  Rail 2: r ≡ (4)*p + 25 (mod 49), hits=14
+  Rail 3: r ≡ (-3)*p + 18 (mod 49), hits=13
+  Rail 4: r ≡ (5)*p + 19 (mod 49), hits=13
+  Rail 5: r ≡ (-1)*p + 6 (mod 49), hits=12
+
+============================================================
+[Strong rails for modulus 50 (r50)]
+  Found 14 strong rails (hits >= 10).
+  Rail 1: r ≡ (-2)*p + 12 (mod 50), hits=16
+  Rail 2: r ≡ (0)*p + 0 (mod 50), hits=15
+  Rail 3: r ≡ (6)*p + 14 (mod 50), hits=15
+  Rail 4: r ≡ (-3)*p + 18 (mod 50), hits=14
+  Rail 5: r ≡ (3)*p + 32 (mod 50), hits=14
+
+============================================================
+[Strong rails for modulus 137 (r137)]
+  Found 13 strong rails (hits >= 10).
+  Rail 1: r ≡ (-2)*p + 12 (mod 137), hits=13
+  Rail 2: r ≡ (2)*p + 125 (mod 137), hits=12
+  Rail 3: r ≡ (-3)*p + 18 (mod 137), hits=12
+  Rail 4: r ≡ (4)*p + 113 (mod 137), hits=12
+  Rail 5: r ≡ (3)*p + 119 (mod 137), hits=11
+
+============================================================
+[DNA rail centrality — strongest rails]
+  idx  p  (r23,r49,r50,r137)     c23  c49  c50  c137  total   name
+  --- -- --------------------   ---- ---- ---- ----- ------  ---------------------------
+   26  6 ( 0, 0, 0,  0)      7   13   13    13     46  BH(M=10 M☉): (S - A/4)
+   28  6 ( 0, 0, 0,  0)      7   13   13    13     46  BH(M=1e9 M☉): (S - A/4)
+   30  6 ( 0, 0, 0,  0)      7   13   13    13     46  BH(M=4e6 M☉): (S - A/4)
+   65  6 ( 0, 0, 0,  0)      7   13   13    13     46  Ω_k
+   85  6 ( 0, 0, 0,  0)      7   13   13    13     46  θ̄_QCD (null)
+  123  6 (12, 0, 0,  0)      7   13   13    13     46  T_P / T_P
+  124  6 (12, 0, 0,  0)      7   13   13    13     46  l_P / l_P
+  125  6 (12, 0, 0,  0)      7   13   13    13     46  m_P / m_P
+  126  6 (12, 0, 0,  0)      7   13   13    13     46  t_P / t_P
+   32  6 ( 3, 0, 0,  0)      1   13   13    13     40  r_ISCO/M (a*=0)
+    2  6 ( 3,44, 0, 88)      1    0   13     0     14  BH(M=10 M☉): M̂^2
+  120 18 (13, 6,22, 47)      6    0    2     0      8  μ/p
+    9  6 (12,12,38,120)      7    0    0     0      7  BH(M=1e9 M☉): S
+   66 18 (13,37, 6,103)      6    1    0     0      7  Ω_m
+  101 18 (13, 2,14, 37)      6    0    1     0      7  m_τ/M_Z
+   57 16 ( 0,37,30,103)      4    0    2     0      6  α^{-1}(M_Z,eff)
+   33 18 (13,31,45,115)      6    0    0     0      6  r_ISCO/M (a*=0.9)
+   42 18 (13,46, 6,131)      6    0    0     0      6  V_td
+   90 18 (13, 7,15, 21)      6    0    0     0      6  m_b/M_Z
+  122 18 (12,12,12, 57)      4    1    1     0      6  τ/p
+   99 24 ( 8,44, 5, 24)      5    1    0     0      6  m_ν2/M_Z
+  111 24 ( 8,36,29, 82)      5    1    0     0      6  y_ν2
+   38 18 (12,20, 0, 44)      4    0    1     0      5  V_cb
+   46 18 ( 9,25,16, 50)      4    1    0     0      5  V_us
+   48 18 ( 9,25,16, 50)      4    1    0     0      5  λ
+
+==========================================================================================
+RATIO_OS_DNA_RAIL_CENTRALITY_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_BACKBONE_REMOVAL_NULLSCAN_v1 — spine removed
+==========================================================================================
+[Backbone removal]
+  Total rows (original)   : 134
+  Backbone rows removed   : 10
+  Removed backbone entries:
+    idx= 26  p= 6  (r23,r49,r50,r137)=(0,0,0,0)  name=BH(M=10 M☉): (S - A/4)
+    idx= 28  p= 6  (r23,r49,r50,r137)=(0,0,0,0)  name=BH(M=1e9 M☉): (S - A/4)
+    idx= 30  p= 6  (r23,r49,r50,r137)=(0,0,0,0)  name=BH(M=4e6 M☉): (S - A/4)
+    idx= 32  p= 6  (r23,r49,r50,r137)=(3,0,0,0)  name=r_ISCO/M (a*=0)
+    idx= 65  p= 6  (r23,r49,r50,r137)=(0,0,0,0)  name=Ω_k
+    idx= 85  p= 6  (r23,r49,r50,r137)=(0,0,0,0)  name=θ̄_QCD (null)
+    idx=123  p= 6  (r23,r49,r50,r137)=(12,0,0,0)  name=T_P / T_P
+    idx=124  p= 6  (r23,r49,r50,r137)=(12,0,0,0)  name=l_P / l_P
+    idx=125  p= 6  (r23,r49,r50,r137)=(12,0,0,0)  name=m_P / m_P
+    idx=126  p= 6  (r23,r49,r50,r137)=(12,0,0,0)  name=t_P / t_P
+
+  Remaining rows (trimmed): 124
+
+[Trimmed DNA entropy MDL — real vs baseline]
+  bits_p_baseline       :  6.000
+  bits_23_baseline      :  4.524
+  bits_49_baseline      :  5.615
+  bits_50_baseline      :  5.644
+  bits_137_baseline     :  7.098
+  baseline bits/row     : 28.880
+  real bits/row         : 23.305
+  baseline MDL (bits)   :   3581.1
+  real MDL (bits)       :   2889.8
+  compression factor    :  0.807
+
+[Trimmed null MDL] Simulating 2000 random residue universes...
+[Trimmed DNA entropy MDL — null stats]
+  Null MDL min / max     :   2863.2 /   2962.2
+  Null MDL 25%/50%/75%   :   2903.9 /   2913.8 /   2924.9
+  Null mean MDL          :   2914.1
+  Null std(MDL)          :     15.4
+
+[Trimmed DNA entropy MDL — significance]
+  Real MDL               :   2889.8
+  Empirical p_null[MDL <= real] : 0.059000
+  z-score (lower = more compressible) :  -1.58 σ
+
+[Trimmed DNA lock families — real]
+  Total unique fingerprints : 122
+  Lock families (size >= 2) : 2
+  Family sizes              : [2, 2]
+  Largest family size       : 2
+  Total collision pairs     : 2
+
+[Trimmed null locks] Simulating 5000 random universes...
+[Trimmed DNA lock families — null (max family size)]
+  maxfam min / max        : 1 / 2
+  maxfam 25%/50%/75%      : 1.0 / 1.0 / 1.0
+  maxfam mean / std       : 1.000 / 0.014
+  Real max family size    : 2
+  P_null(maxfam >= real)  : 0.000200
+
+[Trimmed DNA lock families — null (collision pairs)]
+  coll min / max          : 0 / 1
+  coll 25%/50%/75%        : 0.0 / 0.0 / 0.0
+  coll mean / std         : 0.000 / 0.014
+  Real collision pairs    : 2
+  P_null(coll >= real)    : 0.000000
+
+==========================================================================================
+RATIO_OS_DNA_BACKBONE_REMOVAL_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+RATIO_OS_DNA_TRIMMED_HISTOLOCK_NULLSCAN_v1 — locks vs histogram-preserving null
+==========================================================================================
+[Trimmed dataset setup]
+  Total rows (original)  : 134
+  Backbone removed       : 10
+  Remaining rows (trimmed): 124
+
+[Trimmed DNA lock families — real (again)]
+  Lock families (size >= 2) : 2
+  Family sizes              : [2, 2]
+  Largest family size       : 2
+  Total collision pairs     : 2
+
+[Histogram-preserving null] Simulating 5000 universes...
+
+[Trimmed locks — histogram-preserving null (max family size)]
+  maxfam min / max       : 1 / 2
+  maxfam 25%/50%/75%     : 1.0 / 1.0 / 1.0
+  maxfam mean / std      : 1.000 / 0.020
+  Real max family size   : 2
+  P_null(maxfam >= real) : 0.000400
+
+[Trimmed locks — histogram-preserving null (collision pairs)]
+  coll min / max         : 0 / 1
+  coll 25%/50%/75%       : 0.0 / 0.0 / 0.0
+  coll mean / std        : 0.000 / 0.020
+  Real collision pairs   : 2
+  P_null(coll >= real)   : 0.000000
+
+==========================================================================================
+RATIO_OS_DNA_TRIMMED_HISTOLOCK_NULLSCAN_v1 complete.
+==========================================================================================
