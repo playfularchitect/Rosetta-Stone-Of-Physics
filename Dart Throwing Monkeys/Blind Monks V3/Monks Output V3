@@ -1,0 +1,2151 @@
+<>:4613: SyntaxWarning: invalid escape sequence '\ '
+<>:4760: SyntaxWarning: invalid escape sequence '\ '
+<>:4613: SyntaxWarning: invalid escape sequence '\ '
+<>:4760: SyntaxWarning: invalid escape sequence '\ '
+/tmp/ipython-input-4064082958.py:4613: SyntaxWarning: invalid escape sequence '\ '
+  • Scan over n_tau, n_d ∈ [-Nmax, Nmax]^2 \ {(0,0)}.
+/tmp/ipython-input-4064082958.py:4760: SyntaxWarning: invalid escape sequence '\ '
+  • mtau, md exponents are scanned over [-Nmax, Nmax]^2 \ {(0,0)}.
+==========================================================================================
+PHASE2_EW_LOG_LATTICE_NULLSCAN_v1 — 1D log-lattice test for EW constants
+==========================================================================================
+[EW data]
+  number of params       : 19
+  value range            : [2.073e-06, 7.014e-01]
+  log10 range            : [-5.683, -0.154]
+
+  name                value           log10(value)
+  ------------------- --------------  ------------
+  CKM_s12             2.242999980e-01     -0.649171
+  CKM_s13             3.940000000e-03     -2.404504
+  CKM_s23             4.220000100e-02     -1.374688
+  CKM_delta_over_pi   3.819718620e-01     -0.417969
+  alpha               7.297353000e-03     -2.136835
+  alpha_s_MZ          1.178999990e-01     -0.928486
+  sin2_thetaW         2.312200010e-01     -0.635975
+  MW_over_v           3.264524170e-01     -0.486180
+  MZ_over_v           3.703506170e-01     -0.431387
+  MH_over_v           5.086921390e-01     -0.293545
+  me_over_v           2.073000000e-06     -5.683401
+  mmu_over_v          4.289370000e-04     -3.367606
+  mtau_over_v         7.214707000e-03     -2.141781
+  mb_over_v           1.698151100e-02     -1.770024
+  mc_over_v           5.157839000e-03     -2.287532
+  mt_over_v           7.013656350e-01     -0.154056
+  md_over_v           1.896000000e-05     -4.722162
+  ms_over_v           3.776830000e-04     -3.422873
+  mu_over_v           8.773000000e-06     -5.056852
+
+[Real data: best log-lattice fit]
+  best Δ (spacing)      : 0.021000
+  best RMS error        : 5.739431e-03
+
+  Per-parameter lattice coordinates (real data)
+  name                k_i    y_i        k_i*Δ       |y_i - k_i*Δ|
+  ------------------- ---- ---------- ----------  -------------
+  CKM_s12              -31  -0.649171  -0.651000   1.829270e-03
+  CKM_s13             -115  -2.404504  -2.415000   1.049622e-02
+  CKM_s23              -65  -1.374688  -1.365000   9.687539e-03
+  CKM_delta_over_pi    -20  -0.417969  -0.420000   2.031372e-03
+  alpha               -102  -2.136835  -2.142000   5.165355e-03
+  alpha_s_MZ           -44  -0.928486  -0.924000   4.486199e-03
+  sin2_thetaW          -30  -0.635975  -0.630000   5.974601e-03
+  MW_over_v            -23  -0.486180  -0.483000   3.180112e-03
+  MZ_over_v            -21  -0.431387  -0.441000   9.613073e-03
+  MH_over_v            -14  -0.293545  -0.294000   4.550264e-04
+  me_over_v           -271  -5.683401  -5.691000   7.599302e-03
+  mmu_over_v          -160  -3.367606  -3.360000   7.606490e-03
+  mtau_over_v         -102  -2.141781  -2.142000   2.186984e-04
+  mb_over_v            -84  -1.770024  -1.764000   6.023669e-03
+  mc_over_v           -109  -2.287532  -2.289000   1.467782e-03
+  mt_over_v             -7  -0.154056  -0.147000   7.055517e-03
+  md_over_v           -225  -4.722162  -4.725000   2.838333e-03
+  ms_over_v           -163  -3.422873  -3.423000   1.274371e-04
+  mu_over_v           -241  -5.056852  -5.061000   4.148129e-03
+
+[Null ensemble] Generating 2000 random universes...
+
+[Null RMS stats — log-lattice fit]
+  null RMS min / max     : 3.429118e-03 / 6.639850e-03
+  null RMS 25%/50%/75%   : 5.077033e-03 / 5.392356e-03 / 5.689594e-03
+  null RMS mean / std    : 5.360026e-03 / 4.708496e-04
+
+[Significance of log-lattice compression]
+  real best RMS          : 5.739431e-03
+  z(real vs null mean)   :   0.81
+  P_null(RMS <= real)    : 0.787000
+
+==========================================================================================
+PHASE2_EW_LOG_LATTICE_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_EW_YUKAWA_LOG_LATTICE_NULLSCAN_v1 — Yukawa-only log-lattice test
+==========================================================================================
+[Yukawa subset data]
+  number of Yukawas      : 9
+  value range            : [2.073e-06, 7.014e-01]
+  log10 range            : [-5.683, -0.154]
+
+  name          value           log10(value)
+  ------------ --------------  ------------
+  me_over_v    2.073000000e-06     -5.683401
+  mmu_over_v   4.289370000e-04     -3.367606
+  mtau_over_v  7.214707000e-03     -2.141781
+  mb_over_v    1.698151100e-02     -1.770024
+  mc_over_v    5.157839000e-03     -2.287532
+  mt_over_v    7.013656350e-01     -0.154056
+  md_over_v    1.896000000e-05     -4.722162
+  ms_over_v    3.776830000e-04     -3.422873
+  mu_over_v    8.773000000e-06     -5.056852
+
+[Real Yukawas: best log-lattice fit]
+  best Δ (spacing)      : 0.021000
+  best RMS error        : 5.045951e-03
+
+  Per-parameter lattice coordinates (Yukawas)
+  name          k_i    y_i        k_i*Δ       |y_i - k_i*Δ|
+  ------------ ---- ---------- ----------  -------------
+  me_over_v    -271  -5.683401  -5.691000   7.599302e-03
+  mmu_over_v   -160  -3.367606  -3.360000   7.606490e-03
+  mtau_over_v  -102  -2.141781  -2.142000   2.186984e-04
+  mb_over_v     -84  -1.770024  -1.764000   6.023669e-03
+  mc_over_v    -109  -2.287532  -2.289000   1.467782e-03
+  mt_over_v      -7  -0.154056  -0.147000   7.055517e-03
+  md_over_v    -225  -4.722162  -4.725000   2.838333e-03
+  ms_over_v    -163  -3.422873  -3.423000   1.274371e-04
+  mu_over_v    -241  -5.056852  -5.061000   4.148129e-03
+
+[Null ensemble] Generating 5000 random Yukawa universes...
+
+[Null RMS stats — Yukawa log-lattice fit]
+  null RMS min / max     : 1.656569e-03 / 6.940821e-03
+  null RMS 25%/50%/75%   : 4.501647e-03 / 4.963251e-03 / 5.390877e-03
+  null RMS mean / std    : 4.914475e-03 / 6.769188e-04
+
+[Significance of Yukawa log-lattice compression]
+  real best RMS          : 5.045951e-03
+  z(real vs null mean)   :   0.19
+  P_null(RMS <= real)    : 0.545200
+
+==========================================================================================
+PHASE2_EW_YUKAWA_LOG_LATTICE_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_EW_LOG_PARTIAL_LATTICE_NULLSCAN_v1 — partial log-lattice test
+==========================================================================================
+[EW data]
+  number of params       : 19
+  log10 range            : [-5.683, -0.154]
+  Δ scan range           : [0.010, 0.100]
+  Δ step                 : 0.001
+  inlier tolerance ε     : 0.010 (log10 units)
+
+[Real data: partial lattice scan]
+  best Δ (spacing)       : 0.010000
+  best inlier count      : 19 / 19
+
+  Inliers on best partial lattice (real data):
+  name                y_i        k_i       k_i*Δ      |y_i - k_i*Δ|
+  ------------------- ---------- -------- ----------  ------------
+  CKM_s12              -0.649171      -65  -0.650000  8.292697e-04
+  CKM_s13              -2.404504     -240  -2.400000  4.503778e-03
+  CKM_s23              -1.374688     -137  -1.370000  4.687539e-03
+  CKM_delta_over_pi    -0.417969      -42  -0.420000  2.031372e-03
+  alpha                -2.136835     -214  -2.140000  3.165355e-03
+  alpha_s_MZ           -0.928486      -93  -0.930000  1.513801e-03
+  sin2_thetaW          -0.635975      -64  -0.640000  4.025399e-03
+  MW_over_v            -0.486180      -49  -0.490000  3.819888e-03
+  MZ_over_v            -0.431387      -43  -0.430000  1.386927e-03
+  MH_over_v            -0.293545      -29  -0.290000  3.544974e-03
+  me_over_v            -5.683401     -568  -5.680000  3.400698e-03
+  mmu_over_v           -3.367606     -337  -3.370000  2.393510e-03
+  mtau_over_v          -2.141781     -214  -2.140000  1.781302e-03
+  mb_over_v            -1.770024     -177  -1.770000  2.366923e-05
+  mc_over_v            -2.287532     -229  -2.290000  2.467782e-03
+  mt_over_v            -0.154056      -15  -0.150000  4.055517e-03
+  md_over_v            -4.722162     -472  -4.720000  2.161667e-03
+  ms_over_v            -3.422873     -342  -3.420000  2.872563e-03
+  mu_over_v            -5.056852     -506  -5.060000  3.148129e-03
+
+[Null ensemble] Generating 5000 random universes...
+[Null stats — best partial-lattice inlier count]
+  best_inliers min / max : 19 / 19
+  best_inliers 25%/50%/75%: 19.0 / 19.0 / 19.0
+  best_inliers mean / std: 19.000 / 0.000
+
+[Significance of partial lattice]
+  real best_inliers      : 19
+  P_null(best_inliers >= real) = 1.000000
+
+==========================================================================================
+PHASE2_EW_LOG_PARTIAL_LATTICE_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_INTREL_NULLSCAN_v1c — integer relations among Yukawas
+==========================================================================================
+[Yukawa data]
+  number of Yukawas      : 9
+  value range            : [2.073e-06, 7.014e-01]
+  log10 range            : [-5.683, -0.154]
+
+  name          value           log10(value)
+  ------------ --------------  ------------
+  me_over_v    2.073000000e-06     -5.683401
+  mmu_over_v   4.289370000e-04     -3.367606
+  mtau_over_v  7.214707000e-03     -2.141781
+  mb_over_v    1.698151100e-02     -1.770024
+  mc_over_v    5.157839000e-03     -2.287532
+  mt_over_v    7.013656350e-01     -0.154056
+  md_over_v    1.896000000e-05     -4.722162
+  ms_over_v    3.776830000e-04     -3.422873
+  mu_over_v    8.773000000e-06     -5.056852
+
+[Candidate relation space]
+  coefficient bound C    : 4
+  number of index triples: 84
+  total candidate relations: 48048
+
+[Real Yukawas: best integer relation search]
+  best residual |sum n_i log10(y_i)| : 7.415602e-06
+
+  Best relation (real data):
+    indices (i,j,k)         : (0, 2, 6)
+    names                   : (me_over_v, mtau_over_v, md_over_v)
+    coeffs (a,b,c)          : (-4, 4, 3)
+    sum n_i log10(y_i)      : -7.415602e-06
+    product approx 10^(sum n_i log10(y_i)) = 9.999829e-01
+
+  Top 10 relations (smallest residuals):
+    # 1: resid=7.415602e-06  (me_over_v, mtau_over_v, md_over_v); (a,b,c)=(-4,4,3);  prod≈9.999829e-01
+    # 2: resid=7.415602e-06  (me_over_v, mtau_over_v, md_over_v); (a,b,c)=(4,-4,-3);  prod≈1.000017e+00
+    # 3: resid=8.584302e-04  (mt_over_v, ms_over_v, mu_over_v); (a,b,c)=(-1,3,-2);  prod≈9.980253e-01
+    # 4: resid=8.584302e-04  (mt_over_v, ms_over_v, mu_over_v); (a,b,c)=(1,-3,2);  prod≈1.001979e+00
+    # 5: resid=1.346314e-03  (mtau_over_v, mc_over_v, md_over_v); (a,b,c)=(-1,3,-1);  prod≈1.003105e+00
+    # 6: resid=1.346314e-03  (mtau_over_v, mc_over_v, md_over_v); (a,b,c)=(1,-3,1);  prod≈9.969048e-01
+    # 7: resid=1.572058e-03  (me_over_v, mtau_over_v, mb_over_v); (a,b,c)=(-1,1,2);  prod≈1.003626e+00
+    # 8: resid=1.572058e-03  (me_over_v, mtau_over_v, mb_over_v); (a,b,c)=(1,-1,-2);  prod≈9.963867e-01
+    # 9: resid=1.758041e-03  (mmu_over_v, mtau_over_v, mt_over_v); (a,b,c)=(-2,3,2);  prod≈1.004056e+00
+    #10: resid=1.758041e-03  (mmu_over_v, mtau_over_v, mt_over_v); (a,b,c)=(2,-3,-2);  prod≈9.959601e-01
+
+[Null ensemble] Generating 2000 random universes...
+
+[Null stats — best integer-relation residual]
+  null best_resid min / max: 8.007730e-08 / 7.141021e-03
+  null best_resid 25%/50%/75%: 2.960423e-04 / 6.925311e-04 / 1.378724e-03
+  null best_resid mean / std: 9.927902e-04 / 9.712857e-04
+
+[Significance of Yukawa integer-relation compression]
+  real best_resid          : 7.415602e-06
+  z(real vs null mean)     :  -1.01
+  P_null(best_resid <= real) = 0.006000
+
+==========================================================================================
+PHASE2_YUKAWA_INTREL_NULLSCAN_v1c complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_INTREL_JITTERNULL_v1 — jitter null for Yukawa int-relations
+==========================================================================================
+[Yukawa data]
+  number of Yukawas      : 9
+  log10 range (real)     : [-5.683, -0.154]
+  jitter halfwidth (log10): 0.500
+
+  name          log10(value)
+  ------------ ------------
+  me_over_v       -5.683401
+  mmu_over_v      -3.367606
+  mtau_over_v     -2.141781
+  mb_over_v       -1.770024
+  mc_over_v       -2.287532
+  mt_over_v       -0.154056
+  md_over_v       -4.722162
+  ms_over_v       -3.422873
+  mu_over_v       -5.056852
+
+[Candidate relation space]
+  coefficient bound C    : 4
+  number of index triples: 84
+  total candidate relations: 48048
+
+[Real Yukawas: best integer relation under this candidate set]
+  best residual |sum n_i log10(y_i)| : 7.415602e-06
+  Best relation (real data):
+    indices (i,j,k)         : (0, 2, 6)
+    names                   : (me_over_v, mtau_over_v, md_over_v)
+    coeffs (a,b,c)          : (-4, 4, 3)
+    sum n_i log10(y_i)      : -7.415602e-06
+    product approx 10^(sum) : 9.999829e-01
+
+[Jitter null ensemble] Generating 2000 random universes...
+
+[Jitter-null stats — best integer-relation residual]
+  null best_resid min / max: 1.229576e-07 / 8.021512e-03
+  null best_resid 25%/50%/75%: 3.201834e-04 / 7.918422e-04 / 1.507350e-03
+  null best_resid mean / std: 1.091652e-03 / 1.061068e-03
+
+[Significance under jitter null]
+  real best_resid          : 7.415602e-06
+  z(real vs null mean)     :  -1.02
+  P_null(best_resid <= real) = 0.011500
+
+==========================================================================================
+PHASE2_YUKAWA_INTREL_JITTERNULL_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_EW_PAIR_INTREL_NULLSCAN_v1 — pairwise EW integer relations
+==========================================================================================
+[EW data]
+  number of parameters    : 19
+  log10 range (real)      : [-5.683, -0.154]
+  jitter halfwidth (log10): 0.500
+
+  name                 value           log10(value)
+  ------------------- --------------  ------------
+  CKM_s12             2.242999980e-01     -0.649171
+  CKM_s13             3.940000000e-03     -2.404504
+  CKM_s23             4.220000100e-02     -1.374688
+  CKM_delta_over_pi   3.819718620e-01     -0.417969
+  alpha               7.297353000e-03     -2.136835
+  alpha_s_MZ          1.178999990e-01     -0.928486
+  sin2_thetaW         2.312200010e-01     -0.635975
+  MW_over_v           3.264524170e-01     -0.486180
+  MZ_over_v           3.703506170e-01     -0.431387
+  MH_over_v           5.086921390e-01     -0.293545
+  me_over_v           2.073000000e-06     -5.683401
+  mmu_over_v          4.289370000e-04     -3.367606
+  mtau_over_v         7.214707000e-03     -2.141781
+  mb_over_v           1.698151100e-02     -1.770024
+  mc_over_v           5.157839000e-03     -2.287532
+  mt_over_v           7.013656350e-01     -0.154056
+  md_over_v           1.896000000e-05     -4.722162
+  ms_over_v           3.776830000e-04     -3.422873
+  mu_over_v           8.773000000e-06     -5.056852
+
+[Candidate relation space]
+  coefficient bound C    : 4
+  number of pairs        : 171
+  total candidate relations: 7524
+
+[Real EW: best pairwise integer relation search]
+  best residual |a log10(x_i) + b log10(x_j)| : 2.791744e-03
+  Best relation (real data):
+    indices (i,j)          : (0, 7)
+    names                  : (CKM_s12, MW_over_v)
+    coeffs (a,b)           : (-3, 4)
+    sum a log10(x_i) + b log10(x_j) : 2.791744e-03
+    product approx 10^(sum)        : 1.006449e+00
+
+  Top 10 pairwise relations (smallest residuals):
+    # 1: resid=2.791744e-03  (CKM_s12, MW_over_v); (a,b)=(-3,4);  prod≈1.006449e+00
+    # 2: resid=2.791744e-03  (CKM_s12, MW_over_v); (a,b)=(3,-4);  prod≈9.935924e-01
+    # 3: resid=4.180678e-03  (CKM_s12, MZ_over_v); (a,b)=(-2,3);  prod≈1.009673e+00
+    # 4: resid=4.180678e-03  (CKM_s12, MZ_over_v); (a,b)=(2,-3);  prod≈9.904198e-01
+    # 5: resid=4.946657e-03  (alpha, mtau_over_v); (a,b)=(-1,1);  prod≈9.886745e-01
+    # 6: resid=4.946657e-03  (alpha, mtau_over_v); (a,b)=(1,-1);  prod≈1.011455e+00
+    # 7: resid=1.088427e-02  (mmu_over_v, mu_over_v); (a,b)=(-3,2);  prod≈9.752495e-01
+    # 8: resid=1.088427e-02  (mmu_over_v, mu_over_v); (a,b)=(3,-2);  prod≈1.025379e+00
+    # 9: resid=1.319613e-02  (CKM_s12, sin2_thetaW); (a,b)=(-1,1);  prod≈1.030852e+00
+    #10: resid=1.319613e-02  (CKM_s12, sin2_thetaW); (a,b)=(1,-1);  prod≈9.700718e-01
+
+[Jitter null ensemble] Generating 2000 random universes...
+
+[Jitter-null stats — best pairwise integer-relation residual]
+  null best_resid min / max: 3.177544e-07 / 1.886268e-02
+  null best_resid 25%/50%/75%: 7.051893e-04 / 1.700963e-03 / 3.225780e-03
+  null best_resid mean / std: 2.335636e-03 / 2.289952e-03
+
+[Significance under jitter null]
+  real best_resid          : 2.791744e-03
+  z(real vs null mean)     :   0.20
+  P_null(best_resid <= real) = 0.702500
+
+==========================================================================================
+PHASE2_EW_PAIR_INTREL_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_EW_TRIPLE_INTREL19_NULLSCAN_v1 — 3-term EW integer relations (19 params)
+==========================================================================================
+[EW data]
+  number of parameters    : 19
+  log10 range (real)      : [-5.683, -0.154]
+  jitter halfwidth (log10): 0.500
+
+  name                 value           log10(value)
+  ------------------- --------------  ------------
+  CKM_s12             2.242999980e-01     -0.649171
+  CKM_s13             3.940000000e-03     -2.404504
+  CKM_s23             4.220000100e-02     -1.374688
+  CKM_delta_over_pi   3.819718620e-01     -0.417969
+  alpha               7.297353000e-03     -2.136835
+  alpha_s_MZ          1.178999990e-01     -0.928486
+  sin2_thetaW         2.312200010e-01     -0.635975
+  MW_over_v           3.264524170e-01     -0.486180
+  MZ_over_v           3.703506170e-01     -0.431387
+  MH_over_v           5.086921390e-01     -0.293545
+  me_over_v           2.073000000e-06     -5.683401
+  mmu_over_v          4.289370000e-04     -3.367606
+  mtau_over_v         7.214707000e-03     -2.141781
+  mb_over_v           1.698151100e-02     -1.770024
+  mc_over_v           5.157839000e-03     -2.287532
+  mt_over_v           7.013656350e-01     -0.154056
+  md_over_v           1.896000000e-05     -4.722162
+  ms_over_v           3.776830000e-04     -3.422873
+  mu_over_v           8.773000000e-06     -5.056852
+
+[Candidate relation space]
+  coefficient bound C    : 3
+  number of triples      : 969
+  total candidate relations: 275196
+
+[Real EW: best 3-term integer relation search]
+  best residual |a log10(x_i) + b log10(x_j) + c log10(x_k)| : 2.376525e-04
+  Best relation (real data):
+    indices (i,j,k)        : (0, 3, 15)
+    names                  : (CKM_s12, CKM_delta_over_pi, mt_over_v)
+    coeffs (a,b,c)         : (-2, 2, 3)
+    sum                    : 2.376525e-04
+    product approx 10^(sum): 1.000547e+00
+
+  Top 10 3-term relations (smallest residuals):
+    # 1: resid=2.376525e-04  (CKM_s12, CKM_delta_over_pi, mt_over_v); (a,b,c)=(-2,2,3);  prod≈1.000547e+00
+    # 2: resid=2.376525e-04  (CKM_s12, CKM_delta_over_pi, mt_over_v); (a,b,c)=(2,-2,-3);  prod≈9.994529e-01
+    # 3: resid=2.620886e-04  (CKM_s12, CKM_delta_over_pi, MH_over_v); (a,b,c)=(-2,1,3);  prod≈9.993967e-01
+    # 4: resid=2.620886e-04  (CKM_s12, CKM_delta_over_pi, MH_over_v); (a,b,c)=(2,-1,-3);  prod≈1.000604e+00
+    # 5: resid=3.236924e-04  (CKM_s23, mc_over_v, mt_over_v); (a,b,c)=(-2,1,3);  prod≈9.992549e-01
+    # 6: resid=3.236924e-04  (CKM_s23, mc_over_v, mt_over_v); (a,b,c)=(2,-1,-3);  prod≈1.000746e+00
+    # 7: resid=4.997411e-04  (CKM_delta_over_pi, MH_over_v, mt_over_v); (a,b,c)=(-1,3,-3);  prod≈9.988500e-01
+    # 8: resid=4.997411e-04  (CKM_delta_over_pi, MH_over_v, mt_over_v); (a,b,c)=(1,-3,3);  prod≈1.001151e+00
+    # 9: resid=5.467793e-04  (CKM_s12, alpha, alpha_s_MZ); (a,b,c)=(-1,-1,3);  prod≈1.001260e+00
+    #10: resid=5.467793e-04  (CKM_s12, alpha, alpha_s_MZ); (a,b,c)=(1,1,-3);  prod≈9.987418e-01
+
+[Jitter null ensemble] Generating 1000 random universes...
+
+[Jitter-null stats — best 3-term integer-relation residual]
+  null best_resid min / max: 5.270753e-08 / 9.674527e-04
+  null best_resid 25%/50%/75%: 3.352546e-05 / 8.289666e-05 / 1.629480e-04
+  null best_resid mean / std: 1.175465e-04 / 1.187162e-04
+
+[Significance under jitter null]
+  real best_resid          : 2.376525e-04
+  z(real vs null mean)     :   1.01
+  P_null(best_resid <= real) = 0.876000
+
+==========================================================================================
+PHASE2_EW_TRIPLE_INTREL19_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_4TERM_INTREL_NULLSCAN_v1 — 4-term integer relations among Yukawas
+==========================================================================================
+[Yukawa data]
+  number of Yukawas      : 9
+  value range            : [2.073e-06, 7.014e-01]
+  log10 range (real)     : [-5.683, -0.154]
+  jitter halfwidth (log10): 0.500
+
+  name          value           log10(value)
+  ------------ --------------  ------------
+  me_over_v    2.073000000e-06     -5.683401
+  mmu_over_v   4.289370000e-04     -3.367606
+  mtau_over_v  7.214707000e-03     -2.141781
+  mb_over_v    1.698151100e-02     -1.770024
+  mc_over_v    5.157839000e-03     -2.287532
+  mt_over_v    7.013656350e-01     -0.154056
+  md_over_v    1.896000000e-05     -4.722162
+  ms_over_v    3.776830000e-04     -3.422873
+  mu_over_v    8.773000000e-06     -5.056852
+
+[Candidate relation space]
+  coefficient bound C    : 3
+  number of quadruples   : 126
+  total candidate relations: 281232
+
+[Real Yukawas: best 4-term integer relation search]
+  best residual |sum n_i log10(y_i)| : 5.825344e-04
+  Best relation (real data):
+    indices (i,j,k,l)       : (0, 3, 4, 8)
+    names                   : (me_over_v, mb_over_v, mc_over_v, mu_over_v)
+    coeffs (a,b,c,d)        : (-2, 2, -1, 2)
+    sum n_i log10(y_i)      : 5.825344e-04
+    product approx 10^(sum) : 1.001342e+00
+
+  Top 10 4-term relations (smallest residuals):
+    # 1: resid=5.825344e-04  (me_over_v, mb_over_v, mc_over_v, mu_over_v); (a,b,c,d)=(-2,2,-1,2);  prod≈1.001342e+00
+    # 2: resid=5.825344e-04  (me_over_v, mb_over_v, mc_over_v, mu_over_v); (a,b,c,d)=(2,-2,1,-2);  prod≈9.986596e-01
+    # 3: resid=8.584302e-04  (me_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,-1,3,-2);  prod≈9.980253e-01
+    # 4: resid=8.584302e-04  (me_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,1,-3,2);  prod≈1.001979e+00
+    # 5: resid=8.584302e-04  (mmu_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,-1,3,-2);  prod≈9.980253e-01
+    # 6: resid=8.584302e-04  (mmu_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,1,-3,2);  prod≈1.001979e+00
+    # 7: resid=8.584302e-04  (mtau_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,-1,3,-2);  prod≈9.980253e-01
+    # 8: resid=8.584302e-04  (mtau_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,1,-3,2);  prod≈1.001979e+00
+    # 9: resid=8.584302e-04  (mb_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,-1,3,-2);  prod≈9.980253e-01
+    #10: resid=8.584302e-04  (mb_over_v, mt_over_v, ms_over_v, mu_over_v); (a,b,c,d)=(0,1,-3,2);  prod≈1.001979e+00
+
+[Jitter null ensemble] Generating 1000 random universes...
+
+[Jitter-null stats — best 4-term integer-relation residual]
+  null best_resid min / max: 4.614653e-08 / 1.452026e-03
+  null best_resid 25%/50%/75%: 6.410212e-05 / 1.590262e-04 / 3.179828e-04
+  null best_resid mean / std: 2.245606e-04 / 2.151208e-04
+
+[Significance under jitter null]
+  real best_resid          : 5.825344e-04
+  z(real vs null mean)     :   1.66
+  P_null(best_resid <= real) = 0.927000
+
+==========================================================================================
+PHASE2_YUKAWA_4TERM_INTREL_NULLSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_JITTERNULL_v1 — fixed (me, mtau, md) relation
+==========================================================================================
+[Yukawa data (subset used in relation)]
+  me_over_v    =  2.073000000e-06  log10 = -5.683401
+  mtau_over_v  =  7.214707000e-03  log10 = -2.141781
+  md_over_v    =  1.896000000e-05  log10 = -4.722162
+  jitter halfwidth (log10): 0.500
+
+[Real fixed-triple relation]
+  Relation: S = |-4 log10(me_over_v) + 4 log10(mtau_over_v) + 3 log10(md_over_v)|
+  sum_real (a z_me + b z_mtau + c z_md) : -7.415602e-06
+  S_real = |sum_real|                  : 7.415602e-06
+  product 10^(sum_real)                : 9.999829e-01
+
+[Jitter null ensemble] Generating 10000 random universes...
+
+[Jitter-null stats — fixed (me, mtau, md) relation]
+  null S min / max           : 5.418141e-05 / 5.349271e+00
+  null S 25%/50%/75%         : 6.150511e-01 / 1.287225e+00 / 2.172916e+00
+  null S mean / std          : 1.488385e+00 / 1.073595e+00
+
+[Significance under jitter null]
+  S_real                     : 7.415602e-06
+  z(S_real vs null mean)     :  -1.39
+  P_null(S <= S_real)        : 0.000000
+
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_JITTERNULL_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_JITTERSCAN_v1 — jitter-width scan
+==========================================================================================
+[Fixed triple recap]
+  Relation: S = |-4 log10(me_over_v) + 4 log10(mtau_over_v) + 3 log10(md_over_v)|
+  sum_real = -7.415602e-06
+  S_real   = 7.415602e-06
+
+[Jitter scan results]
+  h (log10)   min(S_null)    mean(S_null)   std(S_null)    p_emp  N_null
+  ---------  ------------  -------------  ------------  ------- ------
+      0.050  1.028204e-05   1.501468e-01  1.072803e-01   0.0000   2000
+      0.100  6.051435e-06   2.980674e-01  2.126948e-01   0.0005   2000
+      0.200  1.494978e-04   6.013346e-01  4.288594e-01   0.0000   2000
+      0.300  4.701917e-04   9.298718e-01  6.556431e-01   0.0000   2000
+      0.500  6.288745e-03   1.483073e+00  1.034445e+00   0.0000   2000
+      0.700  1.062990e-03   2.097033e+00  1.482213e+00   0.0000   2000
+      1.000  3.785133e-04   3.012344e+00  2.114030e+00   0.0000   2000
+
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_JITTERSCAN_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_COEFF_LANDSCAPE_v1 — coeff landscape
+==========================================================================================
+[Yukawa logs used]
+  me_over_v   log10 = -5.683401
+  mtau_over_v log10 = -2.141781
+  md_over_v   log10 = -4.722162
+
+  Coefficient search range: a,b,c ∈ [-10, ..., +10]
+  Primitive condition: gcd(|a|,|b|,|c|) = 1, at least 2 non-zero.
+
+[Coefficient landscape — top 50 primitive (a,b,c)]
+  rank   S(a,b,c)        sum_val          (a,b,c)
+  ----  -------------  -------------     -------------
+     1   7.415602e-06  -7.415602e-06     (-4, 4, 3)
+     2   7.415602e-06   7.415602e-06     ( 4,-4,-3)
+     3   5.122143e-02  -5.122143e-02     (-4,-7, 8)
+     4   5.122143e-02   5.122143e-02     ( 4, 7,-8)
+     5   8.402607e-02   8.402607e-02     (-9, 4, 9)
+     6   8.402607e-02  -8.402607e-02     ( 9,-4,-9)
+     7   8.403349e-02   8.403349e-02     (-5, 0, 6)
+     8   8.403349e-02  -8.403349e-02     ( 5, 0,-6)
+     9   8.404090e-02   8.404090e-02     (-1,-4, 3)
+    10   8.404090e-02  -8.404090e-02     ( 1, 4,-3)
+    11   8.404832e-02  -8.404832e-02     (-3, 8, 0)
+    12   8.404832e-02   8.404832e-02     ( 3,-8, 0)
+    13   1.352549e-01   1.352549e-01     (-1, 7,-2)
+    14   1.352549e-01  -1.352549e-01     ( 1,-7, 2)
+    15   1.352623e-01  -1.352623e-01     (-3,-3, 5)
+    16   1.352623e-01   1.352623e-01     ( 3, 3,-5)
+    17   1.352698e-01  -1.352698e-01     (-7, 1, 8)
+    18   1.352698e-01   1.352698e-01     ( 7,-1,-8)
+    19   1.680744e-01   1.680744e-01     (-6,-4, 9)
+    20   1.680744e-01  -1.680744e-01     ( 6, 4,-9)
+    21   2.192884e-01   2.192884e-01     (-6, 7, 4)
+    22   2.192884e-01  -2.192884e-01     ( 6,-7,-4)
+    23   2.192958e-01   2.192958e-01     (-2, 3, 1)
+    24   2.192958e-01  -2.192958e-01     ( 2,-3,-1)
+    25   2.193032e-01  -2.193032e-01     (-2, 1, 2)
+    26   2.193032e-01   2.193032e-01     ( 2,-1,-2)
+    27   2.193107e-01  -2.193107e-01     (-6, 5, 5)
+    28   2.193107e-01   2.193107e-01     ( 6,-5,-5)
+    29   2.193181e-01  -2.193181e-01     (-10, 9, 8)
+    30   2.193181e-01   2.193181e-01     (10,-9,-8)
+    31   2.705173e-01  -2.705173e-01     (-2,-10, 7)
+    32   2.705173e-01   2.705173e-01     ( 2,10,-7)
+    33   3.033293e-01   3.033293e-01     (-7, 3, 7)
+    34   3.033293e-01  -3.033293e-01     ( 7,-3,-7)
+    35   3.033367e-01   3.033367e-01     (-3,-1, 4)
+    36   3.033367e-01  -3.033367e-01     ( 3, 1,-4)
+    37   3.033441e-01  -3.033441e-01     (-1, 5,-1)
+    38   3.033441e-01   3.033441e-01     ( 1,-5, 1)
+    39   3.033516e-01  -3.033516e-01     (-5, 9, 2)
+    40   3.033516e-01   3.033516e-01     ( 5,-9,-2)
+    41   3.545507e-01   3.545507e-01     (-3,10,-1)
+    42   3.545507e-01  -3.545507e-01     ( 3,-10, 1)
+    43   3.545582e-01  -3.545582e-01     (-1,-6, 4)
+    44   3.545582e-01   3.545582e-01     ( 1, 6,-4)
+    45   3.545656e-01  -3.545656e-01     (-5,-2, 7)
+    46   3.545656e-01   3.545656e-01     ( 5, 2,-7)
+    47   3.545730e-01  -3.545730e-01     (-9, 2,10)
+    48   3.545730e-01   3.545730e-01     ( 9,-2,-10)
+    49   3.873702e-01   3.873702e-01     (-8,-1,10)
+    50   3.873702e-01  -3.873702e-01     ( 8, 1,-10)
+
+[Special combo (-4,4,3)]
+  Found at rank          : 1
+  S(-4,4,3)              : 7.415602e-06
+  sum_val(-4,4,3)        : -7.415602e-06
+
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_COEFF_LANDSCAPE_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_ERRORMODEL_v1 — error-model null for (me, mtau, md)
+==========================================================================================
+[Central Yukawa logs used]
+  log10(me_over_v)   = -5.683401
+  log10(mtau_over_v) = -2.141781
+  log10(md_over_v)   = -4.722162
+
+[Error model (1σ fractional errors → σ in log10-space)]
+  frac_err_me   = 1.000e-08  →  σ_log10(me)   = 4.343e-09
+  frac_err_mtau = 1.000e-05  →  σ_log10(mtau) = 4.343e-06
+  frac_err_md   = 2.000e-01  →  σ_log10(md)   = 8.686e-02
+
+[Real fixed-triple relation]
+  S = |-4 log10(me/v) + 4 log10(mtau/v) + 3 log10(md/v)|
+  S_real = 6.000000e-06
+  product 10^(sum) ≈ 9.999862e-01
+
+[Error-model jitter null]
+  num_null draws         : 20000
+  S_null min / max       : 3.346754e-06 / 1.032459e+00
+  S_null 25% / 50% / 75% : 8.426542e-02 / 1.777065e-01 / 3.024414e-01
+  S_null mean / std      : 2.101686e-01 / 1.584265e-01
+
+[Significance under this error model]
+  S_real                 : 6.000000e-06
+  z(S_real vs mean)      : -1.33 σ
+  p_emp(S <= S_real)     : 0.000050
+
+NOTE:
+  • You control how harsh this test is by choosing frac_err_me, frac_err_mtau, frac_err_md.
+  • If you set frac_err_md ~ 0.1–0.2 (more realistic for down-quark),
+    and me/tau errors very tiny, you’ll see how fragile the 10^-5 alignment really is.
+==========================================================================================
+PHASE2_YUKAWA_FIXED_TRIPLE_ERRORMODEL_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE2_YUKAWA_EXPONENT_GEOMETRY_NULLSCAN_v1b — Yukawa exponent geometry + null
+==========================================================================================
+[Config]
+  number of Yukawas          : 9
+  exponent bound C           : 5
+  search cube size           : (2C+1)^3 - 1 = 1330
+  jitter halfwidth (log10)   : 0.500
+  num_null universes         : 2000
+
+[Basis Yukawas for exponent geometry]
+  basis 1: me_over_v   (index 0)   log10 = -5.683401
+  basis 2: mtau_over_v (index 2) log10 = -2.141781
+  basis 3: md_over_v   (index 6)   log10 = -4.722162
+
+[Real-universe exponent geometry fit]
+  name          log10(y)    best (a,b,c)       |residual|
+  ------------  ---------   -------------     -----------
+  me_over_v     -5.683401   ( 1, 0, 0)        0.000000e+00
+  mmu_over_v    -3.367606   ( 4, 2,-5)        3.875000e-02
+  mtau_over_v   -2.141781   ( 0, 1, 0)        0.000000e+00
+  mb_over_v     -1.770024   ( 0, 3,-1)        6.684300e-02
+  mc_over_v     -2.287532   (-3,-2, 5)        1.048700e-02
+  mt_over_v     -0.154056   (-3,-3, 5)        1.879200e-02
+  md_over_v     -4.722162   ( 0, 0, 1)        0.000000e+00
+  ms_over_v     -3.422873   ( 4, 2,-5)        1.651700e-02
+  mu_over_v     -5.056852   (-1, 5, 0)        3.134800e-02
+
+  Summary over all 9 Yukawas (log10-space residuals):
+    RMS residual          :  2.922741e-02
+    mean |residual|       :  2.030411e-02
+    max  |residual|       :  6.684300e-02
+
+[Null ensemble] Generating jittered universes and re-fitting geometry ...
+[Null RMS stats — exponent geometry fit]
+  null RMS min / max       :  4.498197e-03 /  3.264210e-01
+  null RMS 25% / 50% / 75% :  1.479718e-02 /  2.075370e-02 /  3.243618e-02
+  null RMS mean / std      :  2.892247e-02 /  2.773815e-02
+
+[Significance of exponent geometry compression]
+  real RMS                 :  2.922741e-02
+  z(real vs null mean)     : +0.01 σ
+  P_null(RMS <= real)      : 0.711500
+
+INTERPRETATION GUIDE:
+  • Small RMS (real) means each Yukawa log is close to some integer combo of
+    (log10 me, log10 mtau, log10 md) with |a|,|b|,|c| ≤ C.
+  • If P_null(RMS <= real) is tiny, our Yukawas are unusually exponent-compressible
+    by this small-integer geometry compared to jittered universes.
+  • If P_null is O(0.1–1), the exponent geometry is not very special.
+==========================================================================================
+PHASE2_YUKAWA_EXPONENT_GEOMETRY_NULLSCAN_v1b complete.
+==========================================================================================
+==========================================================================================
+PHASE2_SURVIVOR_SCORECARD_v1 — what actually survives so far?
+==========================================================================================
+
+This scoreboard encodes the main results you've already computed.
+For each test we store:
+  • a short description
+  • the reported p-value (or 0 if no null hits)
+  • number of null universes N_null (if applicable)
+  • approximate bits of surprise  bits ≈ -log2(p)
+    (or a lower bound if p=0 and we only know p < 1/N_null).
+
+
+----------------------------------------------------------------------------------
+[DNA (full dataset, with backbone)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+DNA entropy MDL (full)                                < 5.00e-04   > 10.97
+    note: Entropy MDL compressibility; z ≈ -4.84 σ vs null.
+DNA lock max-family (full)                            < 2.00e-04   > 12.29
+    note: Largest lock family size (5) vs histogram-preserving null.
+DNA lock collision pairs (full)                       < 2.00e-04   > 12.29
+    note: 18 collision pairs vs ~0 in null.
+
+----------------------------------------------------------------------------------
+[DNA (trimmed; backbone removed)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Trimmed DNA entropy MDL                                 0.059000      4.08
+    note: Entropy after removing backbone; mild compression (≈ -1.58 σ).
+Trimmed DNA locks: max family                           0.000400     11.29
+    note: Largest lock family size=2 vs histogram-preserving null.
+Trimmed DNA locks: collision pairs                    < 2.00e-04   > 12.29
+    note: 2 collision pairs vs ~0 in null.
+
+----------------------------------------------------------------------------------
+[DNA patterns (rails / zeros)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+All-four-zero rows (p=6 rail count)                   < 2.00e-04   > 12.29
+    note: 5 rows with r23=r49=r50=r137=0 vs ~0 in null.
+
+----------------------------------------------------------------------------------
+[EW sector (geometry / shape)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+EW SHAPE MDL vs wide flat null                        < 1.00e-03   >  9.97
+    note: Apparent 3.5σ compression vs wide null, BUT explained away by local null.
+EW SHAPE MDL vs local magnitude-preserving null         0.468000      1.10
+    note: No special structure once local magnitude is preserved.
+EW relational model (one seed rational multiples)       0.422000      1.24
+    note: Relational compression not special.
+
+----------------------------------------------------------------------------------
+[EW sector (log-lattices)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Full EW log-lattice fit                                 0.787000      0.35
+    note: Global log-lattice structure is ordinary.
+Yukawa-only log-lattice fit                             0.545200      0.88
+    note: Yukawas alone not unusually lattice-like.
+
+----------------------------------------------------------------------------------
+[EW sector (pair / triple relations)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Pairwise EW integer relations (19 params)               0.702500      0.51
+    note: Best pairwise relation entirely unspecial.
+3-term EW integer relations (19 params)                 0.876000      0.19
+    note: Best triple relation also unspecial.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (all 9, scan over triples)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Best 3-term integer relation (look-elsewhere corre      0.006000      7.38
+    note: Global search over all triples & coeffs; me–tau–d pops out but at p≈0.006.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (all 9, jitter null)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Best 3-term int-rel under jitter null                   0.011500      6.44
+    note: Same search but with log10 jitter; p~1% (still modest).
+
+----------------------------------------------------------------------------------
+[Yukawa sector (fixed triple: me, mtau, md)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+Fixed triple, jitter null (h=0.5 dex)                 < 1.00e-04   > 13.29
+    note: Check just the discovered triple; no null got as small as real.
+Fixed triple, error-model null                          0.000050     14.29
+    note: Realistic measurement errors; triple still extremely tight.
+Coeff landscape: best primitive (a,b,c) = (-4,4,3)           N/A       N/A
+    note: Coefficient search [-10,10]; (-4,4,3) is unique top solution.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (multi-point geometry)]
+----------------------------------------------------------------------------------
+Test                                                     p-value      bits
+--------------------------------------------------------------------------------
+All 9 Yukawas in (me, mtau, md) exponent geometry       0.711500      0.49
+    note: Whole exponent geometry is perfectly ordinary (we discard it).
+
+==========================================================================================
+Interpretation (very roughly):
+  • bits ≲ 3   : nothing special (completely ordinary).
+  • bits ≈ 5–10: interesting but not decisive by itself.
+  • bits ≳ 10  : strong structure (especially if replicated by independent tests).
+
+From this scoreboard:
+  • DNA backbone + lock structure gives multi-10-bit surprises even under harsh nulls.
+  • The me–mtau–md triple (-4,4,3) gives O(10–15) bits, depending on how
+    you account for look-elsewhere and the error model.
+  • Most other EW/Yukawa 'geometries' are statistically ordinary and belong
+    in the trash pile (we do not build on them).
+==========================================================================================
+PHASE2_SURVIVOR_SCORECARD_v1 complete.
+==========================================================================================
+==========================================================================================
+PHASE3_GLOBAL_EVIDENCE_SYNTHESIS_v1 — geometry evidence in bits
+==========================================================================================
+
+We now ask: if the universe is not just random, how many bits of non-random
+structure do we *actually* have to explain with any future geometry?
+
+Key idea:
+  • Many 'patterns' died under null tests (p ~ O(1)).
+  • A few survived with multi-σ, multi-10-bit surprises.
+  • Geometry hunting should only care about those survivors.
+
+Per-test evidence:
+
+----------------------------------------------------------------------------------
+[DNA (full dataset, with backbone)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+DNA      SURVIVOR   DNA entropy MDL (full)                           0.000500     10.97
+    note: Overall residue entropy compressibility; z ≈ -4.84σ.
+DNA      SURVIVOR   DNA lock max-family (full)                       0.000200     12.29
+    note: Largest lock family size=5 vs histogram-preserving null.
+DNA      SURVIVOR   DNA lock collision pairs (full)                  0.000200     12.29
+    note: 18 collision pairs vs ~0 in null.
+
+----------------------------------------------------------------------------------
+[DNA (trimmed; backbone removed)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+DNA      SURVIVOR   Trimmed DNA entropy MDL                          0.059000      4.08
+    note: Entropy after removing backbone; mild compression (~1.6σ).
+DNA      SURVIVOR   Trimmed DNA locks: max family                    0.000400     11.29
+    note: Largest lock family size=2 vs histogram-preserving null.
+DNA      SURVIVOR   Trimmed DNA locks: collision pairs               0.000200     12.29
+    note: 2 collision pairs vs ~0 in null; residual lock structure beyond backbone.
+
+----------------------------------------------------------------------------------
+[DNA patterns (rails / zeros)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+DNA      SURVIVOR   All-four-zero rows (p=6 rail count)              0.000200     12.29
+    note: 5 rows with r23=r49=r50=r137=0 vs ~0 in null.
+
+----------------------------------------------------------------------------------
+[EW sector (geometry / shape)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+EW-othe  KILLED     EW SHAPE MDL vs wide flat null                   0.001000      9.97
+    note: 3.5σ vs wide null, but disappears under magnitude-preserving null.
+EW-othe  KILLED     EW SHAPE MDL vs local magnitude-preserving nu    0.468000      1.10
+    note: No special structure remains; we discard SHAPE geometry.
+EW-othe  KILLED     EW relational model (one seed rational multip    0.422000      1.24
+    note: Relational compression ordinary.
+
+----------------------------------------------------------------------------------
+[EW sector (log-lattices)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+EW-othe  KILLED     Full EW log-lattice fit                          0.787000      0.35
+    note: Global log-lattice compressibility is ordinary.
+EW-othe  KILLED     Yukawa-only log-lattice fit                      0.545200      0.88
+    note: Yukawa log-lattice also ordinary.
+
+----------------------------------------------------------------------------------
+[EW sector (pair / triple relations)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+EW-othe  KILLED     Pairwise EW integer relations (19 params)        0.702500      0.51
+    note: Best pair relation unspecial.
+EW-othe  KILLED     3-term EW integer relations (19 params)          0.876000      0.19
+    note: Best triple relation unspecial.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (multi-point geometry)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+EW-othe  KILLED     All 9 Yukawas in (me, mtau, md) exponent geom    0.711500      0.49
+    note: Global exponent geometry normal; we discard it.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (all 9, scan over triples)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+Yukawa   SURVIVOR   Best 3-term integer relation (global search)     0.006000      7.38
+    note: Look-elsewhere corrected; me–tau–d triple is best but p ~ 0.006.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (all 9, jitter null)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+Yukawa   SURVIVOR   Best 3-term int-rel under jitter null            0.011500      6.44
+    note: Same global search, jittered logs; p ~ 1%.
+
+----------------------------------------------------------------------------------
+[Yukawa sector (fixed triple: me, mtau, md)]
+----------------------------------------------------------------------------------
+Sector   Status     Test                                                    p      bits
+------------------------------------------------------------------------------------------
+Yukawa   SURVIVOR   Fixed triple, jitter null (h=0.5 dex)            0.000100     13.29
+    note: Holding triple fixed; none of 10k jitters beat real triple.
+Yukawa   SURVIVOR   Fixed triple, error-model null                   0.000050     14.29
+    note: Realistic measurement errors; S_real is extreme.
+Yukawa   SURVIVOR   Coeff landscape: best primitive (a,b,c)=(-4,4         N/A       N/A
+    note: Within [-10,10], (-4,4,3) is unique best combo.
+
+==========================================================================================
+Sector-level effective bits (rough, to avoid double-counting):
+==========================================================================================
+DNA sector:
+  • Survivor tests count : 7
+  • Max bits among them  : 12.29
+  • Effective DNA bits   : 12.29 (lower bound)
+
+Yukawa sector (me, mtau, md triple etc.):
+  • Survivor tests count        : 4
+  • Max bits among them         : 14.29
+  • Global 3-term search bits   :  7.38  (p ~ 0.006)
+  • Fixed triple (error-model)  : 14.29  (p ~ 5×10^-5)
+
+  • Effective Yukawa bits (conservative, look-elsewhere) :  7.38
+  • Effective Yukawa bits (optimistic, fixed triple)     : 14.29
+
+EW-other sector (SHAPE, lattices, exponent geometry, etc.):
+  • Survivor tests count : 0
+  • Effective EW-other bits       :  0.00
+    (Essentially zero: we killed all major EW geometry claims.)
+
+==========================================================================================
+Combined evidence budget (approximate):
+==========================================================================================
+  • DNA effective bits                 : 12.29
+  • Yukawa effective bits (conservative):  7.38
+  → Combined (conservative)            : 19.67 bits
+
+  • Yukawa effective bits (optimistic) : 14.29
+  → Combined (optimistic)              : 26.58 bits
+
+Interpretation:
+  • Any future 'geometry of everything' we propose needs to explain at least
+    ≈ 19.7 bits of structure (conservative) coming from
+    two largely independent sectors:
+       - DNA residue backbone + lock families.
+       - The (me, mtau, md) triple with (-4, 4, 3) in log-space.
+
+  • Under a more optimistic (but still defensible) reading, the geometry
+    needs to explain ≈ 26.6 bits of structure.
+
+  • All other EW/Yukawa 'patterns' we tested so far are statistically
+    ordinary and *must not* be used as anchors for the geometry — they are
+    part of the noise, not the lock structure.
+
+So, going forward, we will treat:
+  1) The DNA backbone/lock architecture, and
+  2) The me–mtau–md (-4,4,3) triple
+as the *two primary locks* that the real geometry must reproduce or explain
+without cheating (no tuning them by hand in the model).
+==========================================================================================
+PHASE3_GLOBAL_EVIDENCE_SYNTHESIS_v1 complete.
+==========================================================================================
+==================================================================================
+PHASE3_YUKAWA_GLOBAL_INTREL_ERRORMODEL_NULLSCAN_v1 — global 3-term scan
+==================================================================================
+[Yukawa data (central values)]
+  number of Yukawas      : 9
+  value range            : [2.073e-06, 7.014e-01]
+  log10 range            : [-5.683, -0.154]
+
+  name          value           log10(value)
+  ------------ --------------  ------------
+  me_over_v    2.073000000e-06     -5.683401
+  mmu_over_v   4.289370000e-04     -3.367606
+  mtau_over_v  7.214707000e-03     -2.141781
+  mb_over_v    1.698151100e-02     -1.770024
+  mc_over_v    5.157839000e-03     -2.287532
+  mt_over_v    7.013656350e-01     -0.154056
+  md_over_v    1.896000000e-05     -4.722162
+  ms_over_v    3.776830000e-04     -3.422873
+  mu_over_v    8.773000000e-06     -5.056852
+
+[Error model (1σ fractional errors → σ in log10-space)]
+  name          frac_err    σ_log10
+  ------------ ---------  ----------
+  me_over_v    1.000e-08  4.342945e-09
+  mmu_over_v   1.000e-08  4.342945e-09
+  mtau_over_v  1.000e-05  4.342945e-06
+  mb_over_v    1.000e-01  4.342945e-02
+  mc_over_v    1.000e-01  4.342945e-02
+  mt_over_v    2.000e-02  8.685890e-03
+  md_over_v    2.000e-01  8.685890e-02
+  ms_over_v    2.000e-01  8.685890e-02
+  mu_over_v    2.000e-01  8.685890e-02
+
+[Real Yukawas: best 3-term integer relation (global search)]
+  coefficient bound C    : 4
+  best residual |sum n_i log10(y_i)| : 7.415602e-06
+
+  Best relation (real data):
+    indices (i,j,k)         : (0, 2, 6)
+    names                   : ('me_over_v', 'mtau_over_v', 'md_over_v')
+    coeffs (a,b,c)          : (-4, 4, 3)
+    sum n_i log10(y_i)      : -7.415602e-06
+    product approx 10^(sum) : 9.999829e-01
+
+[Error-model null ensemble] Generating 5000 random universes...
+  ... 500 / 5000 universes done
+  ... 1000 / 5000 universes done
+  ... 1500 / 5000 universes done
+  ... 2000 / 5000 universes done
+  ... 2500 / 5000 universes done
+  ... 3000 / 5000 universes done
+  ... 3500 / 5000 universes done
+  ... 4000 / 5000 universes done
+  ... 4500 / 5000 universes done
+  ... 5000 / 5000 universes done
+
+[Null stats — best 3-term integer-relation residual]
+  null best_resid min / max: 1.224810e-07 / 8.128347e-03
+  null best_resid 25%/50%/75%: 2.973925e-04 / 6.990169e-04 / 1.378206e-03
+  null best_resid mean / std: 9.911416e-04 / 9.579767e-04
+
+[Significance under error-model global search]
+  real best_resid          : 7.415602e-06
+  z(real vs null mean)     : -1.03 σ
+  P_null(best_resid <= real) = 0.005600
+
+==================================================================================
+PHASE3_YUKAWA_GLOBAL_INTREL_ERRORMODEL_NULLSCAN_v1 complete.
+==================================================================================
+==================================================================================
+PHASE3B_GLOBAL_EVIDENCE_UPDATE_v2 — geometry-relevant evidence budget
+==================================================================================
+
+Goal:
+  • Collect ONLY the tests that actually survived harsh nulls.
+  • Incorporate the new global error-model p = 0.0056 for the Yukawa triple.
+  • Produce a clean evidence budget (in bits) that any future geometry
+    MUST explain without cheating.
+
+Per-test survivor summary (only tests that geometry MUST care about):
+------------------------------------------------------------------------------------------
+Sector   Status    Test                                                  p / bound       bits
+------------------------------------------------------------------------------------------
+DNA      SURVIVOR  DNA entropy MDL (full)                              < 5.000e-04    > 10.97
+DNA      SURVIVOR  DNA lock max-family (full)                          < 2.000e-04    > 12.29
+DNA      SURVIVOR  DNA lock collision pairs (full)                     < 2.000e-04    > 12.29
+DNA      SURVIVOR  Trimmed DNA entropy MDL                               5.900e-02       4.08
+DNA      SURVIVOR  Trimmed DNA locks: max family                       < 4.000e-04    > 11.29
+DNA      SURVIVOR  Trimmed DNA locks: collision pairs                  < 2.000e-04    > 12.29
+DNA      SURVIVOR  All-four-zero rows (p=6 rail count)                 < 2.000e-04    > 12.29
+Yukawa   SURVIVOR  Global 3-term int-rel (error-model null)              5.600e-03       7.48
+Yukawa   SURVIVOR  Fixed triple (me, mtau, md), jitter null (h=0.5 dex)  < 1.000e-04    > 13.29
+Yukawa   SURVIVOR  Fixed triple (me, mtau, md), error-model null         5.000e-05      14.29
+------------------------------------------------------------------------------------------
+
+Sector-level effective bits (rough, to avoid double-counting):
+---------------------------------------------------------------------
+  DNA sector:
+    • Survivor tests count : 7
+    • Max bits among them  :  12.29
+    • Effective DNA bits   :  12.29  (lower bound)
+
+  Yukawa sector (me–mtau–md & friends):
+    • Global 3-term error-model p     : 0.0056
+    • Global 3-term bits              :  7.48
+    • Fixed triple (error-model) bits :  14.29
+
+  Combined geometry evidence budget:
+    • DNA effective bits                 :  12.29
+    • Yukawa bits (conservative, global) :  7.48
+      → Combined (conservative)          :  19.77 bits
+
+    • Yukawa bits (optimistic, fixed)    :  14.29
+      → Combined (optimistic)           :  26.58 bits
+---------------------------------------------------------------------
+
+[GLOBAL_LOCKS] object constructed for downstream geometry search.
+  • Keys: 'dna', 'yukawa', 'combined'
+  • This object is the contract that any future geometry must satisfy.
+
+==================================================================================
+PHASE3B_GLOBAL_EVIDENCE_UPDATE_v2 complete.
+==================================================================================
+==================================================================================
+GEOMETRY SCORECARD for: NullGeometry
+==================================================================================
+
+Description:
+  Random / structureless geometry (baseline). Explains no locks by design.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 : 0.00
+  Yukawa bits (conservative)      : 0.00
+  Yukawa bits (optimistic)        : 0.00
+
+  → Total (conservative)          : 0.00 bits
+  → Total (optimistic)           : 0.00 bits
+
+==================================================================================
+
+==================================================================================
+GEOMETRY SCORECARD for: PerfectLockGeometry
+==================================================================================
+
+Description:
+  Hypothetical 'god-tier' geometry that exactly enforces both the DNA backbone/locks AND the specific Yukawa triple (-4,4,3) in log-space.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Bits earned:
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      : 7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)           : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+PHASE4_LOCK_LIBRARY_v1 — lock objects for geometry hunting
+==================================================================================
+
+[DNA backbone locks]
+  Total backbone rows       : 10
+  All-zero p=6 rail rows    : 5
+  Planck p=6 rail rows      : 4
+
+  All-zero rail names:
+    - BH(M=10 M☉): (S - A/4)
+    - BH(M=1e9 M☉): (S - A/4)
+    - BH(M=4e6 M☉): (S - A/4)
+    - Ω_k
+    - θ̄_QCD (null)
+
+  Planck rail names:
+    - T_P / T_P
+    - l_P / l_P
+    - m_P / m_P
+    - t_P / t_P
+
+[Yukawa triple lock]
+  Entries:
+    me_over_v    value= 2.073000000e-06  log10=-5.683401  σ_log10≈ 4.343e-09
+    mtau_over_v  value= 7.214707000e-03  log10=-2.141781  σ_log10≈ 4.343e-06
+    md_over_v    value= 1.896000000e-05  log10=-4.722162  σ_log10≈ 8.686e-02
+
+  Triple coefficients (a,b,c) on (me, mtau, md):
+    (-4, 4, 3)  →  S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+NOTE:
+  • LOCK_LIBRARY is the *target* for any future geometry.
+  • A non-cheating geometry must *derive* these patterns,
+    not just hardcode them as input.
+
+==================================================================================
+
+==================================================================================
+PHASE5_YUKAWA_FN_SINGLE_PARAM_GEOMETRY_v1 — single-λ test for (me, mtau, md)
+==================================================================================
+Search ranges:
+  n_me ∈ [-20, 20]
+  k    ∈ [-10, 10]  (with n_tau = n_me + 3k, n_d = -4k)
+
+[Best-fit single-λ FN-style geometry (under exponent constraint)]
+  n_me, n_tau, n_d  = (19, 7, 16)
+  k                 = -4
+  L_opt = log10(λ)  = -0.298096
+  λ_opt             =  5.033898e-01
+
+  Residuals in log10-space (predicted - real):
+    me_over_v   :  0.0196 dex
+    mtau_over_v :  0.0551 dex
+    md_over_v   : -0.0474 dex
+
+  RMS residual           :  0.0435 dex
+  Max |residual|         :  0.0551 dex
+
+Interpretation:
+  • This geometry assumes ALL THREE Yukawas are pure powers of a single λ.
+  • It also enforces the (-4,4,3) relation at the exponent level exactly.
+  • If RMS ≫ 0.01 dex, the model is wildly off compared to the actual values.
+  • If RMS is O(0.1–1) dex, it's basically just 'hierarchy-ish' handwaving,
+    not a serious explanation of the precise me–mtau–md lock.
+
+  We can compare this RMS to the lock-scale:
+    • The actual triple lock S_real ~ 6×10^-6 in log10-space,
+      i.e., the combination -4 z_me + 4 z_tau + 3 z_d is tuned at ~10^-5.
+    • A geometry that only hits the exponents but misses each Yukawa by
+      ~0.1–1 dex is not explaining the observed precision; it's just
+      rephrasing the hierarchy without locking it.
+
+==================================================================================
+
+==================================================================================
+PHASE5_YUKAWA_COEFF_STABILITY_ERRORMODEL_v2 — coefficient stability test
+==================================================================================
+Central logs (z = log10(y/v)):
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+
+Error model (1σ in log10-space, derived from fractional errors):
+  frac_err(me)   =  1.0e-08  → σ_log10(me)   =  4.343e-09
+  frac_err(mtau) =  1.0e-05  → σ_log10(mtau) =  4.343e-06
+  frac_err(md)   =  2.0e-01  → σ_log10(md)   =  8.686e-02
+
+Real-universe coefficient search over a,b,c ∈ [-10,10]:
+  best S_real     =  6.000000e-06
+  best triples    = [(-4, 4, 3), (4, -4, -3)]
+  (we expect to see (-4, 4, 3) and its sign-flip (4, -4, -3))
+
+[Error-model coefficient stability null]
+  num_null                 : 20000
+  S_null min / max         : 4.737120e-07 / 4.195191e-02
+  S_null mean / std        : 1.157773e-02 / 8.244219e-03
+
+  Count lock triple best   : 1270 / 20000
+  Count lock in best-ties  : 1270 / 20000
+  Fraction lock best       : 0.063500
+  Fraction lock in ties    : 0.063500
+
+Interpretation:
+  • 'lock best'  ⇒ the only best triples are (-4,4,3) and/or (4,-4,-3).
+  • 'lock in ties' ⇒ lock triple is among possibly several best triples.
+  • If these fractions ≈ 1, then the *identity* of (-4,4,3) is extremely
+    stable under realistic measurement errors; any geometry must aim for
+    THESE integers, not just 'some nearby' (a,b,c).
+==================================================================================
+
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v1 — 2-scale FN-style geometry for (me, mtau, md)
+==================================================================================
+
+[Config]
+  exponent bound Nmax      : 3
+  me exponents fixed to    : (1, 0)  (defines λ1 units)
+  scan over n_tau, n_d in  : [-3, 3]^2 excluding (0,0)
+
+[Yukawa logs (central)]
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+
+Assumptions:
+  • Two FN-like spurions λ1, λ2 with log10 λ1 = L1, log10 λ2 = L2.
+  • me, mtau, md exponents are integer pairs (n1, n2) with |n| ≤ Nmax.
+  • We fix me exponents to (1,0) to set the λ1 scale.
+  • mtau, md exponents are scanned; for each choice we least-squares fit (L1,L2).
+
+[Search]
+  total non-degenerate exponent patterns scanned : 2268
+
+[Top 10 geometries by triple residual S_geom]
+  rank  (n_tau1,n_tau2)  (n_d1,n_d2)    L1       L2       RMS[dex]  max|res|  S_geom
+  ----  ---------------  -----------  --------  --------  ---------  --------  --------
+     1   (-1, 0)   ( 1,-2)    -1.771    1.476     3.1946    3.9126    0.0000
+     2   (-1, 0)   ( 1, 2)    -1.771   -1.476     3.1946    3.9126    0.0000
+     3   (-1, 0)   (-2,-1)    -1.771    8.264     3.1946    3.9126    0.0000
+     4   (-1, 0)   (-2, 1)    -1.771   -8.264     3.1946    3.9126    0.0000
+     5   (-1, 0)   (-2,-2)    -1.771    4.132     3.1946    3.9126    0.0000
+     6   (-1, 0)   (-2, 2)    -1.771   -4.132     3.1946    3.9126    0.0000
+     7   (-1, 0)   (-1,-3)    -1.771    2.164     3.1946    3.9126    0.0000
+     8   (-1, 0)   (-1, 3)    -1.771   -2.164     3.1946    3.9126    0.0000
+     9   (-1, 0)   ( 1,-1)    -1.771    2.951     3.1946    3.9126    0.0000
+    10   (-1, 0)   ( 1, 1)    -1.771   -2.951     3.1946    3.9126    0.0000
+
+Notes:
+  • RMS is over (me, mtau, md) logs between geometry predictions and data, in dex.
+  • S_geom = |-4 z_me^geom + 4 z_tau^geom + 3 z_d^geom| measures how well
+    the *geometry* itself reproduces the (-4,4,3) triple.
+  • The real universe has S_real ≈ 6×10^-6 in log10-space; any geometry
+    with S_geom ≫ 1e-5 is not explaining the precision, only the rough hierarchy.
+
+You can extend this module to:
+  • add MDL-style complexity penalties for exponents and scales,
+  • require exact exponent-level enforcement of the (-4,4,3) relation, or
+  • include mmu/ms/... as additional Yukawas in the fit.
+
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v1 complete.
+==================================================================================
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v2 — 2-scale FN geometry (RMS-prioritized)
+==================================================================================
+
+[Config]
+  exponent bound Nmax          : 5
+  me exponents fixed to        : (1, 0)
+  scan over n_tau, n_d in      : [-5, 5]^2 excluding (0,0)
+  RMS thresholds (dex)         : (0.5, 0.2, 0.1, 0.05, 0.02)
+
+[Yukawa logs (central)]
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+  Real lock S_real = |-4 z_me + 4 z_tau + 3 z_d| ≈ 6.000e-06
+
+[Search]
+  total non-degenerate exponent patterns scanned : 14300
+
+[Top 20 geometries by RMS]
+  rank  (n_tau1,n_tau2)  (n_d1,n_d2)    L1       L2       RMS[dex]  max|res|   S_geom
+  ----  ---------------  -----------  --------  --------  ---------  --------  --------
+     1   (-2,-3)   ( 4, 4)    -5.683    4.503     0.0000    0.0000 3.5527e-15
+     2   (-2, 3)   ( 4,-4)    -5.683   -4.503     0.0000    0.0000 3.5527e-15
+     3   ( 4,-3)   (-4, 4)    -5.683   -6.864     0.0000    0.0000 0.0000e+00
+     4   ( 4, 3)   (-4,-4)    -5.683    6.864     0.0000    0.0000 0.0000e+00
+     5   ( 1,-3)   ( 0, 4)    -5.683   -1.181     0.0000    0.0000 0.0000e+00
+     6   ( 1, 3)   ( 0,-4)    -5.683    1.181     0.0000    0.0000 0.0000e+00
+     7   (-1,-3)   (-1,-4)    -5.680    2.603     0.0095    0.0129 9.6908e-03
+     8   (-1, 3)   (-1, 4)    -5.680   -2.603     0.0095    0.0129 9.6908e-03
+     9   ( 2,-3)   ( 3,-4)    -5.680   -3.077     0.0095    0.0129 9.6908e-03
+    10   ( 2, 3)   ( 3, 4)    -5.680    3.077     0.0095    0.0129 9.6908e-03
+    11   (-4,-3)   (-5,-4)    -5.680    8.283     0.0095    0.0129 9.6908e-03
+    12   (-4, 3)   (-5, 4)    -5.680   -8.283     0.0095    0.0129 9.6908e-03
+    13   (-1,-5)   ( 0,-3)    -5.693    1.569     0.0119    0.0157 4.7179e-02
+    14   (-1, 5)   ( 0, 3)    -5.693   -1.569     0.0119    0.0157 4.7179e-02
+    15   ( 4,-5)   ( 3,-3)    -5.693   -4.124     0.0119    0.0157 4.7179e-02
+    16   ( 4, 5)   ( 3, 3)    -5.693    4.124     0.0119    0.0157 4.7179e-02
+    17   ( 0,-1)   (-1,-5)    -5.695    2.086     0.0337    0.0562 2.3593e-01
+    18   ( 0, 1)   (-1, 5)    -5.695   -2.086     0.0337    0.0562 2.3593e-01
+    19   ( 1,-1)   ( 4,-5)    -5.695   -3.609     0.0337    0.0562 2.3593e-01
+    20   ( 1, 1)   ( 4, 5)    -5.695    3.609     0.0337    0.0562 2.3593e-01
+
+[Best S_geom achievable under RMS thresholds]
+  RMS ≤ 0.50 dex : best S_geom = 0.000e+00  (ratio to S_real ≈ 0.0e+00)  with n_tau=(4,-3), n_d=(-4,4)
+  RMS ≤ 0.20 dex : best S_geom = 0.000e+00  (ratio to S_real ≈ 0.0e+00)  with n_tau=(4,-3), n_d=(-4,4)
+  RMS ≤ 0.10 dex : best S_geom = 0.000e+00  (ratio to S_real ≈ 0.0e+00)  with n_tau=(4,-3), n_d=(-4,4)
+  RMS ≤ 0.05 dex : best S_geom = 0.000e+00  (ratio to S_real ≈ 0.0e+00)  with n_tau=(4,-3), n_d=(-4,4)
+  RMS ≤ 0.02 dex : best S_geom = 0.000e+00  (ratio to S_real ≈ 0.0e+00)  with n_tau=(4,-3), n_d=(-4,4)
+
+Interpretation guide:
+  • If minimal RMS across all patterns is ≳ O(0.1–1) dex,
+    the 2-scale FN geometry simply does not reproduce the three Yukawas.
+  • Even if RMS is moderate, check the best S_geom at small RMS.
+    If S_geom(best) >> S_real (~6e-6), then the geometry completely
+    fails to explain the ultra-tight (-4,4,3) lock; it only matches the
+    rough hierarchy, which we already know is easy.
+
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v2 complete.
+==================================================================================
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v3 — 2-scale FN geometry (physical priors)
+==================================================================================
+
+[Config]
+  exponent bound Nmax          : 10
+  me exponents fixed to        : (1, 0)
+  τ, d exponents scanned over  : [0, Nmax]^2 excluding (0,0)
+  enforce L2 < 0 (λ2<1)?       : True
+
+[Yukawa logs (central)]
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+  Real lock S_real = |-4 z_me + 4 z_tau + 3 z_d| ≈ 6.000e-06
+
+[Search]
+  total physically allowed exponent patterns scanned : 6690
+
+[Top 20 geometries by RMS (me, τ, d)]
+  rank  (n_tau1,n_tau2)  (n_d1,n_d2)    L1       L2       RMS[dex]  max|res|   S_geom    S_geom/S_real
+  ----------------------------------------------------------------------------------------------------
+    1  ( 0, 4)   ( 0, 9)    -5.683   -0.526    0.0227    0.0359  9.584e-02   1.597e+04
+    2  ( 0, 3)   ( 0, 7)    -5.683   -0.681    0.0626    0.0997  2.706e-01   4.510e+04
+    3  ( 0, 1)   ( 0, 2)    -5.683   -2.317    0.1132    0.1754  4.386e-01   7.310e+04
+    4  ( 0, 2)   ( 0, 4)    -5.683   -1.159    0.1132    0.1754  4.386e-01   7.310e+04
+    5  ( 0, 3)   ( 0, 6)    -5.683   -0.772    0.1132    0.1754  4.386e-01   7.310e+04
+    6  ( 0, 4)   ( 0, 8)    -5.683   -0.579    0.1132    0.1754  4.386e-01   7.310e+04
+    7  ( 0, 5)   ( 0,10)    -5.683   -0.463    0.1132    0.1754  4.386e-01   7.310e+04
+    8  ( 0, 2)   ( 0, 5)    -5.683   -0.962    0.1356    0.2180  6.105e-01   1.017e+05
+    9  ( 0, 4)   ( 0,10)    -5.683   -0.481    0.1356    0.2180  6.105e-01   1.017e+05
+   10  ( 0, 3)   ( 0, 8)    -5.683   -0.606    0.2005    0.3252  9.350e-01   1.558e+05
+   11  ( 0, 5)   ( 0, 9)    -5.683   -0.502    0.2431    0.3680  8.588e-01   1.431e+05
+   12  ( 0, 4)   ( 0, 7)    -5.683   -0.640    0.2790    0.4196  9.591e-01   1.598e+05
+   13  ( 0, 1)   ( 0, 3)    -5.683   -1.631    0.3110    0.5110  1.533e+00   2.555e+05
+   14  ( 0, 2)   ( 0, 6)    -5.683   -0.815    0.3110    0.5110  1.533e+00   2.555e+05
+   15  ( 0, 3)   ( 0, 9)    -5.683   -0.544    0.3110    0.5110  1.533e+00   2.555e+05
+   16  ( 0, 3)   ( 0, 5)    -5.683   -0.883    0.3424    0.5085  1.119e+00   1.864e+05
+   17  ( 0, 6)   ( 0,10)    -5.683   -0.442    0.3424    0.5085  1.119e+00   1.864e+05
+   18  ( 0, 1)   ( 1, 0)    -5.203   -2.142    0.3924    0.4806  3.364e+00   5.607e+05
+   19  ( 0, 2)   ( 1, 0)    -5.203   -1.071    0.3924    0.4806  3.364e+00   5.607e+05
+   20  ( 0, 3)   ( 1, 0)    -5.203   -0.714    0.3924    0.4806  3.364e+00   5.607e+05
+
+[Best S_geom achievable under RMS thresholds]
+  RMS threshold   best RMS    best S_geom   S_geom/S_real
+  ------------   --------    -----------   -------------
+     ≤ 0.50 dex      0.0227      9.584e-02       1.597e+04
+     ≤ 0.20 dex      0.0227      9.584e-02       1.597e+04
+     ≤ 0.10 dex      0.0227      9.584e-02       1.597e+04
+     ≤ 0.05 dex      0.0227      9.584e-02       1.597e+04
+     ≤ 0.02 dex    (no patterns)
+     ≤ 0.01 dex    (no patterns)
+
+Interpretation guide:
+  • RMS is per-Yukawa misfit (me, mtau, md) in log10-space.
+  • S_real ≈ 6×10^-6 dex measures the actual (-4,4,3) lock.
+  • S_geom is the same combination evaluated on the FN geometry.
+  • If even the best S_geom at small RMS (≲0.02 or ≲0.01 dex)
+    is ≫ S_real, then 2-scale FN with physical priors does NOT
+    explain the ultra-tight lock; it only matches rough hierarchies.
+
+==================================================================================
+PHASE6_YUKAWA_TWO_SCALE_FN_SCAN_v3 complete.
+==================================================================================
+==================================================================================
+                       PHASE 7 – GLOBAL GEOMETRY SCORECARD                        
+==================================================================================
+
+                   GLOBAL LOCK EVIDENCE BUDGET (FROM PHASE 3B)                    
+----------------------------------------------------------------------------------
+  DNA effective bits                 :  12.29
+  Yukawa bits (conservative, global) :   7.48
+  Yukawa bits (optimistic, fixed)    :  14.29
+
+  Any non-cheating geometry must earn these bits by DERIVING the locks,
+  not hardcoding them as input. This scorecard measures how many bits of
+  that budget each candidate geometry actually explains.
+
+==================================================================================
+
+==================================================================================
+                        GEOMETRY SCORECARD – NullGeometry                         
+==================================================================================
+
+Description:
+  Random / structureless geometry (baseline). Explains no DNA or Yukawa locks by design.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – PerfectLockGeometry                     
+==================================================================================
+
+Description:
+  Hypothetical geometry that exactly enforces the DNA backbone/locks AND the specific Yukawa triple (-4,4,3) in log-space.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Bits earned:
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)            : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – TwoScaleFN_Physical                     
+==================================================================================
+
+Description:
+  Two FN-like spurions λ1, λ2 < 1 with non-negative integer charges for me, mtau, md up to Nmax=10. Fits hierarchies to ~few-percent RMS but misses the (-4,4,3) lock by ~10^4 in precision.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+
+==================================================================================
+                         PHASE 7 – MODULE 1 SUMMARY TABLE                         
+==================================================================================
+
+Name                DNA?  Yukawa_gl?  Yukawa_fix?   Bits_con  Bits_opt
+----------------------------------------------------------------------------------
+NullGeometry        False False       False             0.00      0.00
+PerfectLockGeometry True  True        True             19.77     26.58
+TwoScaleFN_Physical False False       False             0.00      0.00
+
+==================================================================================
+
+==================================================================================
+                        GEOMETRY SCORECARD – NullGeometry                         
+==================================================================================
+
+Description:
+  Random / structureless geometry (baseline). Explains no locks.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – PerfectLockGeometry                     
+==================================================================================
+
+Description:
+  Hypothetical geometry that exactly enforces the DNA backbone/locks and the specific Yukawa triple (-4,4,3) in log-space.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Bits earned:
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)            : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – TwoScaleFN_Physical                     
+==================================================================================
+
+Description:
+  Two FN-like spurions λ1, λ2<1 with non-negative charges for me, mtau, md up to Nmax=10. Fits hierarchies roughly but misses the (-4,4,3) lock by ~10^4 in precision.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+
+==================================================================================
+                         PHASE 7 – MODULE 2 SUMMARY TABLE                         
+==================================================================================
+
+Name                DNA?  Yukawa_gl?  Yukawa_fix?   Bits_con  Bits_opt
+----------------------------------------------------------------------------------
+NullGeometry        False False       False             0.00      0.00
+PerfectLockGeometry True  True        True             19.77     26.58
+TwoScaleFN_Physical False False       False             0.00      0.00
+
+==================================================================================
+
+==================================================================================
+                        GEOMETRY SCORECARD – NullGeometry                         
+==================================================================================
+
+Description:
+  Random / structureless geometry (baseline). Explains no locks.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – PerfectLockGeometry                     
+==================================================================================
+
+Description:
+  Hypothetical geometry that exactly enforces the DNA backbone/locks and the specific Yukawa triple (-4,4,3) in log-space.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Bits earned:
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)            : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – TwoScaleFN_Physical                     
+==================================================================================
+
+Description:
+  Two FN-like spurions λ1, λ2<1 with non-negative charges for me, mtau, md up to Nmax=10. Fits hierarchies roughly but misses the (-4,4,3) lock by ~10^4 in precision.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+
+==================================================================================
+                         PHASE 7 – MODULE 2 SUMMARY TABLE                         
+==================================================================================
+
+Name                DNA?  Yukawa_gl?  Yukawa_fix?   Bits_con  Bits_opt
+----------------------------------------------------------------------------------
+NullGeometry        False False       False             0.00      0.00
+PerfectLockGeometry True  True        True             19.77     26.58
+TwoScaleFN_Physical False False       False             0.00      0.00
+
+==================================================================================
+
+==================================================================================
+                      PHASE 7 – MODULE 3: YUKAWA LOCKCHECKER                      
+==================================================================================
+
+Real Yukawa triple:
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+
+  S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+  Error-model null: mean(S_null) ≈  2.102e-01, std ≈  1.584e-01
+
+==================================================================================
+
+==================================================================================
+                 YUKAWA GEOMETRY CHECK – PerfectLockGeometry_Data                 
+==================================================================================
+
+Description:
+  Reference: geometry that exactly reproduces the real Yukawas.
+
+Predicted logs (z_geom):
+  z_me_geom   = -5.683401  (Δ =  0.000000 dex)
+  z_tau_geom  = -2.141781  (Δ =  0.000000 dex)
+  z_d_geom    = -4.722162  (Δ =  0.000000 dex)
+
+Fit quality:
+  RMS (me, tau, d)           :  0.000000 dex
+  Max |residual|             :  0.000000 dex
+
+Lock combination on geometry:
+  S_geom                     :  6.000000e-06
+  S_geom / S_real            :  1.000e+00
+
+Verdict:
+  PASS: explains Yukawa triple (strict).
+
+==================================================================================
+
+==================================================================================
+                     YUKAWA GEOMETRY CHECK – SingleLambda_FN                      
+==================================================================================
+
+Description:
+  Single-λ FN geometry: z_i ≈ n_i * log10 λ with exponents (n_me, n_tau, n_d) = (19, 7, 16).
+
+Predicted logs (z_geom):
+  z_me_geom   = -5.663817  (Δ =  0.019584 dex)
+  z_tau_geom  = -2.086669  (Δ =  0.055112 dex)
+  z_d_geom    = -4.769530  (Δ = -0.047368 dex)
+
+Fit quality:
+  RMS (me, tau, d)           :  0.043453 dex
+  Max |residual|             :  0.055112 dex
+
+Lock combination on geometry:
+  S_geom                     :  1.776357e-15
+  S_geom / S_real            :  2.961e-10
+
+Verdict:
+  BORDERLINE: matches hierarchies, weak lock control.
+
+==================================================================================
+
+==================================================================================
+                   YUKAWA GEOMETRY CHECK – TwoScaleFN_Physical                    
+==================================================================================
+
+Description:
+  Two-scale FN geometry with physical priors: λ1, λ2<1 and integer charges (1,0) for me, (0,4) for mtau, (0,9) for md, re-fitted in least-squares sense.
+
+Predicted logs (z_geom):
+  z_me_geom   = -5.683401  (Δ =  0.000000 dex)
+  z_tau_geom  = -2.105838  (Δ =  0.035943 dex)
+  z_d_geom    = -4.738136  (Δ = -0.015974 dex)
+
+Fit quality:
+  RMS (me, tau, d)           :  0.022709 dex
+  Max |residual|             :  0.035943 dex
+
+Lock combination on geometry:
+  S_geom                     :  9.584085e-02
+  S_geom / S_real            :  1.597e+04
+
+Verdict:
+  FAIL: does not explain the (-4,4,3) lock.
+
+==================================================================================
+
+==================================================================================
+                      PHASE 7 – MODULE 4: GEOMETRY SCORECARD                      
+==================================================================================
+
+Locks to explain (from global evidence budget):
+  • DNA backbone / locks         : 12.29 bits (effective)
+  • Yukawa global 3-term triple  :  7.48 bits
+  • Yukawa fixed (me,mtau,md)    : 14.29 bits
+
+  Real Yukawa lock S_real =  6.000000e-06
+
+==================================================================================
+
+==================================================================================
+                        GEOMETRY SCORECARD – NullGeometry                         
+==================================================================================
+
+Description:
+  Random / structureless geometry; explains no locks by design.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Yukawa triple fit: not defined (geometry does not specify Yukawas).
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – PerfectLockGeometry                     
+==================================================================================
+
+Description:
+  Hypothetical 'god-tier' geometry that exactly enforces the DNA backbone/locks AND the specific Yukawa triple (-4,4,3) in log-space.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Yukawa triple fit (me, tau, d):
+  RMS[dex]       :  0.000000
+  Max |residual| :  0.000000
+  S_geom         :  6.000000e-06
+  S_geom/S_real  :  1.000e+00
+  Verdict        : PASS: explains Yukawa triple (strict).
+
+Bits earned:
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)            : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+                       GEOMETRY SCORECARD – SingleLambda_FN                       
+==================================================================================
+
+Description:
+  Single-λ FN geometry: z_i ≈ n_i * log10 λ with exponents (n_me, n_tau, n_d) = (19, 7, 16). Good at hierarchies; lock enforced at exponent level.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Yukawa triple fit (me, tau, d):
+  RMS[dex]       :  0.043453
+  Max |residual| :  0.055112
+  S_geom         :  1.776357e-15
+  S_geom/S_real  :  2.961e-10
+  Verdict        : BORDERLINE: matches hierarchies, weak lock control.
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          :  7.48 bits
+  → Total (optimistic)            : 14.29 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – TwoScaleFN_Physical                     
+==================================================================================
+
+Description:
+  Two-scale FN geometry with physical priors λ1, λ2<1 and charges (1,0) for me, (0,4) for mtau, (0,9) for md. Matches hierarchies to ~0.02 dex but misses the (-4,4,3) lock by ~10^4 in precision.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Yukawa triple fit (me, tau, d):
+  RMS[dex]       :  0.022709
+  Max |residual| :  0.035943
+  S_geom         :  9.584085e-02
+  S_geom/S_real  :  1.597e+04
+  Verdict        : FAIL: does not explain the (-4,4,3) lock.
+
+Bits earned:
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)            :  0.00 bits
+
+==================================================================================
+
+
+==================================================================================
+                         PHASE 7 – MODULE 4 SUMMARY TABLE                         
+==================================================================================
+
+Name                DNA?  Yukawa_gl?  Yukawa_fix?   Bits_con  Bits_opt
+----------------------------------------------------------------------------------
+NullGeometry       False False       False            0.00     0.00
+PerfectLockGeometry True  True        True            19.77    26.58
+SingleLambda_FN    False True        True             7.48    14.29
+TwoScaleFN_Physical False False       False            0.00     0.00
+
+==================================================================================
+
+==================================================================================
+        PHASE 8 – MODULE 1: MINIMAL YUKAWA GEOMETRY FINDER (2D INTEGER)        
+==================================================================================
+
+[INPUT YUKAWA LOGS]
+  me_over_v     z = -5.683401
+  mmu_over_v    z = -3.367606
+  mtau_over_v   z = -2.141781
+  mb_over_v     z = -1.770024
+  mc_over_v     z = -2.287532
+  mt_over_v     z = -0.154056
+  md_over_v     z = -4.722162
+  ms_over_v     z = -3.422873
+  mu_over_v     z = -5.056852
+
+  Real triple lock S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+[GEOMETRY SETUP]
+  Geometry dimension D              : 2
+  Basis coeff bound for (me,tau,d)  : ±4
+  Coeff bound for other Yukawas     : ±6
+  Constraint enforced exactly       : -4 row(me) + 4 row(tau) + 3 row(d) = 0
+
+  Number of allowed (me,tau,d) triples per dimension: 20
+
+[SEARCH SUMMARY]
+  Total candidate (me,tau,d) geometries tested : 312
+  Geometries surviving basic filters          : 312
+
+==================================================================================
+                      TOP CANDIDATE YUKAWA GEOMETRIES                      
+==================================================================================
+
+Rank  RMS_all  max|res|  max|coef|   S_geom      S_geom/S_real
+----  -------  -------  ---------  ----------   -------------
+   1   0.0268   0.0571       5     0.000e+00     0.000e+00
+   2   0.0268   0.0571       5     0.000e+00     0.000e+00
+   3   0.0268   0.0571       5     0.000e+00     0.000e+00
+   4   0.0268   0.0571       5     0.000e+00     0.000e+00
+   5   0.0268   0.0571       5     0.000e+00     0.000e+00
+   6   0.0268   0.0571       5     0.000e+00     0.000e+00
+   7   0.0268   0.0571       5     0.000e+00     0.000e+00
+   8   0.0268   0.0571       5     0.000e+00     0.000e+00
+   9   0.0292   0.0668       6     1.776e-15     2.961e-10
+  10   0.0292   0.0668       6     1.776e-15     2.961e-10
+
+==================================================================================
+                      DETAILED BEST GEOMETRY (RANK 1)                      
+==================================================================================
+
+[Basis coefficient rows for (me, tau, d)]
+  row(me)  = [-4. -2.]
+  row(tau) = [-4.  1.]
+  row(d)   = [ 0. -4.]
+
+[Fitted geometry parameters q]
+  q1 =  0.830580
+  q2 =  1.180540
+
+[Fit quality]
+  RMS over all 9 Yukawas (dex)     :  0.026818
+  Max |residual| (dex)             :  0.057111
+  Basis-only RMS (me,tau,d) (dex)  :  0.000001
+
+[Lock on geometry]
+  S_geom       =  0.000000e+00
+  S_geom/S_real=  0.000e+00
+
+[Per-Yukawa integer coefficients and residuals]
+  name         coeffs(c1,c2)    z_real      z_pred      resid
+  -----------  --------------  ---------   ---------   --------
+  me_over_v    ( -4, -2)   -5.683401   -5.683402   -0.000001
+  mmu_over_v   (  3, -5)   -3.367606   -3.410961   -0.043355
+  mtau_over_v  ( -4,  1)   -2.141781   -2.141780    0.000001
+  mb_over_v    (  5, -5)   -1.770024   -1.749801    0.020223
+  mc_over_v    (  3, -4)   -2.287532   -2.230421    0.057111
+  mt_over_v    ( -3,  2)   -0.154056   -0.130660    0.023396
+  md_over_v    (  0, -4)   -4.722162   -4.722162    0.000000
+  ms_over_v    (  3, -5)   -3.422873   -3.410961    0.011912
+  mu_over_v    (  1, -5)   -5.056852   -5.072122   -0.015270
+
+==================================================================================
+INTERPRETATION GUIDE
+==================================================================================
+  • This module ENFORCES the (-4,4,3) relation at the exponent level by
+    construction, via integer rows for (me, tau, d).
+  • For each candidate, it fits q1,q2 from (me, tau, d) and then assigns
+    small-integer rows to the remaining Yukawas.
+  • The key question is:
+        Can a SIMPLE 2D integer geometry (small coefficients) fit all
+        9 Yukawas with RMS ≲ 0.01–0.02 dex?
+    If yes, that’s a strong hint of a genuine low-dimensional structure.
+    If no, then even with (-4,4,3) built in, small-integer geometry is
+    not enough to explain the full Yukawa pattern.
+
+  • Next iterations can:
+      - increase geometry dimension D to 3,
+      - tighten or loosen coefficient bounds,
+      - add MDL-style penalties for complexity,
+      - cross-check against error models and null ensembles.
+
+==================================================================================
+        PHASE 8 – MODULE 2: MINIMAL YUKAWA GEOMETRY NULLSCAN (2D INTEGER)         
+==================================================================================
+
+----------------------------------------------------------------------------------
+[INPUT YUKAWA LOGS]
+----------------------------------------------------------------------------------
+  name          log10(value)
+  ------------ -------------
+  me_over_v       -5.683401
+  mmu_over_v      -3.367606
+  mtau_over_v     -2.141781
+  mb_over_v       -1.770024
+  mc_over_v       -2.287532
+  mt_over_v       -0.154056
+  md_over_v       -4.722162
+  ms_over_v       -3.422873
+  mu_over_v       -5.056852
+
+  Real triple lock S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+----------------------------------------------------------------------------------
+[GEOMETRY SETUP]
+----------------------------------------------------------------------------------
+  Geometry dimension D                     : 2
+  Basis coeff bound for (me,tau,d)         : ±4
+  Coeff bound for other Yukawas            : ±6
+  Constraint enforced exactly              : -4 row(me) + 4 row(tau) + 3 row(d) = 0
+  Jitter halfwidth for null (log10 units)  : 0.500
+  Number of null universes                 : 2000
+
+  Number of basis (me,tau,d) triplets      : 344
+  Number of coeff pairs for others         : 168
+
+----------------------------------------------------------------------------------
+[REAL-UNIVERSE MINIMAL GEOMETRY FIT]
+----------------------------------------------------------------------------------
+  Best basis rows (me, tau, d):
+    row(me)  = (-4, -2)
+    row(tau) = (-4, 1)
+    row(d)   = (0, -4)
+
+  Fitted geometry parameters q (log10 units):
+    q1 =  0.830580
+    q2 =  1.180540
+
+  Fit quality (all 9 Yukawas):
+    RMS_all (dex)             :  0.026818
+    Max |residual| (dex)      :  0.057111
+    Max |integer coeff|       :  5
+
+  Lock on geometry:
+    S_geom (from geometry)    :  0.000000e+00
+    S_geom / S_real           :  0.000e+00
+    (For this construction S_geom is effectively zero by design.)
+
+  Per-Yukawa residuals (geom - real):
+  name         coeffs(c1,c2)   z_real      z_geom      resid
+  -----------  --------------  ---------   ---------   --------
+  me_over_v    ( -4, -2)   -5.683401   -5.683402   -0.000001
+  mmu_over_v   (  3, -5)   -3.367606   -3.410961   -0.043355
+  mtau_over_v  ( -4,  1)   -2.141781   -2.141780   +0.000001
+  mb_over_v    (  5, -5)   -1.770024   -1.749801   +0.020223
+  mc_over_v    (  3, -4)   -2.287532   -2.230421   +0.057111
+  mt_over_v    ( -3,  2)   -0.154056   -0.130660   +0.023396
+  md_over_v    (  0, -4)   -4.722162   -4.722162   +0.000000
+  ms_over_v    (  3, -5)   -3.422873   -3.410961   +0.011912
+  mu_over_v    (  1, -5)   -5.056852   -5.072122   -0.015270
+
+----------------------------------------------------------------------------------
+[NULL ENSEMBLE: JITTERED YUKAWA UNIVERSES]
+----------------------------------------------------------------------------------
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+----------------------------------------------------------------------------------
+[NULL RMS STATISTICS – MINIMAL GEOMETRY FIT]
+----------------------------------------------------------------------------------
+  null RMS min / max        :  1.136977e-02 /  2.772086e-01
+  null RMS 25% / 50% / 75%  :  4.027415e-02 /  7.152352e-02 /  1.158795e-01
+  null RMS mean / std       :  8.372246e-02 /  5.308169e-02
+
+----------------------------------------------------------------------------------
+[SIGNIFICANCE OF MINIMAL 2D INTEGER GEOMETRY]
+----------------------------------------------------------------------------------
+  real RMS                  :  2.681783e-02
+  z(real vs null mean)      : -1.07 σ
+  P_null(RMS <= real)       :  0.122000
+
+INTERPRETATION GUIDE:
+  • RMS measures how well a 2D small-integer geometry fits ALL 9 Yukawas.
+  • If P_null is ~0.5, then geometries this good (or better) are common
+    in jittered random Yukawa universes: the geometry is NOT special.
+  • If P_null is very small, the full 9-point geometry would be an extra
+    non-random lock beyond the (-4,4,3) triple itself.
+
+==================================================================================
+               PHASE8_YUKAWA_MINIMAL_GEOMETRY_NULLSCAN_v1 COMPLETE                
+==================================================================================
+
