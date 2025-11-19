@@ -1,6 +1,8 @@
 Colab Link: <https://colab.research.google.com/drive/1-MuvUoRva9lfgRFeHXsLHBNV5UO3hXmd?usp=sharing>
 November 15th, 2025
 
+Updated Info (November 19th, 2025): V1 was the brute-force discovery. See Blind Monks V2 for the DNA Lattice and V3 for the Yukawa Lock.
+
 # Monkeys Throwing Darts: When Random Chance Beats Physics
 
 ### TL;DR
