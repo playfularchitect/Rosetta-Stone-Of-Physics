@@ -6,7 +6,7 @@ Full Colab Link - https://colab.research.google.com/drive/1VjpgcfjgjafKDBbU2yrJe
 **"Why curve-fit. When you can kill theories for fun."**
 
 ### Overview
-This folder contains the computational engine (`Blind Monks V3`) designed to stress-test fundamental physics constants against millions of generated "null" (random) universes.
+This folder contains the computational engine (`Blind Monks V3`) designed to stress-test fundamental physics constants against a ton of generated "null" (random) universes.
 
 Unlike standard physics scripts that attempt to fit a model to data, this codebase treats the Standard Model parameters as a suspicious dataset. It applies forensic statistical analysis to determine if observed patterns (log-lattices, geometric shapes, and integer relations) are genuine physical laws or merely statistical noise.
 
