@@ -1,5 +1,5 @@
 Full Colab Link - https://colab.research.google.com/drive/1VjpgcfjgjafKDBbU2yrJeJcju0dpMIdX?usp=sharing
-
+November 19th,2025
 
 # Blind Monks V3: An Adversarial Audit of the Standard Model
 
