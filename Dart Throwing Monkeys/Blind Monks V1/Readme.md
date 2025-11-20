@@ -40,7 +40,7 @@ CKM phase δ/π ≈ 3/8
 CKM mixing θ₁₂ ≈ 1/5
 α_s(M_Z) ≈ 1/8
 
-Compression: 387 bits better than random, 387 bits better than physicists.
+Compression: 378 bits better than random, 387 bits better than physicists.
 
 ---
 
