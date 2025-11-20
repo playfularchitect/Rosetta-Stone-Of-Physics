@@ -116,7 +116,7 @@ Side Quests:
 ---
 ## License & Citation
 
-* **Code:** All code (`.py`, `.ipynb`, etc.) is licensed under the **MIT License**.
+* **Code:** All code (`.py`, `.ipynb`, etc.) is licensed under the **MIT License** or apache license if apache is attached to the folders/code.
 * **Content:** All papers, text, and non-code assets are licensed under **CC BY 4.0**.
 * **Full License Details:** See the `LICENSES` folder.
 
