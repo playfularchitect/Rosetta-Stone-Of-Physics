@@ -108,7 +108,9 @@ If you want the story and the intuition behind the foundational axioms, the Medi
 
 Side Quests:
 (Demo Website) https://fractionphysics4money.abacusai.app/
+
 (Demo Website) https://fractionphysicsv1.abacusai.app/constants
+
 (Soundcloud LOL) https://on.soundcloud.com/QjHDrC1DD8EKyqcyzw (check my music out if want you ungrateful stalkers)
 ---
 ## License & Citation
