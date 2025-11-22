@@ -114,7 +114,7 @@ Side Quests:
 
 (Soundcloud LOL) https://on.soundcloud.com/QjHDrC1DD8EKyqcyzw (check my music out if want you ungrateful silent cloning stalkers)
 
-(Youtube) https://youtu.be/AZNkRXWbjuc?si=qwiuM744kDBICpEj (I will eventually go over my work and break down some of the things I have done)
+(Youtube) https://youtu.be/AZNkRXWbjuc?si=qwiuM744kDBICpEj (I will eventually go over my work and break down some of the things I have done, in addition to simply sharing other things I do and like)
 
 ---
 ## License & Citation
