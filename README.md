@@ -112,7 +112,10 @@ Side Quests:
 
 (Demo Website) https://fractionphysicsv1.abacusai.app/constants
 
-(Soundcloud LOL) https://on.soundcloud.com/QjHDrC1DD8EKyqcyzw (check my music out if want you ungrateful stalkers)
+(Soundcloud LOL) https://on.soundcloud.com/QjHDrC1DD8EKyqcyzw (check my music out if want you ungrateful silent cloning stalkers)
+
+(Youtube) https://youtu.be/AZNkRXWbjuc?si=qwiuM744kDBICpEj (I will eventually go over my work and break down some of the things I have done)
+
 ---
 ## License & Citation
 
