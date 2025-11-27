@@ -1,0 +1,3719 @@
+<>:768: SyntaxWarning: invalid escape sequence '\ '
+<>:1753: SyntaxWarning: invalid escape sequence '\ '
+<>:3049: SyntaxWarning: invalid escape sequence '\ '
+<>:4472: SyntaxWarning: invalid escape sequence '\ '
+<>:7122: SyntaxWarning: invalid escape sequence '\ '
+<>:768: SyntaxWarning: invalid escape sequence '\ '
+<>:1753: SyntaxWarning: invalid escape sequence '\ '
+<>:3049: SyntaxWarning: invalid escape sequence '\ '
+<>:4472: SyntaxWarning: invalid escape sequence '\ '
+<>:7122: SyntaxWarning: invalid escape sequence '\ '
+/tmp/ipython-input-3646508432.py:768: SyntaxWarning: invalid escape sequence '\ '
+  [-C_other, C_other]^2 \ {(0,0)}.
+/tmp/ipython-input-3646508432.py:1753: SyntaxWarning: invalid escape sequence '\ '
+  coefficient vectors c_i ∈ [-C_other, C_other]^3 \ {(0,0,0)}
+/tmp/ipython-input-3646508432.py:3049: SyntaxWarning: invalid escape sequence '\ '
+  (a,b,c) in [-C_other, C_other]^3 \ {(0,0,0)} and choose the one
+/tmp/ipython-input-3646508432.py:4472: SyntaxWarning: invalid escape sequence '\ '
+  Generate primitive (a,b,c) in [-C, C]^3 \ {(0,0,0)},
+/tmp/ipython-input-3646508432.py:7122: SyntaxWarning: invalid escape sequence '\ '
+  row_i' = row_i + Δ,  with Δ ∈ {-1,0,1}^3 \ {(0,0,0)},
+==================================================================================
+        PHASE 8 – MODULE 2: MINIMAL YUKAWA GEOMETRY NULLSCAN (2D INTEGER)         
+==================================================================================
+
+----------------------------------------------------------------------------------
+[INPUT YUKAWA LOGS]
+----------------------------------------------------------------------------------
+  name          log10(value)
+  ------------ -------------
+  me_over_v       -5.683401
+  mmu_over_v      -3.367606
+  mtau_over_v     -2.141781
+  mb_over_v       -1.770024
+  mc_over_v       -2.287532
+  mt_over_v       -0.154056
+  md_over_v       -4.722162
+  ms_over_v       -3.422873
+  mu_over_v       -5.056852
+
+  Real triple lock S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+----------------------------------------------------------------------------------
+[GEOMETRY SETUP]
+----------------------------------------------------------------------------------
+  Geometry dimension D                     : 2
+  Basis coeff bound for (me,tau,d)         : ±4
+  Coeff bound for other Yukawas            : ±6
+  Constraint enforced exactly              : -4 row(me) + 4 row(tau) + 3 row(d) = 0
+  Jitter halfwidth for null (log10 units)  : 0.500
+  Number of null universes                 : 2000
+
+  Number of basis (me,tau,d) triplets      : 344
+  Number of coeff pairs for others         : 168
+
+----------------------------------------------------------------------------------
+[REAL-UNIVERSE MINIMAL GEOMETRY FIT]
+----------------------------------------------------------------------------------
+  Best basis rows (me, tau, d):
+    row(me)  = (-4, -2)
+    row(tau) = (-4, 1)
+    row(d)   = (0, -4)
+
+  Fitted geometry parameters q (log10 units):
+    q1 =  0.830580
+    q2 =  1.180540
+
+  Fit quality (all 9 Yukawas):
+    RMS_all (dex)             :  0.026818
+    Max |residual| (dex)      :  0.057111
+    Max |integer coeff|       :  5
+
+  Lock on geometry:
+    S_geom (from geometry)    :  0.000000e+00
+    S_geom / S_real           :  0.000e+00
+    (For this construction S_geom is effectively zero by design.)
+
+  Per-Yukawa residuals (geom - real):
+  name         coeffs(c1,c2)   z_real      z_geom      resid
+  -----------  --------------  ---------   ---------   --------
+  me_over_v    ( -4, -2)   -5.683401   -5.683402   -0.000001
+  mmu_over_v   (  3, -5)   -3.367606   -3.410961   -0.043355
+  mtau_over_v  ( -4,  1)   -2.141781   -2.141780   +0.000001
+  mb_over_v    (  5, -5)   -1.770024   -1.749801   +0.020223
+  mc_over_v    (  3, -4)   -2.287532   -2.230421   +0.057111
+  mt_over_v    ( -3,  2)   -0.154056   -0.130660   +0.023396
+  md_over_v    (  0, -4)   -4.722162   -4.722162   +0.000000
+  ms_over_v    (  3, -5)   -3.422873   -3.410961   +0.011912
+  mu_over_v    (  1, -5)   -5.056852   -5.072122   -0.015270
+
+----------------------------------------------------------------------------------
+[NULL ENSEMBLE: JITTERED YUKAWA UNIVERSES]
+----------------------------------------------------------------------------------
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+----------------------------------------------------------------------------------
+[NULL RMS STATISTICS – MINIMAL GEOMETRY FIT]
+----------------------------------------------------------------------------------
+  null RMS min / max        :  1.136977e-02 /  2.772086e-01
+  null RMS 25% / 50% / 75%  :  4.027415e-02 /  7.152352e-02 /  1.158795e-01
+  null RMS mean / std       :  8.372246e-02 /  5.308169e-02
+
+----------------------------------------------------------------------------------
+[SIGNIFICANCE OF MINIMAL 2D INTEGER GEOMETRY]
+----------------------------------------------------------------------------------
+  real RMS                  :  2.681783e-02
+  z(real vs null mean)      : -1.07 σ
+  P_null(RMS <= real)       :  0.122000
+
+INTERPRETATION GUIDE:
+  • RMS measures how well a 2D small-integer geometry fits ALL 9 Yukawas.
+  • If P_null is ~0.5, then geometries this good (or better) are common
+    in jittered random Yukawa universes: the geometry is NOT special.
+  • If P_null is very small, the full 9-point geometry would be an extra
+    non-random lock beyond the (-4,4,3) triple itself.
+
+==================================================================================
+               PHASE8_YUKAWA_MINIMAL_GEOMETRY_NULLSCAN_v1 COMPLETE                
+==================================================================================
+
+==================================================================================
+ PHASE 8 – MODULE 3: YUKAWA MINIMAL GEOMETRY EVIDENCE UPDATE (2D INTEGER) 
+==================================================================================
+
+Real-universe minimal 2D integer geometry (from MODULE 2):
+  • RMS_all_real (9 Yukawas)  :  2.681783e-02 dex
+  • Null mean RMS             :  8.372246e-02 dex
+  • Null std RMS              :  5.308169e-02 dex
+  • P_null(RMS <= real)       :  1.220000e-01
+  • bits ≈ -log2(p_null)      :  3.04 bits
+
+==================================================================================
+ INTERPRETATION – DOES THIS GEOMETRY COUNT AS A NEW LOCK? 
+==================================================================================
+
+Significance level classification: MILDLY INTERESTING BUT NOT A SURVIVOR
+
+Around ~3–6 bits: mildly interesting, but not strong enough to promote
+this geometry to a fundamental lock. It does *not* compete with the
+7–14 bits from the (-4,4,3) triple itself.
+
+Verdict for geometry hunting:
+  • The minimal 2D integer geometry for all 9 Yukawas is NOT a new lock.
+  • It should NOT be added as extra bits to the global evidence budget.
+  • The *only* Yukawa lock that geometry must explain remains:
+        me – mtau – md with (-4, 4, 3) and S_real ≈ 6×10^-6.
+
+==================================================================================
+ SUMMARY FLAG FOR EVIDENCE BUDGET 
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_minimal_2d_integer_geometry'] =
+    p_null  = 1.220000e-01
+    bits    = 3.04
+    status  = killed
+
+Interpretation for global geometry search:
+  → We *keep* the me–tau–d (-4,4,3) triple as a primary lock.
+  → We *discard* the full 9-point 2D integer geometry as a separate lock.
+
+==================================================================================
+ PHASE8_YUKAWA_MINIMAL_GEOMETRY_EVIDENCE_v1 COMPLETE 
+==================================================================================
+==================================================================================
+          PHASE 9 – MODULE 1: YUKAWA 2D GEOMETRY STRUCTURE ANALYZER          
+==================================================================================
+
+Using the best 2D integer geometry from PHASE 8 – MODULE 1.
+We treat each Yukawa's integer pair (c1,c2) as a 'geometry fingerprint'.
+Then we look for 'lock-family' structure in this coefficient space.
+
+Best 2D geometry recap:
+  q1 (log10-scale) =  0.830580
+  q2 (log10-scale) =  1.180540
+
+  Basis coefficient rows for (me, tau, d):
+    row(me)  = (-4, -2)
+    row(tau) = (-4, 1)
+    row(d)   = (0, -4)
+
+  Check of (-4,4,3) relation at row level:
+    -4*row(me) + 4*row(tau) + 3*row(d) = (0, 0)
+    (Should be (0,0) if the (-4,4,3) lock is enforced in coefficient space.)
+
+Fit quality over all 9 Yukawas (using these integer rows):
+  RMS_all (dex)        :  2.681783e-02
+  Max |residual| (dex) :  5.711200e-02
+
+==================================================================================
+ PER-YUKAWA COEFFICIENTS AND RESIDUALS 
+==================================================================================
+
+  name         (c1,c2)    z_real      z_geom      resid
+  -----------  --------  ---------   ---------   --------
+  mb_over_v    ( 5,-5)  -1.770024   -1.749800   +0.020224
+  mc_over_v    ( 3,-4)  -2.287532   -2.230420   +0.057112
+  md_over_v    ( 0,-4)  -4.722162   -4.722160   +0.000002
+  me_over_v    (-4,-2)  -5.683401   -5.683400   +0.000001
+  mmu_over_v   ( 3,-5)  -3.367606   -3.410960   -0.043354
+  ms_over_v    ( 3,-5)  -3.422873   -3.410960   +0.011913
+  mt_over_v    (-3, 2)  -0.154056   -0.130660   +0.023396
+  mtau_over_v  (-4, 1)  -2.141781   -2.141780   +0.000001
+  mu_over_v    ( 1,-5)  -5.056852   -5.072120   -0.015268
+
+==================================================================================
+ COEFFICIENT FAMILIES (GEOMETRY LOCK CANDIDATES) 
+==================================================================================
+
+We group Yukawas that share the EXACT same integer pair (c1,c2).
+This is analogous to 'lock families' in the DNA residue fingerprint space.
+
+  Total coefficient families     : 8
+  Family sizes                   : [2, 1, 1, 1, 1, 1, 1, 1]
+  Number of multi-member families: 1
+  Largest family size            : 2
+
+  Family 1: coeffs = (3, -5), size = 2
+    - mmu_over_v    resid = -0.043354 dex
+    - ms_over_v     resid = +0.011913 dex
+
+  Family 2: coeffs = (-4, -2), size = 1
+    - me_over_v     resid = +0.000001 dex
+
+  Family 3: coeffs = (-4, 1), size = 1
+    - mtau_over_v   resid = +0.000001 dex
+
+  Family 4: coeffs = (-3, 2), size = 1
+    - mt_over_v     resid = +0.023396 dex
+
+  Family 5: coeffs = (0, -4), size = 1
+    - md_over_v     resid = +0.000002 dex
+
+  Family 6: coeffs = (1, -5), size = 1
+    - mu_over_v     resid = -0.015268 dex
+
+  Family 7: coeffs = (3, -4), size = 1
+    - mc_over_v     resid = +0.057112 dex
+
+  Family 8: coeffs = (5, -5), size = 1
+    - mb_over_v     resid = +0.020224 dex
+
+==================================================================================
+ INTERPRETATION (DESCRIPTIVE, NO NULLSCAN YET) 
+==================================================================================
+
+Key observations in this 2D integer geometry:
+  • me_over_v, mtau_over_v, md_over_v define the basis rows and enforce
+    the (-4,4,3) lock in coefficient space by construction.
+  • We see at least one multi-member coefficient family:
+      e.g. mmu_over_v and ms_over_v share the same (c1,c2) pair (3,-5).
+    That means, in this geometry, muon and strange Yukawas lie on the
+    same 'ray' in coefficient space, with differences absorbed into the
+    residuals at the ~few×10^-2 dex level.
+
+At this stage:
+  • These families are *candidates* for additional structure (geometry
+    lock families), but we have NOT tested their significance under a
+    proper null yet.
+  • A future module could:
+       - Run a nullscan over jittered Yukawa universes and re-fit the
+         minimal 2D geometry each time,
+       - Measure the distribution of maximum family size in coefficient
+         space,
+       - Compare the real family sizes (e.g. size-2 mmu/ms) to null.
+
+For now, the correct attitude is:
+  → Log these families as structural features of the chosen geometry;
+  → DO NOT treat them as extra 'locks' or extra bits of evidence yet.
+
+==================================================================================
+ PHASE9_YUKAWA_GEOMETRY_STRUCTURE_ANALYZER_v1 COMPLETE 
+==================================================================================
+==================================================================================
+              PHASE 9 – MODULE 2: YUKAWA 2D GEOMETRY FAMILY NULLSCAN              
+==================================================================================
+
+Real Yukawa triple logs (z = log10(y/v)):
+  z_me   = -5.683401
+  z_tau  = -2.141781
+  z_d    = -4.722162
+  Real triple lock S_real = |-4 z_me + 4 z_tau + 3 z_d| = 6.000000e-06
+
+Fixed basis coefficient rows for (me, tau, d):
+  row(me)   = (-4, -2)
+  row(tau)  = (-4, 1)
+  row(d)    = (0, -4)
+  -4*row(me) + 4*row(tau) + 3*row(d) = (0, 0)
+  (Should be (0,0) if the (-4,4,3) lock is enforced in coefficient space.)
+
+Geometry setup:
+  Geometry dimension D                  : 2
+  Coeff bound for other Yukawas         : ±6
+  Jitter halfwidth for null (log10)     : 0.500
+  Number of candidate coeff pairs       : 168
+  Number of null universes              : 2000
+
+==================================================================================
+                 REAL-UNIVERSE 2D GEOMETRY & COEFFICIENT FAMILIES                 
+==================================================================================
+
+Fitted geometry parameters q (log10 λ-vector):
+  q1 =  0.830580
+  q2 =  1.180540
+
+Fit quality over all 9 Yukawas:
+  RMS_all (dex)        : 2.681783e-02
+  Max |residual| (dex) : 5.711104e-02
+
+Lock combination on geometry:
+  S_geom_real          : 0.000000e+00
+  S_geom_real / S_real : 0.000e+00
+
+Per-Yukawa integer coefficients and residuals (geom - real):
+  name         (c1,c2)   z_real      z_geom      resid
+  -----------  --------  ---------   ---------   --------
+  me_over_v    (-4,-2)  -5.683401   -5.683402   -0.000001
+  mmu_over_v   ( 3,-5)  -3.367606   -3.410961   -0.043355
+  mtau_over_v  (-4, 1)  -2.141781   -2.141780   +0.000001
+  mb_over_v    ( 5,-5)  -1.770024   -1.749801   +0.020223
+  mc_over_v    ( 3,-4)  -2.287532   -2.230421   +0.057111
+  mt_over_v    (-3, 2)  -0.154056   -0.130660   +0.023396
+  md_over_v    ( 0,-4)  -4.722162   -4.722162   +0.000000
+  ms_over_v    ( 3,-5)  -3.422873   -3.410961   +0.011912
+  mu_over_v    ( 1,-5)  -5.056852   -5.072122   -0.015270
+
+Coefficient families in real geometry:
+  Total families              : 8
+  Family sizes                : [1, 1, 1, 1, 1, 1, 1, 2]
+  Largest family size         : 2
+  Total collision pairs       : 1
+
+  Family coeffs = (-4,-2), size = 1 → me_over_v
+  Family coeffs = ( 3,-5), size = 2 → mmu_over_v, ms_over_v
+  Family coeffs = (-4, 1), size = 1 → mtau_over_v
+  Family coeffs = ( 5,-5), size = 1 → mb_over_v
+  Family coeffs = ( 3,-4), size = 1 → mc_over_v
+  Family coeffs = (-3, 2), size = 1 → mt_over_v
+  Family coeffs = ( 0,-4), size = 1 → md_over_v
+  Family coeffs = ( 1,-5), size = 1 → mu_over_v
+
+==================================================================================
+                     NULL ENSEMBLE: JITTERED YUKAWA UNIVERSES                     
+==================================================================================
+
+Progress:
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+==================================================================================
+                  NULL STATISTICS – COEFFICIENT FAMILY STRUCTURE                  
+==================================================================================
+
+Max family size (maxfam):
+  null maxfam min / max     : 1 / 3
+  null maxfam 25%/50%/75%   : 1.0 / 1.0 / 2.0
+  null maxfam mean / std    : 1.405 / 0.512
+  real maxfam               : 2
+  P_null(maxfam >= real)    : 0.394000
+
+Collision pairs (coll = sum over families of nC2):
+  null coll min / max       : 0 / 4
+  null coll 25%/50%/75%     : 0.0 / 0.0 / 1.0
+  null coll mean / std      : 0.474 / 0.667
+  real coll                 : 1
+  P_null(coll >= real)      : 0.394000
+
+==================================================================================
+                               INTERPRETATION GUIDE                               
+==================================================================================
+
+  • This module tests whether the COEFFICIENT-FAMILY structure of the
+    best 2D integer geometry (with (-4,4,3) enforced) is itself a new
+    'lock' compared to jittered Yukawa universes.
+  • If P_null(maxfam >= real) ≪ 1 and P_null(coll >= real) ≪ 1, then
+    large coefficient families (mmu/ms/etc.) would represent extra
+    non-random structure beyond the me–tau–d triple.
+  • If both p-values are O(0.1–1), the coefficient-family structure
+    is statistically ordinary and should NOT be promoted to a new lock.
+
+  You can now plug these p-values into your global evidence budget in
+  the same style as the DNA lock-family tests.
+
+==================================================================================
+                PHASE9_YUKAWA_GEOMETRY_FAMILY_NULLSCAN_v1 COMPLETE                
+==================================================================================
+==================================================================================
+         PHASE 9 – MODULE 3: YUKAWA 2D COEFFICIENT-FAMILY EVIDENCE UPDATE         
+==================================================================================
+
+Input from PHASE 9 – MODULE 2 (family nullscan):
+  P_null(maxfam >= real)  = 0.394000
+  P_null(coll  >= real)   = 0.394000
+
+Converted to 'bits of surprise'  bits = -log2(p):
+  bits_maxfam             = 1.34 bits
+  bits_coll               = 1.34 bits
+
+Effective evidence for 2D coefficient-family structure:
+  p_eff                    = 0.394000
+  bits_eff ≈ -log2(p_eff)  = 1.34 bits
+
+==================================================================================
+                                  INTERPRETATION                                  
+==================================================================================
+
+  Effective bits from coefficient-family structure: 1.34 bits
+  Classification: ORDINARY (NOT A LOCK)
+
+  • Since bits_eff ≲ 3, the mmu/ms-style coefficient families in the
+    2D integer geometry are statistically ordinary under the jitter null.
+  • They do NOT constitute an additional 'Yukawa lock' beyond the
+    me–mtau–md (-4,4,3) triple itself.
+  • Geometry hunting should *not* try to explain these families as
+    fundamental; they are part of the noise.
+
+==================================================================================
+                         GLOBAL GEOMETRY EVIDENCE UPDATE                          
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_2d_coeff_families'] =
+    p_maxfam     : 0.394
+    p_coll       : 0.394
+    p_eff        : 0.394
+    bits_maxfam  : 1.34373
+    bits_coll    : 1.34373
+    bits_eff     : 1.34373
+    status       : killed
+    description  : 2D integer geometry coefficient families (e.g. mmu/ms sharing (3,-5)); tested vs jitter null.
+
+Verdict for global geometry search:
+  → KEEP the me–tau–d (-4,4,3) triple as the only Yukawa lock.
+  → DISCARD 2D coefficient families as independent locks.
+
+==================================================================================
+                 PHASE9_YUKAWA_FAMILY_EVIDENCE_UPDATE_v1 COMPLETE                 
+==================================================================================
+==================================================================================
+              PHASE 10 – MODULE 1: GLOBAL GEOMETRY LOCK CONTRACT v2               
+==================================================================================
+
+GLOBAL_LOCKS summary:
+  DNA effective bits                 : 12.29
+  Yukawa bits (conservative, global) : 7.48
+  Yukawa bits (optimistic, fixed)    : 14.29
+  Combined bits (conservative)       : 19.77
+  Combined bits (optimistic)         : 26.58
+
+You can now use score_geometry(name, description, ...) to evaluate 
+future candidate geometries against this contract.
+
+==================================================================================
+                                 DEMO SCORECARDS                                  
+==================================================================================
+
+==================================================================================
+                        GEOMETRY SCORECARD – NullGeometry                         
+==================================================================================
+
+Description:
+  Random / structureless geometry; predicts nothing and explains no locks.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned (relative to GLOBAL_LOCKS):
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)           :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – PerfectLockGeometry                     
+==================================================================================
+
+Description:
+  Hypothetical geometry that derives the DNA backbone/locks and the Yukawa triple (-4,4,3) from its structure, without tuning.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_global_triple : True
+  • explains_yukawa_fixed_triple  : True
+
+Bits earned (relative to GLOBAL_LOCKS):
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      :  7.48
+  Yukawa bits (optimistic)        : 14.29
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)           : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+                     GEOMETRY SCORECARD – TwoScaleFN_Physical                     
+==================================================================================
+
+Description:
+  Two FN spurions λ1, λ2<1 with integer charges for me,mtau,md; fits rough Yukawa hierarchies but misses the (-4,4,3) triple by ~10^4 in precision and does not touch DNA.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_global_triple : False
+  • explains_yukawa_fixed_triple  : False
+
+Bits earned (relative to GLOBAL_LOCKS):
+  DNA sector bits                 :  0.00
+  Yukawa bits (conservative)      :  0.00
+  Yukawa bits (optimistic)        :  0.00
+
+  → Total (conservative)          :  0.00 bits
+  → Total (optimistic)           :  0.00 bits
+
+==================================================================================
+
+==================================================================================
+                PHASE 10 – MODULE 2: YUKAWA GEOMETRY FRONTIER MAP                 
+==================================================================================
+
+Real triple lock scale: S_real = 6.000000e-06
+
+Name                          RMS[dex]   max|res|   S_geom       S_geom/S_real       Class
+----------------------------------------------------------------------------------
+PerfectLockGeometry_Data        0.0000    0.0000   6.000e-06       1.000e+00   REFERENCE (perfect data geometry)
+SingleLambda_FN                 0.0435    0.0551   1.776e-15       2.961e-10   WEAK: triple-locked but poor Yukawa precision
+TwoScaleFN_Physical             0.0227    0.0359   9.584e-02       1.597e+04   BAD: matches Yukawa magnitudes but DESTROYS triple lock
+Minimal2DIntegerGeometry_9pt    0.0268    0.0571   0.000e+00       0.000e+00   OK: triple-locked but only moderate Yukawa precision
+
+==================================================================================
+                                DETAILED SUMMARIES                                
+==================================================================================
+
+==================================================================================
+                        GEOMETRY: PerfectLockGeometry_Data                        
+==================================================================================
+Description:
+  Reference geometry where the predictions equal the measured Yukawas. By definition RMS=0 and S_geom=S_real.
+
+Numbers:
+  RMS (dex)               : 0.000000
+  Max |residual| (dex)    : 0.000000
+  S_geom                  : 6.000000e-06
+  S_geom / S_real         : 1.000e+00
+
+Classification: REFERENCE (perfect data geometry)
+
+==================================================================================
+                            GEOMETRY: SingleLambda_FN                             
+==================================================================================
+Description:
+  Single-λ FN geometry: z_i ≈ n_i * log10(λ) with (n_me,n_tau,n_d) = (19,7,16). Enforces (-4,4,3) at exponent level, but only matches hierarchies to O(0.04 dex).
+
+Numbers:
+  RMS (dex)               : 0.043453
+  Max |residual| (dex)    : 0.055112
+  S_geom                  : 1.776357e-15
+  S_geom / S_real         : 2.961e-10
+
+Classification: WEAK: triple-locked but poor Yukawa precision
+
+==================================================================================
+                          GEOMETRY: TwoScaleFN_Physical                           
+==================================================================================
+Description:
+  Two-scale FN with physical priors (λ1, λ2<1; non-negative charges). Fits me, mtau, md to ~0.02 dex RMS, but misses the (-4,4,3) lock by ~1.6×10^4.
+
+Numbers:
+  RMS (dex)               : 0.022709
+  Max |residual| (dex)    : 0.035943
+  S_geom                  : 9.584085e-02
+  S_geom / S_real         : 1.597e+04
+
+Classification: BAD: matches Yukawa magnitudes but DESTROYS triple lock
+
+==================================================================================
+                      GEOMETRY: Minimal2DIntegerGeometry_9pt                      
+==================================================================================
+Description:
+  2D small-integer geometry q·c_i with rows for (me,tau,d) chosen so that (-4,4,3) holds in coefficient space. All 9 Yukawas fit with RMS≈0.027 dex, max residual ≈0.057 dex.
+
+Numbers:
+  RMS (dex)               : 0.026818
+  Max |residual| (dex)    : 0.057111
+  S_geom                  : 0.000000e+00
+  S_geom / S_real         : 0.000e+00
+
+Classification: OK: triple-locked but only moderate Yukawa precision
+
+==================================================================================
+          PHASE 11 – MODULE 1: YUKAWA 3D INTEGER GEOMETRY (LOCAL SEARCH)          
+==================================================================================
+
+Anchoring on best 2D basis for (me, tau, d):
+  row_2D(me)  = (-4, -2)
+  row_2D(tau) = (-4,  1)
+  row_2D(d)   = ( 0, -4)
+
+3D search config:
+  • Third-coordinate bound C3        = 4
+  • Coeff bound for other Yukawas    = ±4
+  • Enforce coefficient-level (-4,4,3) lock.
+
+Real triple lock scale S_real = 6.000000e-06
+
+Total valid 3D basis patterns scanned: 21
+
+==================================================================================
+                   TOP 3D GEOMETRY CANDIDATES (LOCAL AROUND 2D)                   
+==================================================================================
+
+Rank  RMS_all  max|res|  max|coef|   S_geom      S_geom/S_real
+----  -------  -------  ---------  ----------   -------------
+   1   0.0062   0.0127          4   1.776e-15       2.961e-10
+   2   0.0062   0.0127          4   1.776e-15       2.961e-10
+   3   0.0169   0.0299          4   1.776e-15       2.961e-10
+   4   0.0169   0.0299          4   1.776e-15       2.961e-10
+   5   0.0202   0.0379          4   1.776e-15       2.961e-10
+   6   0.0202   0.0379          4   1.776e-15       2.961e-10
+   7   0.0208   0.0381          4   0.000e+00       0.000e+00
+   8   0.0208   0.0381          4   0.000e+00       0.000e+00
+   9   0.0215   0.0415          4   0.000e+00       0.000e+00
+  10   0.0215   0.0415          4   0.000e+00       0.000e+00
+
+==================================================================================
+                        DETAILED BEST 3D GEOMETRY (RANK 1)                        
+==================================================================================
+
+Basis coefficient rows for (me, tau, d):
+  row(me)   = (-4, -2, -1)
+  row(tau)  = (-4, 1, -4)
+  row(d)    = (0, -4, 4)
+
+Fitted geometry parameters q (log10 λ-vector):
+  q1 =  0.993782
+  q2 =  0.962938
+  q3 = -0.217602
+
+Fit quality over all 9 Yukawas:
+  RMS_all (dex)         : 0.006193
+  Max |residual| (dex)  : 0.012743
+  Max |integer coeff|   : 4
+
+Lock on geometry:
+  S_geom                : 1.776357e-15
+  S_geom / S_real       : 2.961e-10
+  (Should be ~0 because (-4,4,3) is enforced in coefficient space.)
+
+Per-Yukawa coefficients and residuals (geom - real):
+  name         (c1,c2,c3)      z_real       z_geom      resid
+  -----------  ----------    ----------   ----------   ---------
+  me_over_v    (-4,-2,-1)     -5.683401    -5.683402   -0.000001
+  mmu_over_v   (-1,-2, 2)     -3.367606    -3.354863    0.012743
+  mtau_over_v  (-4, 1,-4)     -2.141781    -2.141780    0.000001
+  mb_over_v    (-2, 0,-1)     -1.770024    -1.769961    0.000063
+  mc_over_v    (-2,-1,-3)     -2.287532    -2.297696   -0.010164
+  mt_over_v    (-2, 1,-4)     -0.154056    -0.154217   -0.000161
+  md_over_v    ( 0,-4, 4)     -4.722162    -4.722162    0.000000
+  ms_over_v    (-3, 0, 2)     -3.422873    -3.416549    0.006324
+  mu_over_v    (-1,-4, 1)     -5.056852    -5.063137   -0.006285
+
+==================================================================================
+                               INTERPRETATION GUIDE                               
+==================================================================================
+
+Compare this best 3D RMS_all to:
+  • 2D minimal integer geometry:   RMS ≈ 0.0268 dex
+  • Single-λ FN:                  RMS ≈ 0.0435 dex (me,tau,d only)
+
+If the best 3D RMS_all is only ~0.02–0.03 dex, then going to 3D
+with small integers did NOT unlock a dramatically tighter structure.
+If (unexpectedly) RMS_all drops to ≲ 0.01 dex, that would be
+a serious signal of a very rigid low-dimensional geometry.
+
+This module is LOCAL around the known best 2D geometry.
+If desired, future modules can:
+  • Drop the anchoring and search more globally in 3D, or
+  • Add MDL/complexity penalties to trade off fit vs simplicity.
+
+PHASE11_YUKAWA_3D_GEOMETRY_LOCAL_SEARCH_v1 COMPLETE
+==================================================================================
+==================================================================================
+             PHASE 11 – MODULE 2: YUKAWA 3D INTEGER GEOMETRY NULLSCAN             
+==================================================================================
+
+Config:
+  • 3D basis third-coordinate bound C3      = 4
+  • Coeff bound for other Yukawas (±C_other)= ±4
+  • Jitter halfwidth (log10 units)          = 0.500
+  • Number of null universes                = 2000
+
+Anchored 2D basis for (me, tau, d):
+  row_2D(me)  = (-4, -2)
+  row_2D(tau) = (-4,  1)
+  row_2D(d)   = ( 0, -4)
+  Extended to 3D by scanning m3, t3 and enforcing (-4,4,3) lock.
+
+Number of valid 3D basis patterns scanned (per universe): 21
+
+Real-universe best 3D geometry:
+  RMS_all_real (dex)        : 0.006193
+  Max |residual| (dex)      : 0.012743
+  Max |integer coeff|       : 4
+  S_geom_real               : 1.776357e-15
+  S_geom_real / S_real      : 2.961e-10
+
+Basis rows for (me, tau, d) in best 3D geometry:
+  row(me)  = (-4, -2, -1)
+  row(tau) = (-4, 1, -4)
+  row(d)   = (0, -4, 4)
+
+==================================================================================
+                     NULL ENSEMBLE: JITTERED YUKAWA UNIVERSES                     
+==================================================================================
+
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+==================================================================================
+                      NULL RMS STATISTICS – 3D GEOMETRY FIT                       
+==================================================================================
+
+  null RMS min / max        :  3.269352e-03 /  2.684064e-01
+  null RMS 25% / 50% / 75%  :  3.476392e-02 /  7.133329e-02 /  1.185847e-01
+  null RMS mean / std       :  8.159564e-02 /  5.629137e-02
+
+==================================================================================
+                 SIGNIFICANCE OF 3D INTEGER GEOMETRY COMPRESSION                  
+==================================================================================
+
+  real RMS_all              :  6.193358e-03
+  z(real vs null mean)      : -1.34 σ
+  P_null(RMS <= real)       : 0.016000
+
+Interpretation guide:
+  • RMS_all measures how well a 3D small-integer geometry fits ALL 9 Yukawas.
+  • If P_null is ~0.1–1, geometries this good are common under jitter ⇒
+      3D geometry is NOT an extra lock; it’s just another way to write noise.
+  • If P_null is tiny (e.g. ≲ 0.01), the full 9-point 3D structure is
+      a serious new lock, beyond the (-4,4,3) triple itself.
+
+PHASE11_YUKAWA_3D_GEOMETRY_NULLSCAN_v1 COMPLETE
+==================================================================================
+==================================================================================
+        PHASE 11 – MODULE 3: YUKAWA 3D INTEGER GEOMETRY EVIDENCE UPDATE v2        
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.109689
+Run SHA256 payload    : 0b93b447267163200de482f2c9272fb62988153d848be0582a9bec50b61f9ea5
+
+Hash payload fields:
+{
+  "inputs": {
+    "p_null_3d": 0.016,
+    "z_score_3d": -1.34
+  },
+  "module": "PHASE11_YUKAWA_3D_GEOMETRY_EVIDENCE_v2",
+  "outputs": {
+    "bits_3d": 5.965784284662087
+  },
+  "timestamp": "2025-11-27T07:34:52.109689"
+}
+
+==================================================================================
+              INPUT FROM PHASE 11 – MODULE 2 (3D GEOMETRY NULLSCAN)               
+==================================================================================
+
+  P_null(RMS <= real)       = 0.016000
+  z(real vs null mean)      = -1.34 σ
+
+==================================================================================
+                          CONVERSION TO BITS OF SURPRISE                          
+==================================================================================
+
+  bits = -log2(p_null)
+  bits_3d                    = 5.97 bits
+
+==================================================================================
+              INTERPRETATION – DOES 3D GEOMETRY COUNT AS A NEW LOCK?              
+==================================================================================
+
+  Effective bits from 3D geometry: 5.97 bits
+  Classification: MILD–MODERATE (INTERESTING, BUT NOT A PRIMARY LOCK)
+
+Context comparison:
+  • Yukawa (-4,4,3) triple, global error-model search:
+        bits ≈ 7.5 (p ≈ 0.0056).
+  • Yukawa (-4,4,3) triple, fixed under error-model null:
+        bits ≈ 14.3 (p ≈ 5×10^-5).
+  • DNA backbone/locks:
+        bits ≈ 12.3 in the DNA sector.
+
+Structural dependency:
+  • The 3D integer geometry is explicitly built on the (-4,4,3) lock;
+    it does not introduce new, independent data points.
+  • Its ~6 bits (from p ≈ 0.016) are therefore NOT fully independent
+    of the already-counted Yukawa triple evidence.
+
+Verdict for geometry hunting:
+  → The 3D 9-point integer geometry is **interesting**, but
+    it should NOT be promoted to a separate primary lock.
+  → Treat it as supportive structure around the existing
+    Yukawa triple lock, not as extra bits in GLOBAL_LOCKS.
+
+==================================================================================
+                         GLOBAL GEOMETRY EVIDENCE UPDATE                          
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry'] =
+    p_null      : 0.016
+    bits        : 5.965784284662087
+    z_score     : -1.34
+    timestamp   : 2025-11-27T07:34:52.109689
+    sha256      : 0b93b447267163200de482f2c9272fb62988153d848be0582a9bec50b61f9ea5
+    status      : interesting_but_not_primary_lock
+    description : 3D small-integer geometry for all 9 Yukawas, anchored on the (-4,4,3) lock; RMS_all ≈ 0.0062 dex, p_null ≈ 0.016. Moderately surprising, but not treated as an independent lock beyond the me–mtau–md triple.
+
+Interpretation for the global geometry search:
+  → KEEP:
+       - DNA backbone/lock structure as a primary lock (~12 bits).
+       - me–mtau–md (-4,4,3) Yukawa triple as the Yukawa lock
+         (7–14 bits, depending on how you count).
+  → DO NOT ADD:
+       - The 3D 9-point integer geometry as a separate lock.
+
+PHASE11_YUKAWA_3D_GEOMETRY_EVIDENCE_v2 COMPLETE
+==================================================================================
+==================================================================================
+       PHASE 12 – MODULE 1: YUKAWA 3D INTEGER GEOMETRY MDL EVALUATOR (TOY)        
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.113784
+Run SHA256 payload    : 3b6f8cc7bcf31451da0df4b997f3c54c20bc13d1e5e4f0bd2f5b5ec2ca872831
+
+Hash payload (key fields):
+{
+  "fit_quality": {
+    "RMS_all": 0.0061933253588035055,
+    "max_abs_resid": 0.012743999999999645
+  },
+  "geometry": {
+    "C_matrix": [
+      [
+        -4,
+        -2,
+        -1
+      ],
+      [
+        -1,
+        -2,
+        2
+      ],
+      [
+        -4,
+        1,
+        -4
+      ],
+      [
+        -2,
+        0,
+        -1
+      ],
+      [
+        -2,
+        -1,
+        -3
+      ],
+      [
+        -2,
+        1,
+        -4
+      ],
+      [
+        0,
+        -4,
+        4
+      ],
+      [
+        -3,
+        0,
+        2
+      ],
+      [
+        -1,
+        -4,
+        1
+      ]
+    ],
+    "C_max": 4,
+    "q_vector": [
+      0.993782,
+      0.962938,
+      -0.217602
+    ]
+  },
+  "module": "PHASE12_YUKAWA_3D_GEOMETRY_MDL_v1",
+  "timestamp": "2025-11-27T07:34:52.113784"
+}
+
+==================================================================================
+                          BEST 3D INTEGER GEOMETRY RECAP                          
+==================================================================================
+
+Basis coefficient rows for (me, tau, d):
+  row(me)   = [-4 -2 -1]
+  row(tau)  = [-4  1 -4]
+  row(d)    = [ 0 -4  4]
+
+Geometry parameters q (log10 λ-vector):
+  q1 = +0.993782
+  q2 = +0.962938
+  q3 = -0.217602
+
+Fit quality over all 9 Yukawas:
+  RMS_all (dex)         : 0.006193
+  Max |residual| (dex)  : 0.012744
+  Max |integer coeff|   : 4
+
+Per-Yukawa coefficients and residuals (geom - real):
+  name         (c1,c2,c3)      z_real       z_geom      resid
+  -----------  ----------    ----------   ----------   ----------
+  me_over_v    (-4,-2,-1)   -5.683401   -5.683402   -0.000001
+  mmu_over_v   (-1,-2, 2)   -3.367606   -3.354862    0.012744
+  mtau_over_v  (-4, 1,-4)   -2.141781   -2.141782   -0.000001
+  mb_over_v    (-2, 0,-1)   -1.770024   -1.769962    0.000062
+  mc_over_v    (-2,-1,-3)   -2.287532   -2.297696   -0.010164
+  mt_over_v    (-2, 1,-4)   -0.154056   -0.154218   -0.000162
+  md_over_v    ( 0,-4, 4)   -4.722162   -4.722160    0.000002
+  ms_over_v    (-3, 0, 2)   -3.422873   -3.416550    0.006323
+  mu_over_v    (-1,-4, 1)   -5.056852   -5.063136   -0.006284
+
+==================================================================================
+                    TOY MDL MODEL: DIRECT VS GEOMETRY ENCODING                    
+==================================================================================
+
+We compare:
+  • Baseline: send 9 logs directly, each B_float bits.
+  • Geometry: send 3 q_j (B_float bits each), 27 ints C_ij,
+              and 9 residual corrections (B_resid bits each).
+
+  B_float  B_resid   bits_baseline   bits_geometry     Δbits (base - geom)
+  -------  -------   -------------   -------------     -------------------
+       32       16          288.00          348.00                  -60.00
+       64       16          576.00          444.00                  132.00
+       64       20          576.00          480.00                   96.00
+       64       24          576.00          516.00                   60.00
+
+==================================================================================
+                 HEURISTIC RESIDUAL BIT ESTIMATE FROM ERROR MODEL                 
+==================================================================================
+
+Assume we want to encode each residual to ~0.5 σ_log10 precision.
+Estimated bits per residual (for each Yukawa):
+  name         σ_log10       bits_resid(≈)
+  -----------  ----------    ---------------
+  me_over_v     4.343e-09             4.00
+  mmu_over_v    4.343e-09             4.00
+  mtau_over_v   4.343e-06             4.00
+  mb_over_v     4.343e-02             4.00
+  mc_over_v     4.343e-02             4.00
+  mt_over_v     8.686e-03             4.00
+  md_over_v     8.686e-02             4.00
+  ms_over_v     8.686e-02             4.00
+  mu_over_v     8.686e-02             4.00
+
+  Average bits_resid from error model ≈ 4.00 bits
+
+==================================================================================
+                    MDL SUMMARY WITH ERROR-MODEL RESIDUAL BITS                    
+==================================================================================
+
+  For B_float = 32 bits, B_resid ≈ 4.00 bits:
+    bits_baseline  ≈ 288.00
+    bits_geometry  ≈ 240.00
+    Δbits          ≈ 48.00  (positive ⇒ geometry compresses)
+
+  For B_float = 64 bits, B_resid ≈ 4.00 bits:
+    bits_baseline  ≈ 576.00
+    bits_geometry  ≈ 336.00
+    Δbits          ≈ 240.00  (positive ⇒ geometry compresses)
+
+
+==================================================================================
+                     INTERPRETATION (TOY MDL, NOT A NEW LOCK)                     
+==================================================================================
+
+Key points:
+  • The 3D small-integer geometry gives RMS_all ≈ 0.0062 dex, which is
+    comfortably below the log10 σ for the messy Yukawas (b, c, d, s, u).
+  • Under plausible encoding assumptions (e.g. 64-bit floats for the logs
+    and ~18–22 bits to encode each residual), the geometry can compress
+    the Yukawa sector by O(10^1–10^2) bits relative to sending raw logs.
+  • For more aggressive assumptions (32-bit logs and high-precision residuals),
+    geometry may NOT compress; then it's just a fancy reparameterization.
+
+Crucial conceptual point:
+  • This MDL gain is *not* an independent source of evidence; it is another
+    way of quantifying the same structure already captured by the
+    (-4,4,3) triple lock and the small residuals around it.
+  • Therefore, we do NOT add these MDL bits to the global LOCK budget.
+    The primary Yukawa lock remains the me–mtau–md triple itself.
+
+==================================================================================
+                       GEOM_EVIDENCE UPDATE (MDL NOTE ONLY)                       
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['mdl_note']      set
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['mdl_timestamp'] = 2025-11-27T07:34:52.113784
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['mdl_sha256']   = 3b6f8cc7bcf31451da0df4b997f3c54c20bc13d1e5e4f0bd2f5b5ec2ca872831
+
+Interpretation for global geometry search:
+  → The 3D integer geometry looks like a reasonably efficient encoding of
+    the Yukawa sector, but it is *derivative* of the primary lock.
+  → We keep focusing on:
+       - DNA backbone/locks, and
+       - The me–mtau–md (-4,4,3) triple
+    as the true hard constraints any future geometry must satisfy.
+
+PHASE12_YUKAWA_3D_GEOMETRY_MDL_v1 COMPLETE
+==================================================================================
+==================================================================================
+          PHASE 12 – MODULE 2 (v2): YUKAWA 3D INTEGER GEOMETRY STABILITY          
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.121779
+Run SHA256 payload    : b33755e256129529cb5105e195d398b319dc7e70365fe80d4fa2e025f804424f
+
+Hash payload (key fields):
+{
+  "C_other": 4,
+  "C_real": [
+    [
+      -4,
+      -2,
+      -1
+    ],
+    [
+      -1,
+      -2,
+      2
+    ],
+    [
+      -4,
+      1,
+      -4
+    ],
+    [
+      -2,
+      0,
+      -1
+    ],
+    [
+      -2,
+      -1,
+      -3
+    ],
+    [
+      -2,
+      1,
+      -4
+    ],
+    [
+      0,
+      -4,
+      4
+    ],
+    [
+      -3,
+      0,
+      2
+    ],
+    [
+      -1,
+      -4,
+      1
+    ]
+  ],
+  "Q_real": [
+    0.993782,
+    0.962938,
+    -0.217602
+  ],
+  "module": "PHASE12_YUKAWA_3D_GEOMETRY_STABILITY_v2",
+  "num_null": 2000,
+  "seed": 20251120,
+  "timestamp": "2025-11-27T07:34:52.121779"
+}
+
+==================================================================================
+                         REAL-UNIVERSE 3D GEOMETRY RECAP                          
+==================================================================================
+
+Basis coefficient rows for (me, tau, d):
+  row(me)   = [-4 -2 -1]
+  row(tau)  = [-4  1 -4]
+  row(d)    = [ 0 -4  4]
+
+Geometry parameters q (log10 λ-vector):
+  q1 = 0.993782
+  q2 = 0.962938
+  q3 = -0.217602
+
+Fit quality over all 9 Yukawas (real data):
+  RMS_all (dex)         : 0.006193
+  Max |residual| (dex)  : 0.012744
+  Max |integer coeff|   : 4
+
+Per-Yukawa residuals (geom - real):
+  name         (c1,c2,c3)      z_real       z_geom       resid
+  -----------  ----------    ----------   ----------   ----------
+  me_over_v    (-4,-2,-1)    -5.683401    -5.683402    -0.000001
+  mmu_over_v   (-1,-2, 2)    -3.367606    -3.354862     0.012744
+  mtau_over_v  (-4, 1,-4)    -2.141781    -2.141782    -0.000001
+  mb_over_v    (-2, 0,-1)    -1.770024    -1.769962     0.000062
+  mc_over_v    (-2,-1,-3)    -2.287532    -2.297696    -0.010164
+  mt_over_v    (-2, 1,-4)    -0.154056    -0.154218    -0.000162
+  md_over_v    ( 0,-4, 4)    -4.722162    -4.722160     0.000002
+  ms_over_v    (-3, 0, 2)    -3.422873    -3.416550     0.006323
+  mu_over_v    (-1,-4, 1)    -5.056852    -5.063136    -0.006284
+
+==================================================================================
+                        GEOMETRY SETUP FOR STABILITY SCAN                         
+==================================================================================
+
+  Coeff bound for other Yukawas      : ±4
+  Number of candidate coeff triples  : 728
+  Number of null universes           : 2000
+  Basis rows (me,tau,d) are held fixed to C_REAL.
+  q is held fixed to Q_REAL (no re-fit of q under jitter).
+
+==================================================================================
+                     NULL ENSEMBLE: JITTERED YUKAWA UNIVERSES                     
+==================================================================================
+
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+==================================================================================
+                NULL STATISTICS – RMS UNDER FIXED (C_fit, Q_REAL)                 
+==================================================================================
+
+  null RMS min / max        :  5.085601e-03 /  1.011769e-01
+  null RMS 25% / 50% / 75%  :  1.246403e-02 /  2.148627e-02 /  3.586863e-02
+  null RMS mean / std       :  2.574111e-02 /  1.618058e-02
+
+==================================================================================
+               COEFFICIENT-MATRIX STABILITY UNDER JITTER (FIXED q)                
+==================================================================================
+
+  exact matches (C_fit == C_REAL)  : 0 / 2000
+  p_exact_match                    : < 1/num_null
+  bits_exact_match (lower bound)   : ≥ 10.97 bits
+
+Per-Yukawa row stability (fraction of universes where row_i == row_i_real):
+  name         match_count   frac_match
+  -----------  -----------   ----------
+  me_over_v           2000       1.0000
+  mmu_over_v          2000       1.0000
+  mtau_over_v         2000       1.0000
+  mb_over_v            280       0.1400
+  mc_over_v            281       0.1405
+  mt_over_v            955       0.4775
+  md_over_v           2000       1.0000
+  ms_over_v            132       0.0660
+  mu_over_v            279       0.1395
+
+INTERPRETATION GUIDE:
+  • If p_exact_match ≈ O(1), the entire 3D integer pattern C_REAL is
+    extremely stable under realistic measurement errors; geometry must
+    aim for THIS specific C, not just 'some' nearby integer pattern.
+  • If p_exact_match is tiny, the full 9×3 pattern is brittle: small
+    jitters move you to different integer triples for at least one Yukawa.
+  • Per-row fractions show which Yukawa coefficients are most stable.
+
+==================================================================================
+                   GEOM_EVIDENCE UPDATE (3D STABILITY, FIXED q)                   
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['stability_p_exact_fixed_q']   = 0.0
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['stability_bits_exact_fixed_q'] = 10.965784284662087
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['stability_timestamp_fixed_q']  = 2025-11-27T07:34:52.121779
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['stability_sha256_fixed_q']    = b33755e256129529cb5105e195d398b319dc7e70365fe80d4fa2e025f804424f
+
+PHASE12_YUKAWA_3D_GEOMETRY_STABILITY_v2 COMPLETE
+==================================================================================
+==================================================================================
+ PHASE 12 – MODULE 3: YUKAWA 3D INTEGER GEOMETRY STABILITY EVIDENCE (FIXED q) 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.342419
+Run SHA256 payload    : b1888e5b7e70fc10245e5c96bfc3397d429f6c6c359ba7eb0b0678ea57c3e7c1
+
+Hash payload (key fields):
+{"RMS_real": 0.006193358, "bits_exact_lower_bound": 10.965784284662087, "module": "PHASE12_YUKAWA_3D_GEOMETRY_STABILITY_EVIDENCE_v1", "null_RMS_mean": 0.02574111, "null_RMS_std": 0.01618058, "num_null": 2000, "p_exact_upper_bound": 0.0005, "row_match_fracs": {"mb_over_v": 0.14, "mc_over_v": 0.1405, "md_over_v": 1.0, "me_over_v": 1.0, "mmu_over_v": 1.0, "ms_over_v": 0.066, "mt_over_v": 0.4775, "mtau_over_v": 1.0, "mu_over_v": 0.1395}, "timestamp": "2025-11-27T07:34:52.342419", "z_score_fixed_q": -1.2080995860469774}
+
+==================================================================================
+                    INPUT RECAP FROM STABILITY MODULE (v2)                  
+==================================================================================
+
+Fixed 3D geometry (from earlier modules):
+  Basis coefficient rows for (me, tau, d):
+    row(me)   = [-4 -2 -1]
+    row(tau)  = [-4  1 -4]
+    row(d)    = [ 0 -4  4]
+
+  Geometry parameters q (log10 λ-vector):
+    q1 = 0.993782
+    q2 = 0.962938
+    q3 = -0.217602
+
+Fit quality over all 9 Yukawas (real data, fixed 3D geometry):
+  RMS_all_real (dex)       :  6.193358e-03
+  null RMS mean (dex)      :  2.574111e-02
+  null RMS std  (dex)      :  1.618058e-02
+  z(real vs null mean)     : -1.21 σ
+
+==================================================================================
+          EXACT FULL-MATRIX STABILITY UNDER JITTER (FIXED q)                
+==================================================================================
+
+  num_null universes       : 2000
+  exact matches (C_fit == C_REAL)  : 0 / 2000
+  p_exact_match upper bound        : <  5.000000e-04
+  bits_exact_match lower bound     : ≥  10.97 bits
+
+Per-Yukawa row stability (fraction of universes where the row exactly
+matches the real-universe integer triple, with q held fixed):
+  name         frac_match
+  -----------  ----------
+  me_over_v      1.0000
+  mmu_over_v     1.0000
+  mtau_over_v    1.0000
+  mb_over_v      0.1400
+  mc_over_v      0.1405
+  mt_over_v      0.4775
+  md_over_v      1.0000
+  ms_over_v      0.0660
+  mu_over_v      0.1395
+
+==================================================================================
+                          INTERPRETATION (FIXED q)                           
+==================================================================================
+
+  • Under fixed q and small-integer rows:
+      – The *exact* 9×3 integer pattern never reappears in 2000 jittered
+        Yukawa universes, so as a *combinatorial object* it looks very
+        specific (≥ ~11 bits of 'uniqueness').
+      – However, this is heavily conditioned on choosing q = Q_REAL and
+        on the fact that the (-4,4,3) triple is already baked into the
+        basis rows. It is not an independent new data point.
+
+  • Row-level stability:
+      – me, mmu, mtau, md rows are extremely stable (frac_match ≈ 1).
+      – mb, mc, ms, mu, mt rows are only moderately stable; their best
+        integer triples change under jitter in a non-negligible fraction
+        of universes.
+
+  • Combined with the PHASE 11 nullscan (where q and rows were both
+    re-fit), the picture is:
+      – The 3D integer geometry is a *pretty decent* encoding once we
+        already know the me–mtau–md (-4,4,3) lock.
+      – But as far as *independent evidence* goes, it is derivative of
+        that primary lock, not a separate new constraint.
+
+Verdict for evidence budget:
+  → We DO NOT treat the exact 9×3 integer pattern as a new lock.
+  → We keep the me–mtau–md (-4,4,3) triple as the only Yukawa lock.
+  → The 3D geometry and its stability remain useful *shape information*
+    for building candidate geometries, but they do not add bits.
+
+==================================================================================
+                   GEOM_EVIDENCE UPDATE (STABILITY NOTE)                     
+==================================================================================
+
+  GEOM_EVIDENCE['yukawa_3d_integer_geometry']['stability_fixed_q'] = {
+      'num_null'        : 2000,
+      'p_exact_upper'   :  5.000000e-04,
+      'bits_exact_lower':  10.965784,
+      'z_RMS_fixed_q'   : -1.2081,
+      'timestamp'       : '2025-11-27T07:34:52.342419',
+      'sha256'          : 'b1888e5b7e70fc10245e5c96bfc3397d429f6c6c359ba7eb0b0678ea57c3e7c1',
+      'note'            : (
+          'Full 9×3 integer pattern never reappears under jitter with '
+          'fixed q; interesting combinatorially, but derivative of the '
+          '(-4,4,3) lock and not treated as a new primary lock.'
+      ),
+  }
+
+PHASE12_YUKAWA_3D_GEOMETRY_STABILITY_EVIDENCE_v1 COMPLETE
+==================================================================================
+==================================================================================
+ PHASE 13 – MODULE 1: GLOBAL GEOMETRY EVIDENCE V3 – UPDATED LOCK CONTRACT 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.344030
+Run SHA256 payload    : 67b457b5fe55ce6931b16a8e1d4f54ec5dc7d58354cf0211b34965ee80683ab9
+
+Hash payload (key fields):
+{"GLOBAL_LOCKS_v3": {"combined": {"bits_conservative": 19.77, "bits_optimistic": 26.58, "description": "Total bits any future geometry must explain without cheating: DNA + Yukawa triple; supporting structures (2D/3D geometries) guide model-building but do not increase this total.", "status": "global_contract"}, "dna": {"description": "DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls.", "effective_bits": 12.29, "status": "primary_lock"}, "yukawa": {"supporting": {"coeff_families_2d": {"bits": 1.3437324652057108, "description": "Coefficient families (e.g. mmu/ms sharing (3,-5)); statistically ordinary (\u22481.34 bits) under jitter null.", "p_null": 0.394, "status": "killed"}, "integer_3d_geometry": {"bits": 5.965784284662087, "description": "3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS\u22480.0062 dex, p\u22480.016 (\u22486 bits). Moderately surprising but treated as derivative, not a new lock.", "p_null": 0.016, "status": "supporting_structure"}, "integer_3d_stability_fixed_q": {"bits_exact_lower": 10.965784284662087, "description": "Fixed-q 3D geometry integer pattern never reappears in 2000 jittered universes; \u2265~11 bits of combinatorial specificity, but heavily conditioned on the known triple and on fixing q, so not counted as an independent lock.", "p_exact_upper": 0.0005, "status": "supporting_structure"}, "minimal_2d_integer_geometry": {"bits": 3.0350469470992008, "description": "2D small-integer geometry for 9 Yukawas; RMS\u22480.027 dex, p\u22480.122 (~3 bits). Interesting but NOT promoted to a separate lock.", "p_null": 0.122, "status": "supporting_structure"}}, "triple_me_tau_d": {"bits_fixed_error_model": 14.29, "bits_global_error_model": 7.48, "description": "me\u2013mtau\u2013md (-4,4,3) triple in log10(y/v); \u22487.5 bits under global search, \u224814.3 bits when treated as a fixed triple under a realistic error model.", "status": "primary_lock"}}}, "module": "PHASE13_GLOBAL_GEOMETRY_EVIDENCE_v3", "timestamp": "2025-11-27T07:34:52.344030"}
+
+==================================================================================
+                          PRIMARY LOCKS (COUNTED BITS)                      
+==================================================================================
+
+DNA sector:
+  • Effective DNA bits   : 12.29
+  • Status               : PRIMARY_LOCK
+  • Content              : backbone rows, lock families, all-four-zero rails.
+
+Yukawa sector (me–mtau–md triple):
+  • Global 3-term search bits     :  7.48
+  • Fixed triple error-model bits : 14.29
+  • Status                        : PRIMARY_LOCK
+  • Content                       : (-4,4,3) relation in log10-space.
+
+==================================================================================
+                 SUPPORTING / KILLED STRUCTURES (NOT LOCKS)                 
+==================================================================================
+
+Yukawa 2D minimal integer geometry (9-point):
+  • p_null(RMS_2D <= real)   :  1.220e-01
+  • bits                     :  3.04
+  • Status                   : SUPPORTING_STRUCTURE (NOT a lock)
+
+Yukawa 2D coefficient families (mmu/ms sharing (3,-5)): 
+  • p_null(families >= real) :  3.940e-01
+  • bits                     :  1.34
+  • Status                   : KILLED (ordinary)
+
+Yukawa 3D integer geometry (re-fit under jitter):
+  • p_null(RMS_3D <= real)   :  1.600e-02
+  • bits                     :  5.97
+  • Status                   : SUPPORTING_STRUCTURE
+  • Note                     : Moderately surprising, but built on the
+                                existing (-4,4,3) lock; not independent.
+
+Yukawa 3D integer pattern stability (fixed q):
+  • p_exact_match  <  5.000e-04
+  • bits_exact ≥     10.97
+  • Status          : SUPPORTING_STRUCTURE (combinatorial specificity)
+  • Note            : Full 9×3 pattern never reappears under jitter, but
+                      this is conditional on q and the known triple.
+
+==================================================================================
+                          UPDATED GLOBAL LOCK CONTRACT                       
+==================================================================================
+
+Effective bits that ANY serious geometry must explain (without tuning):
+  • DNA effective bits                 : 12.29
+  • Yukawa bits (conservative, global):  7.48
+      → Combined (conservative)       : 19.77 bits
+
+  • Yukawa bits (optimistic, fixed)   : 14.29
+      → Combined (optimistic)         : 26.58 bits
+
+Interpretation:
+  → PRIMARY LOCKS:
+       1) DNA backbone / lock structure (~12 bits).
+       2) me–mtau–md (-4,4,3) Yukawa triple (7–14 bits, depending on
+          whether you use the global search or fixed-triple view).
+
+  → SUPPORTING STRUCTURE (NO EXTRA BITS):
+       • 2D and 3D small-integer geometries for the Yukawas.
+       • Coefficient-family patterns, 3D stability patterns, MDL gains.
+     These guide the SHAPE of candidate geometries but do NOT raise the
+     required bit budget above ~20–27 bits total.
+
+==================================================================================
+                       GEOM_EVIDENCE['GLOBAL_LOCKS_v3']                      
+==================================================================================
+
+GLOBAL_LOCKS_v3 = 
+{
+  "dna": {
+    "effective_bits": 12.29,
+    "status": "primary_lock",
+    "description": "DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls."
+  },
+  "yukawa": {
+    "triple_me_tau_d": {
+      "bits_global_error_model": 7.48,
+      "bits_fixed_error_model": 14.29,
+      "status": "primary_lock",
+      "description": "me\u2013mtau\u2013md (-4,4,3) triple in log10(y/v); \u22487.5 bits under global search, \u224814.3 bits when treated as a fixed triple under a realistic error model."
+    },
+    "supporting": {
+      "minimal_2d_integer_geometry": {
+        "p_null": 0.122,
+        "bits": 3.0350469470992008,
+        "status": "supporting_structure",
+        "description": "2D small-integer geometry for 9 Yukawas; RMS\u22480.027 dex, p\u22480.122 (~3 bits). Interesting but NOT promoted to a separate lock."
+      },
+      "coeff_families_2d": {
+        "p_null": 0.394,
+        "bits": 1.3437324652057108,
+        "status": "killed",
+        "description": "Coefficient families (e.g. mmu/ms sharing (3,-5)); statistically ordinary (\u22481.34 bits) under jitter null."
+      },
+      "integer_3d_geometry": {
+        "p_null": 0.016,
+        "bits": 5.965784284662087,
+        "status": "supporting_structure",
+        "description": "3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS\u22480.0062 dex, p\u22480.016 (\u22486 bits). Moderately surprising but treated as derivative, not a new lock."
+      },
+      "integer_3d_stability_fixed_q": {
+        "p_exact_upper": 0.0005,
+        "bits_exact_lower": 10.965784284662087,
+        "status": "supporting_structure",
+        "description": "Fixed-q 3D geometry integer pattern never reappears in 2000 jittered universes; \u2265~11 bits of combinatorial specificity, but heavily conditioned on the known triple and on fixing q, so not counted as an independent lock."
+      }
+    }
+  },
+  "combined": {
+    "bits_conservative": 19.77,
+    "bits_optimistic": 26.58,
+    "status": "global_contract",
+    "description": "Total bits any future geometry must explain without cheating: DNA + Yukawa triple; supporting structures (2D/3D geometries) guide model-building but do not increase this total."
+  }
+}
+
+PHASE13_GLOBAL_GEOMETRY_EVIDENCE_v3 COMPLETE
+==================================================================================
+  ... 200/2000 null universes processed
+  ... 400/2000 null universes processed
+  ... 600/2000 null universes processed
+  ... 800/2000 null universes processed
+  ... 1000/2000 null universes processed
+  ... 1200/2000 null universes processed
+  ... 1400/2000 null universes processed
+  ... 1600/2000 null universes processed
+  ... 1800/2000 null universes processed
+  ... 2000/2000 null universes processed
+==================================================================================
+ PHASE 13 – MODULE 2: YUKAWA 3D q-VECTOR INTEGER-RELATION NULLSCAN 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:52.346865
+Run SHA256 payload    : 344b49213679817877f70fd07e25cac31989ecd331adc6998797b842e6dacc25
+
+Hash payload (key fields):
+{"C_coeff": 6, "Q_real": [0.993782, 0.962938, -0.217602], "module": "PHASE13_YUKAWA_Q_INTREL_NULLSCAN_v1", "null_stats": {"max": 0.01656416400256422, "mean": 0.004833444101858364, "min": 1.0605918654427171e-06, "q25": 0.00190436957143289, "q50": 0.004154900214465851, "q75": 0.0072601176666656775, "std": 0.003558605666764765}, "num_null": 2000, "real_best": {"a": -3, "b": 4, "best_resid": 2.0000000003905782e-06, "c": 4, "sum_val": -2.0000000003905782e-06}, "seed": 20251120, "significance": {"bits": 10.965784284662087, "p_emp": 0.0005, "z_score": -1.3576789771850117}, "timestamp": "2025-11-27T07:34:52.346865"}
+
+==================================================================================
+                         REAL-UNIVERSE q-VECTOR INPUT                     
+==================================================================================
+
+Q_REAL (log10 λ) = (+0.993782, +0.962938, -0.217602)
+
+Coefficient bound C_coeff : ±6
+Search space (a,b,c): primitive triples with at least two non-zero entries.
+
+==================================================================================
+                     BEST INTEGER RELATION FOR REAL q                     
+==================================================================================
+
+  best_resid |a q1 + b q2 + c q3| :  2.000000e-06
+  best (a,b,c)                    : (-3, 4, 4)
+  sum_val (signed)                : -2.000000e-06
+
+  Interpretation:
+    • If best_resid is extremely tiny compared to typical null values,
+      then q sits unusually close to a small-integer plane.
+    • If best_resid is typical under the null, q has no extra
+      small-integer structure beyond what we already know.
+
+==================================================================================
+                   NULL ENSEMBLE – BEST RELATIONS FOR q_null             
+==================================================================================
+
+Null stats for best_resid(q_null):
+  null best_resid min / max       :  1.060592e-06 /  1.656416e-02
+  null best_resid 25% / 50% / 75% :  1.904370e-03 /  4.154900e-03 /  7.260118e-03
+  null best_resid mean / std      :  4.833444e-03 /  3.558606e-03
+
+==================================================================================
+                  SIGNIFICANCE OF INTEGER-RELATION COMPRESSION           
+==================================================================================
+
+  real best_resid                 :  2.000000e-06
+  z(real vs null mean)            : -1.36 σ
+  P_null(best_resid <= real)      : 0.000500
+  bits ≈ -log2(p_null)            : 10.97 bits
+
+Interpretation guide:
+  • If p_null is O(0.1–1), the q-vector small-integer relation is
+    statistically ordinary; we DO NOT promote it to a new lock.
+  • If p_null is tiny (e.g. ≲ 0.01), then the geometry parameters
+    themselves sit on an unusually clean small-integer relation.
+    Even then, this is likely SUPPORTING structure, not an extra
+    primary lock, because q is derived from the Yukawa triple.
+
+==================================================================================
+                 GEOM_EVIDENCE UPDATE SUGGESTION (PSEUDOCODE)            
+==================================================================================
+
+Suggested bookkeeping (human-level, not executed here):
+  GEOM_EVIDENCE['yukawa_q_intrel'] = {
+      'p_null'   : p_emp,
+      'bits'     : bits,
+      'z_score'  : z_score,
+      'timestamp': timestamp,
+      'sha256'   : sha256,
+      'status'   : 'supporting_structure' if p_emp not tiny else
+                   'maybe_supporting_lock',
+      'note'     : 'Integer relations among q-vector (3D geometry
+                   parameters); derivative of Yukawa triple.'
+  }
+
+PHASE13_YUKAWA_Q_INTREL_NULLSCAN_v1 COMPLETE
+==================================================================================
+==================================================================================
+ PHASE 13 – MODULE 3: YUKAWA 3D q-VECTOR INTEGER-RELATION EVIDENCE 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:56.376416
+Run SHA256 payload    : 18aa374e91371d5129c5d2a2e80a77640ca378bb153fa5b360a11e387f00182a
+
+Hash payload (key fields):
+{"classification": {"reason": "q-vector integer relation (-3,4,4) gives ~11 bits (p\u22480.0005), but q is derived from the same Yukawa dataset and the (-4,4,3) triple lock; it is treated as supporting, not an independent primary lock.", "status": "supporting_structure"}, "module": "PHASE13_YUKAWA_Q_INTREL_EVIDENCE_v1", "q_intrel": {"C_coeff": 6, "Q_real": [0.993782, 0.962938, -0.217602], "best_relation": {"a": -3, "b": 4, "best_resid": 2.0000000003905782e-06, "c": 4, "sum_val": -2.0000000003905782e-06}, "null_stats": {"max": 0.01656416400256422, "mean": 0.004833444101858364, "min": 1.0605918654427171e-06, "q25": 0.00190436957143289, "q50": 0.004154900214465851, "q75": 0.0072601176666656775, "std": 0.003558605666764765}, "num_null": 2000, "significance": {"bits": 10.965784284662087, "p_emp": 0.0005, "z_score": -1.3576789771850117}}, "timestamp": "2025-11-27T07:34:56.376416"}
+
+==================================================================================
+                          INPUT RECAP FROM NULLSCAN                      
+==================================================================================
+
+Q_REAL (log10 λ) = (+0.993782, +0.962938, -0.217602)
+
+Best small-integer relation (from PHASE13_M2):
+  (a,b,c)                  = (-3, 4, 4)
+  a q1 + b q2 + c q3       = -2.000000e-06
+  best_resid |sum|         =  2.000000e-06
+
+Null stats for best_resid(q_null):
+  min / max                :  1.060592e-06 /  1.656416e-02
+  25% / 50% / 75%          :  1.904370e-03 /  4.154900e-03 /  7.260118e-03
+  mean / std               :  4.833444e-03 /  3.558606e-03
+
+==================================================================================
+                     CONVERSION TO BITS OF SURPRISE                       
+==================================================================================
+
+  P_null(best_resid <= real) : 0.000500
+  z(real vs null mean)       : -1.36 σ
+  bits ≈ -log2(p_null)       : 10.97 bits
+
+==================================================================================
+                  INTERPRETATION – DOES THIS COUNT AS A LOCK?             
+==================================================================================
+
+Qualitative comparison:
+  • q-intrel bits             ≈ 10.97 bits (p ≈ 5×10^-4).
+  • Yukawa triple (global)    ≈ 7.5 bits.
+  • Yukawa triple (fixed)     ≈ 14.3 bits.
+  • DNA backbone/locks        ≈ 12.3 bits.
+
+Key conceptual point:
+  • The q-vector is NOT independent data; it is computed from the
+    Yukawa logs and the chosen C_REAL matrix, which already encodes
+    the (-4,4,3) triple and other small-integer structure.
+  • A very clean relation (-3,4,4)·q ≈ 0 therefore reflects additional
+    *shape* inside the same sector, not a new independent anomaly.
+
+Classification for evidence budget:
+  → Status: SUPPORTING_STRUCTURE (NOT a primary lock).
+  → We do NOT add these ~11 bits on top of the existing Yukawa triple
+    bits; that would double-count the same underlying information.
+
+==================================================================================
+                     GEOM_EVIDENCE UPDATE (SUGGESTED)                     
+==================================================================================
+
+Suggested entry (conceptual, not executed here):
+  GEOM_EVIDENCE['yukawa_q_intrel'] = {
+      'p_null'   : 0.0005,
+      'bits'     : 10.965784284662087,
+      'z_score'  : -1.3576789771850117,
+      'timestamp': '2025-11-27T07:34:56.376416',
+      'sha256'   : '18aa374e91371d5129c5d2a2e80a77640ca378bb153fa5b360a11e387f00182a',
+      'status'   : 'supporting_structure',
+      'description': (
+          'Integer relation among q-vector (3D geometry parameters); '
+          'moderately strong (~11 bits) but derived from the same '
+          'Yukawa triple lock, so not counted as an independent lock.'
+      ),
+  }
+
+PHASE13_YUKAWA_Q_INTREL_EVIDENCE_v1 COMPLETE
+==================================================================================
+  ... 200/2000 null universes processed
+  ... 400/2000 null universes processed
+  ... 600/2000 null universes processed
+  ... 800/2000 null universes processed
+  ... 1000/2000 null universes processed
+  ... 1200/2000 null universes processed
+  ... 1400/2000 null universes processed
+  ... 1600/2000 null universes processed
+  ... 1800/2000 null universes processed
+  ... 2000/2000 null universes processed
+==================================================================================
+ PHASE 14 – MODULE 1: YUKAWA SECONDARY 3-TERM INTEGER-RELATION NULLSCAN 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:34:56.380126
+Run SHA256 payload    : b1726358f54bddd459df1cf791dbecce2ef81bce5ca25557ce86f6883f89e3ca
+
+Hash payload (key fields):
+{"C_coeff": 4, "module": "PHASE14_YUKAWA_SECONDARY_TRIPLE_NULLSCAN_v1", "null_stats": {"max": 0.0063675957378350745, "mean": 0.0009882643293344549, "min": 1.6641100941683362e-07, "q25": 0.00031751459607182175, "q50": 0.0007370107582023167, "q75": 0.001367496208757757, "std": 0.0009098886734551946}, "num_null": 2000, "primary_triple_excluded": {"indices": [0, 2, 6], "names": ["me_over_v", "mtau_over_v", "md_over_v"]}, "real_best_secondary": {"a": -1, "b": 3, "c": -2, "indices": [5, 7, 8], "names": ["mt_over_v", "ms_over_v", "mu_over_v"], "resid": 0.0008590000000001652, "sum_val": -0.0008590000000001652}, "seed": 20251120, "significance": {"bits": 0.8300749985576876, "p_emp": 0.5625, "z_score": -0.1420660934742969}, "timestamp": "2025-11-27T07:34:56.380126", "top10_secondary": [{"a": -1, "b": 3, "c": -2, "indices": [5, 7, 8], "names": ["mt_over_v", "ms_over_v", "mu_over_v"], "resid": 0.0008590000000001652, "sum_val": -0.0008590000000001652}, {"a": -1, "b": 3, "c": -1, "indices": [2, 4, 6], "names": ["mtau_over_v", "mc_over_v", "md_over_v"], "resid": 0.001346999999999987, "sum_val": 0.001346999999999987}, {"a": -1, "b": 1, "c": 2, "indices": [0, 2, 3], "names": ["me_over_v", "mtau_over_v", "mb_over_v"], "resid": 0.0015719999999999068, "sum_val": 0.0015719999999999068}, {"a": -2, "b": 3, "c": 2, "indices": [1, 2, 5], "names": ["mmu_over_v", "mtau_over_v", "mt_over_v"], "resid": 0.001756999999999953, "sum_val": 0.001756999999999953}, {"a": -2, "b": -2, "c": 3, "indices": [1, 3, 7], "names": ["mmu_over_v", "mb_over_v", "ms_over_v"], "resid": 0.006640999999998343, "sum_val": 0.006640999999998343}, {"a": -2, "b": -1, "c": 1, "indices": [4, 5, 6], "names": ["mc_over_v", "mt_over_v", "md_over_v"], "resid": 0.00695800000000002, "sum_val": 0.00695800000000002}, {"a": -1, "b": 1, "c": -1, "indices": [2, 4, 5], "names": ["mtau_over_v", "mc_over_v", "mt_over_v"], "resid": 0.008304999999999813, "sum_val": 0.008304999999999813}, {"a": -3, "b": 1, "c": 4, "indices": [0, 1, 7], "names": ["me_over_v", "mmu_over_v", "ms_over_v"], "resid": 0.008895000000000763, "sum_val": -0.008895000000000763}, {"a": -1, "b": -2, "c": 3, "indices": [0, 4, 7], "names": ["me_over_v", "mc_over_v", "ms_over_v"], "resid": 0.010153999999999996, "sum_val": -0.010153999999999996}, {"a": -1, "b": 4, "c": 1, "indices": [0, 5, 8], "names": ["me_over_v", "mt_over_v", "mu_over_v"], "resid": 0.010324999999999918, "sum_val": 0.010324999999999918}]}
+
+==================================================================================
+                       SETUP AND EXCLUDED PRIMARY TRIPLE                  
+==================================================================================
+
+Coefficient bound C           : 4
+Number of Yukawas             : 9
+Number of index triples total : 84
+Number of secondary triples   : 83
+Number of coeff triples       : 572
+Number of null universes      : 2000
+
+Primary (EXCLUDED) triple:
+  indices : [0, 2, 6]
+  names   : ['me_over_v', 'mtau_over_v', 'md_over_v']
+
+==================================================================================
+                REAL-UNIVERSE BEST *SECONDARY* 3-TERM RELATION           
+==================================================================================
+
+Best secondary triple indices : (5, 7, 8)
+Best secondary triple names   : ('mt_over_v', 'ms_over_v', 'mu_over_v')
+Best coefficients (a,b,c)     : (-1, 3, -2)
+Best residual |sum|           :  8.590000e-04
+Signed sum a z_i + b z_j + c z_k: -8.590000e-04
+
+Top 10 secondary triples by residual:
+  rank  resid        (i,j,k)      (names)                      (a,b,c)
+  ----  -----------  -----------  ---------------------------  -----------
+     1   8.590000e-04  (5, 7, 8)  ('mt_over_v', 'ms_over_v', 'mu_over_v')  (-1,+3,-2)
+     2   1.347000e-03  (2, 4, 6)  ('mtau_over_v', 'mc_over_v', 'md_over_v')  (-1,+3,-1)
+     3   1.572000e-03  (0, 2, 3)  ('me_over_v', 'mtau_over_v', 'mb_over_v')  (-1,+1,+2)
+     4   1.757000e-03  (1, 2, 5)  ('mmu_over_v', 'mtau_over_v', 'mt_over_v')  (-2,+3,+2)
+     5   6.641000e-03  (1, 3, 7)  ('mmu_over_v', 'mb_over_v', 'ms_over_v')  (-2,-2,+3)
+     6   6.958000e-03  (4, 5, 6)  ('mc_over_v', 'mt_over_v', 'md_over_v')  (-2,-1,+1)
+     7   8.305000e-03  (2, 4, 5)  ('mtau_over_v', 'mc_over_v', 'mt_over_v')  (-1,+1,-1)
+     8   8.895000e-03  (0, 1, 7)  ('me_over_v', 'mmu_over_v', 'ms_over_v')  (-3,+1,+4)
+     9   1.015400e-02  (0, 4, 7)  ('me_over_v', 'mc_over_v', 'ms_over_v')  (-1,-2,+3)
+    10   1.032500e-02  (0, 5, 8)  ('me_over_v', 'mt_over_v', 'mu_over_v')  (-1,+4,+1)
+
+==================================================================================
+                 NULL ENSEMBLE – BEST SECONDARY RESIDUALS                
+==================================================================================
+
+  null best_resid min / max       :  1.664110e-07 /  6.367596e-03
+  null best_resid 25% / 50% / 75% :  3.175146e-04 /  7.370108e-04 /  1.367496e-03
+  null best_resid mean / std      :  9.882643e-04 /  9.098887e-04
+
+==================================================================================
+                 SIGNIFICANCE OF SECONDARY-TRIPLE COMPRESSION             
+==================================================================================
+
+  real best_resid (secondary)     :  8.590000e-04
+  z(real vs null mean)            : -0.14 σ
+  P_null(best_resid <= real)      : 0.562500
+  bits ≈ -log2(p_null)            : 0.83 bits
+
+==================================================================================
+                           INTERPRETATION GUIDE                           
+==================================================================================
+
+If bits ≲ 3    : secondary structure is ordinary noise.
+If bits ~ 3–7  : mildly interesting, but not a primary lock.
+If bits ≳ 10   : strong secondary lock (would be a big deal).
+
+Remember:
+  • This search EXCLUDES the known me–mtau–md triple.
+  • Any strong secondary triple would represent a *new* constraint
+    on the Yukawa sector that a geometry would have to explain.
+  • If p_null is not tiny, we keep the me–mtau–md triple as the ONLY
+    Yukawa primary lock and treat other patterns as noise.
+
+PHASE14_YUKAWA_SECONDARY_TRIPLE_NULLSCAN_v1 COMPLETE
+==================================================================================
+==================================================================================
+ PHASE 14 – MODULE 2: YUKAWA SECONDARY 3-TERM INTEGER-RELATION EVIDENCE 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.739864
+Run SHA256 payload    : 97948fd34ad65d6da8e6d0d5bcf2ae5cd10e2fdc572a895cb740aa625aa474df
+
+Hash payload (key fields):
+{"C_coeff": 4, "best_secondary": {"a": -1, "b": 3, "c": -2, "indices": [5, 7, 8], "names": ["mt_over_v", "ms_over_v", "mu_over_v"], "resid": 0.0008590000000001652, "sum_val": -0.0008590000000001652}, "classification": {"reason": "Best secondary triple (mt, ms, mu) with (a,b,c)=(-1,3,-2) has p\u22480.5625 (\u22480.83 bits); completely ordinary under the error-model null. No second Yukawa lock.", "status": "killed"}, "module": "PHASE14_YUKAWA_SECONDARY_TRIPLE_EVIDENCE_v1", "null_stats": {"max": 0.0063675957378350745, "mean": 0.0009882643293344549, "min": 1.6641100941683362e-07, "q25": 0.00031751459607182175, "q50": 0.0007370107582023167, "q75": 0.001367496208757757, "std": 0.0009098886734551946}, "num_null": 2000, "primary_triple_excluded": {"indices": [0, 2, 6], "names": ["me_over_v", "mtau_over_v", "md_over_v"]}, "significance": {"bits": 0.8300749985576876, "p_emp": 0.5625, "z_score": -0.1420660934742969}, "timestamp": "2025-11-27T07:35:14.739864"}
+
+==================================================================================
+                       INPUT RECAP FROM NULLSCAN (M1)                      
+==================================================================================
+
+Excluded PRIMARY triple (already-known Yukawa lock):
+  indices : [0, 2, 6]
+  names   : ['me_over_v', 'mtau_over_v', 'md_over_v']
+
+Best *secondary* triple relation (real universe):
+  indices      : [5, 7, 8]
+  names        : ['mt_over_v', 'ms_over_v', 'mu_over_v']
+  coeffs (a,b,c): (-1, 3, -2)
+  best_resid    :  8.590000e-04
+  signed sum    : -8.590000e-04
+
+==================================================================================
+                    NULL STATISTICS – SECONDARY TRIPLES                    
+==================================================================================
+
+  null best_resid min / max       :  1.664110e-07 /  6.367596e-03
+  null best_resid 25% / 50% / 75% :  3.175146e-04 /  7.370108e-04 /  1.367496e-03
+  null best_resid mean / std      :  9.882643e-04 /  9.098887e-04
+
+==================================================================================
+             SIGNIFICANCE OF SECONDARY-TRIPLE COMPRESSION                  
+==================================================================================
+
+  real best_resid (secondary)     :  8.590000e-04
+  z(real vs null mean)            : -0.14 σ
+  P_null(best_resid <= real)      : 0.562500
+  bits ≈ -log2(p_null)            : 0.83 bits
+
+==================================================================================
+                         INTERPRETATION & VERDICT                          
+==================================================================================
+
+Classification for secondary triples:
+  • bits ≲ 3    → ordinary noise (KILLED).
+  • bits ~ 3–7  → mildly interesting, but not a primary lock.
+  • bits ≳ 10   → strong secondary lock (would be a big deal).
+
+Here we found:
+  → bits_secondary ≈ 0.83 (p ≈ 0.562) ⇒ ORDINARY noise.
+
+Implication for geometry hunting:
+  • There is NO statistically significant second Yukawa triple lock.
+  • The ONLY Yukawa primary lock remains:
+        me_over_v – mtau_over_v – md_over_v with (a,b,c)=(-4,4,3).
+  • Triples like (mt, ms, mu) behave exactly like random noise under 
+    the same error-model null.
+
+==================================================================================
+                     GEOM_EVIDENCE UPDATE (IN-MEMORY)                      
+==================================================================================
+
+GEOM_EVIDENCE not found; creating new GEOM_EVIDENCE dict.
+GEOM_EVIDENCE['yukawa_secondary_triple'] =
+{
+  "p_null": 0.5625,
+  "bits": 0.8300749985576876,
+  "z_score": -0.1420660934742969,
+  "C_coeff": 4,
+  "num_null": 2000,
+  "primary_excluded": {
+    "indices": [
+      0,
+      2,
+      6
+    ],
+    "names": [
+      "me_over_v",
+      "mtau_over_v",
+      "md_over_v"
+    ]
+  },
+  "best_secondary": {
+    "indices": [
+      5,
+      7,
+      8
+    ],
+    "names": [
+      "mt_over_v",
+      "ms_over_v",
+      "mu_over_v"
+    ],
+    "a": -1,
+    "b": 3,
+    "c": -2,
+    "resid": 0.0008590000000001652,
+    "sum_val": -0.0008590000000001652
+  },
+  "null_stats": {
+    "min": 1.6641100941683362e-07,
+    "q25": 0.00031751459607182175,
+    "q50": 0.0007370107582023167,
+    "q75": 0.001367496208757757,
+    "max": 0.0063675957378350745,
+    "mean": 0.0009882643293344549,
+    "std": 0.0009098886734551946
+  },
+  "timestamp": "2025-11-27T07:35:14.739864",
+  "sha256": "97948fd34ad65d6da8e6d0d5bcf2ae5cd10e2fdc572a895cb740aa625aa474df",
+  "status": "killed",
+  "description": "Secondary 3-term integer relations among Yukawas with C=4, explicitly excluding (me, mtau, md). Best triple is (mt, ms, mu) with (a,b,c)=(-1,3,-2), p\u22480.562 (\u22480.83 bits) \u21d2 no second Yukawa lock."
+}
+
+PHASE14_YUKAWA_SECONDARY_TRIPLE_EVIDENCE_v1 COMPLETE
+==================================================================================
+==================================================================================
+ PHASE 15 – MODULE 1: GLOBAL GEOMETRY SEARCH BLUEPRINT v1 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.743011
+Run SHA256 payload    : b25ca766883d59f58115713aed7e86027912334da84ae16b2935dbf4cb9bb6d8
+
+Hash payload (key fields):
+{"combined_contract": {"bits_conservative": 19.77, "bits_optimistic": 26.58, "description": "Total bits any future geometry must explain without cheating: DNA backbone/locks (~12 bits) plus the me\u2013mtau\u2013md (-4,4,3) Yukawa triple (7\u201314 bits depending on how we count). All 2D/3D Yukawa geometries, q-relations, and secondary triples are treated as supporting shape, not extra bits.", "status": "global_contract"}, "module": "PHASE15_GLOBAL_GEOMETRY_SEARCH_BLUEPRINT_v1", "primary_locks": {"dna": {"description": "DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls. This is one full sector-level lock.", "effective_bits": 12.29, "sector": "DNA", "status": "primary_lock"}, "yukawa_triple": {"bits_fixed_error_model": 14.29, "bits_global_error_model": 7.48, "description": "me\u2013mtau\u2013md (-4,4,3) triple in log10(y/v); \u22487.5 bits when treated as best global 3-term relation under an error-model null, and \u224814.3 bits when treated as a fixed triple under realistic errors.", "sector": "Yukawa", "status": "primary_lock", "subsector": "me_mtau_md_triple"}}, "search_guidelines": {"can_use_as_hints": ["3D small-integer geometry for Yukawas (charges / exponents).", "q-vector integer relation (-3,4,4)\u00b7q\u22480 as a hint about internal geometry.", "Stability patterns of the 3D integer charges under jitter."], "future_directions": ["Design explicit toy geometries (e.g. charge lattices, multi-scale FN-like models, discrete symmetry structures) that reproduce BOTH primary locks.", "Test any proposed geometry with the lock-checkers: does it hit DNA + Yukawa triple at the measured precision without extra free tuning parameters?", "If a future geometry also predicts some of the supporting structures (2D/3D integer patterns, q-relations) naturally, that is a bonus, but it does not raise the required bit budget beyond ~20\u201327 bits."], "must_explain": ["DNA backbone and lock-family architecture (12.29 bits).", "me\u2013mtau\u2013md (-4,4,3) triple in log10(y/v) (7\u201314 bits of structure)."], "must_not_do": ["Do NOT hardcode the (-4,4,3) triple or DNA locks as input parameters; they must arise from the geometry.", "Do NOT count 2D/3D Yukawa geometries, q-relations, or secondary triples as independent evidence; they are derivative of the primary locks."]}, "timestamp": "2025-11-27T07:35:14.743011", "yukawa_supporting": {"coeff_families_2d": {"bits": 1.3437324652057108, "description": "Coefficient families in 2D geometry (e.g. mmu/ms sharing (3,-5)); statistically ordinary (~1.34 bits) under jitter null.", "p_null": 0.394, "status": "killed"}, "integer_3d_geometry": {"bits": 5.965784284662087, "description": "3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS_all\u22480.0062 dex, p\u22480.016 (~6 bits). Moderately surprising, but built on the primary triple.", "p_null": 0.016, "status": "supporting_structure"}, "integer_3d_stability_fixed_q": {"bits_exact_lower": 10.965784284662087, "description": "With q fixed, the full 9\u00d73 integer pattern never reappears in 2000 jittered universes (\u2265~11 bits of combinatorial specificity), but this is heavily conditioned on the primary triple and fixed q, so not an independent lock.", "p_exact_upper": 0.0005, "status": "supporting_structure"}, "minimal_2d_integer_geometry": {"bits": 3.0350469470992008, "description": "2D small-integer geometry for all 9 Yukawas; RMS\u22480.0268 dex, p\u22480.122 (~3 bits). Interesting but not a separate lock.", "p_null": 0.122, "status": "supporting_structure"}, "yukawa_q_intrel": {"bits": 10.965784284662087, "description": "Integer relation among the 3D geometry q-vector: (-3,4,4)\u00b7q \u2248 0 with ~11 bits (p\u22485\u00d710^-4). Derived from the same Yukawa dataset and triple; treated as supporting shape, not a new lock.", "p_null": 0.0005, "status": "supporting_structure"}, "yukawa_secondary_triple": {"bits": 0.8300749985576876, "description": "Global search over all 3-term integer relations with C=4, explicitly excluding (me,mtau,md). Best secondary triple is (mt,ms,mu) with (a,b,c)=(-1,3,-2), p\u22480.562 (~0.83 bits). No second Yukawa lock.", "p_null": 0.5625, "status": "killed"}}}
+
+==================================================================================
+                             PRIMARY LOCKS                                 
+==================================================================================
+
+DNA sector:
+  • Status         : primary_lock
+  • Effective bits : 12.29
+  • Description    : DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls. This is one full sector-level lock.
+
+Yukawa sector (me–mtau–md triple):
+  • Status           : primary_lock
+  • Bits (global)    : 7.48
+  • Bits (fixed)     : 14.29
+  • Description      : me–mtau–md (-4,4,3) triple in log10(y/v); ≈7.5 bits when treated as best global 3-term relation under an error-model null, and ≈14.3 bits when treated as a fixed triple under realistic errors.
+
+==================================================================================
+                 SUPPORTING STRUCTURES (NOT NEW LOCKS)                     
+==================================================================================
+
+- minimal_2d_integer_geometry:
+    status : supporting_structure
+    p_null : 0.122
+    bits   : 3.04
+    note   : 2D small-integer geometry for all 9 Yukawas; RMS≈0.0268 dex, p≈0.122 (~3 bits). Interesting but not a separate lock.
+
+- coeff_families_2d:
+    status : killed
+    p_null : 0.394
+    bits   : 1.34
+    note   : Coefficient families in 2D geometry (e.g. mmu/ms sharing (3,-5)); statistically ordinary (~1.34 bits) under jitter null.
+
+- integer_3d_geometry:
+    status : supporting_structure
+    p_null : 0.016
+    bits   : 5.97
+    note   : 3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS_all≈0.0062 dex, p≈0.016 (~6 bits). Moderately surprising, but built on the primary triple.
+
+- integer_3d_stability_fixed_q:
+    status : supporting_structure
+    p_exact_upper : 0.0005
+    bits_exact_lower : 10.97
+    note   : With q fixed, the full 9×3 integer pattern never reappears in 2000 jittered universes (≥~11 bits of combinatorial specificity), but this is heavily conditioned on the primary triple and fixed q, so not an independent lock.
+
+- yukawa_q_intrel:
+    status : supporting_structure
+    p_null : 0.0005
+    bits   : 10.97
+    note   : Integer relation among the 3D geometry q-vector: (-3,4,4)·q ≈ 0 with ~11 bits (p≈5×10^-4). Derived from the same Yukawa dataset and triple; treated as supporting shape, not a new lock.
+
+- yukawa_secondary_triple:
+    status : killed
+    p_null : 0.5625
+    bits   : 0.83
+    note   : Global search over all 3-term integer relations with C=4, explicitly excluding (me,mtau,md). Best secondary triple is (mt,ms,mu) with (a,b,c)=(-1,3,-2), p≈0.562 (~0.83 bits). No second Yukawa lock.
+
+==================================================================================
+                        GLOBAL LOCK CONTRACT SUMMARY                        
+==================================================================================
+
+  • DNA effective bits                 : 12.29
+  • Yukawa bits (conservative, global) : 7.48
+      → Combined (conservative)        : 19.77 bits
+
+  • Yukawa bits (optimistic, fixed)    : 14.29
+      → Combined (optimistic)          : 26.58 bits
+
+Interpretation:
+  → Any serious geometry must explain ~20–27 bits of structure, coming
+    from TWO independent sectors: DNA and the me–mtau–md triple.
+  → All other Yukawa geometries (2D/3D, q-relations, secondary triples)
+    are *supporting shape* and must NOT be double-counted as extra bits.
+
+==================================================================================
+                             SEARCH GUIDELINES                              
+==================================================================================
+
+  MUST EXPLAIN :  DNA backbone and lock-family architecture (12.29 bits).
+  MUST EXPLAIN :  me–mtau–md (-4,4,3) triple in log10(y/v) (7–14 bits of structure).
+
+  MUST NOT DO  :  Do NOT hardcode the (-4,4,3) triple or DNA locks as input parameters; they must arise from the geometry.
+  MUST NOT DO  :  Do NOT count 2D/3D Yukawa geometries, q-relations, or secondary triples as independent evidence; they are derivative of the primary locks.
+
+  HINT SOURCE  :  3D small-integer geometry for Yukawas (charges / exponents).
+  HINT SOURCE  :  q-vector integer relation (-3,4,4)·q≈0 as a hint about internal geometry.
+  HINT SOURCE  :  Stability patterns of the 3D integer charges under jitter.
+
+Future directions suggested:
+  →  Design explicit toy geometries (e.g. charge lattices, multi-scale FN-like models, discrete symmetry structures) that reproduce BOTH primary locks.
+  →  Test any proposed geometry with the lock-checkers: does it hit DNA + Yukawa triple at the measured precision without extra free tuning parameters?
+  →  If a future geometry also predicts some of the supporting structures (2D/3D integer patterns, q-relations) naturally, that is a bonus, but it does not raise the required bit budget beyond ~20–27 bits.
+
+==================================================================================
+ GLOBAL_LOCKS_BLUEPRINT object is now available as a Python dict named 
+ GLOBAL_LOCKS_BLUEPRINT in this interpreter (if you keep this session). 
+ You can also copy the JSON payload above into a file for future runs. 
+==================================================================================
+
+==================================================================================
+ PHASE 16 – GEOMETRY SCORECARD: NullGeometry 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.745951
+Run SHA256 payload    : 5c15bee952a91285052e0f3f2f3df1c1a1c91cf8fa2e203659cbc3a93169b2a8
+
+Blueprint SHA256      :  b25ca766883d59f58115713aed7e86027912334da84ae16b2935dbf4cb9bb6d8
+
+Description:
+  Random / structureless geometry; predicts nothing and explains no locks. Baseline for comparison.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_triple        : False
+  • tuning_penalty_bits           : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT):
+  DNA sector bits                 : 0.00
+  Yukawa bits (conservative)      : 0.00
+  Yukawa bits (optimistic)        : 0.00
+  Tuning penalty                  : 0.00
+
+  → Total (conservative)          : 0.00 bits
+  → Total (optimistic)            : 0.00 bits
+
+==================================================================================
+
+==================================================================================
+ PHASE 16 – GEOMETRY SCORECARD: PerfectLockGeometry 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.746229
+Run SHA256 payload    : 1685fb177014c878bea70dcd2505b34b2322b50ec182874bda864cba0f89bdab
+
+Blueprint SHA256      :  b25ca766883d59f58115713aed7e86027912334da84ae16b2935dbf4cb9bb6d8
+
+Description:
+  Hypothetical geometry that derives BOTH primary locks from its internal structure without tuning: DNA backbone/locks AND the me–mtau–md (-4,4,3) triple at the observed precision.
+
+Lock claims:
+  • explains_dna_backbone         : True
+  • explains_yukawa_triple        : True
+  • tuning_penalty_bits           : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT):
+  DNA sector bits                 : 12.29
+  Yukawa bits (conservative)      : 7.48
+  Yukawa bits (optimistic)        : 14.29
+  Tuning penalty                  : 0.00
+
+  → Total (conservative)          : 19.77 bits
+  → Total (optimistic)            : 26.58 bits
+
+==================================================================================
+
+==================================================================================
+ PHASE 16 – GEOMETRY SCORECARD: Toy3DIntegerGeometry 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.746424
+Run SHA256 payload    : da06aee02f9f7171222bd5f1b2e32dbad0b31224cac09e6e935df89e462bbcf9
+
+Blueprint SHA256      :  b25ca766883d59f58115713aed7e86027912334da84ae16b2935dbf4cb9bb6d8
+
+Description:
+  Toy geometry inspired by the 3D small-integer Yukawa structure. Assumed (for scoring purposes) to explain the me–mtau–md triple but NOT the DNA backbone. In reality this is just a demo; you should NOT claim this until a real model is built and tested.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_triple        : True
+  • tuning_penalty_bits           : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT):
+  DNA sector bits                 : 0.00
+  Yukawa bits (conservative)      : 7.48
+  Yukawa bits (optimistic)        : 14.29
+  Tuning penalty                  : 0.00
+
+  → Total (conservative)          : 7.48 bits
+  → Total (optimistic)            : 14.29 bits
+
+==================================================================================
+
+==================================================================================
+ PHASE 17 – MODULE 1: TOY 3D YUKAWA GEOMETRY OBJECT (v1) 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.750937
+Run SHA256 payload    : 0b13cf559b8a577bfb8b7252948b2051636456e7d5452080409c99ada0ac5391
+
+Best 3D integer geometry recap:
+
+Basis coefficient rows for (me, tau, d):
+  row(me)   = [-4, -2, -1]
+  row(tau)  = [-4, 1, -4]
+  row(d)    = [0, -4, 4]
+
+Geometry parameters q (log10 λ-vector):
+  q1 =  0.993782
+  q2 =  0.962938
+  q3 = -0.217602
+
+Fit quality over all 9 Yukawas:
+  RMS_all (dex)        :  0.006193
+  Max |residual| (dex) :  0.012744
+
+Triple lock (-4,4,3) comparison:
+  S_real                =  6.000000e-06
+  S_geom                =  1.776357e-15
+  S_geom / S_real       =  2.961e-10
+
+Per-Yukawa coefficients and residuals (geom - real):
+  name         (c1,c2,c3)      z_real       z_geom       resid
+  -----------  ----------    ----------   ----------   ----------
+  me_over_v    (-4,-2,-1)   -5.683401    -5.683402    -0.000001
+  mmu_over_v   (-1,-2, 2)   -3.367606    -3.354862     0.012744
+  mtau_over_v  (-4, 1,-4)   -2.141781    -2.141782    -0.000001
+  mb_over_v    (-2, 0,-1)   -1.770024    -1.769962     0.000062
+  mc_over_v    (-2,-1,-3)   -2.287532    -2.297696    -0.010164
+  mt_over_v    (-2, 1,-4)   -0.154056    -0.154218    -0.000162
+  md_over_v    ( 0,-4, 4)   -4.722162    -4.722160     0.000002
+  ms_over_v    (-3, 0, 2)   -3.422873    -3.416550     0.006323
+  mu_over_v    (-1,-4, 1)   -5.056852    -5.063136    -0.006284
+
+==================================================================================
+ PHASE 17 – TOY3DIntegerGeometry_v1 SCORECARD 
+==================================================================================
+
+==================================================================================
+ PHASE 16 – GEOMETRY SCORECARD: Toy3DIntegerGeometry_v1 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.751463
+Run SHA256 payload    : ed142a99639ab4a514afaa66ca181fa3a461ee78af48beb0699093e4e5e1d9f4
+
+Blueprint SHA256      :  b25ca766883d59f58115713aed7e86027912334da84ae16b2935dbf4cb9bb6d8
+
+Description:
+  Concrete toy geometry based on the best 3D small-integer Yukawa fit: C (9×3 integer charges) and q (3D log10 λ-vector). By construction it nails the (-4,4,3) triple at the geometry level and fits all 9 Yukawas with RMS≈0.0062 dex. It does NOT attempt to explain the DNA backbone.
+
+Lock claims:
+  • explains_dna_backbone         : False
+  • explains_yukawa_triple        : True
+  • tuning_penalty_bits           : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT):
+  DNA sector bits                 : 0.00
+  Yukawa bits (conservative)      : 7.48
+  Yukawa bits (optimistic)        : 14.29
+  Tuning penalty                  : 0.00
+
+  → Total (conservative)          : 7.48 bits
+  → Total (optimistic)            : 14.29 bits
+
+==================================================================================
+
+==================================================================================
+ PHASE 18 – MODULE 1: YUKAWA 3D q-VECTOR ERROR-MODEL STABILITY 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.755336
+Real Yukawa logs and error model:
+  name         z_real       sigma_log10
+  -----------  ----------   ----------
+  me_over_v     -5.683401    4.342945e-09
+  mmu_over_v    -3.367606    4.342945e-09
+  mtau_over_v   -2.141781    4.342945e-06
+  mb_over_v     -1.770024    4.342945e-02
+  mc_over_v     -2.287532    4.342945e-02
+  mt_over_v     -0.154056    8.685890e-03
+  md_over_v     -4.722162    8.685890e-02
+  ms_over_v     -3.422873    8.685890e-02
+  mu_over_v     -5.056852    8.685890e-02
+
+Fixed 3D integer coefficient matrix C (Toy3D geometry):
+  me_over_v    (-4,-2,-1)
+  mmu_over_v   (-1,-2, 2)
+  mtau_over_v  (-4, 1,-4)
+  mb_over_v    (-2, 0,-1)
+  mc_over_v    (-2,-1,-3)
+  mt_over_v    (-2, 1,-4)
+  md_over_v    ( 0,-4, 4)
+  ms_over_v    (-3, 0, 2)
+  mu_over_v    (-1,-4, 1)
+
+Least-squares q_real fit with C fixed:
+  q_real = ( 0.995464,  0.960785, -0.220050)
+  RMS_real (dex)        :  0.004244
+  Max |resid| (dex)     :  0.010471
+
+q-vector integer relation (-3,4,4)·q ≈ 0 (REAL):
+  |(-3,4,4)·q_real|     :  2.345412e-02
+
+Generating jittered Yukawa universes under error model...
+  ... 200/2000 universes processed
+  ... 400/2000 universes processed
+  ... 600/2000 universes processed
+  ... 800/2000 universes processed
+  ... 1000/2000 universes processed
+  ... 1200/2000 universes processed
+  ... 1400/2000 universes processed
+  ... 1600/2000 universes processed
+  ... 1800/2000 universes processed
+  ... 2000/2000 universes processed
+
+==================================================================================
+ NULL STATISTICS – q-VECTOR INTEGER RELATION UNDER ERROR MODEL 
+==================================================================================
+
+Null distribution of |(-3,4,4)·q_null|:
+  null resid_q min / max       :  8.087715e-05 /  5.948385e-01
+  null resid_q 25% / 50% / 75% :  4.566269e-02 /  1.019907e-01 /  1.730533e-01
+  null resid_q mean / std      :  1.187936e-01 /  9.087840e-02
+
+Significance of real q-vector relation (error-model null):
+  real resid_q                 :  2.345412e-02
+  count_null <= real           : 276 / 2000
+  P_null(resid_q <= real)      :  0.138000
+  bits ≈ -log2(p_null)         :  2.86 bits
+  z(real vs null mean)         : -1.05 σ
+
+==================================================================================
+ HASH & BOOKKEEPING 
+==================================================================================
+
+Run SHA256 payload    : 39ebc277e87c680618d6108d8c1daa019dcb7d5dd798d285ece958f837a4f8ae
+
+GEOM_EVIDENCE['yukawa_q_intrel_error_model'] updated.
+
+==================================================================================
+ PHASE 18 – MODULE 2: YUKAWA 3D q-VECTOR ERROR-MODEL EVIDENCE (v1) 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.921642
+Run SHA256 payload    : 1cb7f14d643ab32b0337fbf0e1aec96361f9d3c0f5d2b0e85035599fc9b44110
+
+Hash payload (key fields):
+{
+  "interpretation": {
+    "classification": "supporting_structure_weak",
+    "summary": "Under a realistic error-model null, the q-vector integer relation (-3,4,4)\u00b7q has p\u22480.138 (\u22482.9 bits). That is weak; we treat it as supporting shape only, not an independent lock."
+  },
+  "module": "PHASE18_YUKAWA_Q_ERRORMODEL_EVIDENCE_v1",
+  "null_stats": {
+    "max": 0.5948385,
+    "mean": 0.1187936,
+    "min": 8.087715e-05,
+    "q25": 0.04566269,
+    "q50": 0.1019907,
+    "q75": 0.1730533,
+    "std": 0.0908784
+  },
+  "q_real": [
+    0.995464,
+    0.960785,
+    -0.22005
+  ],
+  "relation": {
+    "a": -3,
+    "b": 4,
+    "c": 4,
+    "resid_real": 0.02345412
+  },
+  "significance": {
+    "bits": 2.857259827883918,
+    "p_emp": 0.138,
+    "z_score": -1.0490884522614836
+  },
+  "timestamp": "2025-11-27T07:35:14.921642"
+}
+
+==================================================================================
+                      INPUT RECAP FROM ERROR-MODEL SCAN                 
+==================================================================================
+
+q_real (log10 λ) = (+0.995464, +0.960785, -0.220050)
+
+Integer relation tested: (-3,4,4) · q ≈ 0
+  |(-3,4,4)·q_real|      :  2.345412e-02
+
+Null stats for |(-3,4,4)·q_null| under error model:
+  min / max              :  8.087715e-05 /  5.948385e-01
+  25% / 50% / 75%        :  4.566269e-02 /  1.019907e-01 /  1.730533e-01
+  mean / std             :  1.187936e-01 /  9.087840e-02
+
+==================================================================================
+                  SIGNIFICANCE UNDER ERROR-MODEL NULL                    
+==================================================================================
+
+  real resid_q           :  2.345412e-02
+  P_null(resid_q <= real):  0.138000
+  bits ≈ -log2(p_null)   :  2.86 bits
+  z(real vs null mean)   : -1.05 σ
+
+==================================================================================
+                        INTERPRETATION & VERDICT                         
+==================================================================================
+
+  • Rough scale: bits ≲ 3 ⇒ weak / ordinary-ish; 3–7 ⇒ mildly interesting;
+    >10 ⇒ strong. Here we get ≈2.9 bits, i.e. borderline weak.
+
+  • Under the realistic error model, the q-vector relation (-3,4,4)·q
+    is *not* sharply tuned: p≈0.138 means many jittered universes
+    generate equally good or better small-integer relations.
+
+  • Combined with earlier modules:
+      – The ~11-bit effect found when we jittered q directly was
+        clearly over-optimistic and heavily conditioned on prior choices.
+      – Once we respect the Yukawa error model, this drops to ≈3 bits.
+
+Verdict for evidence budget:
+  → q-vector integer relation is SUPPORTING SHAPE ONLY.
+  → It does NOT modify the global lock contract (~20–27 bits).
+  → Primary Yukawa lock remains ONLY the me–mtau–md (-4,4,3) triple.
+
+==================================================================================
+      GEOM_EVIDENCE['yukawa_q_intrel_error_model'] UPDATED IN-MEMORY     
+==================================================================================
+
+==================================================================================
+ PHASE 19 – MODULE 1: GLOBAL GEOMETRY EVIDENCE V4 – UPDATED CONTRACT 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.924226
+Run SHA256 payload    : 51f4fde3b1df377bbf83ccef60998ca3f3c4f5336c44e4c089d260cb192749b4
+
+Hash payload (key fields):
+{
+  "GLOBAL_LOCKS_v4": {
+    "combined": {
+      "bits_conservative": 19.77,
+      "bits_optimistic": 26.58,
+      "description": "Total bits any future geometry must explain without cheating: DNA backbone/locks (~12 bits) plus the me\u2013mtau\u2013md (-4,4,3) Yukawa triple (7\u201314 bits depending on how we count). All 2D/3D Yukawa geometries, q-relations, and secondary triples are treated as supporting shape, not extra bits.",
+      "status": "global_contract"
+    },
+    "dna": {
+      "description": "DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls. This is one full sector-level lock.",
+      "effective_bits": 12.29,
+      "sector": "DNA",
+      "status": "primary_lock"
+    },
+    "yukawa": {
+      "supporting": {
+        "coeff_families_2d": {
+          "bits": 1.3437324652057108,
+          "description": "Coefficient families in 2D geometry (e.g. mmu/ms sharing (3,-5)); statistically ordinary (~1.34 bits) under jitter null.",
+          "p_null": 0.394,
+          "status": "killed"
+        },
+        "integer_3d_geometry": {
+          "bits": 5.965784284662087,
+          "description": "3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS_all\u22480.0062 dex, p\u22480.016 (~6 bits). Moderately surprising, but built on the primary triple.",
+          "p_null": 0.016,
+          "status": "supporting_structure"
+        },
+        "integer_3d_stability_fixed_q": {
+          "bits_exact_lower": 10.965784284662087,
+          "description": "With q fixed, the full 9\u00d73 integer pattern never reappears in 2000 jittered universes (\u2265~11 bits of combinatorial specificity), but this is heavily conditioned on the primary triple and fixed q, so not an independent lock.",
+          "p_exact_upper": 0.0005,
+          "status": "supporting_structure"
+        },
+        "minimal_2d_integer_geometry": {
+          "bits": 3.0350469470992008,
+          "description": "2D small-integer geometry for all 9 Yukawas; RMS\u22480.0268 dex, p\u22480.122 (~3 bits). Interesting but not a separate lock.",
+          "p_null": 0.122,
+          "status": "supporting_structure"
+        },
+        "yukawa_q_intrel": {
+          "bits": 10.965784284662087,
+          "description": "Integer relation among the 3D geometry q-vector: (-3,4,4)\u00b7q \u2248 0 with ~11 bits (p\u22485\u00d710^-4) when q is jittered directly. Derived from the same Yukawa dataset and triple; treated as supporting shape, not a new lock.",
+          "p_null": 0.0005,
+          "status": "supporting_structure"
+        },
+        "yukawa_q_intrel_error_model": {
+          "bits": 2.857259827883918,
+          "description": "Integer relation (-3,4,4)\u00b7q evaluated under a realistic Yukawa error-model null. p\u22480.138 (~2.9 bits): many jittered universes have equally good or better relations. Weak supporting shape only.",
+          "p_null": 0.138,
+          "status": "supporting_structure_weak"
+        },
+        "yukawa_secondary_triple": {
+          "bits": 0.8300749985576876,
+          "description": "Global search over all 3-term integer relations with C=4, explicitly excluding (me,mtau,md). Best secondary triple is (mt,ms,mu) with (a,b,c)=(-1,3,-2), p\u22480.562 (~0.83 bits). No second Yukawa lock.",
+          "p_null": 0.5625,
+          "status": "killed"
+        }
+      },
+      "triple_me_tau_d": {
+        "bits_fixed_error_model": 14.29,
+        "bits_global_error_model": 7.48,
+        "description": "me\u2013mtau\u2013md (-4,4,3) triple in log10(y/v); \u22487.5 bits when treated as best global 3-term relation under an error-model null, and \u224814.3 bits when treated as a fixed triple under realistic errors.",
+        "sector": "Yukawa",
+        "status": "primary_lock",
+        "subsector": "me_mtau_md_triple"
+      }
+    }
+  },
+  "module": "PHASE19_GLOBAL_GEOMETRY_EVIDENCE_v4",
+  "timestamp": "2025-11-27T07:35:14.924226"
+}
+
+==================================================================================
+                              PRIMARY LOCKS                               
+==================================================================================
+
+DNA sector:
+  • Status         : primary_lock
+  • Effective bits : 12.29
+  • Description    : DNA backbone + lock-family structure + all-four-zero rows; multi-10-bit anomaly under harsh nulls. This is one full sector-level lock.
+
+Yukawa sector (me–mtau–md triple):
+  • Status         : primary_lock
+  • Bits (global)  : 7.48
+  • Bits (fixed)   : 14.29
+  • Description    : me–mtau–md (-4,4,3) triple in log10(y/v); ≈7.5 bits when treated as best global 3-term relation under an error-model null, and ≈14.3 bits when treated as a fixed triple under realistic errors.
+
+==================================================================================
+                     SUPPORTING STRUCTURES (NOT LOCKS)                     
+==================================================================================
+
+- minimal_2d_integer_geometry:
+    status : supporting_structure
+    p_null : 0.122
+    bits   : 3.04
+    note   : 2D small-integer geometry for all 9 Yukawas; RMS≈0.0268 dex, p≈0.122 (~3 bits). Interesting but not a separate lock.
+
+- coeff_families_2d:
+    status : killed
+    p_null : 0.394
+    bits   : 1.34
+    note   : Coefficient families in 2D geometry (e.g. mmu/ms sharing (3,-5)); statistically ordinary (~1.34 bits) under jitter null.
+
+- integer_3d_geometry:
+    status : supporting_structure
+    p_null : 0.016
+    bits   : 5.97
+    note   : 3D small-integer geometry for all 9 Yukawas anchored on the (-4,4,3) triple; RMS_all≈0.0062 dex, p≈0.016 (~6 bits). Moderately surprising, but built on the primary triple.
+
+- integer_3d_stability_fixed_q:
+    status : supporting_structure
+    p_exact_upper    : 0.0005
+    bits_exact_lower : 10.97
+    note   : With q fixed, the full 9×3 integer pattern never reappears in 2000 jittered universes (≥~11 bits of combinatorial specificity), but this is heavily conditioned on the primary triple and fixed q, so not an independent lock.
+
+- yukawa_q_intrel:
+    status : supporting_structure
+    p_null : 0.0005
+    bits   : 10.97
+    note   : Integer relation among the 3D geometry q-vector: (-3,4,4)·q ≈ 0 with ~11 bits (p≈5×10^-4) when q is jittered directly. Derived from the same Yukawa dataset and triple; treated as supporting shape, not a new lock.
+
+- yukawa_q_intrel_error_model:
+    status : supporting_structure_weak
+    p_null : 0.138
+    bits   : 2.86
+    note   : Integer relation (-3,4,4)·q evaluated under a realistic Yukawa error-model null. p≈0.138 (~2.9 bits): many jittered universes have equally good or better relations. Weak supporting shape only.
+
+- yukawa_secondary_triple:
+    status : killed
+    p_null : 0.5625
+    bits   : 0.83
+    note   : Global search over all 3-term integer relations with C=4, explicitly excluding (me,mtau,md). Best secondary triple is (mt,ms,mu) with (a,b,c)=(-1,3,-2), p≈0.562 (~0.83 bits). No second Yukawa lock.
+
+==================================================================================
+                        GLOBAL LOCK CONTRACT SUMMARY                        
+==================================================================================
+
+  • DNA effective bits                 : 12.29
+  • Yukawa bits (conservative, global) : 7.48
+      → Combined (conservative)        : 19.77 bits
+
+  • Yukawa bits (optimistic, fixed)    : 14.29
+      → Combined (optimistic)          : 26.58 bits
+
+Interpretation:
+  → Any serious geometry must explain ~20–27 bits of structure, coming
+    from TWO independent sectors: DNA and the me–mtau–md triple.
+  → All other Yukawa geometries (2D/3D, q-relations, secondary triples)
+    are *supporting shape* and MUST NOT be double-counted as extra bits.
+
+==================================================================================
+ GLOBAL_LOCKS_BLUEPRINT (v4-style) IS NOW AVAILABLE IN THIS INTERPRETER   
+==================================================================================
+
+==================================================================================
+ PHASE 20 – MODULE 1: YUKAWA 3D INTEGER GEOMETRY BASIS SIMPLIFIER (v1) 
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:14.928570
+Run SHA256 payload    : f1c8d4580b83ebac3cd412e90bb13747b4ee1ee5ce7b03dc7c09b770decdbacc
+
+Hash payload (key fields, truncated top_candidates):
+{
+  "base_C": [
+    [
+      -4,
+      -2,
+      -1
+    ],
+    [
+      -1,
+      -2,
+      2
+    ],
+    [
+      -4,
+      1,
+      -4
+    ],
+    [
+      -2,
+      0,
+      -1
+    ],
+    [
+      -2,
+      -1,
+      -3
+    ],
+    [
+      -2,
+      1,
+      -4
+    ],
+    [
+      0,
+      -4,
+      4
+    ],
+    [
+      -3,
+      0,
+      2
+    ],
+    [
+      -1,
+      -4,
+      1
+    ]
+  ],
+  "base_metrics": {
+    "l1_sum": 56,
+    "max_abs": 4,
+    "num_distinct_rows": 9,
+    "num_nonzero": 24
+  },
+  "base_q": [
+    0.993782,
+    0.962938,
+    -0.217602
+  ],
+  "max_entry": 2,
+  "module": "PHASE20_YUKAWA_3D_BASIS_SIMPLIFIER_v1",
+  "timestamp": "2025-11-27T07:35:14.928570"
+}
+  'top_candidates': [ ... ]  # see in-memory payload if needed
+
+==================================================================================
+                    ORIGINAL 3D INTEGER GEOMETRY (BASIS 0)               
+==================================================================================
+
+C_real (9×3 integer charges):
+  me_over_v    [-4 -2 -1]
+  mmu_over_v   [-1 -2  2]
+  mtau_over_v  [-4  1 -4]
+  mb_over_v    [-2  0 -1]
+  mc_over_v    [-2 -1 -3]
+  mt_over_v    [-2  1 -4]
+  md_over_v    [ 0 -4  4]
+  ms_over_v    [-3  0  2]
+  mu_over_v    [-1 -4  1]
+
+q_real (log10 λ): [ 0.993782  0.962938 -0.217602]
+
+Charge complexity metrics (original basis):
+  max |C_ij|           : 4
+  L1 sum of |C_ij|     : 56
+  num non-zero entries : 24
+  num distinct rows    : 9
+
+==================================================================================
+                      TOP CANDIDATE BASES BY SIMPLICITY                   
+==================================================================================
+
+Ranking criterion:
+  1) smaller max |C'_ij|,
+  2) then smaller L1 sum of |C'_ij|,
+  3) then fewer distinct rows.
+
+rank  det  max|C'|  L1_sum  distinct_rows   q'_1        q'_2        q'_3
+------------------------------------------------------------------------
+   1    1        4       53              9    -0.993782   +0.217602   -1.180540
+   2   -1        4       53              9    -0.993782   -0.962938   +1.180540
+   3   -1        4       53              9    -0.993782   -0.217602   -0.745336
+   4    1        4       53              9    -0.993782   -0.962938   +0.745336
+   5    1        4       53              9    -0.993782   +0.962938   -0.745336
+   6   -1        4       53              9    -0.993782   +0.217602   +0.745336
+   7   -1        4       53              9    -0.993782   +0.962938   -1.180540
+   8    1        4       53              9    -0.993782   -0.217602   +1.180540
+   9   -1        4       53              9    -0.962938   +0.217602   -1.211384
+  10    1        4       53              9    -0.962938   -0.993782   +1.211384
+
+==================================================================================
+                DETAIL FOR BEST CANDIDATE BASIS (RANK 1)                  
+==================================================================================
+
+Best unimodular U (3×3):
+[[-1  0  0]
+ [ 0 -1 -1]
+ [ 0 -1  0]]
+
+Transformed charges C' = C_real @ U_best:
+  me_over_v    [4 3 2]
+  mmu_over_v   [1 0 2]
+  mtau_over_v  [ 4  3 -1]
+  mb_over_v    [2 1 0]
+  mc_over_v    [2 4 1]
+  mt_over_v    [ 2  3 -1]
+  md_over_v    [0 0 4]
+  ms_over_v    [ 3 -2  0]
+  mu_over_v    [1 3 4]
+
+Transformed q' = (U_best^-1)^T @ q_real:
+  q'_1 = -0.993782
+  q'_2 = +0.217602
+  q'_3 = -1.180540
+
+Complexity metrics for best basis:
+  max |C'_ij|           : 4
+  L1 sum of |C'_ij|     : 53
+  num non-zero entries  : 22
+  num distinct rows     : 9
+
+==================================================================================
+                          INTERPRETATION GUIDE                             
+==================================================================================
+
+  • If the best basis has the SAME max |C'_ij| and similar L1_sum as the
+    original, then the Toy3DIntegerGeometry is already in a fairly simple
+    small-integer basis; there is no dramatically simpler description.
+
+  • If you find a basis with strictly smaller max |C'_ij| or many fewer
+    distinct rows, that suggests a more natural 'charge lattice' basis.
+
+  • Look especially at q'_3:
+       – If q'_3 ≈ 0 and some column of C' is small/zero, the system may
+         be effectively 2D in a better-chosen basis.
+       – If all three q'_i remain O(1) and C' stays complex, the 3D
+         structure is genuinely 3D, not a trivial re-labeling.
+
+This module does NOT change the global lock contract. It is a tool for
+understanding the internal structure of the 3D Yukawa geometry and for
+guiding future candidate model-building.
+
+==================================================================================
+ PHASE20_YUKAWA_3D_BASIS_SIMPLIFIER_v1 COMPLETE 
+==================================================================================
+
+==================================================================================
+ PHASE 20 – MODULE 2: YUKAWA 3D INTEGER GEOMETRY LOCAL NEIGHBORHOOD SCAN 
+                                   (v1)                                    
+==================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.452788
+Run SHA256 payload    : 6a093370d4c2658823124f60252bcd730eb84b19ab11e186f0801fc74d8d21ed
+
+Hash payload (key fields, top_candidates truncated):
+{
+  "C_max": 4,
+  "C_real": [
+    [
+      -4,
+      -2,
+      -1
+    ],
+    [
+      -1,
+      -2,
+      2
+    ],
+    [
+      -4,
+      1,
+      -4
+    ],
+    [
+      -2,
+      0,
+      -1
+    ],
+    [
+      -2,
+      -1,
+      -3
+    ],
+    [
+      -2,
+      1,
+      -4
+    ],
+    [
+      0,
+      -4,
+      4
+    ],
+    [
+      -3,
+      0,
+      2
+    ],
+    [
+      -1,
+      -4,
+      1
+    ]
+  ],
+  "RMS_base": 0.004244193280097217,
+  "max_delta": 1,
+  "max_resid_base": 0.010470586237830037,
+  "module": "PHASE20_YUKAWA_3D_LOCAL_NEIGHBORHOOD_SCAN_v1",
+  "near_degenerate_counts": {
+    "abs_plus_0p002": 0,
+    "factor_1p1": 0,
+    "factor_2p0": 4
+  },
+  "num_candidates": 138,
+  "perturbable_indices": [
+    1,
+    3,
+    4,
+    5,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-27T07:35:49.452788",
+  "z_real": [
+    -5.683401,
+    -3.367606,
+    -2.141781,
+    -1.770024,
+    -2.287532,
+    -0.154056,
+    -4.722162,
+    -3.422873,
+    -5.056852
+  ]
+}
+  'top_candidates': [ ... ]
+
+==================================================================================
+                      BASELINE 3D INTEGER GEOMETRY                          
+==================================================================================
+
+C_real (9×3 integer charges):
+  me_over_v    [-4 -2 -1]
+  mmu_over_v   [-1 -2  2]
+  mtau_over_v  [-4  1 -4]
+  mb_over_v    [-2  0 -1]
+  mc_over_v    [-2 -1 -3]
+  mt_over_v    [-2  1 -4]
+  md_over_v    [ 0 -4  4]
+  ms_over_v    [-3  0  2]
+  mu_over_v    [-1 -4  1]
+
+Least-squares q_base (log10 λ): [ 0.99546434  0.96078513 -0.22005041]
+Baseline RMS_all (dex)        :  0.004244
+Baseline max |resid| (dex)    :  0.010471
+
+Basis rows held fixed (encode (-4,4,3) lock):
+  idx 0 : me_over_v  row = [-4 -2 -1]
+  idx 2 : mtau_over_v  row = [-4  1 -4]
+  idx 6 : md_over_v  row = [ 0 -4  4]
+
+Perturbable rows (single-row Δ ∈ {-1,0,1}^3, |c|≤C_max):
+  idx 1 : mmu_over_v  row = [-1 -2  2]
+  idx 3 : mb_over_v  row = [-2  0 -1]
+  idx 4 : mc_over_v  row = [-2 -1 -3]
+  idx 5 : mt_over_v  row = [-2  1 -4]
+  idx 7 : ms_over_v  row = [-3  0  2]
+  idx 8 : mu_over_v  row = [-1 -4  1]
+
+==================================================================================
+                     NEIGHBORHOOD SCAN SUMMARY (SINGLE-ROW)                 
+==================================================================================
+
+Coefficient bound C_max           : 4
+Max Δ per component (±max_delta) : 1
+Total candidate C' tested         : 138
+
+Near-degenerate neighbors (based on RMS_all):
+  RMS <= 1.10 × RMS_base  :     0 candidates
+  RMS <= 2.00 × RMS_base  :     4 candidates
+  RMS <= RMS_base + 0.002 :     0 candidates
+
+==================================================================================
+                       TOP LOCAL NEIGHBORS BY RMS_all                       
+==================================================================================
+
+rank  row  name         Δ(c1,c2,c3)   new_row       RMS_all   ΔRMS    max|resid|
+--------------------------------------------------------------------------------
+   0    -  baseline         (0,0,0)           -    0.004244    0.000000    0.010471
+   1    1  mmu_over_v   (-1,+1,+0)   [-2,-1,+2]    0.006783   0.002538    0.016968
+   2    7  ms_over_v    (+1,-1,+0)   [-2,-1,+2]    0.007435   0.003190    0.014280
+   3    4  mc_over_v    (+1,-1,+0)   [-1,-2,-3]    0.008035   0.003790    0.015551
+   4    7  ms_over_v    (-1,+1,+0)   [-4,+1,+2]    0.008158   0.003914    0.015207
+   5    5  mt_over_v    (-1,+1,+0)   [-3,+2,-4]    0.009146   0.004902    0.020920
+   6    3  mb_over_v    (-1,+1,+0)   [-3,+1,-1]    0.011125   0.006881    0.026712
+   7    8  mu_over_v    (-1,+1,+0)   [-2,-3,+1]    0.011379   0.007135    0.026978
+   8    3  mb_over_v    (+1,-1,+0)   [-1,-1,-1]    0.011649   0.007404    0.031351
+   9    5  mt_over_v    (+1,-1,+0)   [-1,+0,-4]    0.011676   0.007432    0.027029
+  10    4  mc_over_v    (-1,+1,+0)   [-3,+0,-3]    0.012440   0.008196    0.031490
+  11    1  mmu_over_v   (+1,-1,+0)   [+0,-3,+2]    0.014099   0.009854    0.037625
+  12    7  ms_over_v    (-1,+1,-1)   [-4,+1,+1]    0.029204   0.024959    0.043713
+  13    7  ms_over_v    (-1,+1,+1)   [-4,+1,+3]    0.036505   0.032261    0.051819
+  14    7  ms_over_v    (+0,+0,+1)   [-3,+0,+3]    0.039070   0.034826    0.058519
+  15    7  ms_over_v    (+1,-1,+1)   [-2,-1,+3]    0.041865   0.037621    0.080194
+
+==================================================================================
+                          INTERPRETATION GUIDE                              
+==================================================================================
+
+  • This module keeps the me/mtau/md basis rows fixed (to preserve the
+    (-4,4,3) triple) and explores small ±1 perturbations to the other
+    six Yukawa charge rows within |c| <= C_max.
+
+  • If MANY candidates have RMS_all only slightly above the baseline
+    (e.g. within 10% or within +0.002 dex), then the detailed 3D
+    integer pattern for (mmu, mb, mc, mt, ms, mu) is highly degenerate:
+    lots of nearby integer choices fit almost as well.
+
+  • If only a handful of neighbors are that good (or none), the Toy3D
+    integer pattern is relatively rigid given the data and the chosen
+    3D framework with the (-4,4,3) basis fixed.
+
+  • This is a STRUCTURAL diagnostic, not new evidence: it does NOT
+    change the global lock contract. It tells you how sharply the 3D
+    integer geometry is selected by the Yukawa data once the primary
+    triple is enforced.
+
+==================================================================================
+ PHASE20_YUKAWA_3D_LOCAL_NEIGHBORHOOD_SCAN_v1 COMPLETE 
+==================================================================================
+
+================================================================================
+ PHASE 20 – MODULE 3: YUKAWA 3D LOCAL NEIGHBORHOOD EVIDENCE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.464234
+Run SHA256 payload    : e7ee0f5c41fef129bfda435c05be5f3856264bf8c1465634bd794bcd380a8a1c
+
+Hash payload (key fields):
+{
+  "RMS_base": 0.004244193280097217,
+  "bits": 0.0,
+  "fractions": {
+    "abs_plus_0p002": 0.0,
+    "factor_1p1": 0.0,
+    "factor_2p0": 0.028985507246376812
+  },
+  "module": "PHASE20_YUKAWA_3D_LOCAL_NEIGHBORHOOD_EVIDENCE_v1",
+  "near_degenerate_counts": {
+    "abs_plus_0p002": 0,
+    "factor_1p1": 0,
+    "factor_2p0": 4
+  },
+  "num_candidates": 138,
+  "rigidity_label": "highly_rigid_local_pattern",
+  "rigidity_note": "Very few single-row \u00b11 perturbations keep RMS_all within even 2\u00d7 the baseline; the Toy3D integer pattern is locally isolated.",
+  "timestamp": "2025-11-27T07:35:49.464234"
+}
+
+================================================================================
+                    INPUT RECAP FROM NEIGHBORHOOD SCAN                 
+================================================================================
+
+Baseline RMS_all (dex)         :  4.244193e-03
+Total candidate C' tested      : 138
+
+Near-degenerate counts (single-row ±1, |c|≤C_max):
+  RMS <= 1.10 × RMS_base       :     0  ( 0.000 of candidates)
+  RMS <= 2.00 × RMS_base       :     4  ( 0.029 of candidates)
+  RMS <= RMS_base + 0.002 dex  :     0  ( 0.000 of candidates)
+
+================================================================================
+                         QUALITATIVE CLASSIFICATION                     
+================================================================================
+
+  Local rigidity label : highly_rigid_local_pattern
+  Bits assigned        : 0.00 (by design: structural only, no lock)
+
+  Interpretation:
+    Very few single-row ±1 perturbations keep RMS_all within even 2× the baseline; the Toy3D integer pattern is locally isolated.
+
+  Conceptual status:
+    • This module does NOT introduce any new p-value or bits.
+    • It only describes how isolated the Toy3D integer pattern is under
+      small ±1 perturbations of the non-basis Yukawa rows, given the
+      3D integer-geometry ansatz and the fixed (-4,4,3) basis.
+    • The global lock contract (DNA + me–mtau–md triple, ~20–27 bits)
+      remains unchanged.
+
+================================================================================
+                    GEOM_EVIDENCE UPDATE (IN-MEMORY)                    
+================================================================================
+
+GEOM_EVIDENCE['yukawa_3d_local_neighborhood'] =
+{
+  "RMS_base": 0.004244193280097217,
+  "bits": 0.0,
+  "description": "Local neighborhood scan of Toy3D integer geometry (single-row \u00b11 perturbations with basis rows fixed). Very few neighbors are as good as the baseline; indicates a relatively isolated 3D integer pattern conditional on the (-4,4,3) lock, but no new statistical lock (bits=0).",
+  "fractions": {
+    "abs_plus_0p002": 0.0,
+    "factor_1p1": 0.0,
+    "factor_2p0": 0.028985507246376812
+  },
+  "near_degenerate_counts": {
+    "abs_plus_0p002": 0,
+    "factor_1p1": 0,
+    "factor_2p0": 4
+  },
+  "num_candidates": 138,
+  "rigidity_label": "highly_rigid_local_pattern",
+  "rigidity_note": "Very few single-row \u00b11 perturbations keep RMS_all within even 2\u00d7 the baseline; the Toy3D integer pattern is locally isolated.",
+  "sha256": "e7ee0f5c41fef129bfda435c05be5f3856264bf8c1465634bd794bcd380a8a1c",
+  "status": "supporting_structure_shape",
+  "timestamp": "2025-11-27T07:35:49.464234"
+}
+
+================================================================================
+ PHASE20_YUKAWA_3D_LOCAL_NEIGHBORHOOD_EVIDENCE_v1 COMPLETE 
+================================================================================
+
+================================================================================
+ PHASE 21 – MODULE 1: GLOBAL GEOMETRY HYPOTHESIS SCOREBOARD (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.466878
+Run SHA256 payload    : 1b5d967c247cc1ad56462465f55c397110e36155ba8b41ee9bb63c831b3e0d22
+Blueprint SHA256      : cb014ae3d910f31e40dcead65b2bffdfcc9245b7dbfb0eb46cd4e409b987401e
+
+Hash payload (key fields):
+{
+  "blueprint_sha256": "cb014ae3d910f31e40dcead65b2bffdfcc9245b7dbfb0eb46cd4e409b987401e",
+  "module": "PHASE21_GLOBAL_GEOMETRY_SCOREBOARD_v1",
+  "scorecards": [
+    {
+      "description": "Random / structureless geometry; predicts nothing and explains no locks.",
+      "dna_bits": 0.0,
+      "explains_dna_backbone": false,
+      "explains_yukawa_triple": false,
+      "name": "NullGeometry",
+      "total_bits_conservative": 0.0,
+      "total_bits_optimistic": 0.0,
+      "tuning_penalty_bits": 0.0,
+      "yukawa_bits_conservative": 0.0,
+      "yukawa_bits_optimistic": 0.0
+    },
+    {
+      "description": "Hypothetical geometry that derives BOTH primary locks from its structure without tuning: DNA backbone/locks AND the me\u2013mtau\u2013md (-4,4,3) triple.",
+      "dna_bits": 12.29,
+      "explains_dna_backbone": true,
+      "explains_yukawa_triple": true,
+      "name": "PerfectLockGeometry",
+      "total_bits_conservative": 19.77,
+      "total_bits_optimistic": 26.58,
+      "tuning_penalty_bits": 0.0,
+      "yukawa_bits_conservative": 7.48,
+      "yukawa_bits_optimistic": 14.29
+    },
+    {
+      "description": "Concrete toy geometry based on the best 3D small-integer Yukawa fit. By construction it nails the (-4,4,3) triple and fits all 9 Yukawas with RMS\u22480.0062 dex. It does NOT attempt to explain the DNA backbone.",
+      "dna_bits": 0.0,
+      "explains_dna_backbone": false,
+      "explains_yukawa_triple": true,
+      "name": "Toy3DIntegerGeometry_v1",
+      "total_bits_conservative": 7.48,
+      "total_bits_optimistic": 14.29,
+      "tuning_penalty_bits": 0.0,
+      "yukawa_bits_conservative": 7.48,
+      "yukawa_bits_optimistic": 14.29
+    }
+  ],
+  "timestamp": "2025-11-27T07:35:49.466878"
+}
+
+================================================================================
+                         GLOBAL LOCK CONTRACT (v4)                   
+================================================================================
+
+DNA effective bits                 : 12.29
+Yukawa triple bits (conservative)  :  7.48
+Yukawa triple bits (optimistic)    : 14.29
+→ Combined (conservative)          : 19.77 bits
+→ Combined (optimistic)            : 26.58 bits
+
+Any serious geometry must explain ~these bits WITHOUT tuning.
+
+================================================================================
+ GEOMETRY SCORECARD – NullGeometry 
+================================================================================
+
+Description:
+  Random / structureless geometry; predicts nothing and explains no locks.
+
+Lock claims:
+  • explains_dna_backbone   : False
+  • explains_yukawa_triple  : False
+  • tuning_penalty_bits     : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT v4):
+  DNA sector bits           :  0.00
+  Yukawa bits (conservative):  0.00
+  Yukawa bits (optimistic)  :  0.00
+  Tuning penalty            :  0.00
+
+  → Total (conservative)    :  0.00 bits
+  → Total (optimistic)      :  0.00 bits
+
+================================================================================
+ GEOMETRY SCORECARD – PerfectLockGeometry 
+================================================================================
+
+Description:
+  Hypothetical geometry that derives BOTH primary locks from its structure without tuning: DNA backbone/locks AND the me–mtau–md (-4,4,3) triple.
+
+Lock claims:
+  • explains_dna_backbone   : True
+  • explains_yukawa_triple  : True
+  • tuning_penalty_bits     : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT v4):
+  DNA sector bits           : 12.29
+  Yukawa bits (conservative):  7.48
+  Yukawa bits (optimistic)  : 14.29
+  Tuning penalty            :  0.00
+
+  → Total (conservative)    : 19.77 bits
+  → Total (optimistic)      : 26.58 bits
+
+================================================================================
+ GEOMETRY SCORECARD – Toy3DIntegerGeometry_v1 
+================================================================================
+
+Description:
+  Concrete toy geometry based on the best 3D small-integer Yukawa fit. By construction it nails the (-4,4,3) triple and fits all 9 Yukawas with RMS≈0.0062 dex. It does NOT attempt to explain the DNA backbone.
+
+Lock claims:
+  • explains_dna_backbone   : False
+  • explains_yukawa_triple  : True
+  • tuning_penalty_bits     : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT v4):
+  DNA sector bits           :  0.00
+  Yukawa bits (conservative):  7.48
+  Yukawa bits (optimistic)  : 14.29
+  Tuning penalty            :  0.00
+
+  → Total (conservative)    :  7.48 bits
+  → Total (optimistic)      : 14.29 bits
+
+================================================================================
+ GEOMETRY_SCORECARDS updated with:
+   NullGeometry, PerfectLockGeometry, Toy3DIntegerGeometry_v1
+================================================================================
+
+PHASE21_GLOBAL_GEOMETRY_SCOREBOARD_v1 COMPLETE
+================================================================================
+
+================================================================================
+ PHASE 22 – MODULE 1 (v2): EXTERNAL GEOMETRY ADAPTER & SCORECARD 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.469490
+Blueprint SHA256      : 162db080bc2c52bd80570c8f868b59e5c206c31ee918aa84a44f232b9b38b457
+
+GLOBAL LOCK CONTRACT (from GLOBAL_LOCKS_v4):
+  DNA effective bits                 : 12.29
+  Yukawa triple bits (conservative)  :  7.48
+  Yukawa triple bits (optimistic)    : 14.29
+    → Combined (conservative)        : 19.77 bits
+    → Combined (optimistic)          : 26.58 bits
+
+Now registering a demo geometry: 'DNAOnlyGeometry'
+  (claims: explains DNA backbone, does NOT explain Yukawa triple)
+
+================================================================================
+ PHASE 22 – GEOMETRY SCORECARD: DNAOnlyGeometry 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.469706
+Run SHA256 payload    : 2945ded8b2b30b0f5f077a08d40f18a4eb4896ac90530473b2354fa7df2aff4d
+Blueprint SHA256      : 162db080bc2c52bd80570c8f868b59e5c206c31ee918aa84a44f232b9b38b457
+
+Description:
+  Hypothetical geometry that fully explains the DNA backbone/lock structure but leaves Yukawa masses untouched. This is ONLY a demo for the adapter.
+
+Lock claims:
+  • explains_dna_backbone   : True
+  • explains_yukawa_triple  : False
+  • tuning_penalty_bits     : 0.00
+
+Bits earned (relative to GLOBAL_LOCKS_BLUEPRINT v4):
+  DNA sector bits           :  12.29
+  Yukawa bits (conservative):   0.00
+  Yukawa bits (optimistic)  :   0.00
+  Tuning penalty            :   0.00
+
+  → Total (conservative)    :  12.29 bits
+  → Total (optimistic)      :  12.29 bits
+
+================================================================================
+
+GEOMETRY_SCORECARDS currently has 4 entries.
+
+================================================================================
+ PHASE22_GEOMETRY_ADAPTER_v2 COMPLETE 
+================================================================================
+
+================================================================================
+ PHASE 23 – MODULE 1: FN-COMPATIBLE BASIS SEARCH FOR TOY 3D GEOMETRY (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.471874
+Run SHA256 payload    : dd6c743e1d28e6a3514ae5c55da217beccde98f928404b5d09ee4f5625382330
+
+Original Toy3D integer geometry (C_real, q_real):
+  C_real (9×3 charges), max |C_ij| = 4, L1 sum = 56
+  q_real (log10 λ) = [ 0.995464  0.960785 -0.22005 ]
+
+Search setup:
+  • U entries in {-1,0,1}
+  • det(U) = ±1 (unimodular)
+  • FN conditions:
+       (FN1) q'_j < 0  (all spurions < 1)
+       (FN2) C'_{ij} ≥ 0 (non-negative charges)
+       (FN3) each column of C' used (max_i C'_{ij} > 0)
+
+Search results:
+  FN-compatible bases found : 0
+
+  No FN-compatible basis found within this search region.
+  → Within U ∈ {-1,0,1}^{3×3} unimodular, Toy3D geometry
+    cannot be turned into a 3-spurion FN model with:
+      • λ_j < 1 for all j and
+      • all Yukawa charges non-negative.
+
+  Interpretation:
+    • This suggests the Toy3D integer geometry is NOT equivalent
+      to a simple 3-spurion FN setup with non-negative exponents.
+    • Any realistic multi-spurion FN model would need more DOF,
+      more complicated basis transforms, or additional structure.
+
+NOTE: This is a structural check only; it does NOT change the global
+      lock contract (DNA + me–mtau–md triple, ~20–27 bits). It tells
+      you how compatible Toy3D is with a simple FN picture.
+
+================================================================================
+ PHASE23_YUKAWA_3D_FN_BASIS_SEARCH_v1 COMPLETE 
+================================================================================
+
+================================================================================
+ PHASE 23 – MODULE 2: YUKAWA 3D FN-COMPATIBILITY EVIDENCE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.853723
+Run SHA256 payload    : ffef549547557505271b227f7cffef5ce1e48431d16894f8e94307df1c00291d
+
+Input from PHASE 23 – MODULE 1 (structural FN search):
+  • U ∈ {-1,0,1}^{3×3}, det(U)=±1 (unimodular).
+  • Toy3D geometry charges C_real with max|C_ij| = 4, L1 sum = 56.
+  • q_real (log10 λ) ≈ [0.99546434, 0.96078513, -0.22005041].
+  • FN-conditions required in transformed basis (C', q'):
+       (FN1) q'_j < 0          (all spurions λ_j < 1)
+       (FN2) C'_{ij} ≥ 0       (non-negative integer charges)
+       (FN3) max_i C'_{ij} > 0 for each column j (each spurion used)
+
+Outcome of the search region:
+  → FN-compatible bases found : 0
+
+Interpretation for model-building:
+  • Within this natural unimodular search, the Toy3D integer Yukawa
+    geometry C_real, q_real is NOT equivalent to a textbook
+    3-spurion Froggatt–Nielsen model with:
+       – three sub-unity spurions λ_j < 1, and
+       – purely non-negative integer exponents for all Yukawas.
+
+  • Any realistic FN-like geometry that reproduces the Toy3D pattern
+    must be more involved, e.g.:
+       – additional spurions (dimension > 3), or
+       – non-unimodular / larger-integer basis changes, or
+       – negative charges / mixed-sign exponents, or
+       – extra discrete symmetries / structure beyond plain FN.
+
+Evidence-budget status:
+  • bits assigned          : 0.00  (by design)
+  • classification         : supporting_structure_shape
+  • reason                 : finite structural non-existence, not a
+                             probabilistic anomaly; no new lock.
+
+Global lock contract remains:
+  • PRIMARY LOCKS:
+       – DNA backbone / lock structure (~12.29 bits).
+       – me–mtau–md (-4,4,3) Yukawa triple (7–14 bits).
+  • Toy3D FN-compatibility result only constrains how a future
+    geometry can look; it does NOT alter the required bits.
+
+GEOM_EVIDENCE['toy3d_fn_compatibility'] has been updated in memory.
+
+================================================================================
+ PHASE23_YUKAWA_3D_FN_COMPATIBILITY_EVIDENCE_v1 COMPLETE 
+================================================================================
+
+================================================================================
+ PHASE 24 – MODULE 1 (v2): EXTERNAL FN-LIKE YUKAWA MODEL TESTER 
+================================================================================
+
+This module defines evaluate_yukawa_geometry(name, description, C, q, ...)
+and runs a demo on Toy3DIntegerGeometry_v1 as an external model.
+
+================================================================================
+ PHASE 24 – GEOMETRY SCORECARD: Toy3DIntegerGeometry_v1_external 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.856269
+Run SHA256 payload    : d8cbe75a3a2c51a7903f8dc613098c15c3299e1ec3eb366baf519170d283e40e
+
+Description:
+  External evaluation of Toy3DIntegerGeometry_v1: 9×3 integer charges and 3D log10 λ-vector. By construction, this fits all 9 Yukawas with RMS_all ≈ 0.0042 dex and enforces the (-4,4,3) triple at the geometry level.
+
+Fit quality (all 9 Yukawas):
+  RMS_all (dex)             :  0.004244
+  Max |residual| (dex)      :  0.010471
+
+Triple lock (-4,4,3) on geometry:
+  S_real                    :  6.000000e-06
+  S_geom                    :  1.776357e-15
+  |S_geom| / S_real         :  2.961e-10
+  explains_yukawa_triple?   : True
+
+Lock claims (for global contract):
+  • explains_dna_backbone   : False
+  • explains_yukawa_triple  : True
+  • tuning_penalty_bits     :  0.00
+
+Bits earned (relative to global lock contract):
+  DNA sector bits           :  0.00
+  Yukawa bits (conservative):  7.48
+  Yukawa bits (optimistic)  :  14.29
+  Tuning penalty            :  0.00
+
+  → Total (conservative)    :  7.48 bits
+  → Total (optimistic)      :  14.29 bits
+
+================================================================================
+
+GEOMETRY_SCORECARDS updated with:
+  Toy3DIntegerGeometry_v1_external
+
+PHASE24_YUKAWA_FN_MODEL_TESTER_v2 COMPLETE
+================================================================================
+
+================================================================================
+ PHASE 25 – MODULE 1: GLOBAL GEOMETRY SCOREBOARD PRINTER (v2) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.858952
+Run SHA256 payload    : 1dcf95726e29b14a51f0c57e6560d74ae5b3a19faebfac04a48919af102fec80
+
+GLOBAL LOCK CONTRACT (from GLOBAL_LOCKS_v4 or fallback):
+  DNA effective bits                 : 12.29
+  Yukawa triple bits (conservative)  :  7.48
+  Yukawa triple bits (optimistic)    : 14.29
+    → Combined (conservative)        : 19.77 bits
+    → Combined (optimistic)          : 26.58 bits
+
+================================================================================
+ GLOBAL GEOMETRY SCOREBOARD (sorted by conservative bits) 
+================================================================================
+
+Name                         DNA?  Yukawa?   Tuning  DNA bits  Yuk(cons)  Yuk(opt)  Tot(cons)  Tot(opt)
+-------------------------------------------------------------------------------------------------------
+Toy3DIntegerGeometry_v1_external N     Y           0.00      0.00       7.48     14.29       7.48     14.29
+
+================================================================================
+ DETAILED GEOMETRY DESCRIPTIONS 
+================================================================================
+
+================================================================================
+ GEOMETRY: Toy3DIntegerGeometry_v1_external 
+================================================================================
+
+  explains_dna_backbone : False
+  explains_yukawa_triple: True
+  tuning_penalty_bits   : 0.00
+
+  DNA bits              : 0.00
+  Yukawa bits (cons)    : 7.48
+  Yukawa bits (opt)     : 14.29
+  Total bits (cons)     : 7.48
+  Total bits (opt)      : 14.29
+
+  Description:
+    External evaluation of Toy3DIntegerGeometry_v1: 9×3 integer charges and 3D log10 λ-vector. By construction, this fits all 9 Yukawas with RMS_all ≈ 0.0042 dex and enforces the (-4,4,3) triple at the geometry level.
+
+PHASE25_GLOBAL_GEOMETRY_SCOREBOARD_v2 COMPLETE
+================================================================================
+================================================================================
+ PHASE 26 – MODULE 1: GLOBAL GEOMETRY SNAPSHOT EXPORTER (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.860240
+Run SHA256 payload    : 0f149f62b398a199cfdb3b2c229dde3ddb0c03fd0c62394a62cd1be0470d4f67
+
+Contents:
+  • global_locks_v4             : present
+  • geom_evidence               : present
+  • geometry_scorecards         : present
+  • global_geometry_scoreboard_v2: present
+  • toy3d_integer_geometry_v1   : None
+  • yukawa_data                 : present
+
+Writing JSON snapshot to: global_geometry_snapshot_phase26.json
+Done.
+
+You can archive or share this file as a complete state snapshot.
+
+PHASE26_GLOBAL_GEOMETRY_SNAPSHOT_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 27 – MODULE 1: GLOBAL GEOMETRY CONSISTENCY & ROADMAP (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.863161
+Run SHA256 payload    : ec8b434eac78c20f8e5dca06327831ee2d13366403f3e5039d7bbde479723fd7
+
+GLOBAL LOCK CONTRACT (expected DNA + Yukawa triple)
+--------------------------------------------------------------------------------
+DNA sector:
+  • Status         : primary_lock
+  • Effective bits : 12.29
+
+Yukawa sector (me–mtau–md triple):
+  • Status         : primary_lock
+  • Bits (global)  : 7.48
+  • Bits (fixed)   : 14.29
+
+Combined:
+  • Bits (conservative) : 19.77
+  • Bits (optimistic)   : 26.58
+
+Interpretation:
+  → Any serious geometry must explain roughly 20–27 bits total,
+    coming from TWO independent sectors: DNA and the Yukawa triple.
+
+================================================================================
+ GEOM_EVIDENCE STATUS SUMMARY 
+================================================================================
+
+Total GEOM_EVIDENCE entries : 5
+By status:
+  • killed                        :   1  (0.200 of entries)
+  • supporting_structure_shape    :   1  (0.200 of entries)
+  • supporting_structure_weak     :   1  (0.200 of entries)
+  • unknown                       :   2  (0.400 of entries)
+
+Notes:
+  • 'primary_lock' entries are the ones that actually contribute
+    bits to the global contract.
+  • 'supporting_structure' / 'supporting_structure_weak' are shape
+    information only, not added as extra bits.
+  • 'killed' entries are patterns that turned out to be ordinary.
+
+================================================================================
+ GLOBAL GEOMETRY RESEARCH ROADMAP (v1) 
+================================================================================
+
+PRIMARY TARGETS (must eventually be explained by a real model):
+  1) DNA backbone + lock-family architecture (~12.29 bits).
+  2) me–mtau–md (-4,4,3) Yukawa triple (7–14 bits).
+
+WHAT WE HAVE ALREADY MAPPED OUT:
+  • A robust statistical case that BOTH sectors are genuine locks,
+    not flukes of the null models.
+  • A detailed 3D integer Yukawa geometry (Toy3D) that:
+      - Enforces the (-4,4,3) relation at the coefficient level.
+      - Fits all 9 Yukawas to ≲ 0.01 dex RMS.
+      - Is moderately surprising under nulls, but derivative of
+        the primary triple, so not a separate lock.
+  • Multiple nullscans showing NO second Yukawa triple lock and
+    NO extra independent bits from 2D/3D structures or q-relations.
+
+WHAT COUNTS AS *SUPPORTING SHAPE* (no extra bits):
+  • 2D & 3D small-integer Yukawa geometries and their stability.
+  • Integer relations among the 3D q-vector.
+  • Secondary 3-term relations among Yukawas (e.g. (mt,ms,mu)).
+  • FN-compatibility checks that constrain how Toy3D could come
+    from multi-spurion models.
+
+NEXT STEPS FOR MODEL-BUILDING (high level):
+  A) DNA sector:
+     - Propose explicit geometries / combinatorial structures
+       that generate the DNA backbone + lock-family patterns.
+     - Each candidate must be testable: it should output the
+       backbone/locks in a way the existing DNA lock-checkers
+       (from earlier phases) can verify.
+
+  B) Yukawa sector:
+     - Use Toy3D and its integer charges as a *hint* about an
+       underlying charge lattice / symmetry structure.
+     - Explore multi-spurion FN-like models or discrete symmetries
+       that naturally reproduce the triple and the 9-point pattern,
+       without over-tuning.
+
+  C) JOINT DNA–YUKAWA GEOMETRY:
+     - Long-term goal: a single geometry / code / lattice / graph
+       that explains BOTH sectors at once.
+     - The global contract (~20–27 bits) is your target to hit.
+     - Any candidate that claims success must be run through the
+       existing lock-checkers and scored with the scorecard tools.
+
+USAGE REMINDER:
+  • Use:
+      - score_geometry(...) / register_geometry_hypothesis(...)
+        for abstract claims ("this model explains DNA and/or Yukawa").
+      - evaluate_yukawa_geometry(...)
+        for explicit (C, q) Yukawa charge/spurion models.
+  • Then re-run the scoreboard printer (PHASE 25) to see where the
+    new geometry sits relative to NullGeometry and PerfectLockGeometry.
+
+This module itself adds NO new bits of evidence; it just keeps the
+project coherent and points the way forward.
+
+PHASE27_GLOBAL_GEOMETRY_CONSISTENCY_AND_ROADMAP_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 28 – MODULE 1: GLOBAL GEOMETRY SNAPSHOT INSPECTOR (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.865028
+Snapshot path         : global_geometry_snapshot_phase26.json
+
+Snapshot file SHA256  : 0d888098b8d6cdc4b7397047ccbed5f4488f3ba9b033537992c9fd8b1e71fd59
+
+Snapshot JSON SHA256  : b19f82fecaf547d123ae59687a315f23be504360c51ef301db900d39d5cf401c
+
+================================================================================
+ SNAPSHOT CONTENT SUMMARY 
+================================================================================
+
+  • global_locks_v4              : present
+  • geom_evidence                : present
+  • geometry_scorecards          : present
+  • global_geometry_scoreboard_v2: present
+  • toy3d_integer_geometry_v1    : missing
+  • yukawa_data                  : present
+
+  geom_evidence entries          : 5
+  geometry_scorecards entries    : 1
+
+================================================================================
+ GLOBAL LOCKS CONSISTENCY CHECK 
+================================================================================
+
+Snapshot GLOBAL_LOCKS_v4 SHA256 : 537dff66a08fda2a3038161a2bdafba9b45d136a8ff1ba85a8f44a35a2fc6e81
+In-memory GLOBAL_LOCKS_v4 SHA256: 537dff66a08fda2a3038161a2bdafba9b45d136a8ff1ba85a8f44a35a2fc6e81
+→ In-memory contract matches snapshot (SHA identical).
+
+================================================================================
+ YUKAWA DATA QUICK CHECK 
+================================================================================
+
+Yukawa entries in snapshot: 3
+  Example keys: names, sigma_log10, z_real
+
+INTERPRETATION:
+  • This inspector is purely diagnostic: it reads the saved file and
+    tells you what is inside, and whether it matches your current
+    session's GLOBAL_LOCKS_v4 (if any).
+  • It does NOT mutate your current in-memory state.
+  • Use this to:
+      - Verify archival integrity (via SHA256).
+      - Confirm that future work is built on a known contract.
+
+Next steps you *could* take after this:
+  • Write a small loader module that restores GLOBAL_LOCKS_v4,
+    GEOM_EVIDENCE, and GEOMETRY_SCORECARDS from a chosen snapshot.
+  • Keep exporting periodic snapshots (PHASE 26) as you develop
+    new candidate geometries.
+
+PHASE28_GLOBAL_GEOMETRY_SNAPSHOT_INSPECTOR_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 29 – MODULE 1: GLOBAL GEOMETRY SNAPSHOT LOADER (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.868277
+Snapshot path         : global_geometry_snapshot_phase26.json
+Load mode             : replace
+
+Snapshot file SHA256  : 0d888098b8d6cdc4b7397047ccbed5f4488f3ba9b033537992c9fd8b1e71fd59
+Snapshot JSON SHA256  : b19f82fecaf547d123ae59687a315f23be504360c51ef301db900d39d5cf401c
+
+================================================================================
+ SNAPSHOT CONTENTS (BEFORE LOAD) 
+================================================================================
+
+  • global_locks_v4              : present
+  • geom_evidence                : present
+  • geometry_scorecards          : present
+  • global_geometry_scoreboard_v2: present
+  • toy3d_integer_geometry_v1    : missing
+  • yukawa_data                  : present
+
+  • GLOBAL_LOCKS_v4 set from snapshot.
+  • GEOM_EVIDENCE set from snapshot.
+  • GEOMETRY_SCORECARDS set from snapshot (1 entries).
+  • GLOBAL_GEOMETRY_SCOREBOARD_V2 set from snapshot (1 rows).
+  • TOY3D_INTEGER_GEOMETRY_V1 not found in snapshot (unchanged).
+  • YUKAWA_DATA set from snapshot.
+
+================================================================================
+ POST-LOAD IN-MEMORY SUMMARY 
+================================================================================
+
+GLOBAL_LOCKS_v4 present, SHA256: 537dff66a08fda2a3038161a2bdafba9b45d136a8ff1ba85a8f44a35a2fc6e81
+GEOM_EVIDENCE present with 5 entries.
+GEOMETRY_SCORECARDS present with 1 entries.
+GLOBAL_GEOMETRY_SCOREBOARD_V2 present with 1 rows.
+TOY3D_INTEGER_GEOMETRY_V1 not present in memory.
+YUKAWA_DATA present (dict). Keys: names, sigma_log10, z_real
+
+INTERPRETATION:
+  • Snapshot has been loaded according to the chosen mode ('replace').
+  • Use 'replace' when you want to fully restore a past state.
+  • Use 'merge' if you want to accumulate evidence and scorecards
+    from multiple snapshots in one session.
+
+PHASE29_GLOBAL_GEOMETRY_SNAPSHOT_LOADER_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 30 – MODULE 1: 3-SPURION FN-LIKE YUKAWA GEOMETRY SEARCH (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:49.871850
+C_basis_max           : 4
+C_other_max           : 4
+q_neg_only            : True
+
+Real Yukawa logs (subset):
+  me_over_v   z_me   = -5.683401
+  mtau_over_v z_tau  = -2.141781
+  md_over_v   z_d    = -4.722162
+  S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+================================================================================
+ BUILDING FN-LIKE BASIS CANDIDATES FOR (me, tau, d) 
+================================================================================
+
+  C_basis_max             : 4
+  Non-negative FN basis candidates found: 0
+  (All satisfy -4 row(me) + 4 row(tau) + 3 row(d) = 0 by construction.)
+
+No FN-compatible basis for (me, tau, d) found within given bounds.
+→ Within C_basis_max and non-negative charges, there is no 3-spurion
+  structure that enforces the (-4,4,3) triple at coefficient level.
+
+Run SHA256 payload    : 53a634ce13174846a423d48b74305a671295aa3eabe3bdff5257aafe78e6a210
+
+PHASE30_YUKAWA_3SPURION_FN_SEARCH_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 30 – MODULE 2: 3-SPURION FN-COMPATIBILITY EVIDENCE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:50.048251
+C_basis_max           : 4
+C_other_max           : 4
+q_neg_only            : True
+num_basis_candidates  : 0
+
+================================================================================
+ INTERPRETATION & VERDICT 
+================================================================================
+
+  • classification : supporting_structure_shape
+  • bits           : 0.00 (by design: structural, not probabilistic)
+
+  Summary:
+    Within small non-negative charges (<= C_basis_max) and strictly sub-unity spurions (q_j<0), no 3×3 integer basis for (me,mtau,md) exists that enforces the (-4,4,3) triple at coefficient level. Any realistic FN-like geometry must therefore relax at least one of these conditions (larger charges, negative charges, more spurions, etc.).
+
+  Evidence-budget status:
+    → This result is a SHAPE constraint on possible FN models.
+    → It does NOT add bits to the global DNA + Yukawa triple contract.
+    → Primary locks remain:
+         1) DNA backbone / locks (~12.29 bits).
+         2) me–mtau–md (-4,4,3) triple (7–14 bits).
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['yukawa_3spurion_fn_search'] =
+{
+  "C_basis_max": 4,
+  "C_other_max": 4,
+  "q_neg_only": true,
+  "num_basis_candidates": 0,
+  "bits": 0.0,
+  "classification": "supporting_structure_shape",
+  "reason": "Within small non-negative charges (<= C_basis_max) and strictly sub-unity spurions (q_j<0), no 3\u00d73 integer basis for (me,mtau,md) exists that enforces the (-4,4,3) triple at coefficient level. Any realistic FN-like geometry must therefore relax at least one of these conditions (larger charges, negative charges, more spurions, etc.).",
+  "timestamp": "2025-11-27T07:35:50.048251",
+  "sha256": "881df3a0e49186bc3a6839de0063ffb7a602bd92d346ecd1dc68be7c28fd50f0",
+  "status": "supporting_structure_shape",
+  "description": "From-scratch search for 3-spurion FN-like geometry with non-negative charges and q_j<0 that enforces the (-4,4,3) triple at coefficient level; here num_basis_candidates=0 for C_basis_max<=4."
+}
+
+Run SHA256 payload    : 881df3a0e49186bc3a6839de0063ffb7a602bd92d346ecd1dc68be7c28fd50f0
+
+PHASE30_YUKAWA_3SPURION_FN_EVIDENCE_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 31 – MODULE 1: 3-SPURION FN-LIKE SEARCH (MIXED-SIGN) v1 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:50.050561
+C_basis_max           : 4
+q_neg_only            : True
+
+================================================================================
+ SEARCH SUMMARY 
+================================================================================
+
+  C_basis_max                   : 4
+  d_j allowed values            : (-4, 0, 4)
+  Total (me,d) basis attempts   : 9261
+  Invertible bases (3×3)        : 0
+  FN-like bases with q_j<0      : 0
+
+  No FN-like 3-spurion basis with q_j<0 was found in this mixed-sign
+  search region (charges in [-C_basis_max, C_basis_max], with d_j ∈ multiples
+  of 4 to enforce the (-4,4,3) relation at coefficient level).
+
+================================================================================
+ INTERPRETATION & VERDICT 
+================================================================================
+
+  classification : supporting_structure_shape
+  bits           : 0.00 (by design: structural, not probabilistic)
+
+  Summary:
+    Within mixed-sign charges |C_ij| <= C_basis_max and strictly sub-unity spurions (q_j<0), no invertible 3×3 integer basis for (me,mtau,md) enforcing the (-4,4,3) triple at coefficient level was found. This further constrains simple 3-spurion FN-like interpretations.
+
+  Evidence-budget status:
+    → This is a SHAPE constraint on possible FN-like 3-spurion models.
+    → It does NOT alter the global DNA + Yukawa triple contract (~20–27 bits).
+    → Primary locks remain:
+         1) DNA backbone / locks (~12.29 bits).
+         2) me–mtau–md (-4,4,3) triple (7–14 bits).
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['yukawa_3spurion_fn_mixed_sign'] =
+{
+  "C_basis_max": 4,
+  "q_neg_only": true,
+  "num_candidates_total": 9261,
+  "num_invertible": 0,
+  "num_fn_like": 0,
+  "bits": 0.0,
+  "classification": "supporting_structure_shape",
+  "reason": "Within mixed-sign charges |C_ij| <= C_basis_max and strictly sub-unity spurions (q_j<0), no invertible 3\u00d73 integer basis for (me,mtau,md) enforcing the (-4,4,3) triple at coefficient level was found. This further constrains simple 3-spurion FN-like interpretations.",
+  "timestamp": "2025-11-27T07:35:50.050561",
+  "sha256": "fe8cddf54d3f004306eba83bc70fdc8cd4259e6be072c68e9d19bbb86e3637a9",
+  "status": "supporting_structure_shape",
+  "description": "Search for 3-spurion FN-like bases with mixed-sign charges |C_ij| <= C_basis_max and q_j<0, enforcing the (-4,4,3) triple at coefficient level for (me,mtau,md). Structural constraint, not a new lock."
+}
+
+Run SHA256 payload    : fe8cddf54d3f004306eba83bc70fdc8cd4259e6be072c68e9d19bbb86e3637a9
+
+PHASE31_YUKAWA_3SPURION_FN_MIXED_SIGN_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 31 – MODULE 2: 3-SPURION FN MODEL-SPACE SUMMARY (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-27T07:35:50.407698
+
+================================================================================
+ INPUT FN-LIKE CONSTRAINTS 
+================================================================================
+
+1) Toy3D FN-compatibility (PHASE 23):
+   • status       : unknown
+   • bits         : 0.0
+   • reason       : <no reason stored>
+
+2) 3-spurion FN search (non-negative charges, PHASE 30):
+   • C_basis_max         : 4
+   • C_other_max         : 4
+   • q_neg_only          : True
+   • num_basis_candidates: 0
+   • classification      : supporting_structure_shape
+   • bits                : 0.0
+   • reason              : Within small non-negative charges (<= C_basis_max) and strictly sub-unity spurions (q_j<0), no 3×3 integer basis for (me,mtau,md) exists that enforces the (-4,4,3) triple at coefficient level. Any realistic FN-like geometry must therefore relax at least one of these conditions (larger charges, negative charges, more spurions, etc.).
+
+3) 3-spurion FN search (mixed-sign charges, PHASE 31 – M1):
+   • C_basis_max         : 4
+   • q_neg_only          : True
+   • num_candidates_total: 9261
+   • num_invertible      : 0
+   • num_fn_like         : 0
+   • classification      : supporting_structure_shape
+   • bits                : 0.0
+   • reason              : Within mixed-sign charges |C_ij| <= C_basis_max and strictly sub-unity spurions (q_j<0), no invertible 3×3 integer basis for (me,mtau,md) enforcing the (-4,4,3) triple at coefficient level was found. This further constrains simple 3-spurion FN-like interpretations.
+
+================================================================================
+ QUALITATIVE SUMMARY OF 3-SPURION FN SPACE 
+================================================================================
+
+  • Toy3D geometry cannot be mapped to a simple 3-spurion FN model
+    with small unimodular basis changes, λ_j<1, and non-negative
+    charges (PHASE 23).
+
+  • From-scratch 3-spurion FN search with non-negative charges
+    |C_ij| <= C_basis_max and q_j<0 found NO basis for (me, mtau, md)
+    that enforces the (-4,4,3) triple at coefficient level (PHASE 30).
+
+  • Even allowing mixed-sign charges within the same small box
+    |C_ij| <= C_basis_max and q_j<0 (PHASE 31 – M1), we still found
+    NO invertible 3×3 basis for (me, mtau, md) that enforces the
+    (-4,4,3) relation at the coefficient level.
+
+  Overall implication for model-building:
+    • A naive 3-spurion Froggatt–Nielsen picture with small integer
+      charges is strongly disfavored as an explanation of the
+      (-4,4,3) Yukawa triple and Toy3D structure.
+    • Any successful FN-like geometry will likely need more spurions,
+      larger/integer charges, or additional discrete / combinatorial
+      structure beyond textbook 3-spurion FN.
+
+================================================================================
+ EVIDENCE-BUDGET STATUS 
+================================================================================
+
+  classification : supporting_structure_shape
+  bits           : 0.00 (by design: structural, not probabilistic)
+
+  Summary:
+    Combined 3-spurion FN constraints (Toy3D FN-compatibility, non-negative charge search, and mixed-sign small-charge search) show that simple 3-spurion FN models with small integer charges and q_j<0 are incompatible with the (-4,4,3) Yukawa triple and the Toy3D geometry. This is a structural restriction, not a new probabilistic anomaly, so bits=0.
+
+  Global contract reminder:
+    → PRIMARY LOCKS remain:
+         1) DNA backbone / locks (~12.29 bits).
+         2) me–mtau–md (-4,4,3) triple (7–14 bits).
+    → These FN constraints only shape the space of candidate models;
+      they do NOT change the ~20–27 bit target any geometry must hit.
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['yukawa_3spurion_fn_summary'] =
+{
+  "bits": 0.0,
+  "classification": "supporting_structure_shape",
+  "reason": "Combined 3-spurion FN constraints (Toy3D FN-compatibility, non-negative charge search, and mixed-sign small-charge search) show that simple 3-spurion FN models with small integer charges and q_j<0 are incompatible with the (-4,4,3) Yukawa triple and the Toy3D geometry. This is a structural restriction, not a new probabilistic anomaly, so bits=0.",
+  "timestamp": "2025-11-27T07:35:50.407698",
+  "sha256": "a82b54ff7a2e1464169e687ea483e80d6be7dbf11c2c2f04e58009fe69fab0b9",
+  "status": "supporting_structure_shape",
+  "description": "Consolidated summary of 3-spurion FN constraints from Toy3D FN-compatibility (PHASE 23), non-negative charge search (PHASE 30), and mixed-sign small-charge search (PHASE 31 \u2013 M1). Shows that simple 3-spurion FN models with small integer charges and q_j<0 are strongly disfavored as explanations of the (-4,4,3) Yukawa triple."
+}
+
+Run SHA256 payload    : a82b54ff7a2e1464169e687ea483e80d6be7dbf11c2c2f04e58009fe69fab0b9
+
+PHASE31_YUKAWA_3SPURION_FN_SUMMARY_v1 COMPLETE
+================================================================================
