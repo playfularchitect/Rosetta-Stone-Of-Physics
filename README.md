@@ -23,7 +23,7 @@ This document walks you through the arithmetic to verify the interlocking predic
 To reproduce the full computational results of the project, you can run the primary scripts directly in your browser using Google Colab. No setup is required.
 
 * **[► Run the Fine-Structure Constant Derivation](https://colab.research.google.com/drive/1ttEMfSITXa3DaZHnH5SMFIRUX12BVaxC?usp=sharing)**
-    * This notebook contains the code from the flagship paper, deriving $\alpha^{-1} \approx 137.036$ from first principles.
+    * This notebook contains the code from the flagship paper, deriving $\alpha^{-1} \approx 137.036$ from first principles. ( Note: November 28th,2025 this code was for an older attempt at the derivation, it is not from the current V12 keystone. I have not updated the whole readme yet to cover some of my newer information.)
 * **[► Run the "Mindmelt" Physics Engine](https://colab.research.google.com/drive/1MZtXHujuPUlDSmSMu2gR54b-s9N44UoZ?usp=sharing)**
     * This notebook, `MathOracle4`, takes the 19 core registry fractions and derives hundreds of observables across the Standard Model.
 
