@@ -40,9 +40,9 @@ The flagship paper demonstrates a derivation of the fine-structure constant ($\a
 * **Primary Paper:** **KeystoneMasterPaper_V12_(2).pdf
 * **Supporting Materials:** See the `Two Shells Derivation` folder.
 
-### Pillar 2: An Interlocking Model of Particle Physics
+### Pillar 2: An Interlocking Model of Particle Physics and more
 
-A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. This single lock simultaneously predicts dozens of independent observables in tight agreement with experimental data.
+A small set of just four rational numbers is shown to lock the entire CKM and PMNS flavor geometry. The locks and theory simultaneously predicts dozens of independent observables in tight agreement with experimental data.
 
 * **Supporting Papers:** See the PDFs in the `Math Checks` folder (e.g., `CKMandPMS.pdf`, `Rare_Decay_Ledger.pdf`, `MuonG2 (1).pdf`).
 * **Primary Code:** See the `Code and Output/MathOracle` folder.
