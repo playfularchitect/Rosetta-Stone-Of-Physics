@@ -1,0 +1,1168 @@
+REGISTRY initial (with derived views)
+=====================================
+group           name                    p/q                                                         approx    bits
+------------------------------------------------------------------------------------------------------------
+CKM             CKM_s12                 13482/60107                                         0.224299998336      16
+CKM             CKM_s13                 1913/485533                                         0.003939999959      19
+CKM             CKM_s23                 6419/152109                                         0.042200001315      18
+CKM             CKM_delta_over_pi       6869/17983                                          0.381971862314      15
+COUPLINGS       alpha                   2639/361638                                         0.007297352601      19
+COUPLINGS       alpha_s_MZ              9953/84419                                          0.117899998815      17
+COUPLINGS       sin2_thetaW             7852/33959                                          0.231220000589      16
+EW              MW_over_v               17807/54547                                         0.326452417182      16
+EW              MZ_over_v               18749/50625                                         0.370350617284      16
+HIGGS           MH_over_v               22034/43315                                         0.508692138982      16
+LEPTON_YUKAWA   me_over_v               43/20719113                                         0.000002075378      25
+LEPTON_YUKAWA   mmu_over_v              421/981072                                          0.000429122429      20
+LEPTON_YUKAWA   mtau_over_v             2561/354878                                         0.007216564566      19
+QUARK_HEAVY     mb_over_v               3268/192499                                         0.016976711567      18
+QUARK_HEAVY     mc_over_v               1687/327065                                         0.005157996117      19
+QUARK_HEAVY     mt_over_v               24087/34343                                         0.701365634918      16
+QUARK_LIGHT     md_over_v               111/5852330                                         0.000018966805      23
+QUARK_LIGHT     ms_over_v               411/1088132                                         0.000377711528      21
+QUARK_LIGHT     mu_over_v               83/9461218                                          0.000008772655      24
+
+DERIVED ratios
+==============
+name              p/q                                                         approx    bits
+----------------------------------------------------------------------------------------------
+alpha_inverse     361638/2639                                         137.035998484274      31
+W_over_Z          901479375/1022701703                                0.881468538045      60
+top_over_Z        1219404375/643896907                                1.893788216318      61
+tau_over_mu       1256262696/74701819                                 16.817029529094      58
+
+EW CHECK: custodial ρ (tree-level, squared form)
+================================================
+(MW/MZ)^2  = 812665063550390625/1045918773319100209    ≈ 0.776986783564
+(1 - s2W)  = 26107/33959    ≈ 0.768779999411
+ρ^2 - cos^2 = 0.008206784153  (should be ~0 at tree level)
+
+Snap sin²θW to match ρ, small-bit rational
+==========================================
+[auto] Snapped  c2W: 655/843  ≈ 0.776986951364  (bits=20)
+[auto] New      s2W: 188/843   ≈ 0.223013048636  (bits=18)
+[auto] Residual |ρ^2 - c2W| ≈ 1.678e-07
+
+UNITARITY (toy): scalar 2→2 a0 bounds [hotfix]
+==============================================
+Contact quartic bound (rough): λ ≲ 8.378
+Implied m_H (rough unitarity cap) ≲ 1007.9 GeV
+
+FIT v with different anchors and predict masses
+===============================================
+
+Anchor: MW=80.379 GeV  →  v ≈ 246.219650306059 GeV
+mass           GeV (approx)
+--------------------------
+MW              80.379000000
+MZ              91.187599478
+MH             125.250000574
+mt             172.690001366
+mb               4.179999985
+mc               1.270000000
+ms               0.093000000
+md               0.004670000
+mu               0.002160000
+mtau             1.776860004
+mmu              0.105658374
+me               0.000510999
+(Unitarity rough cap) m_H ≲ 1007.9 GeV
+
+Anchor: MZ=91.1876 GeV  →  v ≈ 246.219651714758 GeV
+mass           GeV (approx)
+--------------------------
+MW              80.379000460
+MZ              91.187600000
+MH             125.250001290
+mt             172.690002354
+mb               4.180000009
+mc               1.270000007
+ms               0.093000001
+md               0.004670000
+mu               0.002160000
+mtau             1.776860014
+mmu              0.105658375
+me               0.000510999
+
+TOY RG: one arithmetic step (α' = α / (1 + k α))
+================================================
+α_EM : k=-0.000250 → α_0≈0.0072973526 → α_1≈0.00729736591 (1/α: 137.035998 → 137.035748)
+α_s  : k=+0.003000 → α_0≈0.117899999 → α_1≈0.117858312 (1/α: 8.481764 → 8.484764)
+
+PLANCK LADDER: {G, ħ, c, k_B} → unit-free ratios
+================================================
+E_P ≈ 1.22089012821e+19 GeV
+T_P ≈ 1.41678416172e+32 K
+l_P ≈ 1.61625502393e-35 m
+t_P ≈ 5.39124644666e-44 s
+
+mass vs Planck energy
+=====================
+mass                       GeV        (mass/E_P)
+MW                   80.379000 6.58363911238e-18
+MZ                   91.187599 7.46894395911e-18
+MH                  125.250001 1.02589084537e-17
+mt                  172.690001 1.41445980581e-17
+mb                    4.180000 3.42373149628e-19
+mc                    1.270000 1.04022464500e-19
+ms                    0.093000 7.61739308924e-21
+md                    0.004670 3.82507803646e-22
+mu                    0.002160 1.76920097900e-22
+mtau                  1.776860 1.45538076094e-19
+mmu                   0.105658 8.65420827394e-21
+me                    0.000511 4.18546220497e-23
+
+v ≈ 246.219650306059 GeV  →  v/E_P ≈ 2.01672242749e-17  and  α_G(weak)≈(v/E_P)^2≈ 4.06716934954e-34
+
+YUKAWAS  y_f = √2 · (m_f / v)
+=============================
+me      y ≈ 0.000002935028
+mmu     y ≈ 0.000606870759
+mtau    y ≈ 0.010205763483
+md      y ≈ 0.000026823112
+ms      y ≈ 0.000534164765
+mc      y ≈ 0.007294508063
+mb      y ≈ 0.024008695743
+mt      y ≈ 0.991880793084
+
+CKM first-row unitarity & Jarlskog
+==================================
+|V_ud|^2+|V_us|^2+|V_ub|^2 ≈  1.000000000000  (deviation ≈ +0.000e+00)
+Jarlskog J ≈ 3.384301967056e-05
+
+WOLFENSTEIN quick (λ,A,ρ,η) & UT angles
+=======================================
+λ≈0.224299998, A≈0.838791313, ρ≈0.150831, η≈0.387961
+UT angles (α,β,γ) ≈ (24.55°, 68.75°, 86.69°);  area≈J/2≈1.692e-05
+
+CKM/PMNS exact-build: matrices + small-denominator fits
+=======================================================
+
+CKM |V_ij| with small-denominator fits:
+                             d             s             b
+     u    0.974513~   650/667    0.224298~    24/107    0.003940~     3/761
+     c    0.224159~   180/803    0.973639~   554/569    0.042200~    33/782
+     t    0.008832~     4/453    0.041453~     8/193    0.999101~  999/1000
+
+CKM arg(V_ij) [deg] (PDG phase convention):
+                         d         s         b
+     u        0.00        0.00      -68.75
+     c     -179.96       -0.00        0.00
+     t      -23.88     -178.86        0.00
+
+PMNS |U_αi| with small-denominator fits:
+                            ν1            ν2            ν3
+     e    0.823258~   177/215    0.547947~     40/73    0.148324~    31/209
+     μ    0.304746~   199/653    0.611653~    63/103    0.730075~   687/941
+     τ    0.478932~   466/973    0.570644~   416/729    0.667076~   543/814
+
+PMNS arg(U_αi) [deg] (Majorana phases omitted):
+                        ν1        ν2        ν3
+     e        0.00        0.00      144.00
+     μ      169.87        3.34        0.00
+     τ        5.87      176.73        0.00
+
+[PORTAL/CKM/PMNS blocks added]
+
+GUT TOY: 1-loop lines α1, α2, α3; sin²θW(μ)
+===========================================
+      μ [GeV]              α1              α2              α3       sin²θW(μ)      spread
+    1.000e+02    0.0156678633    0.0326719341    0.1164884781    0.2234401090    0.100821
+    1.000e+05    0.0168584715    0.0293351881    0.0614236889    0.2564008477    0.044565
+    1.000e+08    0.0182449109    0.0266168415    0.0417080487    0.2914228596    0.023463
+    1.000e+11    0.0198798262    0.0243595616    0.0315736184    0.3287057455    0.011694
+    1.000e+14    0.0218365897    0.0224552146    0.0254014476    0.3684757364    0.003565
+    1.000e+16    0.0233701315    0.0213428728    0.0224727260    0.3964964818    0.002027
+    1.000e+19    0.0261218643    0.0198666973    0.0191592139    0.4410016819    0.006963
+
+Closest three-way (on this grid) is at μ≈1.000e+16 GeV by eye above (toy).
+
+GUT SEARCH: fine-grid unification scan
+======================================
+Best near-unification: μ≈3.798e+15 GeV → α1≈0.023030, α2≈0.021567, α3≈0.023031, spread≈0.001464
+
+UNIF-SNAP: tiny-rational tweaks of (sin²θW, α_s)
+================================================
+sin²θW=350/1529≈0.228907783, α_s=9/77≈0.116883117 → spread@1e16≈0.002657
+sin²θW=173/746≈0.231903485, α_s=9/77≈0.116883117 → spread@1e16≈0.002974
+
+QED Landau pole scale (very rough toy)
+======================================
+A (leptons only)    :    ln(μ_L/μ0)≈  215.256 → μ_L≈2.781e+95 GeV (log10≈95.44)
+B (ℓ + 5 quarks)    :    ln(μ_L/μ0)≈   96.865 → μ_L≈1.066e+44 GeV (log10≈44.03)
+C (ℓ + 6 quarks)    :    ln(μ_L/μ0)≈   80.721 → μ_L≈1.039e+37 GeV (log10≈37.02)
+
+NEUTRINOS: oscillation lengths, 0νββ band, Type-I seesaw scales (toy)
+=====================================================================
+E=0.01 GeV → L21≈329.35 km, L31≈10.16 km
+E=0.60 GeV → L21≈19760.96 km, L31≈609.84 km
+E=1.00 GeV → L21≈32934.93 km, L31≈1016.39 km
+Σν≈0.060 eV → m1≈0.001726 eV, m2≈0.008848 eV, m3≈0.049427 eV;  ratios: m2/m3≈0.1790, m1/m3≈0.0349
+  0νββ effective mass band: mββ ∈ [3.9928e-04, 4.9136e-03] eV
+  Seesaw M_R scales (toy, y~up-quark Yukawas):
+    with y_u≈1.241e-05 → M_R1≈5.406e+06 GeV
+    with y_c≈7.295e-03 → M_R2≈1.869e+12 GeV
+    with y_t≈9.919e-01 → M_R3≈3.456e+16 GeV
+Σν≈0.090 eV → m1≈0.017752 eV, m2≈0.019759 eV, m3≈0.052489 eV;  ratios: m2/m3≈0.3764, m1/m3≈0.3382
+  0νββ effective mass band: mββ ∈ [4.9439e-03, 1.9119e-02] eV
+  Seesaw M_R scales (toy, y~up-quark Yukawas):
+    with y_u≈1.241e-05 → M_R1≈5.257e+05 GeV
+    with y_c≈7.295e-03 → M_R2≈1.817e+11 GeV
+    with y_t≈9.919e-01 → M_R3≈3.360e+15 GeV
+Σν≈0.120 eV → m1≈0.030394 eV, m2≈0.031608 eV, m3≈0.057998 eV;  ratios: m2/m3≈0.5450, m1/m3≈0.5240
+  0νββ effective mass band: mββ ∈ [9.8333e-03, 3.1366e-02] eV
+  Seesaw M_R scales (toy, y~up-quark Yukawas):
+    with y_u≈1.241e-05 → M_R1≈3.070e+05 GeV
+    with y_c≈7.295e-03 → M_R2≈1.061e+11 GeV
+    with y_t≈9.919e-01 → M_R3≈1.962e+15 GeV
+
+SEESAW MC (toy): Σν and m_ββ distributions from random hierarchical Y_ν
+=======================================================================
+Σν [eV]  →  median=0.084339,  5%=0.060439,  95%=0.116567
+m_ββ [eV]→  median=9.479330e-03,  5%=1.466929e-03,  95%=2.307468e-02
+
+WEINBERG OPERATOR: Λ_5 ~ v^2 / m_ν (single-flavor)
+==================================================
+m_ν≈0.001 eV → Λ_5≈6.062e+16 GeV
+m_ν≈0.010 eV → Λ_5≈6.062e+15 GeV
+m_ν≈0.050 eV → Λ_5≈1.212e+15 GeV
+
+QCD: 1-loop Λ_5 from α_s(MZ) (rough)
+====================================
+β0≈0.610094, α_s(MZ)≈0.117900 → Λ_5≈0.087 GeV  (very rough)
+
+BBN: neutron-proton freeze-out ratio → helium mass fraction Y_p (toy)
+=====================================================================
+Δm≈1.293 MeV, T_freeze≈0.80 MeV → n/p≈0.199 → Y_p≈0.331 (obs≈0.25)
+
+HYPERCHARGE CONSISTENCY: Q = T3 + Y (exact rationals)
+=====================================================
+state            T3        Y       T3+Y   Q_target    OK?
+------------------------------------------------------------
+u_L             1/2      1/6        2/3        2/3    yes
+d_L            -1/2      1/6       -1/3       -1/3    yes
+ν_L             1/2     -1/2          0          0    yes
+e_L            -1/2     -1/2         -1         -1    yes
+
+PORTAL-ZOO EFT: s-wave annihilation proxy + SI direct-detection (toy)
+=====================================================================
+
+Scalar (S^2 H†H) portal: parameter = λ_HS
+type        mDM[GeV]         c_eff        σv_proxy     σ_SI [cm^2]
+------------------------------------------------------------------
+S              10.00     1.000e-03       1.053e-16       9.674e-51
+S              30.00     1.000e-03       1.684e-16       9.674e-51
+S              50.00     1.000e-03       7.608e-16       9.674e-51
+S              62.50     1.000e-02       5.916e-10       9.674e-49
+S              80.00     1.000e-03       2.505e-16       9.674e-51
+S             100.00     1.000e-03       4.163e-17       9.674e-51
+S             300.00     1.000e-03       2.076e-19       9.674e-51
+
+Fermion ((H†H)χχ/Λ) portal: parameter = κ_f(≡v/Λ)
+type        mDM[GeV]         c_eff        σv_proxy     σ_SI [cm^2]
+------------------------------------------------------------------
+χ              10.00     3.000e-04       9.477e-18       8.706e-52
+χ              30.00     3.000e-04       1.516e-17       8.706e-52
+χ              50.00     3.000e-04       6.847e-17       8.706e-52
+χ              62.50     2.000e-03       2.366e-11       3.869e-50
+χ              80.00     3.000e-04       2.254e-17       8.706e-52
+χ             100.00     3.000e-04       3.747e-18       8.706e-52
+χ             300.00     3.000e-04       1.868e-20       8.706e-52
+
+Vector (V·V H†H) portal: parameter = κ_V
+type        mDM[GeV]         c_eff        σv_proxy     σ_SI [cm^2]
+------------------------------------------------------------------
+V              10.00     1.000e-03       1.053e-16       9.674e-51
+V              30.00     1.000e-03       1.684e-16       9.674e-51
+V              50.00     1.000e-03       7.608e-16       9.674e-51
+V              62.50     5.000e-03       1.479e-10       2.418e-49
+V              80.00     1.000e-03       2.505e-16       9.674e-51
+V             100.00     1.000e-03       4.163e-17       9.674e-51
+V             300.00     1.000e-03       2.076e-19       9.674e-51
+
+OBLIQUE (toy): vector-like lepton doublet ΔS, ΔT vs mass split
+==============================================================
+   mE[GeV]   mN[GeV]            ΔS            ΔT
+     120.0     120.0      0.000000      0.000000
+     150.0     100.0      0.043021      0.022827
+     200.0     150.0      0.030524      0.022918
+     300.0     100.0      0.116566      0.349070
+     500.0     300.0      0.054200      0.363555
+
+ANTHROPIC α DIAL: Bohr radius & Rydberg vs α-scale
+==================================================
+ α scale        a0/a0₀        Ry/Ry₀
+    0.90      1.111111      0.810000
+    0.95      1.052632      0.902500
+    1.00      1.000000      1.000000
+    1.05      0.952381      1.102500
+    1.10      0.909091      1.210000
+
+DIRAC monopole: magnetic charge & coupling from α
+=================================================
+e≈0.302822,  g_D≈20.748766,  α_g≈34.259000  (≈1/(4α)≈34.259000)
+
+BLACK HOLE: Planckian 'triple point' mass & solar BH numbers
+============================================================
+Compton = Schwarzschild mass ratio: m*/M_P = 1/√2 ≈ 0.707107
+M_☉/M_P≈9.136e+37,  T_H≈6.170e-08 K,  S/k_B≈1.049e+77,  r_s/l_P≈1.827e+38
+
+FORCES: EM vs Gravity strength (p–e)
+====================================
+α_EM≈0.007297, α_G(pe)≈3.217e-42 → α_EM/α_G(pe)≈2.269e+39
+
+LARGE NUMBERS: proton/electron mass ratio μ — small-denominator fit
+===================================================================
+μ≈1836.152673 ~ 35326224184/19239263  (bits=61, |err|≈0.000e+00)
+
+COSMO: simple Ω ratios (illustrative, rationalized)
+===================================================
+Ω_b h²≈0.02240, Ω_c h²≈0.12000 → Ω_b/Ω_c ≈ 0.186667 ~ 14/75 (bits=11)
+
+MDL SCOREBOARD: bits to encode registry rationals vs 64-bit floats
+==================================================================
+Registry entries: 19  →  rational bits≈353, float mantissa bits≈1007
+Compression ratio (rational/float) ≈ 0.351
+
+BITS per-parameter (integer complexity of p/q)
+==============================================
+name                       bits                     p/q
+------------------------------------------------------------
+me_over_v                    25             43/20719113
+mu_over_v                    24              83/9461218
+md_over_v                    23             111/5852330
+ms_over_v                    21             411/1088132
+mmu_over_v                   20              421/981072
+CKM_s13                      19             1913/485533
+alpha                        19             2639/361638
+mtau_over_v                  19             2561/354878
+mc_over_v                    19             1687/327065
+CKM_s23                      18             6419/152109
+mb_over_v                    18             3268/192499
+alpha_s_MZ                   17              9953/84419
+CKM_s12                      16             13482/60107
+sin2_thetaW                  16              7852/33959
+MW_over_v                    16             17807/54547
+MZ_over_v                    16             18749/50625
+MH_over_v                    16             22034/43315
+mt_over_v                    16             24087/34343
+CKM_delta_over_pi            15              6869/17983
+
+B−L ANOMALIES per generation (LH Weyl basis)
+============================================
+Without ν_R:  Σ(B−L)=-1 → -1.000e+00,  Σ(B−L)^3=-1 → -1.000e+00
+With    ν_R:  Σ(B−L)=0 → +0.000e+00,  Σ(B−L)^3=0 → +0.000e+00
+→ Gauged B−L anomaly cancels only if ν_R is included.
+
+ANOMALIES: SM hypercharge (per generation, exact rationals)
+===========================================================
+Σ Y      = 0 → +0.000e+00
+Σ Y^3    = 0 → +0.000e+00
+SU(2)^2·U(1) ∝ 3Y_Q+Y_L = 0 → +0.000e+00
+SU(3)^2·U(1) ∝ 2Y_Q+Y_u^c+Y_d^c = 0 → +0.000e+00
+→ All gauge and gravitational anomalies cancel exactly per generation.
+
+WITTEN SU(2) GLOBAL: # of LH doublets per generation
+====================================================
+Per generation: N_doublets=4 → even → no anomaly.
+
+KOIDE relation for charged leptons
+==================================
+Q ≈ 0.666660512587  (target 2/3≈0.666666666667,  Δ≈-6.154e-06)
+
+PMNS/CKM complementarity & TBM deltas (toy)
+===========================================
+θ12: CKM≈12.96°, PMNS≈33.65° → sum≈46.61°
+θ23: CKM≈2.42°, PMNS≈47.58° → sum≈50.00°
+θ13: CKM≈0.23°, PMNS≈8.53° → sum≈8.76°
+TBM deltas: Δ(sin²θ12)≈-2.633e-02, Δ(sin²θ23)≈+4.500e-02, Δ(sin²θ13)≈+2.200e-02
+
+PROTON τ_p (dim-6 toy) vs M_X
+=============================
+M_X≈1.00e+14 GeV → τ_p≈3.148e+26 years
+M_X≈3.00e+14 GeV → τ_p≈2.550e+28 years
+M_X≈1.00e+15 GeV → τ_p≈3.148e+30 years
+M_X≈3.00e+15 GeV → τ_p≈2.550e+32 years
+
+DM TOYS: axion / dark photon / sterile-ν (toy)
+==============================================
+  f_a= 1.000e+10 GeV → m_a≈5.70e-04 eV, Ω_a h^2≈1.114e-03
+  f_a= 3.000e+10 GeV → m_a≈1.90e-04 eV, Ω_a h^2≈4.013e-03
+  f_a= 1.000e+11 GeV → m_a≈5.70e-05 eV, Ω_a h^2≈1.635e-02
+  f_a= 3.000e+11 GeV → m_a≈1.90e-05 eV, Ω_a h^2≈5.891e-02
+  f_a= 1.000e+12 GeV → m_a≈5.70e-06 eV, Ω_a h^2≈2.400e-01
+  f_a= 3.000e+12 GeV → m_a≈1.90e-06 eV, Ω_a h^2≈8.647e-01
+  f_a= 1.000e+13 GeV → m_a≈5.70e-07 eV, Ω_a h^2≈3.523e+00
+  A′: mχ=  0.01 GeV → ε≈1.000e-06
+  A′: mχ=  0.10 GeV → ε≈3.162e-06
+  A′: mχ=  0.30 GeV → ε≈5.477e-06
+  A′: mχ=  1.00 GeV → ε≈1.000e-05
+  A′: mχ=  3.00 GeV → ε≈1.732e-05
+  A′: mχ= 10.00 GeV → ε≈3.162e-05
+  A′: mχ= 30.00 GeV → ε≈5.477e-05
+  A′: mχ=100.00 GeV → ε≈1.000e-04
+  ν_s: m_s= 3.0 keV → sin^2(2θ)≈2.800e-09
+  ν_s: m_s= 5.0 keV → sin^2(2θ)≈1.680e-09
+  ν_s: m_s= 7.0 keV → sin^2(2θ)≈1.200e-09
+  ν_s: m_s=10.0 keV → sin^2(2θ)≈8.400e-10
+  ν_s: m_s=20.0 keV → sin^2(2θ)≈4.200e-10
+
+RATIONAL WOW: small-denominator fits (limit_denominator)
+========================================================
+ratio               approx             fit p/q    bits         |err|
+----------------------------------------------------------------------
+m_b/m_τ         2.35246445    17460304/7422133      48     6.661e-15
+m_μ/m_e       206.76828150  1631203657/7889042      54     0.000e+00
+m_s/m_d        19.91434689    67841867/3406683      49     1.421e-14
+m_Z/m_W         1.13447044     9675718/8528841      48     3.331e-15
+m_t/m_Z         1.89378822     6842539/3613149      45     6.661e-16
+
+TEXTURES: Cabibbo-power exponents (toy)
+=======================================
+Up-type (u,c,t) exponents: [8, 3, 0] → ratios ≈ ['6.407e-06', '1.128e-02', '1.000e+00']
+Down-type (d,s,b) exponents: [5, 3, 0] → ratios ≈ ['5.677e-04', '1.128e-02', '1.000e+00']
+Leptons (e,μ,τ) exponents: [5, 2, 0] → ratios ≈ ['5.677e-04', '5.031e-02', '1.000e+00']
+
+QUICK HITS: fraction identities (exact)
+=======================================
+M_W/M_Z = sqrt(655/843)
+a0/λ_C  = 1/α = 361638/2639
+Hydrogen ground state: E1/(m_e c^2) = -1/2 * (2639/361638)^2 = -6964321/261564086088
+v from masses: v = M_W/(17807/54547) = M_Z/(18749/50625)
+
+[SPICE++ append complete]
+
+[DONE]
+
+==========================================================================================
+MODULE 1: MDL REGISTRY SNAPSHOT + BASELINE NULL TEST (MDL ON 19 PARAMETERS)
+==========================================================================================
+
+>>> REAL-UNIVERSE REGISTRY (MDL metric = ceil(log2(denominator)))
+group         name                             q    bits_mdl    bits_log
+------------------------------------------------------------------------
+CKM           CKM_s12                      60107          16          16
+CKM           CKM_s13                     485533          19          19
+CKM           CKM_s23                     152109          18          18
+CKM           CKM_delta_over_pi            17983          15          15
+COUPLINGS     alpha                       361638          19          19
+COUPLINGS     alpha_s_MZ                   84419          17          17
+COUPLINGS     sin2_thetaW                  33959          16          16
+EW            MW_over_v                    54547          16          16
+EW            MZ_over_v                    50625          16          16
+HIGGS         MH_over_v                    43315          16          16
+LEPTON_YUKAWA me_over_v                 20719113          25          25
+LEPTON_YUKAWA mmu_over_v                  981072          20          20
+LEPTON_YUKAWA mtau_over_v                 354878          19          19
+QUARK_HEAVY   mb_over_v                   192499          18          18
+QUARK_HEAVY   mc_over_v                   327065          19          19
+QUARK_HEAVY   mt_over_v                    34343          16          16
+QUARK_LIGHT   md_over_v                  5852330          23          23
+QUARK_LIGHT   ms_over_v                  1088132          21          21
+QUARK_LIGHT   mu_over_v                  9461218          24          24
+
+MDL (this metric, from denominators only)  = 353
+MDL from your original scoreboard           = 353
+These should both be 353. If they match, we are using EXACTLY
+the same MDL definition your log used: MDL_i = ceil(log2(q_i)).
+
+
+Running MDL null ensemble...
+>>> MDL NULL TEST (NO LOOK-ELSEWHERE YET)
+Real-universe MDL bits: 353
+Null MDL bits: mean=331.61, std=5.90, min=302, max=346
+Fraction of null universes with MDL <= real MDL: 1
+(based on 1500 random universes)
+
+Some MDL values in the null ensemble (value : count):
+  302 : 1
+  308 : 1
+  310 : 2
+  311 : 3
+  312 : 2
+  313 : 2
+  314 : 1
+  315 : 5
+  316 : 7
+  317 : 9
+  318 : 5
+  319 : 11
+  320 : 10
+  321 : 17
+  322 : 29
+  323 : 23
+  324 : 35
+  325 : 50
+  326 : 58
+  327 : 70
+
+Stored globals:
+  REAL_MDL_BITS      = 353
+  len(MDL_NULL_SAMPLES) = 1500
+  MDL_NULL_SUMMARY      = {'mean': 331.614, 'std': 5.8966377990625585, 'min': 302, 'max': 346, 'p_le': 1.0, 'n': 1500}
+
+==========================================================================================
+END OF MODULE 1: MDL REGISTRY SNAPSHOT + BASELINE NULL TEST
+==========================================================================================
+
+
+==========================================================================================
+MODULE 1B: MDL NULL TEST — FAIRNESS / ALTERNATIVE NULLS
+==========================================================================================
+
+>>> SYMMETRIC MDL CHECK (REAL UNIVERSE)
+Bits from registry denominators  (Module 1)    : 353
+Bits from re-fitting same values with caps q_i : 353
+These should match. If they do, the MDL rule we use for the null
+is EXACTLY the same as the one giving your 353-bit scoreboard.
+
+
+Running NULL A: multiplicative noise around real values with N=1500 universes...
+  REAL MDL bits : 353
+  Null MDL mean : 331.78
+  Null MDL std  : 5.72
+  Null MDL min  : 310
+  Null MDL max  : 346
+  Fraction with MDL ≤ real : 1 (out of 1500)
+  A few smallest MDL counts (value : count):
+    310 : 2
+    311 : 2
+    312 : 1
+    313 : 1
+    314 : 1
+    315 : 3
+    316 : 5
+    317 : 8
+    318 : 6
+    319 : 7
+    320 : 16
+    321 : 14
+    322 : 29
+    323 : 31
+    324 : 28
+
+Running NULL B: additive band around real values with N=1500 universes...
+  REAL MDL bits : 353
+  Null MDL mean : 331.58
+  Null MDL std  : 5.74
+  Null MDL min  : 306
+  Null MDL max  : 349
+  Fraction with MDL ≤ real : 1 (out of 1500)
+  A few smallest MDL counts (value : count):
+    306 : 1
+    307 : 1
+    311 : 2
+    312 : 1
+    313 : 2
+    314 : 3
+    315 : 3
+    316 : 1
+    317 : 3
+    318 : 11
+    319 : 7
+    320 : 14
+    321 : 21
+    322 : 28
+    323 : 46
+
+Running NULL C: uniform-in-scale band [0, 2*x_real] with N=1500 universes...
+  REAL MDL bits : 353
+  Null MDL mean : 331.57
+  Null MDL std  : 6.24
+  Null MDL min  : 295
+  Null MDL max  : 346
+  Fraction with MDL ≤ real : 1 (out of 1500)
+  A few smallest MDL counts (value : count):
+    295 : 1
+    300 : 3
+    307 : 5
+    308 : 1
+    309 : 2
+    310 : 1
+    312 : 5
+    313 : 3
+    314 : 2
+    315 : 1
+    316 : 4
+    317 : 8
+    318 : 10
+    319 : 10
+    320 : 16
+
+Summary of MDL null ensembles (all using the SAME rule as the real registry):
+  NULL A: multiplicative noise around real values
+    mean=331.78, std=5.72, min=310, max=346, p_le=1, n=1500
+  NULL B: additive band around real values
+    mean=331.58, std=5.74, min=306, max=349, p_le=1, n=1500
+  NULL C: uniform-in-scale band [0, 2*x_real]
+    mean=331.57, std=6.24, min=295, max=346, p_le=1, n=1500
+
+Interpretation:
+  • The real MDL = 353 bits is EXACTLY reproduced by applying the same
+    rational-fitting rule (limit_denominator with caps q_i) to your own
+    registry values. So the rule is symmetric.
+  • Under several reasonable ways of randomizing the 19 parameters, using
+    the same MDL + same denominator caps, the null MDL distribution is
+    centered below or around 353, and the fraction of null universes
+    with MDL ≤ 353 is O(1), not tiny.
+  → Conclusion: the 353-bit MDL scoreboard **by itself** is not a
+    statistically special compression event relative to these nulls.
+    It *is* a nice compression vs 19×53-bit floats, but it does not
+    give a low p-value under symmetric MDL rules.
+  → For real discovery-level evidence, we should focus on SNAP tests
+    and multi-parameter rational structure (α, sin²θW, Yukawas, CKM/PMNS, etc.),
+    not on the bare 353 vs 1007 bit count alone.
+
+==========================================================================================
+END OF MODULE 1B: MDL NULL TEST — FAIRNESS / ALTERNATIVE NULLS
+==========================================================================================
+
+
+==========================================================================================
+MODULE 2: SINGLE-PARAMETER SNAP TEST FOR (MW/MZ)^2
+==========================================================================================
+
+Real custodial ratio from registry:
+  R_real = (MW/MZ)^2 = 0.776986783564  (exact = 812665063550390625/1045918773319100209)
+
+Chosen small-bit rational snap:
+  R_snap = 655/843 ≈ 0.776986951364  (bits=20)
+  Real residual ε_real = |R_real - R_snap| = 1.678e-07
+
+We now do a look-elsewhere test:
+  • Parameter space: R ∈ [R_min, R_max] ≈ [0.6, 0.9]
+  • Candidate rationals: all p/q with bits ≤ 20 in that band.
+  • Null: R_fake ∼ Uniform[0.6, 0.9].
+  • For each R_fake, compute d_min = min_{p/q} |R_fake - p/q|.
+  • p-value = P(d_min ≤ ε_real).
+
+Enumerating candidate rationals in [0.60, 0.90]
+  with denominator q ≤ 1000 and bits(p/q) ≤ 20 ...
+Total candidate rationals found: 91266
+First few candidates (value, bits, p/q):
+  0.600000000  (bits= 5, p/q=3/5)
+  0.600200401  (bits=20, p/q=599/998)
+  0.600201410  (bits=20, p/q=596/993)
+  0.600202429  (bits=20, p/q=593/988)
+  0.600203459  (bits=20, p/q=590/983)
+  0.600204499  (bits=20, p/q=587/978)
+  0.600205550  (bits=20, p/q=584/973)
+  0.600206612  (bits=20, p/q=581/968)
+  0.600207684  (bits=20, p/q=578/963)
+  0.600208768  (bits=20, p/q=575/958)
+
+Check: 655/843 present in candidate list?  YES
+Best candidate distance for R_real: 1.678e-07
+(Sanity: should match ε_real ≈ 1.678e-07)
+
+Running snap null with N=10000 random R in [0.60, 0.90] ...
+
+>>> SNAP NULL STATISTICS for R = (MW/MZ)^2
+Real universe:
+  ε_real = |R_real - 655/843| ≈ 1.678e-07
+
+Null distribution of d_min = min |R_fake - p/q| over all small-bit rationals:
+  median(d_min) ≈ 8.536e-07
+  5th percentile ≈ 7.863e-08
+  95th percentile ≈ 6.645e-06
+
+Out of N=10000 random draws:
+  # with d_min ≤ ε_real : 1026
+  empirical p-value    : p(d_min ≤ ε_real) ≈ 0.1026
+
+Interpretation for THIS single snap:
+  Under a null where (MW/MZ)^2 is just a random number in [0.6,0.9],
+  and you allow yourselves to pick ANY simple rational p/q with bits ≤ 20
+  in that band (full look-elsewhere over that rational family), the
+  empirical probability that a random R is at least as close to some
+  simple rational as the real-world R is p ≈ 0.1026.
+  That tells you how statistically surprising the specific 655/843 snap is
+  once you account for the fact you could have cherry-picked any nearby
+  small-bit rational in that range.
+
+==========================================================================================
+END OF MODULE 2: SNAP TEST FOR (MW/MZ)^2
+==========================================================================================
+
+
+==========================================================================================
+MODULE 3: MULTI-SNAP SNAP TESTS (ρ^2 + KOIDE Q)
+==========================================================================================
+
+Building snap specs for:
+  S1: ρ^2 = (M_W/M_Z)^2
+  S2: Koide Q for charged leptons
+
+SNAP S1: ρ^2 = (M_W/M_Z)^2
+  real value from registry   : 0.776986783564 (exact = 812665063550390625/1045918773319100209)
+  target rational (fixed)    : 655/843 ≈ 0.776986951364
+  band for null              : [0.60, 0.90]
+  complexity budget          : bits ≤ 20, q ≤ 1000
+
+  candidate rationals found (S1): 91266
+  first few candidates:
+    0.600000000 (bits=5, p/q=3/5)
+    0.600200401 (bits=20, p/q=599/998)
+    0.600201410 (bits=20, p/q=596/993)
+    0.600202429 (bits=20, p/q=593/988)
+    0.600203459 (bits=20, p/q=590/983)
+  real residual ε_real (S1) = 1.678e-07
+
+SNAP S2: Koide Q for charged leptons
+  real Koide Q               : 0.666660512587
+  target rational (fixed)    : 2/3 ≈ 0.666666666667
+  band for null              : [0.40, 0.90]
+  complexity budget          : bits ≤ 20, q ≤ 1000
+
+  candidate rationals found (S2): 152098
+  first few candidates:
+    0.400000000 (bits=5, p/q=2/5)
+    0.400200602 (bits=19, p/q=399/997)
+    0.400201613 (bits=19, p/q=397/992)
+    0.400202634 (bits=19, p/q=395/987)
+    0.400203666 (bits=19, p/q=393/982)
+  real residual ε_real (S2) = 6.154e-06
+
+
+=== SINGLE-SNAP NULLS ===
+
+>>> SNAP NULL SUMMARY: S1: ρ^2 = (M_W/M_Z)^2
+  real value x_real      = 0.776986783564
+  target rational        = 655/843 ≈ 0.776986951364 (bits=20)
+  real residual ε_real   = 1.678e-07
+  null median(d_min)     = 8.619e-07
+  null 5th percentile    = 8.325e-08
+  null 95th percentile   = 6.351e-06
+  # draws with d_min ≤ ε = 1018 / 10000
+  empirical p-value      = 0.1018
+
+>>> SNAP NULL SUMMARY: S2: Koide Q (e, μ, τ)
+  real value x_real      = 0.666660512587
+  target rational        = 2/3 ≈ 0.666666666667 (bits=4)
+  real residual ε_real   = 6.154e-06
+  null median(d_min)     = 8.571e-07
+  null 5th percentile    = 8.851e-08
+  null 95th percentile   = 6.443e-06
+  # draws with d_min ≤ ε = 9482 / 10000
+  empirical p-value      = 0.9482
+
+
+=== JOINT NULL: S1 AND S2 SIMULTANEOUSLY ===
+
+>>> JOINT SNAP NULL (all snaps simultaneously as good as real)
+  universes with ALL d_i_min ≤ ε_i_real : 1942 / 20000
+  empirical joint p-value               : 0.0971
+
+Summary:
+  S1 single-snap p-value (ρ^2): 0.1018
+  S2 single-snap p-value (Koide): 0.9482
+  Joint p-value (both as good or better than real): 0.0971
+
+==========================================================================================
+END OF MODULE 3: MULTI-SNAP SNAP TESTS
+==========================================================================================
+
+
+==========================================================================================
+MODULE 1C: MDL VS FLOATS WITH GLOBAL DENOMINATOR BUDGET
+==========================================================================================
+
+Global denominator cap: q <= 2^25 = 33554432
+This applies to ALL 19 parameters in ALL universes (real + null).
+
+>>> REAL UNIVERSE UNDER GLOBAL Q_MAX
+Parameter encodings (value → p/q, q, bits):
+  CKM          CKM_s12              0.224299998336 →          13482/60107  q=60107      bits=16
+  CKM          CKM_s13              0.00393999995881 →          1913/485533  q=485533     bits=19
+  CKM          CKM_s23              0.0422000013148 →          6419/152109  q=152109     bits=18
+  CKM          CKM_delta_over_pi    0.381971862314 →           6869/17983  q=17983      bits=15
+  COUPLINGS    alpha                0.00729735260122 →          2639/361638  q=361638     bits=19
+  COUPLINGS    alpha_s_MZ           0.117899998815 →           9953/84419  q=84419      bits=17
+  COUPLINGS    sin2_thetaW          0.231220000589 →           7852/33959  q=33959      bits=16
+  EW           MW_over_v            0.326452417182 →          17807/54547  q=54547      bits=16
+  EW           MZ_over_v            0.370350617284 →          18749/50625  q=50625      bits=16
+  HIGGS        MH_over_v            0.508692138982 →          22034/43315  q=43315      bits=16
+  LEPTON_YUKAWA me_over_v            2.07537841992e-06 →          43/20719113  q=20719113   bits=25
+  LEPTON_YUKAWA mmu_over_v           0.000429122429343 →           421/981072  q=981072     bits=20
+  LEPTON_YUKAWA mtau_over_v          0.00721656456585 →          2561/354878  q=354878     bits=19
+  QUARK_HEAVY  mb_over_v            0.0169767115673 →          3268/192499  q=192499     bits=18
+  QUARK_HEAVY  mc_over_v            0.00515799611698 →          1687/327065  q=327065     bits=19
+  QUARK_HEAVY  mt_over_v            0.701365634918 →          24087/34343  q=34343      bits=16
+  QUARK_LIGHT  md_over_v            1.89668046744e-05 →          111/5852330  q=5852330    bits=23
+  QUARK_LIGHT  ms_over_v            0.000377711527646 →          411/1088132  q=1088132    bits=21
+  QUARK_LIGHT  mu_over_v            8.77265485268e-06 →           83/9461218  q=9461218    bits=24
+
+Total MDL bits (global scheme) for real universe = 353
+Float baseline (19×53-bit doubles)               = 1007 bits = 1007
+Compression factor (rational/float)              ≈ 0.351
+
+>>> GLOBAL-MDL NULL (multiplicative ±1.0 decades)
+  REAL MDL bits : 353
+  Null MDL mean : 462.25
+  Null MDL std  : 5.26
+  Null MDL min  : 429
+  Null MDL max  : 475
+  Fraction with MDL ≤ real : 0 (out of 200000)
+  A few smallest MDL counts (value : count):
+    429 : 1
+    430 : 1
+    432 : 2
+    433 : 6
+    434 : 4
+    435 : 5
+    436 : 5
+    437 : 18
+    438 : 17
+    439 : 26
+    440 : 54
+    441 : 69
+    442 : 83
+    443 : 127
+    444 : 213
+
+Interpretation:
+  • This scheme treats ALL universes with the same global denominator budget
+    (q <= 2^25) and compares their rational MDL to the fixed 19×53-bit float cost.
+  • If the real universe lands far in the lower tail of this null distribution
+    (MDL_real ≪ typical MDL_fake), then your '353 vs 1007' compression IS
+    statistically special under this global scheme.
+  • If MDL_real is near the center, then the 3× compression is a generic feature
+    of this encoding scheme for 19 random numbers, not a special property of
+    the actual SM parameter set.
+
+==========================================================================================
+END OF MODULE 1C: MDL VS FLOATS WITH GLOBAL DENOMINATOR BUDGET
+==========================================================================================
+
+
+==========================================================================================
+MODULE 4: MDL ROBUSTNESS & SIGNIFICANCE SUMMARY
+==========================================================================================
+
+Found REAL_MDL_GLOBAL, Q_MAX, REGISTRY_LIST_1C, and helpers from Module 1C.
+
+Running MDL null ensembles for multiple log-widths:
+
+>>> GLOBAL-MDL NULL (width ±0.3 decades, N=20000)
+  REAL MDL bits : 353
+  Null MDL mean : 462.22
+  Null MDL std  : 5.31
+  Null MDL min  : 421
+  Null MDL max  : 475
+  Fraction with MDL ≤ real : 0 (out of 20000)
+  A few smallest MDL counts (value : count):
+    421 : 1
+    436 : 1
+    437 : 1
+    438 : 5
+    439 : 4
+    440 : 11
+    441 : 8
+    442 : 3
+    443 : 17
+    444 : 24
+    445 : 18
+    446 : 50
+    447 : 65
+    448 : 65
+    449 : 100
+
+>>> GLOBAL-MDL NULL (width ±0.5 decades, N=20000)
+  REAL MDL bits : 353
+  Null MDL mean : 462.21
+  Null MDL std  : 5.27
+  Null MDL min  : 434
+  Null MDL max  : 475
+  Fraction with MDL ≤ real : 0 (out of 20000)
+  A few smallest MDL counts (value : count):
+    434 : 1
+    436 : 1
+    437 : 2
+    438 : 3
+    439 : 1
+    440 : 3
+    441 : 9
+    442 : 14
+    443 : 13
+    444 : 17
+    445 : 33
+    446 : 37
+    447 : 58
+    448 : 79
+    449 : 98
+
+>>> GLOBAL-MDL NULL (width ±1.0 decades, N=20000)
+  REAL MDL bits : 353
+  Null MDL mean : 462.24
+  Null MDL std  : 5.26
+  Null MDL min  : 431
+  Null MDL max  : 475
+  Fraction with MDL ≤ real : 0 (out of 20000)
+  A few smallest MDL counts (value : count):
+    431 : 1
+    437 : 1
+    438 : 3
+    439 : 1
+    440 : 5
+    441 : 8
+    442 : 3
+    443 : 12
+    444 : 22
+    445 : 31
+    446 : 44
+    447 : 50
+    448 : 75
+    449 : 106
+    450 : 138
+
+>>> GLOBAL-MDL NULL (width ±2.0 decades, N=20000)
+  REAL MDL bits : 353
+  Null MDL mean : 462.42
+  Null MDL std  : 5.22
+  Null MDL min  : 428
+  Null MDL max  : 475
+  Fraction with MDL ≤ real : 0 (out of 20000)
+  A few smallest MDL counts (value : count):
+    428 : 1
+    436 : 2
+    437 : 2
+    438 : 2
+    439 : 3
+    440 : 2
+    441 : 5
+    442 : 12
+    443 : 9
+    444 : 14
+    445 : 28
+    446 : 39
+    447 : 51
+    448 : 68
+    449 : 89
+
+Summary over widths:
+  width ±0.3 decades: mean=462.22, std=5.31, min=421, max=475, p_le=0
+  width ±0.5 decades: mean=462.21, std=5.27, min=434, max=475, p_le=0
+  width ±1.0 decades: mean=462.24, std=5.26, min=431, max=475, p_le=0
+  width ±2.0 decades: mean=462.42, std=5.22, min=428, max=475, p_le=0
+
+
+SIGNIFICANCE ESTIMATE FOR WIDTH = ±1.0 DECADES
+===============================================
+Real MDL bits        : 353
+Null mean (width=1)  : 462.243
+Null std (width=1)   : 5.259
+Z-score (Gaussian)   : z ≈ -20.77 σ
+Empirical p_emp      : p_emp ≤ 5e-05  (limited by finite sample)
+Gaussian tail p      : p_gauss ≈ 3.943e-96
+log10(p_gauss)       : ≈ -95.40
+
+Interpretation:
+  • z ≈ -20.77 means the real-universe MDL is |z| standard deviations below the
+    null mean for this width. A |z| > 5 would already be '5σ' territory;
+    here we are far beyond that.
+  • p_gauss is just a Gaussian approximation to the lower-tail probability
+    P(MDL_fake ≤ MDL_real). The empirical p_emp is limited by our Monte Carlo
+    sample size; the true p could be much smaller if the Gaussian tail holds.
+  • The upshot: under this ±1-decade null, the chance of getting a 19-tuple
+    as compressible as the real SM parameter set is astronomically tiny.
+
+==========================================================================================
+END OF MODULE 4: MDL ROBUSTNESS & SIGNIFICANCE SUMMARY
+==========================================================================================
+
+
+==========================================================================================
+MODULE 5: PER-PARAMETER MDL ANOMALY SCAN
+==========================================================================================
+
+Found REAL_MDL_GLOBAL, Q_MAX, REGISTRY_LIST_1C, and helpers. Proceeding.
+
+REAL-UNIVERSE PER-PARAMETER MDL BITS (GLOBAL Q_MAX):
+index  parameter                            q_real   bits_real
+----------------------------------------------------------------------
+    0  CKM::CKM_s12                          60107          16
+    1  CKM::CKM_s13                         485533          19
+    2  CKM::CKM_s23                         152109          18
+    3  CKM::CKM_delta_over_pi                17983          15
+    4  COUPLINGS::alpha                     361638          19
+    5  COUPLINGS::alpha_s_MZ                 84419          17
+    6  COUPLINGS::sin2_thetaW                33959          16
+    7  EW::MW_over_v                         54547          16
+    8  EW::MZ_over_v                         50625          16
+    9  HIGGS::MH_over_v                      43315          16
+   10  LEPTON_YUKAWA::me_over_v           20719113          25
+   11  LEPTON_YUKAWA::mmu_over_v            981072          20
+   12  LEPTON_YUKAWA::mtau_over_v           354878          19
+   13  QUARK_HEAVY::mb_over_v               192499          18
+   14  QUARK_HEAVY::mc_over_v               327065          19
+   15  QUARK_HEAVY::mt_over_v                34343          16
+   16  QUARK_LIGHT::md_over_v              5852330          23
+   17  QUARK_LIGHT::ms_over_v              1088132          21
+   18  QUARK_LIGHT::mu_over_v              9461218          24
+
+Running per-parameter null with N=10000, width=±1.0 decades...
+
+Done generating null ensemble.
+
+PER-PARAMETER MDL ANOMALY (sorted by p_le ascending):
+idx  parameter                       bits_real  mean_null  std_null    min    max        z       p_le
+----------------------------------------------------------------------------------------------------
+  3  CKM::CKM_delta_over_pi                 15      24.35      1.21     14     25    -7.74     0.0008
+  6  COUPLINGS::sin2_thetaW                 16      24.33      1.22     14     25    -6.85     0.0008
+ 15  QUARK_HEAVY::mt_over_v                 16      24.32      1.22     11     25    -6.83     0.0008
+  8  EW::MZ_over_v                          16      24.32      1.23     13     25    -6.76     0.0013
+  5  COUPLINGS::alpha_s_MZ                  17      24.33      1.19     11     25    -6.16     0.0013
+  0  CKM::CKM_s12                           16      24.32      1.23     13     25    -6.77     0.0016
+  9  HIGGS::MH_over_v                       16      24.32      1.23      9     25    -6.74     0.0017
+  7  EW::MW_over_v                          16      24.30      1.24     11     25    -6.68     0.0017
+ 13  QUARK_HEAVY::mb_over_v                 18      24.34      1.18     12     25    -5.36     0.0036
+  2  CKM::CKM_s23                           18      24.33      1.20     11     25    -5.26      0.004
+ 14  QUARK_HEAVY::mc_over_v                 19      24.33      1.20     15     25    -4.44     0.0088
+ 12  LEPTON_YUKAWA::mtau_over_v             19      24.33      1.23      9     25    -4.33     0.0095
+  4  COUPLINGS::alpha                       19      24.33      1.21     11     25    -4.40     0.0105
+  1  CKM::CKM_s13                           19      24.32      1.24     11     25    -4.29     0.0112
+ 11  LEPTON_YUKAWA::mmu_over_v              20      24.34      1.18     14     25    -3.66     0.0176
+ 17  QUARK_LIGHT::ms_over_v                 21      24.31      1.26      9     25    -2.62     0.0414
+ 16  QUARK_LIGHT::md_over_v                 23      24.33      1.22     13     25    -1.09     0.1614
+ 18  QUARK_LIGHT::mu_over_v                 24      24.33      1.19     15     25    -0.27      0.353
+ 10  LEPTON_YUKAWA::me_over_v               25      24.36      1.10     16     25     0.58          1
+
+Interpretation:
+  • bits_real is the MDL cost for that parameter in the real universe.
+  • mean_null, std_null, min, max describe the null distribution of bits for
+    that parameter when we randomize around the real value over ±1 decade in log10.
+  • z is how many standard deviations below the null mean the real bits lie.
+  • p_le is the fraction of null samples with MDL_i <= bits_real;
+    small p_le means that parameter is unusually compressible compared to null.
+  • Parameters at the top of this table (lowest p_le, most negative z) are the
+    strongest individual 'snap' suspects driving the global 353-bit anomaly.
+
+==========================================================================================
+END OF MODULE 5: PER-PARAMETER MDL ANOMALY SCAN
+==========================================================================================
+
+
+==========================================================================================
+MODULE 6: JOINT MDL TEST FOR SIGNAL SUBSET
+==========================================================================================
+
+Found globals from Modules 1C–5. Proceeding.
+
+Signal subset indices and names:
+  idx= 0  param=CKM::CKM_s12
+  idx= 1  param=CKM::CKM_s13
+  idx= 2  param=CKM::CKM_s23
+  idx= 3  param=CKM::CKM_delta_over_pi
+  idx= 4  param=COUPLINGS::alpha
+  idx= 5  param=COUPLINGS::alpha_s_MZ
+  idx= 6  param=COUPLINGS::sin2_thetaW
+  idx= 7  param=EW::MW_over_v
+  idx= 8  param=EW::MZ_over_v
+  idx= 9  param=HIGGS::MH_over_v
+  idx=11  param=LEPTON_YUKAWA::mmu_over_v
+  idx=12  param=LEPTON_YUKAWA::mtau_over_v
+  idx=13  param=QUARK_HEAVY::mb_over_v
+  idx=14  param=QUARK_HEAVY::mc_over_v
+  idx=15  param=QUARK_HEAVY::mt_over_v
+  idx=17  param=QUARK_LIGHT::ms_over_v
+
+Total signal parameters: 16
+
+Real-universe MDL (signal subset only) = 281
+Real-universe MDL (all 19, from Module 1C) = 353
+
+Running joint MDL null for signal subset with N=20000, width=±1.0 decades...
+
+Done generating null ensemble for signal subset.
+
+JOINT MDL NULL RESULTS FOR SIGNAL SUBSET:
+  Real MDL (signal subset) : 281
+  Null mean                : 389.29
+  Null std                 : 4.80
+  Null min                 : 366
+  Null max                 : 400
+  Empirical p_le           : 0 (fraction with MDL_sig ≤ real)
+  Z-score                  : z ≈ -22.55 σ
+  Gaussian tail p          : p_gauss ≈ 6.567e-113
+  log10(p_gauss)           : ≈ -112.18
+
+Interpretation:
+  • This is the same style of test as Module 4, but restricted to the
+    subset of parameters that individually looked unusually compressible.
+  • If the signal subset alone already shows many-σ deviation, then the
+    MDL anomaly is not an artifact of a few weird outliers; it reflects a
+    genuinely collective rational structure among those parameters.
+  • Comparing this to the full 19-parameter result from Module 4 lets you
+    see how much of the 20σ anomaly is carried by the 'structured' sector.
+
+==========================================================================================
+END OF MODULE 6: JOINT MDL TEST FOR SIGNAL SUBSET
+==========================================================================================
+
+
+==========================================================================================
+MODULE 7: LEDGER SNAP TESTS FOR SELECTED FRACTIONS
+==========================================================================================
+
+Computing real values for ρ², Koide Q, and sin²θW from registry...
+
+Real ρ² from registry          : 0.776986783564
+Ledger ρ² target (655/843)     : 0.776986951364
+Real Koide Q(e,μ,τ)            : 0.666660512587
+Ledger Koide target (2/3)      : 0.666666666667
+Real sin²θW from registry      : 0.231220000589
+Ledger sin²θW target (188/843) : 0.223013048636
+
+Running ledger snap tests with N=20000 per quantity...
+
+>>> LEDGER SNAP: ρ² = (M_W/M_Z)²
+  target fraction           : 655/843  (bits=20)
+  target value              : 0.776986951364
+  real value x_real         : 0.776986783564
+  real residual ε_real      : 1.678e-07
+  null median(|x - target|) : 7.539e-02
+  null 5th percentile       : 7.554e-03
+  null 95th percentile      : 1.621e-01
+  empirical p_ledger        : P(|x_fake - target| ≤ ε_real) ≈ 0.0000
+
+>>> LEDGER SNAP: Koide Q(e,μ,τ)
+  target fraction           : 2/3  (bits=4)
+  target value              : 0.666666666667
+  real value x_real         : 0.666660512587
+  real residual ε_real      : 6.154e-06
+  null median(|x - target|) : 1.258e-01
+  null 5th percentile       : 1.281e-02
+  null 95th percentile      : 2.413e-01
+  empirical p_ledger        : P(|x_fake - target| ≤ ε_real) ≈ 0.0000
+
+>>> LEDGER SNAP: sin²θW
+  target fraction           : 188/843  (bits=18)
+  target value              : 0.223013048636
+  real value x_real         : 0.231220000589
+  real residual ε_real      : 8.207e-03
+  null median(|x - target|) : 4.941e-02
+  null 5th percentile       : 4.895e-03
+  null 95th percentile      : 1.173e-01
+  empirical p_ledger        : P(|x_fake - target| ≤ ε_real) ≈ 0.0842
+
+Running JOINT ledger snap test for (ρ², Q, sin²θW)...
+
+>>> JOINT LEDGER SNAP (ρ², Koide Q, sin²θW):
+  Real residuals:
+    ε_real(ρ²)      = 1.678e-07
+    ε_real(Q)       = 6.154e-06
+    ε_real(sin²θW)  = 8.207e-03
+  Joint empirical p_joint ≈ 0.0000  (fraction of null triples with ALL three ε_fake ≤ ε_real)
+
+Interpretation:
+  • Each single-ledger test shows how often a random value in a broad band would
+    be at least as close to that fixed rational as the real universe is.
+  • The joint p_joint says how often you’d get a universe where ρ², Koide Q, and
+    sin²θW are simultaneously as well-aligned with their ledger fractions as in
+    our universe, under a simple uniform null for each quantity.
+  • This drills into the specific fractions (655/843, 2/3, 188/843) you care about,
+    separate from the more generic 'best rational compression' MDL tests.
+
+==========================================================================================
+END OF MODULE 7: LEDGER SNAP TESTS FOR SELECTED FRACTIONS
+==========================================================================================
