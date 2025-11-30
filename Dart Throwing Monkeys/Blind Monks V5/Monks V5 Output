@@ -1,0 +1,1317 @@
+================================================================================
+ PHASE 32 – MODULE 1: 4-SPURION FN TRIPLE SCOUT (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:41:23.696756
+C_basis_max           : 3
+q_neg_only            : True
+q_range               : [-4.00, 0.00]
+
+Real Yukawa triple logs (z = log10 y):
+  me_over_v   z_me   = -5.683401
+  mtau_over_v z_tau  = -2.141781
+  md_over_v   z_d    = -4.722162
+  S_real = |-4 z_me + 4 z_tau + 3 z_d| =  6.000000e-06
+
+================================================================================
+ SEARCH SUMMARY 
+================================================================================
+
+  C_basis_max                   : 3
+  num_spurions                  : 4
+  total_basis_triples_tested    : 5760000
+  basis_triples_satisfying_triple_relation : 0
+  basis_triples_with_rank_3     : 0
+  basis_triples_with_q_in_range : 0
+
+  No 4-spurion FN-like basis with q in [q_min, q_max] was found
+  within the given C_basis_max and constraints.
+================================================================================
+ INTERPRETATION 
+================================================================================
+
+  • This module explores small 4-spurion FN-like bases for (me,mtau,md)
+    that enforce the (-4,4,3) triple at the coefficient level and admit
+    at least one q-vector with all components in [q_min, q_max].
+
+  • Result: within the scanned region, no such simple 4-spurion basis
+    was found. This pushes toward more complex geometries (more spurions,
+    larger charges, or non-FN structures) if the triple is to be explained.
+
+  Evidence-budget status:
+    classification : supporting_structure_shape
+    bits           : 0.00  (structural search, not a probabilistic nullscan)
+    global locks   : unchanged (DNA + Yukawa triple ≈ 20–27 bits)
+
+================================================================================
+ HASH & BOOKKEEPING 
+================================================================================
+
+Run SHA256 payload    : f9504d8ad1a1ffb812e4015f67b05c815f462088b30c5f988fa85523c32233ce
+
+GEOM_EVIDENCE['yukawa_4spurion_fn_triple_scout'] updated.
+
+PHASE32_YUKAWA_4SPURION_FN_TRIPLE_SCOUT_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 32 – MODULE 2: 4-SPURION FN MODEL-SPACE SUMMARY (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:49.620373
+
+Input from PHASE 32 – MODULE 1 (4-spurion FN triple scout):
+  • C_basis_max                : 3
+  • q_neg_only                 : True
+  • q_range                    : [-4.0, 0.0]
+  • num_basis_triples_tested   : 5760000
+  • num_triple_ok              : 0
+  • num_rank3                  : 0
+  • num_q_neg_solutions        : 0
+
+================================================================================
+ QUALITATIVE SUMMARY OF 4-SPURION FN SPACE 
+================================================================================
+
+  • Within small 4-spurion charge patterns |C_ij| <= C_basis_max,
+    enforcing the (-4,4,3) relation at coefficient level and
+    requiring a q-vector with all components in the chosen range,
+    the search found:
+
+      num_basis_triples_tested : 5760000
+      num_triple_ok            : 0
+      num_rank3                : 0
+      num_q_neg_solutions      : 0
+
+  • Result: no simple 4-spurion FN-like basis was found in this
+    region. Even after going from 3 to 4 spurions, small-charge
+    FN pictures with q_j<0 remain hard-pressed to encode the
+    (-4,4,3) triple exactly at the coefficient level.
+
+================================================================================
+ EVIDENCE-BUDGET STATUS 
+================================================================================
+
+  classification : supporting_structure_shape
+  bits           : 0.00  (structural, not a probabilistic nullscan)
+
+  Summary (conceptual):
+    Within the scanned small-charge 4-spurion FN space, there is
+    no simple basis that explains the (-4,4,3) triple while keeping
+    q in the chosen sub-unity range. This further pushes model-
+    building toward more complex FN-like or non-FN geometries.
+
+  Global contract reminder:
+    → PRIMARY LOCKS remain:
+         1) DNA backbone / locks (~12.29 bits).
+         2) me–mtau–md (-4,4,3) triple (7–14 bits).
+    → FN constraints (3- and 4-spurion) only shape the model space;
+      they do NOT change the ~20–27 bit target any geometry must hit.
+
+================================================================================
+ HASH & GEOM_EVIDENCE UPDATE 
+================================================================================
+
+Run SHA256 payload    : e8e9e0ccd5b5592c95c28637239240b88abba4983c0cc4aa7c61118bd2fcd284
+
+GEOM_EVIDENCE['yukawa_4spurion_fn_summary'] updated.
+
+PHASE32_YUKAWA_4SPURION_FN_SUMMARY_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 33 – MODULE 1: POST-FN GEOMETRY MODEL-SPACE ROADMAP (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:49.622031
+
+GLOBAL LOCK CONTRACT SNAPSHOT
+--------------------------------------------------------------------------------
+  GLOBAL_LOCKS_v4 not found in this session.
+  (If you have a snapshot, you can reload it via PHASE 29.)
+
+  Interpretation:
+    → Any serious geometry must still explain roughly 20–27 bits total,
+      coming from TWO independent sectors: DNA and the Yukawa triple.
+
+================================================================================
+ SUMMARY OF FN-LIKE CONSTRAINTS (WHAT WE'VE ALREADY RULED OUT) 
+================================================================================
+
+3-spurion FN (small charges, q_j < 0):
+  • No consolidated 3-spurion FN summary found in GEOM_EVIDENCE.
+
+4-spurion FN (small charges, q_j < 0):
+  • classification : supporting_structure_shape
+  • bits           : 0.00
+  • key reason     :
+    4-spurion FN triple-scout summary: small-charge 4-spurion FN patterns for (me,mtau,md) that enforce the (-4,4,3) triple and admit q in the chosen range were not found in the scanned region, pushing toward more complex FN-like or non-FN geometries.
+
+  Takeaway:
+    • Simple FN-like models with 3 or 4 spurions, small integer charges,
+      and strictly sub-unity λ_j (q_j < 0) are strongly constrained or
+      outright incompatible with the (-4,4,3) triple in the searched region.
+    • That pushes us toward more complex or qualitatively different geometries.
+
+================================================================================
+ CANDIDATE GEOMETRY DIRECTIONS BEYOND SIMPLE FN 
+================================================================================
+
+Direction A: Multi-spurion FN with larger charges / relaxed q-range
+------------------------------------------------------------------
+  Idea:
+    • Increase C_basis_max and/or allow q_j in a wider range (e.g. up to
+      mildly super-unity spurions) while keeping an FN-like exponent
+      structure.
+    • This trades elegance for flexibility but might uncover sparse
+      charge patterns that still encode (-4,4,3).
+
+  How to test with existing tools:
+    • Extend the 3- and 4-spurion scouts to larger C_basis_max and wider
+      q ranges, but keep careful track of complexity so we do not fool
+      ourselves with over-parameterized fits.
+
+Direction B: Discrete flavor symmetries / charge lattices (non-FN) 
+------------------------------------------------------------------
+  Idea:
+    • Treat the Toy3D integer charges as elements of a discrete flavor
+      group or lattice, not necessarily as FN exponents.
+    • Look for embeddings into small abelian groups, semi-direct products,
+      or graph-like structures where (-4,4,3) is a natural relation.
+
+  How to test:
+    • A candidate model should output the same integer charge matrix C
+      (or something unitarily equivalent) and recover the Toy3D q-vector
+      up to small deformations.
+    • Use evaluate_yukawa_geometry(...) to score the Yukawa sector and
+      the standard score_geometry / scoreboard tools for claims.
+
+Direction C: Extra-dimensional / localization geometries
+--------------------------------------------------------
+  Idea:
+    • Interpret integer charges as positions / winding numbers / overlaps
+      in an extra-dimensional space (e.g. wavefunction overlaps on a line
+      or graph). The (-4,4,3) triple then emerges from geometry rather
+      than group charges per se.
+
+  How to test:
+    • Construct an explicit map from positions / overlaps → effective C
+      and q, and then feed that into the FN-like Yukawa tester from
+      PHASE 24.
+    • Demand that the model hits RMS_all ≲ 0.01 dex and S_geom ≈ S_real.
+
+Direction D: Code / graph / combinatorial geometries (DNA–Yukawa link)
+----------------------------------------------------------------------
+  Idea:
+    • Look for a single discrete object (code, graph, lattice, etc.) that
+      simultaneously generates:
+        – the DNA backbone + lock-family structure, and
+        – the (-4,4,3) Yukawa lock (and perhaps the Toy3D pattern).
+    • This is the dream ‘unified geometry’ tying biology and particle
+      physics together at the structural level.
+
+  How to test:
+    • Build a candidate that outputs:
+        – a DNA backbone matrix / structure that passes the Phase 1–7
+          DNA lock-checkers, and
+        – a set of Yukawa predictions that can be fed into the FN-like
+          tester and triple nullscans.
+    • Register the model with register_geometry_hypothesis(...) and see
+      where it lands on the global scoreboard.
+
+Direction E: Joint statistical fits including additional observables
+-------------------------------------------------------------------
+  Idea:
+    • Extend the data vector beyond the 9 Yukawas and DNA backbone:
+      CKM / PMNS angles, neutrino mass ratios, maybe other mass ratios.
+    • A true geometry would ideally organize *all* of these hierarchies.
+
+  How to test:
+    • Add new lock-checkers for any extra observables (with their own
+      null models) and extend the global lock contract accordingly.
+    • Require future geometries to hit the expanded bit budget.
+
+================================================================================
+ HASH & GEOM_EVIDENCE UPDATE 
+================================================================================
+
+Run SHA256 payload    : 8f9074e35779a054e7c903d8427bae4c5c3012c51b137328ff47b942fc403917
+
+GEOM_EVIDENCE['post_fn_geometry_roadmap'] updated.
+
+PHASE33_POST_FN_GEOMETRY_ROADMAP_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 34 – MODULE 1: TOY3D CHARGE LATTICE ANALYZER (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:49.625188
+
+Toy3D integer charges C (9×3) recap
+--------------------------------------------------------------------------------
+  me_over_v    [-4 -2 -1]
+  mmu_over_v   [-1 -2 +2]
+  mtau_over_v  [-4 +1 -4]
+  mb_over_v    [-2 +0 -1]
+  mc_over_v    [-2 -1 -3]
+  mt_over_v    [-2 +1 -4]
+  md_over_v    [+0 -4 +4]
+  ms_over_v    [-3 +0 +2]
+  mu_over_v    [-1 -4 +1]
+
+q_real (log10 λ)      : [ 0.995464,  0.960785, -0.220050]
+
+Basic lattice properties
+--------------------------------------------------------------------------------
+  shape(C)             : (9, 3)
+  rank(C) (float proxy): 3
+  basis rows (me,mtau,md) indices : [0, 2, 6]
+  det(basis_rows)      : +0.000000
+
+  max |C_ij|           : 4
+  L1 sum of |C_ij|     : 56
+  num non-zero entries : 24
+  num distinct rows    : 9
+
+  Column gcds (over all 9 rows):
+    col 0: gcd = 1
+    col 1: gcd = 1
+    col 2: gcd = 1
+
+  Per-row L1 norms and sums:
+    me_over_v    L1 =  7,  sum = -7
+    mmu_over_v   L1 =  5,  sum = -1
+    mtau_over_v  L1 =  9,  sum = -7
+    mb_over_v    L1 =  3,  sum = -3
+    mc_over_v    L1 =  6,  sum = -6
+    mt_over_v    L1 =  7,  sum = -5
+    md_over_v    L1 =  8,  sum = +0
+    ms_over_v    L1 =  5,  sum = -1
+    mu_over_v    L1 =  6,  sum = -4
+
+================================================================================
+ MODULAR PATTERN SUMMARY (C modulo small N) 
+================================================================================
+
+For each N we group Yukawas by identical (c1,c2,c3) modulo N.
+We report how many families and the largest family size.
+
+  N   num_families   largest_family_size   family_sizes
+  --  ------------   -------------------   -----------------
+   2             6                     2   2,2,2,1,1,1
+   3             7                     3   3,1,1,1,1,1,1
+   4             9                     1   1,1,1,1,1,1,1,1,1
+   5             9                     1   1,1,1,1,1,1,1,1,1
+   6             9                     1   1,1,1,1,1,1,1,1,1
+   7             9                     1   1,1,1,1,1,1,1,1,1
+   8             9                     1   1,1,1,1,1,1,1,1,1
+
+Most compressive modulus (by fewest families, then biggest cluster):
+  N_best              : 2
+  num_families        : 6
+  largest_family_size : 2
+  family_sizes        : [2, 2, 2, 1, 1, 1]
+
+Detailed families for N = 2:
+  charges mod 2 = (0,0,1)     →  me_over_v, mb_over_v
+  charges mod 2 = (1,0,0)     →  mmu_over_v, ms_over_v
+  charges mod 2 = (0,1,0)     →  mtau_over_v, mt_over_v
+  charges mod 2 = (0,1,1)     →  mc_over_v
+  charges mod 2 = (0,0,0)     →  md_over_v
+  charges mod 2 = (1,0,1)     →  mu_over_v
+
+Interpretation guide:
+  • Column gcds tell you if there is an obvious overall rescaling or
+    hidden smaller lattice (e.g. everything living on 2Z or 3Z).
+  • Modular families (C mod N) show how the 9 Yukawas collapse into
+    equivalence classes under small discrete groups Z_N^3.
+  • If some N gives a particularly simple partition, that N is a natural
+    candidate for a discrete flavor symmetry or charge lattice modulus.
+
+This module does NOT assign new bits or modify the global lock contract;
+it is purely a structural lens on the Toy3D integer geometry.
+
+================================================================================
+ HASH & GEOM_EVIDENCE UPDATE 
+================================================================================
+
+Run SHA256 payload    : 27cee50a814deef5a012f9a5b6d2e9024a5dd7defe9c4e3ecf216492495badf2
+
+GEOM_EVIDENCE['toy3d_charge_lattice_lens'] updated.
+
+PHASE34_Toy3D_Charge_Lattice_Analyzer_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 35 – MODULE 1: TOY3D MOD-2 / SMALL-N LATTICE NULLSCAN (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:49.646364
+C_max                  : 4
+num_null               : 2000
+
+Real Toy3D best small-N modular compression (N=2..8):
+------------------------------------------------------------------
+  best N               : 2
+  best num_families    : 6
+  best largest_family  : 2
+
+Generating null ensemble (randomizing non-basis rows)...
+  basis rows fixed at indices: [0, 2, 6]
+  perturbable rows indices   : [1, 3, 4, 5, 7, 8]
+
+  ... 200/2000 null universes processed
+  ... 400/2000 null universes processed
+  ... 600/2000 null universes processed
+  ... 800/2000 null universes processed
+  ... 1000/2000 null universes processed
+  ... 1200/2000 null universes processed
+  ... 1400/2000 null universes processed
+  ... 1600/2000 null universes processed
+  ... 1800/2000 null universes processed
+  ... 2000/2000 null universes processed
+
+================================================================================
+ NULL STATISTICS – BEST SMALL-N MODULAR COMPRESSION 
+================================================================================
+
+num_families (best over N=2..8):
+  null min / max        :   3 /   8
+  null 25% / 50% / 75%  :   5.0 /   5.5 /   6.0
+  null mean / std       :  5.48 /  0.87
+  real best num_families:   6
+
+largest_family_size (best over N=2..8):
+  null min / max        :   2 /   6
+  null 25% / 50% / 75%  :   2.0 /   3.0 /   3.0
+  null mean / std       :  2.89 /  0.72
+  real best largest fam :   2
+
+================================================================================
+ SIGNIFICANCE OF SMALL-N MODULAR COMPRESSION 
+================================================================================
+
+  real best num_families      : 6
+  count_null(num_fam <= real) : 1785 / 2000
+  P_null(num_fam <= real)     : 0.892500
+  bits ≈ -log2(p_null)        : 0.16
+
+Interpretation guide:
+  • nf_real is the number of equivalence classes of Yukawas under (C mod N)
+    for the best N in {2..8}. Smaller nf means stronger clustering.
+  • This test includes the look-elsewhere effect over N=2..8 by
+    recomputing the best modulus for each null universe.
+  • Regardless of bits, any signal here is derivative of Toy3D and the
+    (-4,4,3) triple, so it will be recorded as supporting/shape, not a new primary lock.
+
+================================================================================
+ HASH & GEOM_EVIDENCE UPDATE 
+================================================================================
+
+Run SHA256 payload    : 409771aa7126e906b645a9631d0d23a87a7b8679a30423e05e073f19e17539df
+
+GEOM_EVIDENCE['toy3d_charge_lattice_nullscan'] updated.
+
+PHASE35_Toy3D_Charge_Lattice_Nullscan_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 35 – MODULE 2: TOY3D MOD-N LATTICE EVIDENCE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.290447
+Run SHA256 payload    : 649339fe08922cd60bcf3ad9bf62ef33d2e9d297939612b06cfe517109187c58
+
+Input recap from PHASE 35 – MODULE 1 (nullscan)
+--------------------------------------------------------------------------------
+  • C_max                  : 4
+  • num_null               : 2000
+
+Real Toy3D best small-N modular compression (N = 2..8):
+  • best N                 : 2
+  • best num_families      : 6
+  • best largest_family    : 2
+
+Null ensemble (best small-N compression for randomized C):
+  num_families (best over N=2..8):
+    • null min / max       :   3 /   8
+    • null 25% / 50% / 75% :  5.0 /  5.5 /  6.0
+    • null mean / std      :  5.48 / 0.87
+    • real best            :   6
+
+  largest_family_size (best over N=2..8):
+    • null min / max       :   2 /   6
+    • null 25% / 50% / 75% :  2.0 /  3.0 /  3.0
+    • null mean / std      :  2.89 / 0.72
+    • real best            :   2
+
+================================================================================
+ SIGNIFICANCE OF SMALL-N MODULAR COMPRESSION 
+================================================================================
+
+  real best num_families      : 6
+  count_null(num_fam <= real) : 1785 / 2000
+  P_null(num_fam <= real)     : 0.892500
+  bits ≈ -log2(p_null)        : 0.16
+
+Interpretation:
+  • nf_real is the number of equivalence classes of Yukawas under
+    (C mod N) for the best N in {2..8}. Smaller nf means stronger
+    modular clustering.
+  • This test includes the look-elsewhere effect over N=2..8 by
+    recomputing the best modulus for each null universe.
+
+  • Here, Toy3D is actually slightly LESS clustered than the null
+    mean (nf_real = 6 vs. ⟨nf_null⟩ ≈ 5.48), and P_null ≈ 0.892
+    corresponds to only ≈0.16 bits; far below any threshold for
+    a secondary lock.
+
+Verdict:
+  → The small-N (especially mod-2) charge lattice structure of
+    Toy3D is **ordinary** under this null.
+  → It does NOT constitute an additional Yukawa lock; it is just
+    another way of writing the same small-integer noise once the
+    (-4,4,3) triple is enforced.
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['toy3d_charge_lattice_nullscan'] updated with status = 'killed' and bits ≈ 0.16.
+
+PHASE35_Toy3D_Charge_Lattice_EVIDENCE_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 36 – MODULE 1 (v2): TOY3D DISCRETE FLAVOR GENERATOR SCAN 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.292852
+Run SHA256 payload    : fa6b370ecb4865bcdf7be228c7c9428b6ecbaf1dc97cf74894bb39f281c157a1
+
+Toy3D integer charges C (9×3) recap
+--------------------------------------------------------------------------------
+  me_over_v    [-4 -2 -1]
+  mmu_over_v   [-1 -2 +2]
+  mtau_over_v  [-4 +1 -4]
+  mb_over_v    [-2 +0 -1]
+  mc_over_v    [-2 -1 -3]
+  mt_over_v    [-2 +1 -4]
+  md_over_v    [+0 -4 +4]
+  ms_over_v    [-3 +0 +2]
+  mu_over_v    [-1 -4 +1]
+
+Scanning N ∈ {2,3,4,5,6,7,8} for minimal generators in Z_N^3...
+
+Summary by N:
+  N   min_generators   example_generators (mod N)
+  --  --------------   --------------------------
+   2        ≥3          (no 1- or 2-generator cover)
+   3        ≥3          (no 1- or 2-generator cover)
+   4        ≥3          (no 1- or 2-generator cover)
+   5        ≥3          (no 1- or 2-generator cover)
+   6        ≥3          (no 1- or 2-generator cover)
+   7        ≥3          (no 1- or 2-generator cover)
+   8        ≥3          (no 1- or 2-generator cover)
+
+================================================================================
+ INTERPRETATION GUIDE 
+================================================================================
+
+  • For each N, we treat the 9 Toy3D charge rows as elements of Z_N^3,
+    and ask whether they can be generated by:
+       – a single cyclic generator g, or
+       – two generators (g1, g2) spanning a 2D abelian subgroup.
+  • If min_generators = 1 for some N, then all nine rows lie on a
+    single cyclic orbit in Z_N^3; that would be an extremely simple
+    flavor symmetry structure.
+  • If min_generators = 2, Toy3D lives in a 2D sublattice / subgroup
+    of Z_N^3; this suggests a natural Z_N×Z_N-like flavor symmetry.
+  • If min_generators ≥ 3 for all small N, Toy3D is structurally more
+    complicated: you need three independent generators, i.e. it fills
+    a more generic 3D charge lattice modulo small N.
+
+  This module is STRUCTURAL ONLY:
+    – It introduces no new p-values or bits.
+    – Any pattern here is derivative of the Toy3D charges and the
+      (-4,4,3) triple and is therefore supporting_shape at best.
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['toy3d_discrete_flavor_generators'] set with:
+  classification : supporting_structure_shape
+  bits           : 0.0
+
+PHASE36_Toy3D_Discrete_Flavor_Generator_Scan_v2 COMPLETE
+================================================================================
+================================================================================
+ PHASE 37 – MODULE 1: TOY3D DISCRETE FLAVOR EVIDENCE & ROADMAP (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.349268
+Run SHA256 payload    : edfb8be66cdab501b5ccaa22434725fdc0aeb0c8925be3a391904b91f68c6ea3
+
+Input recap from PHASE 36 – discrete flavor generator scan:
+------------------------------------------------------------------
+  N_values scanned       : [2, 3, 4, 5, 6, 7, 8]
+  For each N, we have:
+    - min_generators: minimal number of generators needed to span
+      all Toy3D charge rows in Z_N^3 (1,2, or ≥3).
+
+Detailed results by N:
+  N   min_generators   comment
+  --  --------------   ------------------------------------------
+   2          3          Needs ≥3 independent generators (generic 3D lattice).
+   3          3          Needs ≥3 independent generators (generic 3D lattice).
+   4          3          Needs ≥3 independent generators (generic 3D lattice).
+   5          3          Needs ≥3 independent generators (generic 3D lattice).
+   6          3          Needs ≥3 independent generators (generic 3D lattice).
+   7          3          Needs ≥3 independent generators (generic 3D lattice).
+   8          3          Needs ≥3 independent generators (generic 3D lattice).
+
+================================================================================
+ QUALITATIVE INTERPRETATION 
+================================================================================
+
+  • For all N in the scanned set, we have min_generators ≥ 3.
+    That is exactly what your PHASE 36 output showed:
+      – For N = 2..8, there is NO 1-generator or 2-generator
+        subgroup that spans all nine Toy3D charges in Z_N^3.
+
+    Interpretation:
+      → Toy3D populates a genuinely 3D charge lattice modulo small N.
+      → There is no obvious tiny discrete flavor group (Z_N or
+        Z_N×Z_N) that organizes the charges into a single orbit
+        or 2D sublattice.
+
+  Conceptual status:
+    • This is a SHAPE statement, not a probability statement.
+    • It tells us that if there is a discrete flavor symmetry behind
+      Toy3D, it is unlikely to be a single small abelian factor or a
+      simple Z_N×Z_N; more complicated discrete groups or embeddings
+      are likely needed.
+    • As such, it does NOT add bits to the global DNA+Yukawa lock
+      contract (≈20–27 bits). It is purely supporting_structure_shape.
+
+================================================================================
+ ROADMAP: HOW TO USE THIS STRUCTURAL INFO 
+================================================================================
+
+  Possible next steps (conceptual):
+    1) Larger-N or non-abelian scans:
+       - Explore N > 8, or non-abelian groups where Toy3D charges
+         arise as combinations of irreps rather than simple Z_N^3.
+    2) Embeddings into product groups:
+       - E.g. Z_N1 × Z_N2 × Z_N3 where the charges are more naturally
+         viewed as a triple of 1D charges rather than a single 3D one.
+    3) Graph / code interpretations:
+       - Treat each charge vector as a node coordinate or codeword
+         and look for small generating graphs / codes that reproduce
+         the Toy3D pattern; then hook that to DNA if possible.
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['toy3d_discrete_flavor_summary'] set with:
+  classification : supporting_structure_shape
+  bits           : 0.0
+
+PHASE37_Toy3D_Discrete_Flavor_Evidence_and_Roadmap_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 38 – MODULE 1: TOY3D CHARGE DISTANCE & GRAPH ANALYZER (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.352202
+Run SHA256 payload    : eb105dbd15cc3ff0116167bea63728fc89b4df0ba6574dc537a28c8e6d10936e
+
+Toy3D integer charges C (9×3) recap
+--------------------------------------------------------------------------------
+  me_over_v   [-4 -2 -1]
+  mmu_over_v  [-1 -2 +2]
+  mtau_over_v [-4 +1 -4]
+  mb_over_v   [-2 +0 -1]
+  mc_over_v   [-2 -1 -3]
+  mt_over_v   [-2 +1 -4]
+  md_over_v   [+0 -4 +4]
+  ms_over_v   [-3 +0 +2]
+  mu_over_v   [-1 -4 +1]
+
+PAIRWISE DISTANCE SUMMARY (over all i<j pairs)
+--------------------------------------------------------------------------------
+  L1 distances:
+    min    : 2.0
+    max    : 17.0
+    median : 7.0
+    count  : 36
+
+  Hamming distances (# differing coordinates):
+    min    : 1.0
+    max    : 3.0
+    median : 3.0
+    count  : 36
+
+CLOSEST PAIRS BY L1 DISTANCE (up to 10 shown)
+--------------------------------------------------------------------------------
+  mtau_over_v – mt_over_v    L1 = 2, Hamming = 1
+  mmu_over_v  – mu_over_v    L1 = 3, Hamming = 2
+  mb_over_v   – mc_over_v    L1 = 3, Hamming = 2
+  mc_over_v   – mt_over_v    L1 = 3, Hamming = 2
+  me_over_v   – mb_over_v    L1 = 4, Hamming = 2
+  mmu_over_v  – ms_over_v    L1 = 4, Hamming = 2
+  mb_over_v   – mt_over_v    L1 = 4, Hamming = 2
+  mb_over_v   – ms_over_v    L1 = 4, Hamming = 2
+  md_over_v   – mu_over_v    L1 = 4, Hamming = 2
+  me_over_v   – mc_over_v    L1 = 5, Hamming = 3
+
+NEIGHBOR GRAPH (edges for L1 <= 2)
+--------------------------------------------------------------------------------
+  Degrees by Yukawa:
+    me_over_v  : degree = 0
+    mmu_over_v : degree = 0
+    mtau_over_v: degree = 1
+    mb_over_v  : degree = 0
+    mc_over_v  : degree = 0
+    mt_over_v  : degree = 1
+    md_over_v  : degree = 0
+    ms_over_v  : degree = 0
+    mu_over_v  : degree = 0
+
+  Degree histogram:
+    degree 0: 7 node(s)
+    degree 1: 2 node(s)
+
+  Connected components (by index and name):
+    Component 0: indices [0] -> ['me_over_v']
+    Component 1: indices [1] -> ['mmu_over_v']
+    Component 2: indices [2, 5] -> ['mtau_over_v', 'mt_over_v']
+    Component 3: indices [3] -> ['mb_over_v']
+    Component 4: indices [4] -> ['mc_over_v']
+    Component 5: indices [6] -> ['md_over_v']
+    Component 6: indices [7] -> ['ms_over_v']
+    Component 7: indices [8] -> ['mu_over_v']
+
+================================================================================
+ QUALITATIVE INTERPRETATION (STRUCTURAL ONLY) 
+================================================================================
+
+  • Pairwise L1 and Hamming distances show how 'spread out' the
+    Toy3D charges are as a tiny 3D integer code.
+  • The neighbor graph (L1 <= 2) highlights which Yukawas are
+    immediately adjacent in charge space and how many clusters
+    (connected components) you get under this very tight notion
+    of 'neighbor'.
+  • This is a code / graph lens on the same Toy3D structure; it
+    does NOT represent a new statistical anomaly on its own.
+
+  Evidence-budget status:
+    → classification : supporting_structure_shape
+    → bits           : 0.00 (shape-only, no p-value)
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['toy3d_charge_graph_lens'] set with:
+  classification : supporting_structure_shape
+  bits           : 0.0
+
+PHASE38_Toy3D_Charge_Distance_and_Graph_Analyzer_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 39 – MODULE 1: TOY3D DISTANCE vs YUKAWA MASS-DIFF CORRELATOR (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.355018
+Run SHA256 payload    : 8066907e486b83e78e167601d547cafe7ff823af71b1e9cbb581879300be352d
+
+Toy3D Yukawa logs z_real (log10 y/v) recap
+--------------------------------------------------------------------------------
+  me_over_v    z_real = -5.683401
+  mmu_over_v   z_real = -3.367606
+  mtau_over_v  z_real = -2.141781
+  mb_over_v    z_real = -1.770024
+  mc_over_v    z_real = -2.287532
+  mt_over_v    z_real = -0.154056
+  md_over_v    z_real = -4.722162
+  ms_over_v    z_real = -3.422873
+  mu_over_v    z_real = -5.056852
+
+PAIRWISE |Δz| STATISTICS (over all i<j pairs)
+--------------------------------------------------------------------------------
+  |Δz| min      :  0.055267
+  |Δz| max      :  5.529345
+  |Δz| median   :  1.838485
+  |Δz| mean     :  2.126332
+  number pairs  : 36
+
+CORRELATIONS: charge distance vs |Δz|
+--------------------------------------------------------------------------------
+  Pearson(l1, |Δz|)   :  0.3712
+  Spearman(l1, |Δz|)  :  0.3245
+
+  Pearson(Hamming, |Δz|)  :  0.1482
+  Spearman(Hamming, |Δz|) :  0.1029
+
+CLOSEST PAIRS BY |Δz| (up to 10 shown)
+--------------------------------------------------------------------------------
+  mmu_over_v  – ms_over_v    |Δz| = 0.055267, L1 = 4, Hamming = 2
+  mtau_over_v – mc_over_v    |Δz| = 0.145751, L1 = 5, Hamming = 3
+  md_over_v   – mu_over_v    |Δz| = 0.334690, L1 = 4, Hamming = 2
+  mtau_over_v – mb_over_v    |Δz| = 0.371757, L1 = 6, Hamming = 3
+  mb_over_v   – mc_over_v    |Δz| = 0.517508, L1 = 3, Hamming = 2
+  me_over_v   – mu_over_v    |Δz| = 0.626549, L1 = 7, Hamming = 3
+  me_over_v   – md_over_v    |Δz| = 0.961239, L1 = 11, Hamming = 3
+  mmu_over_v  – mc_over_v    |Δz| = 1.080074, L1 = 7, Hamming = 3
+  mc_over_v   – ms_over_v    |Δz| = 1.135341, L1 = 7, Hamming = 3
+  mmu_over_v  – mtau_over_v  |Δz| = 1.225825, L1 = 12, Hamming = 3
+
+================================================================================
+ QUALITATIVE INTERPRETATION (STRUCTURAL ONLY) 
+================================================================================
+
+  • This module checks whether 'nearby in Toy3D charge space'
+    tends to coincide with 'similar Yukawa magnitude'.
+  • Pearson and Spearman correlations quantify how strongly
+    L1 / Hamming distances track |Δz|.
+  • Whatever the sign/magnitude, this is derivative of the
+    same Toy3D geometry and Yukawa data, so it is treated as
+    supporting_structure_shape only (bits = 0).
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+GEOM_EVIDENCE['toy3d_distance_vs_mass_correlator'] set with:
+  classification : supporting_structure_shape
+  bits           : 0.0
+
+PHASE39_Toy3D_Distance_vs_Mass_Correlator_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 40 – MODULE 1 (v2): TOY3D DISTANCE vs MASS NULLSCAN 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:50.361916
+C_max                  : 4
+num_null target        : 2000
+use_rms_filter         : False
+RMS_max (filter)       : 0.500
+
+Toy3D recap:
+  Toy3D least-squares q_fit (log10 λ):
+    q1 = +0.995464
+    q2 = +0.960785
+    q3 = -0.220050
+  Toy3D RMS_all (dex)        :   0.004244
+  Toy3D max |resid| (dex)    :   0.010471
+
+Toy3D correlations (charge distance vs |Δz|):
+  Pearson(L1, |Δz|)          :   0.3712
+  Pearson(Hamming, |Δz|)     :   0.1482
+
+Generating null ensemble of random integer geometries...
+  basis rows fixed at indices: [0, 2, 6]
+  perturbable rows indices   : [1, 3, 4, 5, 7, 8]
+
+  ... 200/2000 null geometries accepted
+  ... 400/2000 null geometries accepted
+  ... 600/2000 null geometries accepted
+  ... 800/2000 null geometries accepted
+  ... 1000/2000 null geometries accepted
+  ... 1200/2000 null geometries accepted
+  ... 1400/2000 null geometries accepted
+  ... 1600/2000 null geometries accepted
+  ... 1800/2000 null geometries accepted
+  ... 2000/2000 null geometries accepted
+
+================================================================================
+ NULL STATISTICS – Pearson(L1, |Δz|) UNDER RANDOM GEOMETRIES 
+================================================================================
+
+Null distribution of Pearson(L1, |Δz|):
+  min / max              : -0.4323 /  0.5433
+  25% / 50% / 75%        : -0.1754 / -0.0699 /  0.0539
+  mean / std             : -0.0510 /  0.1627
+
+RMS_all distribution for null geometries:
+  min / max              :  0.5005 /  3.5900
+  25% / 50% / 75%        :  2.2873 /  2.7869 /  3.1353
+  mean / std             :  2.6706 /  0.5985
+
+================================================================================
+ SIGNIFICANCE OF DISTANCE–MASS CORRELATION 
+================================================================================
+
+  Toy3D Pearson(L1, |Δz|)      :  0.3712
+  Null mean ± std              : -0.0510 ±  0.1627
+  z(real vs null mean)         :  2.60 σ
+  count_null(corr >= real)     : 18 / 2000
+  P_null(corr >= real)         :  0.009000
+  bits ≈ -log2(p_null)         :  6.80 bits
+
+Interpretation guide:
+  • If bits ≲ 3   : correlation strength is ordinary.
+  • If bits ~3–7  : mildly interesting.
+  • If bits ≳ 10  : strong anomaly (would be a big deal).
+  • Regardless, this is derivative of the same Toy3D lock;
+    it will be recorded as supporting_structure_shape, not
+    a new primary lock on top of DNA + (-4,4,3).
+
+================================================================================
+ HASH & BOOKKEEPING 
+================================================================================
+
+Run SHA256 payload    : cda516c25d832ca528e661df1867f721bda41f87607a0c1e263fe9069f55c92d
+
+GEOM_EVIDENCE['toy3d_distance_vs_mass_nullscan'] would be updated with this payload (supporting_structure_shape, bits as above).
+
+PHASE40_Toy3D_Distance_vs_Mass_Nullscan_v2 COMPLETE
+================================================================================
+================================================================================
+ PHASE 40 – MODULE 2: TOY3D DISTANCE–MASS EVIDENCE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.378648
+Based on nullscan     : PHASE40_Toy3D_Distance_vs_Mass_Nullscan_v2
+
+Input recap (from PHASE 40 – MODULE 1 v2)
+--------------------------------------------------------------------------------
+  Toy3D Pearson(L1, |Δz|)       :  0.3712
+  Toy3D Pearson(Hamming, |Δz|)  :  0.1482
+
+  Null distribution of Pearson(L1, |Δz|):
+    min / max                    : -0.4323 /  0.5433
+    25% / 50% / 75%              : -0.1754 / -0.0699 /  0.0539
+    mean / std                   : -0.0510 /  0.1627
+
+  RMS_all distribution for null geometries:
+    min / max                    :  0.5005 /  3.5900
+    25% / 50% / 75%              :  2.2873 /  2.7869 /  3.1353
+    mean / std                   :  2.6706 /  0.5985
+
+================================================================================
+ SIGNIFICANCE OF DISTANCE–MASS CORRELATION (SUMMARY) 
+================================================================================
+
+  Toy3D Pearson(L1, |Δz|)       :  0.3712
+  Null mean ± std               : -0.0510 ±  0.1627
+  z(real vs null mean)          :  2.60 σ
+  count_null(corr >= real)      : 18 / 2000
+  P_null(corr >= real)          :  0.009000
+  bits ≈ -log2(p_null)          :  6.80 bits
+
+Interpretation:
+  • Under random small-integer 3D geometries (basis fixed to the
+    (-4,4,3) triple), Toy3D has an unusually strong correlation
+    between charge L1 distance and Yukawa mass difference.
+  • However, the null geometries are VERY poor fits (RMS ~ 2.7 dex),
+    while Toy3D has RMS ~ 0.004 dex. So this is a structural contrast
+    in the same sector, not an independent new data source.
+  • We therefore classify this as supporting_structure_shape and do
+    NOT add these ~6.8 bits to the global DNA + Yukawa triple budget.
+
+================================================================================
+ GEOM_EVIDENCE UPDATE 
+================================================================================
+
+Run SHA256 payload    : 372af224e35700d8bc7a487a3010913e7bde034a83f9c74589d834abb95a95f6
+
+GEOM_EVIDENCE['toy3d_distance_vs_mass_nullscan'] has been set with:
+  classification : supporting_structure_shape
+  bits           : 6.80
+
+Global lock contract reminder (conceptual):
+  • PRIMARY LOCKS remain:
+       1) DNA backbone / locks (~12.29 bits).
+       2) me–mtau–md (-4,4,3) triple (7–14 bits).
+  • This distance–mass structure is extra shape information
+    about the Toy3D geometry, not an additional lock.
+
+PHASE40_Toy3D_Distance_vs_Mass_Evidence_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 41 – MODULE 1: TOY3D SHAPE PROFILE (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.380621
+
+Shape entries found in GEOM_EVIDENCE:
+--------------------------------------------------------------------------------
+  Total shape entries       : 1
+  classification 'supporting_structure_shape':   1
+
+Bit-scale (shape-only, NOT added to DNA+Yukawa contract):
+--------------------------------------------------------------------------------
+  max bits in a single entry: 6.8
+  sum of bits over entries  : 6.8
+  distance–mass nullscan    : 6.8 bits (supporting_structure_shape)
+
+Detailed shape entries (key, classification, bits):
+--------------------------------------------------------------------------------
+  toy3d_distance_vs_mass_nullscan           supporting_structure_shape  bits = 6.8
+
+Conceptual interpretation:
+  • TOY3D_SHAPE_PROFILE_V1 aggregates all *supporting* geometric structure
+    we have mapped so far: integer 3D geometry, q-relations, FN constraints,
+    charge lattices, discrete flavor scans, graph/distance lenses, and the
+    distance–mass correlation.
+  • None of these are independent primary locks; they are ways the SAME
+    Yukawa sector (anchored on the (-4,4,3) triple) organizes itself.
+  • The global evidence contract remains:
+       – DNA backbone / locks (~12.29 bits).
+       – me–mtau–md (-4,4,3) triple (7–14 bits).
+  • TOY3D_SHAPE_PROFILE_V1 is a fingerprint any future candidate geometry
+    should ideally match or explain, on top of hitting the primary locks.
+
+Stored profile object:
+  TOY3D_SHAPE_PROFILE_V1['sha256'] = 1243b3300903aedb6bbd91c8f94b6b1a171d79fd0f1fac5389889082ae697d93
+
+PHASE41_Toy3D_Shape_Profile_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 42 – MODULE 1: TOY3D SHAPE VECTOR (v1) 
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.383049
+
+Toy3D integer charges C (9×3) recap
+--------------------------------------------------------------------------------
+  me_over_v   [-4, -2, -1]
+  mmu_over_v  [-1, -2, 2]
+  mtau_over_v [-4, 1, -4]
+  mb_over_v   [-2, 0, -1]
+  mc_over_v   [-2, -1, -3]
+  mt_over_v   [-2, 1, -4]
+  md_over_v   [0, -4, 4]
+  ms_over_v   [-3, 0, 2]
+  mu_over_v   [-1, -4, 1]
+
+q_real (log10 λ) : [ 0.995464,  0.960785, -0.220050]
+
+PAIRWISE DISTANCE SUMMARY (charge space)
+--------------------------------------------------------------------------------
+  L1 distances   : min=2, max=17, median=7, mean=7.33, count=36
+  Hamming        : min=1, max=3, median=3, mean=2.67, count=36
+
+PAIRWISE |Δz| SUMMARY (Yukawa log-space)
+--------------------------------------------------------------------------------
+  |Δz|           : min=0.055267, max=5.529345, median=1.838485, mean=2.126331, count=36
+
+CORRELATIONS: distance vs |Δz|
+--------------------------------------------------------------------------------
+  Pearson(L1, |Δz|)      :  0.3712
+  Spearman(L1, |Δz|)     :  0.3387
+  Pearson(Hamming, |Δz|) :  0.1482
+  Spearman(Hamming, |Δz|):  0.2427
+
+q-PLANE STRUCTURE: (-3,4,4) · q
+--------------------------------------------------------------------------------
+  coeffs       : [-3.0, 4.0, 4.0]
+  dot          : -0.023452
+  |dot|        : 0.023452
+  ||q||        : 1.400885
+  q_hat        : [ 0.7106,  0.6858, -0.1571]
+
+Per-Yukawa charge norms (L1, L2):
+--------------------------------------------------------------------------------
+  me_over_v    L1 = 7,  L2 = 4.58
+  mmu_over_v   L1 = 5,  L2 = 3
+  mtau_over_v  L1 = 9,  L2 = 5.74
+  mb_over_v    L1 = 3,  L2 = 2.24
+  mc_over_v    L1 = 6,  L2 = 3.74
+  mt_over_v    L1 = 7,  L2 = 4.58
+  md_over_v    L1 = 8,  L2 = 5.66
+  ms_over_v    L1 = 5,  L2 = 3.61
+  mu_over_v    L1 = 6,  L2 = 4.24
+
+Stored shape vector object:
+  TOY3D_SHAPE_VECTOR_V1['sha256'] = 5cd08e34b667c490206141b22f2c5053b06941690001af5d61078e326df86a88
+
+Conceptual usage:
+  • This is a *numeric* fingerprint of the Toy3D geometry.
+  • Any future candidate geometry that claims to be 'the real one'
+    should not only hit the primary locks (DNA + (-4,4,3) triple)
+    but ideally match this shape vector in a natural way.
+  • Later modules can define comparison scores between candidate
+    geometries and TOY3D_SHAPE_VECTOR_V1.
+
+PHASE42_Toy3D_Shape_Vector_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 43 – MODULE 1: GEOMETRY vs TOY3D SHAPE COMPARATOR (v1)
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.393355
+Geometry name         : Toy3D_selfcheck
+
+Toy3D reference correlations (from shape vector):
+--------------------------------------------------------------------------------
+  Pearson(L1, |Δz|)      :  0.3712
+  Spearman(L1, |Δz|)     :  0.3387
+  Pearson(Hamming, |Δz|) :  0.1482
+  Spearman(Hamming, |Δz|):  0.2427
+
+Candidate geometry correlations:
+--------------------------------------------------------------------------------
+  Pearson(L1, |Δz|)      :  0.3712 (Δ =  0.0000)
+  Spearman(L1, |Δz|)     :  0.3387 (Δ =  0.0000)
+  Pearson(Hamming, |Δz|) :  0.1482 (Δ =  0.0000)
+  Spearman(Hamming, |Δz|):  0.2427 (Δ =  0.0000)
+
+Distance & |Δz| summary (Toy3D vs candidate):
+--------------------------------------------------------------------------------
+  L1 mean (Toy3D)        : 7.333
+  L1 mean (candidate)    : 7.333 (Δ = 0.000)
+  L1 median (Toy3D)      : 7.000
+  L1 median (candidate)  : 7.000 (Δ = 0.000)
+
+  |Δz| mean (Toy3D)      : 2.126331
+  |Δz| mean (candidate)  : 2.126331 (Δ = 0.000000)
+  |Δz| median (Toy3D)    : 1.838485
+  |Δz| median (cand.)    : 1.838485 (Δ = 0.000000)
+
+q-plane comparison: |(-3,4,4) · q|
+--------------------------------------------------------------------------------
+  Toy3D |dot|            : 0.023452
+  Candidate |dot|        : 0.023452
+  Ratio (cand / Toy3D)   : 1.000
+
+Overall shape_score (heuristic, dimensionless):
+--------------------------------------------------------------------------------
+  shape_score            : 0.000
+
+Conceptual notes:
+  • shape_score ≈ 0 means 'Toy3D-like' on these summary metrics.
+  • Larger shape_score means the geometry's charge lattice and
+    distance–mass organization differ more from Toy3D.
+  • This score is NOT a p-value and carries NO evidence bits;
+    it is purely a structural similarity measure.
+
+Stored comparison object:
+  GEOMETRY_SHAPE_COMPARISONS['Toy3D_selfcheck']['sha256'] = 94ca5e8dc031c6eb916e0f5b44242b8c90def521d0321bafb854a891c24da5ec
+
+PHASE43_Geometry_vs_Toy3D_Shape_Comparator_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 44 – MODULE 1: GEOMETRY SHAPE SCOREBOARD (v1)
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.397254
+Snapshot SHA256       : 19be5753193ef5465691b77dfd5698a6cd8f92892581970ff258cd4c9ca6aeac
+
+GLOBAL LOCK CONTRACT (conceptual target)
+--------------------------------------------------------------------------------
+  Source                      : fallback_constants
+  DNA effective bits          : 12.29
+  Yukawa triple bits (cons)   : 7.48
+  Yukawa triple bits (opt)    : 14.29
+    → Combined (cons)         : 19.77 bits
+    → Combined (opt)          : 26.58 bits
+
+================================================================================
+ GLOBAL GEOMETRY SCOREBOARD (bits + shape_score)
+================================================================================
+
+No GEOMETRY_SCORECARDS found. Nothing to display.
+
+PHASE44_GEOMETRY_SHAPE_SCOREBOARD_v1 COMPLETE
+================================================================================
+================================================================================
+ PHASE 45 – MODULE 1: TOY3D-CONSTRAINED INTEGER GEOMETRY EXPLORER (v1)
+================================================================================
+
+Run timestamp (local) : 2025-11-30T02:45:51.400389
+C_max                  : 4
+max_delta              : 1
+RMS_threshold          : 0.100000 dex
+num_good_target        : 100
+max_attempts           : 100000
+
+Baseline Toy3D recap:
+--------------------------------------------------------------------------------
+Toy3D charges C_base (9×3):
+  me_over_v   [-4, -2, -1]
+  mmu_over_v  [-1, -2, 2]
+  mtau_over_v [-4, 1, -4]
+  mb_over_v   [-2, 0, -1]
+  mc_over_v   [-2, -1, -3]
+  mt_over_v   [-2, 1, -4]
+  md_over_v   [0, -4, 4]
+  ms_over_v   [-3, 0, 2]
+  mu_over_v   [-1, -4, 1]
+
+Toy3D RMS_all (re-fit)    : 0.004244 dex
+Toy3D Pearson(L1, |Δz|)    : 0.3712
+
+  ... attempts: 1000, accepted: 1
+  ... attempts: 2000, accepted: 1
+  ... attempts: 3000, accepted: 2
+  ... attempts: 4000, accepted: 2
+  ... attempts: 5000, accepted: 2
+  ... attempts: 6000, accepted: 2
+  ... attempts: 7000, accepted: 3
+  ... attempts: 8000, accepted: 3
+  ... attempts: 9000, accepted: 3
+  ... attempts: 10000, accepted: 4
+  ... attempts: 11000, accepted: 5
+  ... attempts: 12000, accepted: 6
+  ... attempts: 13000, accepted: 7
+  ... attempts: 14000, accepted: 7
+  ... attempts: 15000, accepted: 7
+  ... attempts: 16000, accepted: 7
+  ... attempts: 17000, accepted: 7
+  ... attempts: 18000, accepted: 7
+  ... attempts: 19000, accepted: 9
+  ... attempts: 20000, accepted: 9
+  ... attempts: 21000, accepted: 9
+  ... attempts: 22000, accepted: 9
+  ... attempts: 23000, accepted: 10
+  ... attempts: 24000, accepted: 11
+  ... attempts: 25000, accepted: 12
+  ... attempts: 26000, accepted: 12
+  ... attempts: 27000, accepted: 12
+  ... attempts: 28000, accepted: 12
+  ... attempts: 29000, accepted: 12
+  ... attempts: 30000, accepted: 12
+  ... attempts: 31000, accepted: 13
+  ... attempts: 32000, accepted: 16
+  ... attempts: 33000, accepted: 16
+  ... attempts: 34000, accepted: 16
+  ... attempts: 35000, accepted: 18
+  ... attempts: 36000, accepted: 18
+  ... attempts: 37000, accepted: 18
+  ... attempts: 38000, accepted: 21
+  ... attempts: 39000, accepted: 22
+  ... attempts: 40000, accepted: 22
+  ... attempts: 41000, accepted: 22
+  ... attempts: 42000, accepted: 23
+  ... attempts: 43000, accepted: 23
+  ... attempts: 44000, accepted: 24
+  ... attempts: 45000, accepted: 26
+  ... attempts: 46000, accepted: 26
+  ... attempts: 47000, accepted: 27
+  ... attempts: 48000, accepted: 27
+  ... attempts: 49000, accepted: 29
+  ... attempts: 50000, accepted: 30
+  ... attempts: 51000, accepted: 30
+  ... attempts: 52000, accepted: 31
+  ... attempts: 53000, accepted: 31
+  ... attempts: 54000, accepted: 31
+  ... attempts: 55000, accepted: 31
+  ... attempts: 56000, accepted: 31
+  ... attempts: 57000, accepted: 31
+  ... attempts: 58000, accepted: 32
+  ... attempts: 59000, accepted: 32
+  ... attempts: 60000, accepted: 34
+  ... attempts: 61000, accepted: 34
+  ... attempts: 62000, accepted: 35
+  ... attempts: 63000, accepted: 36
+  ... attempts: 64000, accepted: 36
+  ... attempts: 65000, accepted: 36
+  ... attempts: 66000, accepted: 37
+  ... attempts: 67000, accepted: 37
+  ... attempts: 68000, accepted: 38
+  ... attempts: 69000, accepted: 39
+  ... attempts: 70000, accepted: 39
+  ... attempts: 71000, accepted: 39
+  ... attempts: 72000, accepted: 39
+  ... attempts: 73000, accepted: 39
+  ... attempts: 74000, accepted: 39
+  ... attempts: 75000, accepted: 39
+  ... attempts: 76000, accepted: 39
+  ... attempts: 77000, accepted: 40
+  ... attempts: 78000, accepted: 41
+  ... attempts: 79000, accepted: 41
+  ... attempts: 80000, accepted: 42
+  ... attempts: 81000, accepted: 43
+  ... attempts: 82000, accepted: 44
+  ... attempts: 83000, accepted: 45
+  ... attempts: 84000, accepted: 45
+  ... attempts: 85000, accepted: 45
+  ... attempts: 86000, accepted: 45
+  ... attempts: 87000, accepted: 46
+  ... attempts: 88000, accepted: 46
+  ... attempts: 89000, accepted: 46
+  ... attempts: 90000, accepted: 50
+  ... attempts: 91000, accepted: 50
+  ... attempts: 92000, accepted: 50
+  ... attempts: 93000, accepted: 50
+  ... attempts: 94000, accepted: 52
+  ... attempts: 95000, accepted: 52
+  ... attempts: 96000, accepted: 52
+  ... attempts: 97000, accepted: 52
+  ... attempts: 98000, accepted: 52
+  ... attempts: 99000, accepted: 52
+  ... attempts: 100000, accepted: 53
+
+================================================================================
+ RANDOM SEARCH SUMMARY
+================================================================================
+  Total attempts              : 100000
+  Accepted geometries         : 53 (RMS_all <= 0.100000)
+  Acceptance rate             : 0.0005
+
+ACCEPTED GEOMETRIES – RMS_all distribution:
+--------------------------------------------------------------------------------
+  RMS_all min / max           : 0.045829 / 0.099543
+  RMS_all 25% / 50% / 75%     : 0.074462 / 0.084849 / 0.093614
+  RMS_all mean / std          : 0.081131 / 0.014515
+
+ACCEPTED GEOMETRIES – Pearson(L1, |Δz|) distribution:
+--------------------------------------------------------------------------------
+  corr min / max              : 0.1196 / 0.5084
+  corr 25% / 50% / 75%        : 0.2542 / 0.3060 / 0.3736
+  corr mean / std             : 0.3134 / 0.0818
+
+Toy3D Pearson(L1, |Δz|) vs accepted ensemble:
+--------------------------------------------------------------------------------
+  Toy3D correlation           : 0.3712
+  count(corr >= Toy3D)        : 15 / 53
+  fraction(corr >= Toy3D)     : 0.2830
+  (This is NOT a p-value under a proper null; it's a local-ensemble fraction.)
+
+MOST Toy3D-LIKE GEOMETRY (by nearest corr(L1, |Δz|))
+--------------------------------------------------------------------------------
+  corr(L1, |Δz|)              : 0.3717
+  Δcorr vs Toy3D              : +0.0005
+  RMS_all                     : 0.094327 dex
+  Charges C_best (rows in Yukawa order):
+    me_over_v   [-4, -2, -1]
+    mmu_over_v  [-1, -2, 3]
+    mtau_over_v [-4, 1, -4]
+    mb_over_v   [-2, 0, -2]
+    mc_over_v   [-3, 0, -3]
+    mt_over_v   [-3, 2, -3]
+    md_over_v   [0, -4, 4]
+    ms_over_v   [-2, -1, 3]
+    mu_over_v   [-2, -3, 1]
+
+LEAST Toy3D-LIKE GEOMETRY (among accepted, by farthest corr(L1, |Δz|))
+--------------------------------------------------------------------------------
+  corr(L1, |Δz|)              : 0.1196
+  Δcorr vs Toy3D              : -0.2516
+  RMS_all                     : 0.094685 dex
+  Charges C_worst (rows in Yukawa order):
+    me_over_v   [-4, -2, -1]
+    mmu_over_v  [0, -3, 2]
+    mtau_over_v [-4, 1, -4]
+    mb_over_v   [-3, 1, -1]
+    mc_over_v   [-1, -2, -3]
+    mt_over_v   [-1, 0, -3]
+    md_over_v   [0, -4, 4]
+    ms_over_v   [-3, 0, 3]
+    mu_over_v   [-1, -4, 0]
+
+HASH & BOOKKEEPING
+--------------------------------------------------------------------------------
+Run SHA256 payload          : c2962fa0902265360f4d7101b2f676fe10fd8b4700cf66cb26d855af58752a79
+
+Conceptual status:
+  • This is a *local* structural exploration around Toy3D, not a new nullscan.
+  • It tells you whether many nearby integer geometries can:
+       – still fit the 9 Yukawas reasonably well (RMS_all <= threshold), and
+       – reproduce Toy3D’s distance–mass correlation.
+  • The global lock contract (DNA + (-4,4,3) triple, ~20–27 bits) remains
+    unchanged; this is all supporting_structure_shape.
+
+PHASE45_Toy3D_Constrained_Integer_Geometry_Explorer_v1 COMPLETE
+================================================================================
