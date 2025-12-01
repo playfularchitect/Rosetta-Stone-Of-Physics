@@ -57,7 +57,7 @@ That is a **crushing compression gap**.
 
 ---
 
-## How I test “simple vs random” (5th-grade level, no baby talk)
+## How I test “simple vs random” 
 
 Think of the universe as **a set of special numbers** between 0 and 1:
 
