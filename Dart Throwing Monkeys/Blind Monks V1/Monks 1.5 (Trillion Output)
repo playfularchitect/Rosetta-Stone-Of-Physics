@@ -1,0 +1,126 @@
+========================================================================================================================
+                             ULTRA v3 — AVX2 lanes (xorshift32) • bound to m050_hypernitro                              
+========================================================================================================================
+
+>>> Compiling AVX2 ultra streamer:
+    g++ -std=c++17 -O3 -Ofast -funroll-loops -fPIC -shared -fopenmp -mavx2 -mfma -march=native -mtune=native /tmp/ultra_v3_l6e73d6l/ultra_v3_codes.cpp -o /tmp/ultra_v3_l6e73d6l/libultra_v3_codes.so
+>>> Built: /tmp/ultra_v3_l6e73d6l/libultra_v3_codes.so 
+
+THROUGHPUT (ε=1.0) — 200,000,000 nulls in 0.551s  →  363,041,247 universes/sec
+
+========================================================================================================================
+                                 RATIO_OS_EW_SHAPE_NULLTEST_v3 — ULTRA v3 (AVX2 lanes)                                  
+========================================================================================================================
+#params                         : 19
+#SHAPE defs                     : 8
+Baseline all-float MDL          : 1007.0 bits
+Null universes per scale        : 3,000,000,000,000
+ε-scales tested                 : (0.5, 1.0, 2.0)
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 0.500]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 1007.0
+  Compression factor            : 1.000
+  Snapped params (real)         : 0
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 762.0
+  5th percentile                : 958.0
+  25th percentile               : 1007.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 1002.6
+  std(MDL)                      : 14.482
+
+[Significance vs null]
+  Real MDL                      : 1007.0
+  Empirical p-value             : p ≈ 1
+  σ-significance (rough, z)     : z ≈ -0.30
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2739107993097
+  snapped =  1   freq = 251104053586
+  snapped =  2   freq = 9586118140
+  snapped =  3   freq = 199307692
+  snapped =  4   freq = 2508979
+  snapped =  5   freq = 18506
+  snapped =  6   freq = 0
+  snapped =  7   freq = 0
+  snapped =  8   freq = 0
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 1.000]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 620.0
+  Compression factor            : 0.616
+  Snapped params (real)         : 8
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 714.0
+  5th percentile                : 958.0
+  25th percentile               : 1007.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 998.2
+  std(MDL)                      : 20.323
+
+[Significance vs null]
+  Real MDL                      : 620.0
+  Empirical p-value             : p ≈ 0
+  σ-significance (rough, z)     : z ≈ 18.61
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2497393064903
+  snapped =  1   freq = 465043654305
+  snapped =  2   freq = 36005805733
+  snapped =  3   freq = 1518736045
+  snapped =  4   freq = 38132008
+  snapped =  5   freq = 599324
+  snapped =  6   freq = 7682
+  snapped =  7   freq = 0
+  snapped =  8   freq = 0
+
+------------------------------------------------------------------------------------------------------------------------
+[ε-scale = 2.000]
+[Real universe vs SHAPE]
+  MDL_real (bits)               : 620.0
+  Compression factor            : 0.616
+  Snapped params (real)         : 8
+
+[Null ensemble stats — exact from 256 buckets]
+  min MDL                       : 667.0
+  5th percentile                : 957.0
+  25th percentile               : 960.0
+  median                        : 1007.0
+  75th percentile               : 1007.0
+  95th percentile               : 1007.0
+  max MDL                       : 1007.0
+  mean MDL                      : 989.5
+  std(MDL)                      : 28.291
+
+[Significance vs null]
+  Real MDL                      : 620.0
+  Empirical p-value             : p ≈ 0
+  σ-significance (rough, z)     : z ≈ 13.06
+
+[Snapped-parameter counts in null ensemble]
+  snapped =  0   freq = 2066876468964
+  snapped =  1   freq = 794868577111
+  snapped =  2   freq = 126703067337
+  snapped =  3   freq = 10967423265
+  snapped =  4   freq = 566231808
+  snapped =  5   freq = 17896233
+  snapped =  6   freq = 332138
+  snapped =  7   freq = 3144
+  snapped =  8   freq = 0
+
+========================================================================================================================
+                                              Done: ULTRA v3 — AVX2 lanes                                               
+========================================================================================================================
+
+[ ]
