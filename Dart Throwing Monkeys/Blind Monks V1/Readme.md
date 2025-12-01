@@ -2,6 +2,7 @@ Colab Link: <https://colab.research.google.com/drive/1-MuvUoRva9lfgRFeHXsLHBNV5U
 November 15th, 2025
 
 Updated Info (November 19th, 2025): V1 was the brute-force discovery. See Blind Monks V2 for the DNA Lattice and V3 for the Yukawa Lock.
+Updated Info (November 30th, 2025): You need to use the provided m050_hypernitro.cpp kernel if want to use my code to rerun the same test in colab. 
 
 # Monkeys Throwing Darts: When Random Chance Beats Physics
 
