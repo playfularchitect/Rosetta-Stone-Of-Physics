@@ -1,0 +1,317 @@
+# =============================================================================
+# ULTRA v3 — AVX2 LANES (xorshift32-float) bound to m050_hypernitro
+# Vivi The Physics Slayer! V4 — append-only, monolithic LEGO block, 3 trillion takes like 6ish hours.
+# =============================================================================
+# What you get:
+#   • AVX2 8-lane RNG + vector comparisons → blazing streamer (256 buckets)
+#   • Reuses the MDL/percentile/p-value logic from ULTRA but faster
+#   • Throughput smoke + full ε-scan in one go
+# =============================================================================
+import os, sys, math, ctypes, subprocess, tempfile, time
+
+print("\n" + "="*120)
+print("ULTRA v3 — AVX2 lanes (xorshift32) • bound to m050_hypernitro".center(120))
+print("="*120 + "\n")
+
+# ---- knobs ----
+KERNEL_PATH = "/mnt/data/m050_hypernitro (1).cpp"  # your new speed daemon
+EPS_SCALES  = (0.5, 1.0, 2.0)
+TOTAL_NULL  = 3_000_000_000_000       # set 3_000_000_000_000 for the big flex
+SEED        = 137
+OMP_THREADS = 0                   # set >0 to pin cores (e.g., 16/32)
+SMOKE_N     = 200_000_000         # quick timed run for u/s
+
+if OMP_THREADS > 0:
+    os.environ["OMP_NUM_THREADS"] = str(int(OMP_THREADS))
+# Optional pinning:
+# os.environ["OMP_PROC_BIND"] = "true"
+# os.environ["OMP_PLACES"]    = "cores"
+
+# ---- EW registry (unchanged) ----
+PARAMS = [
+    ("CKM","CKM_s12",0.224299998),("CKM","CKM_s13",0.00394),("CKM","CKM_s23",0.042200001),
+    ("CKM","CKM_delta_over_pi",0.381971862),("COUPLINGS","alpha",0.007297353),("COUPLINGS","alpha_s_MZ",0.117899999),
+    ("COUPLINGS","sin2_thetaW",0.231220001),("EW","MW_over_v",0.326452417),("EW","MZ_over_v",0.370350617),
+    ("HIGGS","MH_over_v",0.508692139),("LEPTON_YUKAWA","me_over_v",2.075378e-6),("LEPTON_YUKAWA","mmu_over_v",0.0004291224),
+    ("LEPTON_YUKAWA","mtau_over_v",0.007216565),("QUARK_HEAVY","mb_over_v",0.016976712),("QUARK_HEAVY","mc_over_v",0.005157996),
+    ("QUARK_HEAVY","mt_over_v",0.701365635),("QUARK_LIGHT","md_over_v",1.8967e-5),("QUARK_LIGHT","ms_over_v",0.000377712),
+    ("QUARK_LIGHT","mu_over_v",8.773e-6),
+]
+BITS_FLOAT   = 53
+BASELINE_MDL = len(PARAMS) * BITS_FLOAT
+param_index  = {(g,n): i for i,(g,n,_) in enumerate(PARAMS)}
+real_values  = [v for _,_,v in PARAMS]
+SHAPES = [
+    ("CKM_s12_shape",("CKM","CKM_s12"),1/5,4),
+    ("CKM_delta_over_pi_shape",("CKM","CKM_delta_over_pi"),3/8,6),
+    ("alpha_s_MZ_shape",("COUPLINGS","alpha_s_MZ"),1/8,5),
+    ("sin2_thetaW_shape",("COUPLINGS","sin2_thetaW"),1/4,4),
+    ("MW_over_v_shape",("EW","MW_over_v"),1/3,3),
+    ("MZ_over_v_shape",("EW","MZ_over_v"),3/8,6),
+    ("MH_over_v_shape",("HIGGS","MH_over_v"),1/2,3),
+    ("mt_over_v_shape",("QUARK_HEAVY","mt_over_v"),5/7,6),
+]
+shape_vals=[]; shape_bits=[]; eps_abs=[]
+for _, key, sval, sbits in SHAPES:
+    idx = param_index[key]
+    eps_abs.append(abs(real_values[idx]/sval - 1.0))
+    shape_vals.append(float(sval))
+    shape_bits.append(int(sbits))
+delta_bits = [b - BITS_FLOAT for b in shape_bits]
+
+def bounds_for_scale(scale):
+    lo=[]; hi=[]
+    for k in range(8):
+        w = (scale*eps_abs[k])*(1.0+1e-12)
+        lo.append(shape_vals[k]*(1.0-w))
+        hi.append(shape_vals[k]*(1.0+w))
+    return lo, hi
+
+MDL_BY_CODE = [0.0]*256
+for c in range(256):
+    s=float(BASELINE_MDL)
+    for k in range(8):
+        if (c>>k)&1: s += delta_bits[k]
+    MDL_BY_CODE[c]=s
+CODES_SORTED = sorted(range(256), key=lambda c: MDL_BY_CODE[c])
+
+def summarize_counts(code_counts, mdl_real):
+    total = sum(code_counts)
+    gmin = next(MDL_BY_CODE[c] for c in CODES_SORTED if code_counts[c]>0)
+    gmax = next(MDL_BY_CODE[c] for c in reversed(CODES_SORTED) if code_counts[c]>0)
+    s1=s2=0.0
+    for c in range(256):
+        cnt=code_counts[c]
+        if cnt: x=MDL_BY_CODE[c]; s1+=x*cnt; s2+=x*x*cnt
+    mean = s1/total; var=max(0.0, s2/total - mean*mean); std=math.sqrt(var)
+    def q(p):
+        rank=int(round(p*(total-1))); cum=0
+        for c in CODES_SORTED:
+            cnt=code_counts[c]
+            if rank < cum+cnt: return MDL_BY_CODE[c]
+            cum+=cnt
+        return MDL_BY_CODE[CODES_SORTED[-1]]
+    p5,p25,p50,p75,p95 = q(0.05),q(0.25),q(0.50),q(0.75),q(0.95)
+    n_better = sum(code_counts[c] for c in range(256) if MDL_BY_CODE[c] <= mdl_real)
+    p_emp = n_better/total
+    z = (mean - mdl_real)/std if std>0 else float('inf')
+    return gmin,gmax,mean,std,(p5,p25,p50,p75,p95),p_emp,z
+
+# ---- build AVX2 streamer bound to your TU ----
+if not os.path.exists(KERNEL_PATH):
+    raise FileNotFoundError(f"Kernel not found: {KERNEL_PATH}")
+
+cpp = r'''
+#define main K38_DISABLED
+#include <stdint.h>
+#include <math.h>
+#include <immintrin.h>
+#include <vector>
+#include <string.h>
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
+// Pull in user's TU to inherit its compile flags/env (AVX2/OpenMP, etc.)
+#include "%s"
+
+// ===== AVX2 xorshift32 RNG → 8 floats in [0,1) =====
+// state update: s ^= s<<13; s ^= s>>17; s ^= s<<5;
+static inline __m256i xorshift32_vec(__m256i s){
+  __m256i t;
+  t = _mm256_slli_epi32(s, 13);
+  s = _mm256_xor_si256(s, t);
+  t = _mm256_srli_epi32(s, 17);
+  s = _mm256_xor_si256(s, t);
+  t = _mm256_slli_epi32(s, 5);
+  s = _mm256_xor_si256(s, t);
+  return s;
+}
+
+// Convert high 24 bits to U[0,1) float
+static inline __m256 u01_24(__m256i s){
+  __m256i r = _mm256_srli_epi32(s, 8);                      // keep top 24 bits
+  __m256  f = _mm256_cvtepi32_ps(r);
+  const __m256 scale = _mm256_set1_ps(1.0f/16777216.0f);    // 2^-24
+  return _mm256_mul_ps(f, scale);
+}
+
+// ===== Stream N universes → code_counts[256] + snaps[9] =====
+extern "C" void ew_stream_codes_256(
+    unsigned long long total,
+    const double* low8_d, const double* high8_d,
+    unsigned long long seed,
+    unsigned long long* out_codes256,  // [256]
+    unsigned long long* out_snaps9     // [9]
+){
+  int P = 1;
+  #ifdef _OPENMP
+    P = omp_get_max_threads();
+  #endif
+
+  // Thread-local accumulators to avoid contention
+  std::vector< std::vector<unsigned long long> > C(P, std::vector<unsigned long long>(256, 0ULL));
+  std::vector< std::vector<unsigned long long> > S(P, std::vector<unsigned long long>(9,   0ULL));
+
+  #pragma omp parallel
+  {
+    int tid = 0;
+    #ifdef _OPENMP
+      tid = omp_get_thread_num();
+    #endif
+    unsigned long long start = (total * (unsigned long long)tid) / (unsigned long long)P;
+    unsigned long long end   = (total * (unsigned long long)(tid+1)) / (unsigned long long)P;
+
+    // Convert bounds to float once per thread and load into AVX regs
+    alignas(32) float low8[8], high8[8];
+    for(int k=0;k<8;++k){ low8[k]  = (float)low8_d[k]; high8[k] = (float)high8_d[k]; }
+    __m256 low  = _mm256_loadu_ps(low8);
+    __m256 high = _mm256_loadu_ps(high8);
+
+    // Initialize an 8-lane RNG state per thread (different per lane)
+    __m256i s = _mm256_set_epi32(
+      (int)(seed ^ 0x9E3779B9u ^ (tid*0xA5A5A5A5u) ^ 7),
+      (int)(seed ^ 0x85EBCA6Bu ^ (tid*0xA5A5A5A5u) ^ 6),
+      (int)(seed ^ 0xC2B2AE35u ^ (tid*0xA5A5A5A5u) ^ 5),
+      (int)(seed ^ 0x27D4EB2Fu ^ (tid*0xA5A5A5A5u) ^ 4),
+      (int)(seed ^ 0x165667B1u ^ (tid*0xA5A5A5A5u) ^ 3),
+      (int)(seed ^ 0xD3A2646Cu ^ (tid*0xA5A5A5A5u) ^ 2),
+      (int)(seed ^ 0x7F4A7C15u ^ (tid*0xA5A5A5A5u) ^ 1),
+      (int)(seed ^ 0xBF58476Du ^ (tid*0xA5A5A5A5u) ^ 0)
+    );
+    // Warm up
+    for(int w=0; w<4; ++w) s = xorshift32_vec(s);
+
+    for(unsigned long long i = start; i < end; ++i){
+      s = xorshift32_vec(s);
+      __m256 v = u01_24(s);
+
+      // within-window mask: (v>=low) & (v<=high)
+      __m256 ge = _mm256_cmp_ps(v, low,  _CMP_GE_OQ);
+      __m256 le = _mm256_cmp_ps(v, high, _CMP_LE_OQ);
+      __m256 in = _mm256_and_ps(ge, le);
+
+      unsigned code = (unsigned)_mm256_movemask_ps(in);  // 8-bit code
+      C[tid][code] += 1ULL;
+      // popcount 0..8
+      unsigned pc = __builtin_popcount(code & 0xFFu);
+      S[tid][pc] += 1ULL;
+    }
+  }
+
+  // Reduce to outputs
+  for(int t=0; t<P; ++t){
+    for(int c=0; c<256; ++c) out_codes256[c] += C[t][c];
+    for(int s=0; s<9;   ++s) out_snaps9[s]   += S[t][s];
+  }
+}
+''' % (KERNEL_PATH.replace("\\","\\\\"))
+
+work = tempfile.mkdtemp(prefix="ultra_v3_")
+cpp_path = os.path.join(work, "ultra_v3_codes.cpp")
+so_path  = os.path.join(work, "libultra_v3_codes.so")
+with open(cpp_path, "w") as f: f.write(cpp)
+
+cmd = ["g++","-std=c++17","-O3","-Ofast","-funroll-loops",
+       "-fPIC","-shared","-fopenmp","-mavx2","-mfma","-march=native","-mtune=native",
+       cpp_path,"-o",so_path]
+print(">>> Compiling AVX2 ultra streamer:")
+print("   "," ".join(cmd))
+subprocess.check_call(cmd)
+print(">>> Built:", so_path, "\n")
+
+lib = ctypes.CDLL(so_path)
+lib.ew_stream_codes_256.argtypes = [
+    ctypes.c_ulonglong,
+    ctypes.POINTER(ctypes.c_double),
+    ctypes.POINTER(ctypes.c_double),
+    ctypes.c_ulonglong,
+    ctypes.POINTER(ctypes.c_ulonglong),
+    ctypes.c_POINTER(ctypes.c_ulonglong) if hasattr(ctypes, "c_POINTER") else ctypes.POINTER(ctypes.c_ulonglong),
+]
+# Fallback in case of weird ctypes attr:
+lib.ew_stream_codes_256.argtypes = [
+    ctypes.c_ulonglong,
+    ctypes.POINTER(ctypes.c_double),
+    ctypes.POINTER(ctypes.c_double),
+    ctypes.c_ulonglong,
+    ctypes.POINTER(ctypes.c_ulonglong),
+    ctypes.POINTER(ctypes.c_ulonglong),
+]
+lib.ew_stream_codes_256.restype = None
+
+# ---- quick throughput smoke @ ε=1.0 ----
+def bounds_arrays(scale):
+    lo,hi = bounds_for_scale(scale)
+    return (ctypes.c_double*8)(*lo), (ctypes.c_double*8)(*hi)
+
+lo8, hi8 = bounds_arrays(1.0)
+codes = (ctypes.c_ulonglong*256)(); snaps=(ctypes.c_ulonglong*9)()
+scale_tag = int(round(1.0*1_000_000))
+seed64 = ((scale_tag*1315423911) ^ int(SEED)) & 0xFFFFFFFFFFFFFFFF
+
+# warmup
+lib.ew_stream_codes_256(ctypes.c_ulonglong(5_000_000), lo8, hi8, ctypes.c_ulonglong(seed64), codes, snaps)
+# timed
+codes = (ctypes.c_ulonglong*256)(); snaps=(ctypes.c_ulonglong*9)()
+t0=time.perf_counter()
+lib.ew_stream_codes_256(ctypes.c_ulonglong(int(SMOKE_N)), lo8, hi8, ctypes.c_ulonglong(seed64^0xBEEF), codes, snaps)
+dt=time.perf_counter()-t0
+ups = SMOKE_N/dt if dt>0 else float('inf')
+print(f"THROUGHPUT (ε=1.0) — {SMOKE_N:,d} nulls in {dt:.3f}s  →  {ups:,.0f} universes/sec\n")
+
+# ---- full run ----
+print("="*120)
+print("RATIO_OS_EW_SHAPE_NULLTEST_v3 — ULTRA v3 (AVX2 lanes)".center(120))
+print("="*120)
+print(f"#params                         : {len(PARAMS)}")
+print(f"#SHAPE defs                     : {len(SHAPES)}")
+print(f"Baseline all-float MDL          : {BASELINE_MDL:.1f} bits")
+print(f"Null universes per scale        : {TOTAL_NULL:,d}")
+print(f"ε-scales tested                 : {EPS_SCALES}\n")
+
+for scale in EPS_SCALES:
+    lo8, hi8 = bounds_arrays(scale)
+    mdl_real = float(BASELINE_MDL); snapped_real=0
+    for k, (_, key, sval, sbits) in enumerate(SHAPES):
+        w=(scale*eps_abs[k])*(1.0+1e-12); lo=sval*(1.0-w); hi=sval*(1.0+w)
+        rv = real_values[param_index[key]]
+        if lo<=rv<=hi: mdl_real += (sbits - BITS_FLOAT); snapped_real += 1
+
+    scale_tag = int(round(scale*1_000_000))
+    seed64 = ((scale_tag*1315423911) ^ int(SEED)) & 0xFFFFFFFFFFFFFFFF
+
+    codes256=(ctypes.c_ulonglong*256)(); snaps9=(ctypes.c_ulonglong*9)()
+    lib.ew_stream_codes_256(ctypes.c_ulonglong(int(TOTAL_NULL)), lo8, hi8, ctypes.c_ulonglong(seed64), codes256, snaps9)
+    counts=[codes256[i] for i in range(256)]
+    snaps =[snaps9[i] for i in range(9)]
+
+    gmin,gmax,mean,std,quants,p_emp,z = summarize_counts(counts, mdl_real)
+    p5,p25,p50,p75,p95 = quants
+
+    print("-"*120)
+    print(f"[ε-scale = {scale:.3f}]")
+    print("[Real universe vs SHAPE]")
+    print(f"  MDL_real (bits)               : {mdl_real:.1f}")
+    print(f"  Compression factor            : {mdl_real/BASELINE_MDL:.3f}")
+    print(f"  Snapped params (real)         : {snapped_real}\n")
+    print("[Null ensemble stats — exact from 256 buckets]")
+    print(f"  min MDL                       : {gmin:.1f}")
+    print(f"  5th percentile                : {p5:.1f}")
+    print(f"  25th percentile               : {p25:.1f}")
+    print(f"  median                        : {p50:.1f}")
+    print(f"  75th percentile               : {p75:.1f}")
+    print(f"  95th percentile               : {p95:.1f}")
+    print(f"  max MDL                       : {gmax:.1f}")
+    print(f"  mean MDL                      : {mean:.1f}")
+    print(f"  std(MDL)                      : {std:.3f}\n")
+    print("[Significance vs null]")
+    print(f"  Real MDL                      : {mdl_real:.1f}")
+    print(f"  Empirical p-value             : p ≈ {p_emp:.6g}")
+    print(f"  σ-significance (rough, z)     : z ≈ {z:.2f}\n")
+    print("[Snapped-parameter counts in null ensemble]")
+    for k in range(9):
+        print(f"  snapped = {k:2d}   freq = {snaps[k]}")
+    print("")
+print("="*120)
+print("Done: ULTRA v3 — AVX2 lanes".center(120))
+print("="*120)
