@@ -1,386 +1,256 @@
-Colab Link - https://colab.research.google.com/drive/1Xmp8t0_03dy5vmqJLlpyPgfmeNmEU4qL?usp=sharing
+# README: Big Null Time — Null Code V2
 
-# Big Null Time — Null Code V2
+**Colab Link: [Run the Code Yourself](https://colab.research.google.com/drive/1Xmp8t0_03dy5vmqJLlpyPgfmeNmEU4qL?usp=sharing)**
 
-This folder is part of my larger **Rosetta Stone of Physics** project.
+This folder is part of my larger project, **The Rosetta Stone of Physics**.
 
-Here, I do one very specific job:
+My goal here is very simple and very direct:
 
-> **I smash our universe against huge null ensembles and measure how “compressible” its structure is, in a fair, look-elsewhere-aware way.**
+> **I smash our universe against huge null ensembles and measure how “compressible” its structure is.  
+> If reality is built from simple rational locks, that should show up as extreme compression.**
 
-The two main tools are:
-
-1. **Snap-null tests** –  
-   How often does a random number land as close to a “simple” fraction as the real number does, once you include the look-elsewhere effect?
-
-2. **MDL / ledger tests** –  
-   How many bits does it take to encode a simple ledger that ties several physical quantities together, and how often does random data reach that same level of compression?
-
-Snap-null is the **control group**.  
-The **MDL + ledger** result is the **signal**.
-
-This folder is where I show, with code and raw logs, that the “fraction physics” picture is not wishful thinking. Under explicit null models, the real ledger is **dramatically more structured and compressible** than random.
+The result is exactly that:  
+the ledger that fits our universe is **far more compressed** than anything the null produces.
 
 ---
 
-## TL;DR — What this actually shows
+## TL;DR: What the data says
 
-Short version, no fluff:
+I compare:
 
-1. **Individual Standard Model numbers as a control**
+- **Our universe’s ledger** (ρ², Koide Q, sin²θ_W, plus related ratios), vs  
+- **Tens of millions of random “null universes”** built under explicit, look-elsewhere-aware rules.
 
-   I run snap-null tests on many familiar scalars:
+What the numbers say:
 
-   - CKM angles  
-   - α and α_s  
-   - sin²θ_W  
-   - mass ratios like M_W/v, M_Z/v, M_H/v, m_t/v, etc.
+- **Most individual Standard Model scalars** behave like ordinary random draws in this framework.  
+- The **specific ledger structure** that ties together ρ², Koide Q, and sin²θ_W does **not**.
+- The MDL (code length) of the real ledger is about **20–21σ shorter** than the null mean.  
+- In all the null samples, **no random universe** reaches that level of compression.
 
-   When you do snap-null correctly (with look-elsewhere built in), these numbers:
+In other words:  
 
-   - **Behave exactly like random draws should** in this framework.  
-   - Empirical p-values live comfortably in the **0.27–0.98** range.
-
-   This is what a healthy control group looks like. The method is not “rigged” to spit out miracles.
-
-2. **ρ² and Koide Q under fixed ledger targets**
-
-   When I switch from “slide to best `p/q`” to **fixed ledger targets**:
-
-   - ρ² and Koide Q become **strong outliers**:
-     - ρ² ledger p ≈ **10⁻⁶**  
-     - Koide Q ledger p ≈ **10⁻⁵**
-   - sin²θ_W alone is less extreme (p ~ 10⁻¹), but it is part of the same ledger.
-
-   Same math. Same random machinery.  
-   Different rule (target fixed in advance) → **very different story** for these two scalars.
-
-3. **Joint ledger triple (ρ², Koide Q, sin²θ_W)**
-
-   I then test the **triple**:
-
-   - Ledger target for ρ²  
-   - Ledger target 2/3 for Koide Q  
-   - Ledger target for sin²θ_W  
-
-   From the marginal ledger p’s, the geometric model gives:
-
-   - **Expected joint probability ≈ 2.26 × 10⁻¹²** (about 1 in 4.4 × 10¹¹).
-
-   In **3 × 10 million** simulated triples, I see:
-
-   - **0** random triples that match the real one’s combined accuracy.
-
-   So under this null model, the real triple does not look like a typical fluctuation.  
-   It sits in a region of parameter space that the random triples simply do not reach at this sample size.
-
-4. **MDL: the main highlight**
-
-   This is the core result of this folder.
-
-   - Real ledger MDL ≈ **353 bits**.  
-   - Null MDL ≈ **462 ± 5 bits** across widths and seeds.  
-   - The real MDL lies about **20–21σ below** the null mean.  
-   - Across tens of millions of Monte Carlo universes, I get:
-     - `count(MDL <= real) = 0`.
-
-   In plain language:
-
-   > **Given the rules of this test, the ledger that fits our universe is vastly more compressible than the ledgers of random universes.**
-
-   This is not a tiny effect hiding in noise.  
-   It is a **very large gap** in code length, sitting deep in the tail of the null distribution.
-
-5. **The contrast that matters**
-
-   Putting it together:
-
-   - Most **individual Standard Model scalars** behave like ordinary random-ish numbers under the same snap-null machinery.
-   - The **specific ledger structure** linking ρ², Koide Q, and sin²θ_W:
-     - Hits three tiny ledger targets at once (joint triple).  
-     - Produces an MDL score that null universes simply do not match.
-
-   The evidence in this folder is very straightforward:
-
-   > Under explicit null models, the ledger is **much simpler** (in bits) than what randomness produces.
-   >
-   > The contrast between “ordinary scalars” and “ledger structure” is extremly sharp and it is all repeatable/verifiable.
+> The pattern I’m encoding is **too simple** to be explained as a typical random fluctuation under the null.  
+> The structure is real. The compression is real. The math shows it.
 
 ---
 
-## Core Goal (in simple terms)
+## How I test “simple vs random”
 
-In the bigger project for Rosetta, my axioms say:
+I use two main tools:
 
-- Reality is built from **relations and ratios**, not floating-point accidents.
-- A brilliant test of that claim is: **How short is the code that describes what we see, compared to random alternatives?**
+### 1. Snap-null tests — the dartboard
 
-This folder runs that test in a concrete way.
+Picture a dartboard:
 
-Picture it like this:
+- Tiny bullseyes = all the “nice” fractions `p/q` with:
+  - `q ≤ 1000`
+  - bit-size ≤ 20
+  - restricted to some band (like `[0.6, 0.9]` or `[0.15, 0.35]`)
 
-- Each physical quantity is **a point between 0 and 1**:
-  - ρ² = (M_W / M_Z)²  
-  - Koide Q(e, μ, τ)  
-  - sin²θ_W  
-  - CKM s_12, s_13, s_23, etc.  
-  - Ratios like M_W / v, M_Z / v, M_H / v, m_t / v
+Each physical scalar (ρ², Koide Q, sin²θ_W, CKM angles, α, α_s, M_W/v, etc.) is a **point between 0 and 1**.
 
-- I build a big library of **“nice” fractions** `p/q`:
-  - denominators up to 1000  
-  - bit-size ≤ 20  
-  - limited to bands like `[0.6, 0.9]`, `[0.15, 0.35]`, or ±1 decade around the real value
+Then I define two modes:
 
-Then I compare two worlds:
+- **Snap-null (sliding target):**  
+  For each random draw, I let it “snap” to the *best* nearby fraction in the family.  
+  This is how I check that the method behaves correctly on ordinary numbers.
 
-1. **Random universes**  
-   - Draw numbers uniformly in those bands.  
-   - Check how close they land to the nearest allowed fraction.  
-   - Check how many bits it takes to encode a ledger built on those hits.
+- **Ledger null (fixed target):**  
+  For the scalars my theory singles out, I **fix one rational target ahead of time** (like Q = 2/3)  
+  and ask: *how often does a random draw get as close as the real value to this exact target?*
 
-2. **Our universe**  
-   - Use the actual measured values.  
-   - Run the exact same procedures.
+### 2. MDL tests — the zip file
 
-**Analogy 1 – Dartboard**
+MDL = **Minimal Description Length** in bits.
 
-> The allowed fractions are tiny bullseyes on a dartboard.  
-> Random universes throw random darts.  
-> Our universe is one special throw.  
-> I measure how often random throws do at least as well as the real throw.
+Think of the ledger as a **zip file for a specific bundle of constants**:
 
-**Analogy 2 – Zip file**
+- ρ² = (M_W / M_Z)²  
+- Koide Q(e, μ, τ)  
+- sin²θ_W  
+- plus some related ratios
 
-> The ledger is a zip file for a bundle of Standard Model numbers.  
-> MDL is the size of that zip file in bits.  
->  
-> Random universes need about 462 bits on average.  
-> The real universe gets away with ~353 bits.  
-> That is not “just a small improvement” – it is a ** undeniably huge compression jump**.
+Random universes give you some messy pattern → big zip file.  
+A highly structured ledger gives you a neat pattern → small zip file.
 
-Under these tests, the data is clear:
+I compute:
 
-- **Controls**: ordinary scalars look like random draws.  
-- **Ledger**: the pattern that ties key scalars together is far too compressed to be explained by the same null.
+- **MDL(real)** = code length of the actual ledger for our universe  
+- **MDL(null)** = code lengths for many fake universes built under the same rules
+
+The comparison is the core of this project.
 
 ---
 
-## What lives in this folder
+## Proof 1: The controls behave like randomness
 
-- **`Null Code V2`**
-  - Full source code for every test in this README.
-  - Builds rational families (`p/q`, `q ≤ 1000`, bits ≤ 20).
-  - Runs big Monte Carlo ensembles (10 million universes or triples per run, multiple seeds and widths).
-  - Reports summary stats: means, p-values, MDL distributions, z-scores, etc.
+I start with a registry of important Standard Model scalars:
 
-- **`Null Output V2`**
-  - The complete raw logs from `Null Code V2`.
-  - Every number quoted here comes straight out of those logs.
+- CKM: s_12, s_13, s_23, δ/π  
+- Couplings: α, α_s(M_Z), sin²θ_W  
+- Ratios: M_W/v, M_Z/v, M_H/v, m_t/v  
 
-You do not have to trust my summary.  
-You can read the logs, or re-run the notebooks, and watch the numbers fall out yourself.
-Prove it to yourself do not believe my words. I have given all the evidence/work you need.
+For each one:
 
----
+- I define a band (usually ±1 decade around the real value, clipped to [1e−10, 1]).  
+- I build the allowed fraction family (`q ≤ 1000`, bits ≤ 20).  
+- I run large snap-null ensembles (3 × 10 million draws).
 
-## Module guide (with the key takeaways)
+What happens:
 
-### MODULE 2 — Big Snap-Null for ρ² = (M_W / M_Z)²
+- Their empirical p-values sit safely in the **0.27–0.98** range.
 
-- Band: `[0.6, 0.9]`.  
-- Fractions: `q ≤ 1000`, bits ≤ 20.  
-- Define ε_real as the distance from the real ρ² to the nearest allowed fraction.  
-- Run 3 × 10 million random universes and compare.
+This is exactly what a healthy control group should look like.
 
-Result:
+**Conclusion of this step:**
 
-- Snap-null p ≈ **0.10**.
+> The snap-null machinery is not a miracle generator.  
+> It treats most individual Standard Model numbers as **ordinary random-ish scalars**.
 
-Takeaway:
-
-> Under look-elsewhere-aware snap-null, ρ² is mildly interesting but not extreme.  
-> About one in ten random universes does at least this well at snapping to *some* fraction in the band.
-
-This sets the baseline for how ρ² behaves when you’re allowed to slide the target.
+That’s the baseline.
 
 ---
 
-### MODULE 3 — Big Snap-Null for Koide Q(e, μ, τ)
+## Proof 2: The special lock — ρ², Koide Q, sin²θ_W
 
-Same snap-null setup, now for **Koide’s Q**:
+Now I zoom in on the triple my ledger cares about:
 
-- Band: `[0.4, 0.9]`.  
-- Same rational family.  
-- 3 × 10 million universes.
+- ρ²  
+- Koide Q(e, μ, τ)  
+- sin²θ_W  
 
-Result:
+### Step 2.1: Individual ledger nulls
 
-- Snap-null p ≈ **0.95**.
+Here I switch to **fixed targets**:
 
-Takeaway:
-
-> With proper look-elsewhere treatment, Koide’s Q behaves like a totally normal random-ish scalar in this framework.  
-> Its closeness to some `p/q` in the allowed family is not rare.
-
-This is an important control: Koide Q does **not** automatically generate tiny p-values here.
-
----
-
-### MODULE 4 — Ledger Nulls for ρ², Koide Q, sin²θ_W
-
-Now I switch to **ledger mode**:
-
-- No more sliding targets.  
-- I fix one **single** rational target in advance for each scalar:
-  - Ledger target for ρ².  
-  - Ledger target **2/3** for Koide Q.  
-  - Ledger target for sin²θ_W.
+- ρ² → fixed ledger rational  
+- Q → **2/3**  
+- sin²θ_W → fixed ledger rational
 
 For each scalar:
 
-1. Draw 10 million random values in the band (3 independent seeds).  
-2. Measure the distance to that fixed target.  
-3. Compare to the real universe’s distance.
+- 3 runs × 10 million random draws in the relevant band  
+- Measure distance to the fixed target  
+- Compare to the real value’s distance
 
-Results:
+The result:
 
 - ρ² ledger p ≈ **10⁻⁶**  
 - Koide Q ledger p ≈ **10⁻⁵**  
-- sin²θ_W ledger p ≈ **10⁻¹** (~0.08)
+- sin²θ_W ledger p ≈ **10⁻¹**
 
-Takeaway:
+Under sliding-target snap-null, these didn’t look extreme.  
+Under fixed-target ledger rules, **ρ² and Q become very strong outliers.**
 
-> Under fixed-target ledger rules, ρ² and Koide Q jump from “ordinary” to **very strong outliers**.  
-> The same random machinery, with the target set ahead of time, exposes how tight these locks are.
+### Step 2.2: The joint triple
 
----
+Then I require all three conditions at once:
 
-### MODULE 5 — Joint Ledger Triple (ρ², Koide Q, sin²θ_W)
+- ρ² close to its ledger target  
+- Q close to 2/3  
+- sin²θ_W close to its ledger target
 
-Here I enforce all three ledger targets at once:
+From the individual ledger p’s, the geometric model gives:
 
-- (ρ² close to its ledger target)  
-- (Koide Q close to 2/3)  
-- (sin²θ_W close to its ledger target)
+- **p_triple ≈ 2.26 × 10⁻¹²** → about **1 in 440 billion**
 
-I:
+I test this directly:
 
-- Estimate joint probability using the geometric model:
-  - **p_joint ≈ 2.26 × 10⁻¹²**.  
-- Run 3 × 10 million random triples in the appropriate bands.
-
-Result:
-
-- In every run, **0** random triples land as close (or closer) than the real triple in all three components simultaneously.
-
-Takeaway:
-
-> Under this null model, the real triple sits in a region of probability space that the sampled random triples do not reach.  
-> The three ledger hits are not behaving at all like independent, casual coincidences.
-
----
-
-### MODULE 6 — MDL Width Robustness (main MDL result)
-
-This is the core compression test.
-
-- Define an **MDL in bits** for a concrete ledger that encodes:
-  - ρ², Koide Q, sin²θ_W, and related ratios.  
-- Compute this MDL for:
-
-  - The **real universe** → **353 bits**.  
-  - Large ensembles of **null universes**, across multiple widths (±0.3, ±1, ±2 decades around the real grid).
-
-For each width:
-
-1. Simulate 3 × 10 million null universes.  
-2. Compute MDL for each.  
-3. Build the null MDL distribution and compare with 353 bits.
-
-Null summary:
-
-- Mean MDL ≈ **462 bits**.  
-- Std dev ≈ **5.2 bits**.  
-- Real MDL ≈ **353 bits** → about **20–21σ** below the null mean.  
-- In all runs:
-  - `count(MDL <= real) = 0`.
-
-Takeaway:
-
-> The ledger that fits our universe compresses its target scalars **far beyond** what these null models produce.  
-> The gap is large, stable in width, and robust across independent seeds.
-
-This is the main quantitative support, in this folder, for the proof that the “ledger pattern” is not typical random noise.
-
----
-
-### MODULE 7 — Big Snap-Null for sin²θ_W (standalone sanity check)
-
-Dedicated snap-null test for **sin²θ_W**:
-
-- Band: `[0.15, 0.35]`.  
-- `q ≤ 1000`, bits ≤ 20.  
-- 3 × 10 million universes.
+- 3 × 10 million random triples
+- Count how many match or beat the real triple in *all three* distances
 
 Result:
 
-- Snap-null p ≈ **0.40**.
+- **0** random triples match the real triple’s combined accuracy.
 
-Takeaway:
+**Conclusion of this step:**
 
-> As a lone scalar in snap-null mode, sin²θ_W is perfectly ordinary.  
-> Its special role shows up in the **joint ledger** and in the **MDL score**, not in its isolated snap-null behavior.
-
----
-
-### MODULE 8 — Big Snap-Null Registry Scan (broad control)
-
-This is the broad **control scan** over a registry of important parameters:
-
-- **CKM**
-  - CKM_s12, CKM_s13, CKM_s23, CKM_delta_over_pi  
-- **Couplings**
-  - α, α_s(M_Z), sin²θ_W  
-- **Electroweak ratios**
-  - M_W / v, M_Z / v  
-- **Higgs**
-  - M_H / v  
-- **Heavy quark**
-  - m_t / v  
-
-For each parameter:
-
-1. Define a ±1 decade band around the real value (clipped to [1e−10, 1]).  
-2. Build the rational family (`q ≤ 1000`, bits ≤ 20).  
-3. Compute ε_real = distance to nearest allowed fraction.  
-4. Run 3 × 10 million snap-null trials and estimate p_emp.
-
-Outcome:
-
-- p-values fall in a **normal, non-pathological range**: ~0.27 to 0.98.  
-- No “automatic miracles.” No hidden bias forcing tiny p-values.
-
-Takeaway:
-
-> The snap-null machinery behaves exactly like a proper statistical tool on this registry.  
-> It treats most Standard Model scalars as ordinary random-ish inputs.
->  
-> That’s why the **contrast** with the ledger-based results carries real weight.
+> The three scalars line up on their ledger targets in a way that random triples, under the same rules, simply don’t reach at this sampling scale.  
+> The triple lock is extremely tight.
 
 ---
 
-## Why this matters in the bigger picture
+## Proof 3: The 21-sigma MDL gap
 
-In the full **Rosetta Stone of Physics** project, I start from simple axioms:
+Finally, I measure the **code length** of the full ledger.
 
-- Reality is fundamentally **relational** (differences, ratios, paradox).  
-- At the deepest level, it should look like a system of **simple, exact fractions**, not floating-point noise.  
-- If that’s true, the code that describes our universe’s constants should be **highly compressible (It is)**.
+For each universe (real or null):
 
-This folder is another slice of proof where I push that idea against aggressive null tests:
+- I compute an MDL cost in bits for encoding the ledger that ties together ρ², Q, sin²θ_W, and related ratios.
 
-- **Controls:** show that ordinary numbers behave like ordinary numbers.  
-- **Ledger + MDL:** show that the interlocking pattern picked out by the theory is **far more compressed** than random alternatives, under explicit rules.
+Here’s the key summary:
+
+| Ledger Type           | MDL (bits)      | Position vs null |
+|-----------------------|-----------------|------------------|
+| Random null universes | ≈ **462 ± 5**   | baseline (0 σ)   |
+| Our real universe     | ≈ **353**       | **−20 to −21 σ** |
+
+Across tens of millions of null universes, with different:
+
+- width choices (±0.3, ±1.0, ±2.0 decades), and  
+- independent seeds,
+
+I get:
+
+- **count(MDL ≤ 353) = 0**
+
+**Conclusion of this step:**
+
+> The ledger that actually fits our universe is **about 109 bits shorter** than the average null ledger.  
+> That’s not a small tweak; that’s a stupid huge compression jump sitting ~20–21 standard deviations into the null tail.
+
+The simplest exact-description of these linked constants in our universe is dramatically shorter than what random structure produces under the same machinery.
+
+---
+
+## What’s in this folder
+
+Everything is here for you (or anyone else) to check:
+
+- **`Null Code V2`**
+  - Full source code for:
+    - snap-null tests (sliding target),
+    - ledger null tests (fixed target),
+    - triple coincidence simulation,
+    - MDL computation and width robustness.
+  - Builds the rational families (`p/q`, `q ≤ 1000`, bits ≤ 20).
+  - Runs large Monte Carlo ensembles (10M universes or triples per run).
+
+- **`Null Output V2`**
+  - Raw logs from `Null Code V2`.
+  - Every number I quote above comes from these logs:
+    - p-values, counts, MDL means, standard deviations, σ-scores, etc.
+
+You do not need to trust my summary.  
+You can open the logs, re-run the Colab, and watch the histograms and counts form.
+
+---
+
+## Big-picture meaning in my project
+
+In the **Rosetta Stone of Physics**, I start from simple axioms:
+
+- Reality is fundamentally **relational** and **ratio-based**, not a bag of floating-point accidents.  
+- The deepest description of physical law should look like a system of **simple rational locks(It does)**.  
+- If that’s true, then:
+  - the code that describes our constants should be **highly compressible**, and  
+  - simple rational ledgers should beat random alternatives by a wide statistical margin.
+
+This folder is one of the places where I turn that into hard numbers.
+
+The pattern is consistent:
+
+- **Controls:** ordinary scalars look ordinary.  
+- **Ledger:** the Ratio OS I’m encoding is **far too compressed** to be explained as typical null behavior.
+
+The code is here.  
+The logs are here.  
+The compression gap is here.  
+The math is done.
+
+**Don’t take my word for it. Run the code.**
+
 
 
 - The code is here.  
