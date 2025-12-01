@@ -1,0 +1,2368 @@
+===============================================================================
+[FPK v4] Registry loaded: 19 parameters.
+    CKM             CKM_s12               value≈ 0.224299998336   p/q=13482/60107  bits=16
+    CKM             CKM_s13               value≈ 0.003939999959   p/q=1913/485533  bits=19
+    CKM             CKM_s23               value≈ 0.042200001315   p/q=6419/152109  bits=18
+    CKM             CKM_delta_over_pi     value≈ 0.381971862314   p/q=6869/17983  bits=15
+    COUPLINGS       alpha                 value≈ 0.007297352601   p/q=2639/361638  bits=19
+    COUPLINGS       alpha_s_MZ            value≈ 0.117899998815   p/q=9953/84419  bits=17
+    COUPLINGS       sin2_thetaW           value≈ 0.231220000589   p/q=7852/33959  bits=16
+    EW              MW_over_v             value≈ 0.326452417182   p/q=17807/54547  bits=16
+    EW              MZ_over_v             value≈ 0.370350617284   p/q=18749/50625  bits=16
+    HIGGS           MH_over_v             value≈ 0.508692138982   p/q=22034/43315  bits=16
+    LEPTON_YUKAWA   me_over_v             value≈ 2.075378e-06   p/q=43/20719113  bits=25
+    LEPTON_YUKAWA   mmu_over_v            value≈ 0.000429122429   p/q=421/981072  bits=20
+    LEPTON_YUKAWA   mtau_over_v           value≈ 0.007216564566   p/q=2561/354878  bits=19
+    QUARK_HEAVY     mb_over_v             value≈ 0.016976711567   p/q=3268/192499  bits=18
+    QUARK_HEAVY     mc_over_v             value≈ 0.005157996117   p/q=1687/327065  bits=19
+    QUARK_HEAVY     mt_over_v             value≈ 0.701365634918   p/q=24087/34343  bits=16
+    QUARK_LIGHT     md_over_v             value≈ 1.8966805e-05   p/q=111/5852330  bits=23
+    QUARK_LIGHT     ms_over_v             value≈ 0.000377711528   p/q=411/1088132  bits=21
+    QUARK_LIGHT     mu_over_v             value≈ 8.772655e-06   p/q=83/9461218  bits=24
+-------------------------------------------------------------------------------
+[FPK v4] Real-universe MDL (from denominators) = 353 bits
+===============================================================================
+[FPK v4] Compiling C++ kernel (this happens once per runtime)...
+[FPK v4] Compilation OK.
+===============================================================================
+[FPK v4] Kernel loaded and ready.
+        • Use fpk_mdl_null(...) for MDL null tests.
+        • Use fpk_build_rational_family(...) to build snap families.
+        • Use fpk_snap_null_scalar(...) or fpk_run_big_snap_null_scalar(...)
+===============================================================================
+===============================================================================
+[FPK v4] Setup complete. This cell defines the kernel + helpers.
+         You can now call fpk_mdl_null(...) and the snap helpers.
+===============================================================================
+===============================================================================
+MODULE_1_BIG_GLOBAL_MDL_NULL: STARTING 3× BIG MDL RUNS (each 10M universes)
+===============================================================================
+===============================================================================
+[MODULE_1_BIG_GLOBAL_MDL_NULL] RUN1_main
+Date (UTC)       : 2025-12-01T12:24:45.475693Z
+Config JSON      : {"batch_size": 200000, "date_iso": "2025-12-01T12:24:45.475693Z", "label": "RUN1_main", "module": "MODULE_1_BIG_GLOBAL_MDL_NULL", "omp_threads": 2, "q_max": 33554432, "seed_base": 101000000, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : 1665f8be52eba17c0c1c5d7d59c15ac9a575f01c9ed97322445d3e1331df2c69
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+MDL width_decades     = ±1.0
+q_max                 = 33554432
+seed_base             = 101000000
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:893: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date_iso": datetime.datetime.utcnow().isoformat() + "Z",
+-------------------------------------------------------------------------------
+[MODULE_1_BIG_GLOBAL_MDL_NULL] GLOBAL MDL NULL SUMMARY (RUN1_main)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.317
+     Null std bits         : 5.257
+     Null min / max bits   : 419 / 475
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.795 σ
+     Total elapsed time    : 46.315 s
+     Overall throughput    :     215912 universes / s
+     Config SHA256         : 1665f8be52eba17c0c1c5d7d59c15ac9a575f01c9ed97322445d3e1331df2c69
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_1_BIG_GLOBAL_MDL_NULL] RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:25:31.791860Z
+Config JSON      : {"batch_size": 200000, "date_iso": "2025-12-01T12:25:31.791860Z", "label": "RUN2_independent_seed", "module": "MODULE_1_BIG_GLOBAL_MDL_NULL", "omp_threads": 2, "q_max": 33554432, "seed_base": 202000000, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : 5185874194861984321d09838e135a6d85b4a22f95fefed55f551f3780226b27
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+MDL width_decades     = ±1.0
+q_max                 = 33554432
+seed_base             = 202000000
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_1_BIG_GLOBAL_MDL_NULL] GLOBAL MDL NULL SUMMARY (RUN2_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.320
+     Null std bits         : 5.256
+     Null min / max bits   : 420 / 475
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.798 σ
+     Total elapsed time    : 38.740 s
+     Overall throughput    :     258133 universes / s
+     Config SHA256         : 5185874194861984321d09838e135a6d85b4a22f95fefed55f551f3780226b27
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_1_BIG_GLOBAL_MDL_NULL] RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:26:10.532540Z
+Config JSON      : {"batch_size": 200000, "date_iso": "2025-12-01T12:26:10.532540Z", "label": "RUN3_independent_seed", "module": "MODULE_1_BIG_GLOBAL_MDL_NULL", "omp_threads": 2, "q_max": 33554432, "seed_base": 303000000, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : d2b28bb2fd9b48b8bb6aaddf16cb2d43f7eccc2d351ff04065fd2f1d3035ca9b
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+MDL width_decades     = ±1.0
+q_max                 = 33554432
+seed_base             = 303000000
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_1_BIG_GLOBAL_MDL_NULL] GLOBAL MDL NULL SUMMARY (RUN3_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.321
+     Null std bits         : 5.259
+     Null min / max bits   : 421 / 475
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.786 σ
+     Total elapsed time    : 38.809 s
+     Overall throughput    :     257671 universes / s
+     Config SHA256         : d2b28bb2fd9b48b8bb6aaddf16cb2d43f7eccc2d351ff04065fd2f1d3035ca9b
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_1_BIG_GLOBAL_MDL_NULL: ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: 1665f8be52eba17c0c1c5d7d59c15ac9a575f01c9ed97322445d3e1331df2c69
+  RUN2 config SHA256: 5185874194861984321d09838e135a6d85b4a22f95fefed55f551f3780226b27
+  RUN3 config SHA256: d2b28bb2fd9b48b8bb6aaddf16cb2d43f7eccc2d351ff04065fd2f1d3035ca9b
+===============================================================================
+===============================================================================
+MODULE_2_BIG_SNAP_RHO2_NULL: STARTING 3× BIG SNAP-NULL RUNS FOR ρ² (each 10M universes)
+       (look-elsewhere over all p/q with q ≤ 1000, bits ≤ 20 in [0.6, 0.9])
+===============================================================================
+===============================================================================
+[MODULE_2_BIG_SNAP_RHO2_NULL] RUN1_main
+Date (UTC)       : 2025-12-01T12:26:49.345906Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:26:49.345906Z", "eps_real": 1.678001960714326e-07, "label": "RUN1_main", "module": "MODULE_2_BIG_SNAP_RHO2_NULL", "omp_threads": 2, "q_max": 1000, "rho2_real": 0.7769867835639795, "seed_base": 111000000, "total_universes": 10000000}
+Config SHA256    : 014d5bbcccc78adfb3d44342fc73ca121d285784e4535ec2fe219e34e6d90543
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 111000000
+rho2_real             = 0.776986783564
+eps_real              = 1.678e-07
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] Rational family: #candidates = 91,266
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:1151: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date_iso": datetime.datetime.utcnow().isoformat() + "Z",
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] GLOBAL SNAP NULL SUMMARY (RUN1_main)
+      Total universes          : 10,000,000
+      rho2_real                : 0.776986783564
+      eps_real                 : 1.678e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 91,266
+      mean d_min               : 2.152e-06
+      min / max d_min          : 3.239e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 1,021,735 / 10,000,000
+      Empirical p_emp          : 1.022e-01
+      Total elapsed time       :  2.215 s
+      Overall throughput       :    4513694 universes / s
+      Config SHA256            : 014d5bbcccc78adfb3d44342fc73ca121d285784e4535ec2fe219e34e6d90543
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_2_BIG_SNAP_RHO2_NULL] RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:26:51.653435Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:26:51.653435Z", "eps_real": 1.678001960714326e-07, "label": "RUN2_independent_seed", "module": "MODULE_2_BIG_SNAP_RHO2_NULL", "omp_threads": 2, "q_max": 1000, "rho2_real": 0.7769867835639795, "seed_base": 222000000, "total_universes": 10000000}
+Config SHA256    : f98e45a5953900750be4a521c07ef20f282c155d649c9dc4041e9dadaf9a0064
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 222000000
+rho2_real             = 0.776986783564
+eps_real              = 1.678e-07
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] Rational family: #candidates = 91,266
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] GLOBAL SNAP NULL SUMMARY (RUN2_independent_seed)
+      Total universes          : 10,000,000
+      rho2_real                : 0.776986783564
+      eps_real                 : 1.678e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 91,266
+      mean d_min               : 2.151e-06
+      min / max d_min          : 1.697e-12 / 1.670e-04
+      count(d_min ≤ eps_real)  : 1,020,380 / 10,000,000
+      Empirical p_emp          : 1.020e-01
+      Total elapsed time       :  2.209 s
+      Overall throughput       :    4526217 universes / s
+      Config SHA256            : f98e45a5953900750be4a521c07ef20f282c155d649c9dc4041e9dadaf9a0064
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_2_BIG_SNAP_RHO2_NULL] RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:26:53.966079Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:26:53.966079Z", "eps_real": 1.678001960714326e-07, "label": "RUN3_independent_seed", "module": "MODULE_2_BIG_SNAP_RHO2_NULL", "omp_threads": 2, "q_max": 1000, "rho2_real": 0.7769867835639795, "seed_base": 333000000, "total_universes": 10000000}
+Config SHA256    : cf5aaac76742cdd2ce3a2331eac8342d1d9c622423af57020dff8ffc1cde82cb
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 333000000
+rho2_real             = 0.776986783564
+eps_real              = 1.678e-07
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] Rational family: #candidates = 91,266
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_2_BIG_SNAP_RHO2_NULL] GLOBAL SNAP NULL SUMMARY (RUN3_independent_seed)
+      Total universes          : 10,000,000
+      rho2_real                : 0.776986783564
+      eps_real                 : 1.678e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 91,266
+      mean d_min               : 2.151e-06
+      min / max d_min          : 1.292e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 1,021,448 / 10,000,000
+      Empirical p_emp          : 1.021e-01
+      Total elapsed time       :  3.239 s
+      Overall throughput       :    3086913 universes / s
+      Config SHA256            : cf5aaac76742cdd2ce3a2331eac8342d1d9c622423af57020dff8ffc1cde82cb
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_2_BIG_SNAP_RHO2_NULL: ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: 014d5bbcccc78adfb3d44342fc73ca121d285784e4535ec2fe219e34e6d90543
+  RUN2 config SHA256: f98e45a5953900750be4a521c07ef20f282c155d649c9dc4041e9dadaf9a0064
+  RUN3 config SHA256: cf5aaac76742cdd2ce3a2331eac8342d1d9c622423af57020dff8ffc1cde82cb
+===============================================================================
+===============================================================================
+MODULE_3_BIG_SNAP_KOIDE_NULL: STARTING 3× BIG SNAP-NULL RUNS FOR Koide Q (each 10M universes)
+       (look-elsewhere over all p/q with q ≤ 1000, bits ≤ 20 in [0.4, 0.9])
+===============================================================================
+===============================================================================
+[MODULE_3_BIG_SNAP_KOIDE_NULL] RUN1_main
+Date (UTC)       : 2025-12-01T12:26:57.301648Z
+Config JSON      : {"Q_real": 0.666660512587, "band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:26:57.301648Z", "eps_real": 6.154079666642609e-06, "label": "RUN1_main", "module": "MODULE_3_BIG_SNAP_KOIDE_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 121000000, "total_universes": 10000000}
+Config SHA256    : 650354dc86102ea2ead13ce28159d5cee3ebecfc78869f60deefcc13cd5843d7
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 121000000
+Q_real                = 0.666660512587
+eps_real              = 6.154e-06
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:1400: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date_iso": datetime.datetime.utcnow().isoformat() + "Z",
+[MODULE_3_BIG_SNAP_KOIDE_NULL] Rational family: #candidates = 152,098
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_3_BIG_SNAP_KOIDE_NULL] GLOBAL SNAP NULL SUMMARY (RUN1_main)
+      Total universes          : 10,000,000
+      Q_real                   : 0.666660512587
+      eps_real                 : 6.154e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 152,098
+      mean d_min               : 2.265e-06
+      min / max d_min          : 1.653e-13 / 2.502e-04
+      count(d_min ≤ eps_real)  : 9,484,940 / 10,000,000
+      Empirical p_emp          : 9.485e-01
+      Total elapsed time       :  3.300 s
+      Overall throughput       :    3030238 universes / s
+      Config SHA256            : 650354dc86102ea2ead13ce28159d5cee3ebecfc78869f60deefcc13cd5843d7
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_3_BIG_SNAP_KOIDE_NULL] RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:27:00.880370Z
+Config JSON      : {"Q_real": 0.666660512587, "band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:27:00.880370Z", "eps_real": 6.154079666642609e-06, "label": "RUN2_independent_seed", "module": "MODULE_3_BIG_SNAP_KOIDE_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 222000000, "total_universes": 10000000}
+Config SHA256    : f6897d6986a48200d70b313f96d1415817f47fbd711aeafa075e10c265efc8af
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 222000000
+Q_real                = 0.666660512587
+eps_real              = 6.154e-06
+-------------------------------------------------------------------------------
+[MODULE_3_BIG_SNAP_KOIDE_NULL] Rational family: #candidates = 152,098
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_3_BIG_SNAP_KOIDE_NULL] GLOBAL SNAP NULL SUMMARY (RUN2_independent_seed)
+      Total universes          : 10,000,000
+      Q_real                   : 0.666660512587
+      eps_real                 : 6.154e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 152,098
+      mean d_min               : 2.263e-06
+      min / max d_min          : 5.934e-13 / 2.502e-04
+      count(d_min ≤ eps_real)  : 9,485,180 / 10,000,000
+      Empirical p_emp          : 9.485e-01
+      Total elapsed time       :  3.033 s
+      Overall throughput       :    3297303 universes / s
+      Config SHA256            : f6897d6986a48200d70b313f96d1415817f47fbd711aeafa075e10c265efc8af
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_3_BIG_SNAP_KOIDE_NULL] RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:27:04.078842Z
+Config JSON      : {"Q_real": 0.666660512587, "band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:27:04.078842Z", "eps_real": 6.154079666642609e-06, "label": "RUN3_independent_seed", "module": "MODULE_3_BIG_SNAP_KOIDE_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 333000000, "total_universes": 10000000}
+Config SHA256    : e7993a908be82f2a79ecf559748f46f931032dd389bfce449b814fb171494aaa
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+q_max                 = 1000
+bits_max              = 20
+seed_base             = 333000000
+Q_real                = 0.666660512587
+eps_real              = 6.154e-06
+-------------------------------------------------------------------------------
+[MODULE_3_BIG_SNAP_KOIDE_NULL] Rational family: #candidates = 152,098
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_3_BIG_SNAP_KOIDE_NULL] GLOBAL SNAP NULL SUMMARY (RUN3_independent_seed)
+      Total universes          : 10,000,000
+      Q_real                   : 0.666660512587
+      eps_real                 : 6.154e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 152,098
+      mean d_min               : 2.276e-06
+      min / max d_min          : 1.554e-13 / 2.502e-04
+      count(d_min ≤ eps_real)  : 9,485,232 / 10,000,000
+      Empirical p_emp          : 9.485e-01
+      Total elapsed time       :  3.077 s
+      Overall throughput       :    3250404 universes / s
+      Config SHA256            : e7993a908be82f2a79ecf559748f46f931032dd389bfce449b814fb171494aaa
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_3_BIG_SNAP_KOIDE_NULL: ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: 650354dc86102ea2ead13ce28159d5cee3ebecfc78869f60deefcc13cd5843d7
+  RUN2 config SHA256: f6897d6986a48200d70b313f96d1415817f47fbd711aeafa075e10c265efc8af
+  RUN3 config SHA256: e7993a908be82f2a79ecf559748f46f931032dd389bfce449b814fb171494aaa
+===============================================================================
+===============================================================================
+MODULE_4_BIG_LEDGER_SCALAR_NULLS: STARTING BIG LEDGER TESTS (ρ², Koide Q, sin²θW)
+         3 runs each, 10M universes per run, fixed ledger fractions.
+===============================================================================
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] RHO2_RUN1_main — rho2 = (MW/MZ)^2
+Date (UTC)       : 2025-12-01T12:27:07.323965Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.323965Z", "eps_real": 1.678001960714326e-07, "label": "RHO2_RUN1_main", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "rho2 = (MW/MZ)^2", "seed_base": 131000000, "total_universes": 10000000, "x_real": 0.7769867835639795, "x_target": 0.7769869513641756}
+Config SHA256    : ca0416715a9de3dc81304434431b842704baab4017ad8f58fc8e1d752a1816a7
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+x_real                = 0.776986783564
+x_target              = 0.776986951364
+eps_real              = 1.678002e-07
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (RHO2_RUN1_main — rho2 = (MW/MZ)^2)
+      Total universes          : 10,000,000
+      x_real                   : 0.776986783564
+      x_target                 : 0.776986951364
+      eps_real                 : 1.678002e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 7.746e-02
+      min / max |x - target|   : 3.161e-08 / 1.770e-01
+      count(|x - target| ≤ eps): 8 / 10,000,000
+      Empirical p_ledger       : 8.000e-07
+      Total elapsed time       :  0.114 s
+      Overall throughput       :   88034439 universes / s
+      Config SHA256            : ca0416715a9de3dc81304434431b842704baab4017ad8f58fc8e1d752a1816a7
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] RHO2_RUN2_independent_seed — rho2 = (MW/MZ)^2
+Date (UTC)       : 2025-12-01T12:27:07.438360Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.438360Z", "eps_real": 1.678001960714326e-07, "label": "RHO2_RUN2_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "rho2 = (MW/MZ)^2", "seed_base": 232000000, "total_universes": 10000000, "x_real": 0.7769867835639795, "x_target": 0.7769869513641756}
+Config SHA256    : fd8026b834f61f38083c6722de5ac9f0e31d32d0926be73c50e7a373b88d9109
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+x_real                = 0.776986783564
+x_target              = 0.776986951364
+eps_real              = 1.678002e-07
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:1645: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date_iso": datetime.datetime.utcnow().isoformat() + "Z",
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (RHO2_RUN2_independent_seed — rho2 = (MW/MZ)^2)
+      Total universes          : 10,000,000
+      x_real                   : 0.776986783564
+      x_target                 : 0.776986951364
+      eps_real                 : 1.678002e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 7.745e-02
+      min / max |x - target|   : 1.237e-08 / 1.770e-01
+      count(|x - target| ≤ eps): 10 / 10,000,000
+      Empirical p_ledger       : 1.000e-06
+      Total elapsed time       :  0.121 s
+      Overall throughput       :   82538718 universes / s
+      Config SHA256            : fd8026b834f61f38083c6722de5ac9f0e31d32d0926be73c50e7a373b88d9109
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] RHO2_RUN3_independent_seed — rho2 = (MW/MZ)^2
+Date (UTC)       : 2025-12-01T12:27:07.560510Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.6, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.560510Z", "eps_real": 1.678001960714326e-07, "label": "RHO2_RUN3_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "rho2 = (MW/MZ)^2", "seed_base": 333000000, "total_universes": 10000000, "x_real": 0.7769867835639795, "x_target": 0.7769869513641756}
+Config SHA256    : 636cb2b4ba4547994ae3fbd6b5970beafb37082f75a6320a9a8f03fa1307779b
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.6, 0.9]
+x_real                = 0.776986783564
+x_target              = 0.776986951364
+eps_real              = 1.678002e-07
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (RHO2_RUN3_independent_seed — rho2 = (MW/MZ)^2)
+      Total universes          : 10,000,000
+      x_real                   : 0.776986783564
+      x_target                 : 0.776986951364
+      eps_real                 : 1.678002e-07
+      band                     : [0.6, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 7.741e-02
+      min / max |x - target|   : 9.497e-09 / 1.770e-01
+      count(|x - target| ≤ eps): 8 / 10,000,000
+      Empirical p_ledger       : 8.000e-07
+      Total elapsed time       :  0.112 s
+      Overall throughput       :   88962267 universes / s
+      Config SHA256            : 636cb2b4ba4547994ae3fbd6b5970beafb37082f75a6320a9a8f03fa1307779b
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] KOIDE_RUN1_main — Koide Q(e,mu,tau)
+Date (UTC)       : 2025-12-01T12:27:07.673605Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.673605Z", "eps_real": 6.154079666642609e-06, "label": "KOIDE_RUN1_main", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "Koide Q(e,mu,tau)", "seed_base": 141000000, "total_universes": 10000000, "x_real": 0.666660512587, "x_target": 0.6666666666666666}
+Config SHA256    : da9a9932926aad86e5c9dee6c7f4ea0ff1708a74c40ffd13c0b28b0495f67f04
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+x_real                = 0.666660512587
+x_target              = 0.666666666667
+eps_real              = 6.154080e-06
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (KOIDE_RUN1_main — Koide Q(e,mu,tau))
+      Total universes          : 10,000,000
+      x_real                   : 0.666660512587
+      x_target                 : 0.666666666667
+      eps_real                 : 6.154080e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 1.256e-01
+      min / max |x - target|   : 8.733e-08 / 2.667e-01
+      count(|x - target| ≤ eps): 250 / 10,000,000
+      Empirical p_ledger       : 2.500e-05
+      Total elapsed time       :  0.126 s
+      Overall throughput       :   79141992 universes / s
+      Config SHA256            : da9a9932926aad86e5c9dee6c7f4ea0ff1708a74c40ffd13c0b28b0495f67f04
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] KOIDE_RUN2_independent_seed — Koide Q(e,mu,tau)
+Date (UTC)       : 2025-12-01T12:27:07.801080Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.801080Z", "eps_real": 6.154079666642609e-06, "label": "KOIDE_RUN2_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "Koide Q(e,mu,tau)", "seed_base": 242000000, "total_universes": 10000000, "x_real": 0.666660512587, "x_target": 0.6666666666666666}
+Config SHA256    : a6ab737b6e21d49e30cfd5f9d609273a468987e4afda982c25bf25e9558c7d07
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+x_real                = 0.666660512587
+x_target              = 0.666666666667
+eps_real              = 6.154080e-06
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (KOIDE_RUN2_independent_seed — Koide Q(e,mu,tau))
+      Total universes          : 10,000,000
+      x_real                   : 0.666660512587
+      x_target                 : 0.666666666667
+      eps_real                 : 6.154080e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 1.256e-01
+      min / max |x - target|   : 9.113e-08 / 2.667e-01
+      count(|x - target| ≤ eps): 204 / 10,000,000
+      Empirical p_ledger       : 2.040e-05
+      Total elapsed time       :  0.153 s
+      Overall throughput       :   65312000 universes / s
+      Config SHA256            : a6ab737b6e21d49e30cfd5f9d609273a468987e4afda982c25bf25e9558c7d07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] KOIDE_RUN3_independent_seed — Koide Q(e,mu,tau)
+Date (UTC)       : 2025-12-01T12:27:07.954959Z
+Config JSON      : {"band_max": 0.9, "band_min": 0.4, "batch_size": 200000, "date_iso": "2025-12-01T12:27:07.954959Z", "eps_real": 6.154079666642609e-06, "label": "KOIDE_RUN3_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "Koide Q(e,mu,tau)", "seed_base": 343000000, "total_universes": 10000000, "x_real": 0.666660512587, "x_target": 0.6666666666666666}
+Config SHA256    : 1fa1df1dbcbc68304473816f0e4f47e60b55bd7e2583512e6e65ebaa1497a8c9
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.4, 0.9]
+x_real                = 0.666660512587
+x_target              = 0.666666666667
+eps_real              = 6.154080e-06
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (KOIDE_RUN3_independent_seed — Koide Q(e,mu,tau))
+      Total universes          : 10,000,000
+      x_real                   : 0.666660512587
+      x_target                 : 0.666666666667
+      eps_real                 : 6.154080e-06
+      band                     : [0.4, 0.9]
+      # rationals in family    : 1
+      mean |x - target|        : 1.255e-01
+      min / max |x - target|   : 6.873e-08 / 2.667e-01
+      count(|x - target| ≤ eps): 278 / 10,000,000
+      Empirical p_ledger       : 2.780e-05
+      Total elapsed time       :  0.126 s
+      Overall throughput       :   79179642 universes / s
+      Config SHA256            : 1fa1df1dbcbc68304473816f0e4f47e60b55bd7e2583512e6e65ebaa1497a8c9
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] SIN2W_RUN1_main — sin^2(theta_W)
+Date (UTC)       : 2025-12-01T12:27:08.082272Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "date_iso": "2025-12-01T12:27:08.082272Z", "eps_real": 0.008206951953175556, "label": "SIN2W_RUN1_main", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "sin^2(theta_W)", "seed_base": 151000000, "total_universes": 10000000, "x_real": 0.231220000589, "x_target": 0.22301304863582444}
+Config SHA256    : f42b0d821369092cbd0a30adb9cb7b1965299affe9da06ff77b5833ce0946274
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+x_target              = 0.223013048636
+eps_real              = 8.206952e-03
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (SIN2W_RUN1_main — sin^2(theta_W))
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      x_target                 : 0.223013048636
+      eps_real                 : 8.206952e-03
+      band                     : [0.15, 0.35]
+      # rationals in family    : 1
+      mean |x - target|        : 5.366e-02
+      min / max |x - target|   : 3.871e-09 / 1.270e-01
+      count(|x - target| ≤ eps): 819,650 / 10,000,000
+      Empirical p_ledger       : 8.196e-02
+      Total elapsed time       :  0.127 s
+      Overall throughput       :   78912687 universes / s
+      Config SHA256            : f42b0d821369092cbd0a30adb9cb7b1965299affe9da06ff77b5833ce0946274
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] SIN2W_RUN2_independent_seed — sin^2(theta_W)
+Date (UTC)       : 2025-12-01T12:27:08.209698Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "date_iso": "2025-12-01T12:27:08.209698Z", "eps_real": 0.008206951953175556, "label": "SIN2W_RUN2_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "sin^2(theta_W)", "seed_base": 252000000, "total_universes": 10000000, "x_real": 0.231220000589, "x_target": 0.22301304863582444}
+Config SHA256    : 408928ba82bb8075db970f27fe47ec4fbb02c8501fff343a595d216c487a5ee5
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+x_target              = 0.223013048636
+eps_real              = 8.206952e-03
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (SIN2W_RUN2_independent_seed — sin^2(theta_W))
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      x_target                 : 0.223013048636
+      eps_real                 : 8.206952e-03
+      band                     : [0.15, 0.35]
+      # rationals in family    : 1
+      mean |x - target|        : 5.364e-02
+      min / max |x - target|   : 2.525e-09 / 1.270e-01
+      count(|x - target| ≤ eps): 820,748 / 10,000,000
+      Empirical p_ledger       : 8.207e-02
+      Total elapsed time       :  0.212 s
+      Overall throughput       :   47271322 universes / s
+      Config SHA256            : 408928ba82bb8075db970f27fe47ec4fbb02c8501fff343a595d216c487a5ee5
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] SIN2W_RUN3_independent_seed — sin^2(theta_W)
+Date (UTC)       : 2025-12-01T12:27:08.423745Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "date_iso": "2025-12-01T12:27:08.423745Z", "eps_real": 0.008206951953175556, "label": "SIN2W_RUN3_independent_seed", "module": "MODULE_4_BIG_LEDGER_SCALAR_NULLS", "omp_threads": 2, "quantity": "sin^2(theta_W)", "seed_base": 353000000, "total_universes": 10000000, "x_real": 0.231220000589, "x_target": 0.22301304863582444}
+Config SHA256    : d889e291417feb0a5c47f42f34b116630b516124f0955b05ef761254f57a8681
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+x_target              = 0.223013048636
+eps_real              = 8.206952e-03
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] Rational family (ledger) size = 1 (single target fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_4_BIG_LEDGER_SCALAR_NULLS] GLOBAL LEDGER NULL SUMMARY (SIN2W_RUN3_independent_seed — sin^2(theta_W))
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      x_target                 : 0.223013048636
+      eps_real                 : 8.206952e-03
+      band                     : [0.15, 0.35]
+      # rationals in family    : 1
+      mean |x - target|        : 5.366e-02
+      min / max |x - target|   : 2.265e-08 / 1.270e-01
+      count(|x - target| ≤ eps): 821,012 / 10,000,000
+      Empirical p_ledger       : 8.210e-02
+      Total elapsed time       :  0.254 s
+      Overall throughput       :   39388684 universes / s
+      Config SHA256            : d889e291417feb0a5c47f42f34b116630b516124f0955b05ef761254f57a8681
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_4_BIG_LEDGER_SCALAR_NULLS: ALL LEDGER RUNS COMPLETED
+  ρ²  config SHA256s: ca0416715a9de3dc81304434431b842704baab4017ad8f58fc8e1d752a1816a7 fd8026b834f61f38083c6722de5ac9f0e31d32d0926be73c50e7a373b88d9109 636cb2b4ba4547994ae3fbd6b5970beafb37082f75a6320a9a8f03fa1307779b
+  Q   config SHA256s: da9a9932926aad86e5c9dee6c7f4ea0ff1708a74c40ffd13c0b28b0495f67f04 a6ab737b6e21d49e30cfd5f9d609273a468987e4afda982c25bf25e9558c7d07 1fa1df1dbcbc68304473816f0e4f47e60b55bd7e2583512e6e65ebaa1497a8c9
+  sin² config SHA256s: f42b0d821369092cbd0a30adb9cb7b1965299affe9da06ff77b5833ce0946274 408928ba82bb8075db970f27fe47ec4fbb02c8501fff343a595d216c487a5ee5 d889e291417feb0a5c47f42f34b116630b516124f0955b05ef761254f57a8681
+===============================================================================
+===============================================================================
+MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL: STARTING 3× JOINT LEDGER NULL RUNS (each 10M triples, uniform on bands)
+===============================================================================
+===============================================================================
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] RUN1_main
+Date (UTC)       : 2025-12-01T12:27:08.686914Z
+Config JSON      : {"Q_real": 0.666660512587, "Q_target": 0.6666666666666666, "bands": {"Koide": [0.4, 0.9], "rho2": [0.6, 0.9], "sin2W": [0.15, 0.35]}, "batch_size": 1000000, "date_iso": "2025-12-01T12:27:08.686914Z", "eps_Q_real": 6.154079666642609e-06, "eps_rho2_real": 1.678001960714326e-07, "eps_sin2_real": 0.008206951953175556, "label": "RUN1_main", "module": "MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL", "rho2_real": 0.7769867835639795, "rho2_target": 0.7769869513641756, "seed_base": 441000000, "sin2_real": 0.231220000589, "sin2_target": 0.22301304863582444, "total_triples": 10000000}
+Config SHA256    : bb6af96a5be48a9e0515b2c18a161b603e48fbe83aa41df0fcbb5918fe2f0f6e
+-------------------------------------------------------------------------------
+TOTAL_TRIPLES          = 10,000,000
+BATCH_SIZE             = 1,000,000
+bands                  = rho2[0.6, 0.9], Q[0.4, 0.9], sin²θW[0.15, 0.35]
+rho2_real, target, eps = 0.776986783564, 0.776986951364, 1.678e-07
+Q_real,   target, eps  = 0.666660512587,  0.666666666667,  6.154e-06
+sin2_real,target, eps  = 0.231220000589, 0.223013048636, 8.207e-03
+-------------------------------------------------------------------------------
+Geometric p_rho2  ≈ 1.119e-06
+Geometric p_Q     ≈ 2.462e-05
+Geometric p_sin2  ≈ 8.207e-02
+Geometric p_joint ≈ 2.260e-12  (expected triple fraction)
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:1974: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now_iso = datetime.datetime.utcnow().isoformat() + "Z"
+-------------------------------------------------------------------------------
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] GLOBAL JOINT LEDGER NULL SUMMARY (RUN1_main)
+      Total triples            : 10,000,000
+      x_real (rho2, Q, sin²W)  : 0.776986783564, 0.666660512587, 0.231220000589
+      targets (rho2, Q, sin²W) : 0.776986951364, 0.666666666667, 0.223013048636
+      eps_real (rho2, Q, sin²W): 1.678e-07, 6.154e-06, 8.207e-03
+      band_rho2, band_Q, band_sin2 : [0.6, 0.9], [0.4, 0.9], [0.15, 0.35]
+      --- marginal distance stats (uniform null) ---
+      mean d_rho2, min, max    : 7.741e-02, 3.238e-09, 1.770e-01
+      mean d_Q,    min, max    : 1.256e-01, 4.928e-08, 2.667e-01
+      mean d_sin2, min, max    : 5.365e-02, 1.636e-08, 1.270e-01
+      --- joint hits ---
+      count(all three ≤ eps)   : 0 / 10,000,000
+      Empirical p_emp (joint)  : 0.000e+00
+      Geometric p_joint (theory): 2.260e-12
+      Total elapsed time       :  0.653 s
+      Overall throughput       :   15313156 triples / s
+      Config SHA256            : bb6af96a5be48a9e0515b2c18a161b603e48fbe83aa41df0fcbb5918fe2f0f6e
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:27:09.362977Z
+Config JSON      : {"Q_real": 0.666660512587, "Q_target": 0.6666666666666666, "bands": {"Koide": [0.4, 0.9], "rho2": [0.6, 0.9], "sin2W": [0.15, 0.35]}, "batch_size": 1000000, "date_iso": "2025-12-01T12:27:09.362977Z", "eps_Q_real": 6.154079666642609e-06, "eps_rho2_real": 1.678001960714326e-07, "eps_sin2_real": 0.008206951953175556, "label": "RUN2_independent_seed", "module": "MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL", "rho2_real": 0.7769867835639795, "rho2_target": 0.7769869513641756, "seed_base": 552000000, "sin2_real": 0.231220000589, "sin2_target": 0.22301304863582444, "total_triples": 10000000}
+Config SHA256    : 184f20462acc724e5f2c348808f46a273e30b655a57d3b164352e8722375e7ad
+-------------------------------------------------------------------------------
+TOTAL_TRIPLES          = 10,000,000
+BATCH_SIZE             = 1,000,000
+bands                  = rho2[0.6, 0.9], Q[0.4, 0.9], sin²θW[0.15, 0.35]
+rho2_real, target, eps = 0.776986783564, 0.776986951364, 1.678e-07
+Q_real,   target, eps  = 0.666660512587,  0.666666666667,  6.154e-06
+sin2_real,target, eps  = 0.231220000589, 0.223013048636, 8.207e-03
+-------------------------------------------------------------------------------
+Geometric p_rho2  ≈ 1.119e-06
+Geometric p_Q     ≈ 2.462e-05
+Geometric p_sin2  ≈ 8.207e-02
+Geometric p_joint ≈ 2.260e-12  (expected triple fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] GLOBAL JOINT LEDGER NULL SUMMARY (RUN2_independent_seed)
+      Total triples            : 10,000,000
+      x_real (rho2, Q, sin²W)  : 0.776986783564, 0.666660512587, 0.231220000589
+      targets (rho2, Q, sin²W) : 0.776986951364, 0.666666666667, 0.223013048636
+      eps_real (rho2, Q, sin²W): 1.678e-07, 6.154e-06, 8.207e-03
+      band_rho2, band_Q, band_sin2 : [0.6, 0.9], [0.4, 0.9], [0.15, 0.35]
+      --- marginal distance stats (uniform null) ---
+      mean d_rho2, min, max    : 7.744e-02, 6.297e-09, 1.770e-01
+      mean d_Q,    min, max    : 1.256e-01, 3.259e-08, 2.667e-01
+      mean d_sin2, min, max    : 5.363e-02, 6.438e-10, 1.270e-01
+      --- joint hits ---
+      count(all three ≤ eps)   : 0 / 10,000,000
+      Empirical p_emp (joint)  : 0.000e+00
+      Geometric p_joint (theory): 2.260e-12
+      Total elapsed time       :  0.611 s
+      Overall throughput       :   16370245 triples / s
+      Config SHA256            : 184f20462acc724e5f2c348808f46a273e30b655a57d3b164352e8722375e7ad
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:27:09.978842Z
+Config JSON      : {"Q_real": 0.666660512587, "Q_target": 0.6666666666666666, "bands": {"Koide": [0.4, 0.9], "rho2": [0.6, 0.9], "sin2W": [0.15, 0.35]}, "batch_size": 1000000, "date_iso": "2025-12-01T12:27:09.978842Z", "eps_Q_real": 6.154079666642609e-06, "eps_rho2_real": 1.678001960714326e-07, "eps_sin2_real": 0.008206951953175556, "label": "RUN3_independent_seed", "module": "MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL", "rho2_real": 0.7769867835639795, "rho2_target": 0.7769869513641756, "seed_base": 663000000, "sin2_real": 0.231220000589, "sin2_target": 0.22301304863582444, "total_triples": 10000000}
+Config SHA256    : fcc9300c6bb9a8e7cf31554eb98db258edd0236bb63fdb45bc0aa5dd12330d20
+-------------------------------------------------------------------------------
+TOTAL_TRIPLES          = 10,000,000
+BATCH_SIZE             = 1,000,000
+bands                  = rho2[0.6, 0.9], Q[0.4, 0.9], sin²θW[0.15, 0.35]
+rho2_real, target, eps = 0.776986783564, 0.776986951364, 1.678e-07
+Q_real,   target, eps  = 0.666660512587,  0.666666666667,  6.154e-06
+sin2_real,target, eps  = 0.231220000589, 0.223013048636, 8.207e-03
+-------------------------------------------------------------------------------
+Geometric p_rho2  ≈ 1.119e-06
+Geometric p_Q     ≈ 2.462e-05
+Geometric p_sin2  ≈ 8.207e-02
+Geometric p_joint ≈ 2.260e-12  (expected triple fraction)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL] GLOBAL JOINT LEDGER NULL SUMMARY (RUN3_independent_seed)
+      Total triples            : 10,000,000
+      x_real (rho2, Q, sin²W)  : 0.776986783564, 0.666660512587, 0.231220000589
+      targets (rho2, Q, sin²W) : 0.776986951364, 0.666666666667, 0.223013048636
+      eps_real (rho2, Q, sin²W): 1.678e-07, 6.154e-06, 8.207e-03
+      band_rho2, band_Q, band_sin2 : [0.6, 0.9], [0.4, 0.9], [0.15, 0.35]
+      --- marginal distance stats (uniform null) ---
+      mean d_rho2, min, max    : 7.742e-02, 2.037e-08, 1.770e-01
+      mean d_Q,    min, max    : 1.256e-01, 3.531e-09, 2.667e-01
+      mean d_sin2, min, max    : 5.363e-02, 1.620e-08, 1.270e-01
+      --- joint hits ---
+      count(all three ≤ eps)   : 0 / 10,000,000
+      Empirical p_emp (joint)  : 0.000e+00
+      Geometric p_joint (theory): 2.260e-12
+      Total elapsed time       :  0.615 s
+      Overall throughput       :   16251411 triples / s
+      Config SHA256            : fcc9300c6bb9a8e7cf31554eb98db258edd0236bb63fdb45bc0aa5dd12330d20
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_5_BIG_JOINT_LEDGER_TRIPLE_NULL: ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: bb6af96a5be48a9e0515b2c18a161b603e48fbe83aa41df0fcbb5918fe2f0f6e
+  RUN2 config SHA256: 184f20462acc724e5f2c348808f46a273e30b655a57d3b164352e8722375e7ad
+  RUN3 config SHA256: fcc9300c6bb9a8e7cf31554eb98db258edd0236bb63fdb45bc0aa5dd12330d20
+===============================================================================
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: STARTING MDL WIDTH-ROBUSTNESS TESTS
+   widths = [0.3, 1.0, 2.0] decades; 3 runs each; 10M universes per run
+===============================================================================
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_0.3dec — 3 runs of 10M universes each
+===============================================================================
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_0.3dec_RUN1_main
+Date (UTC)       : 2025-12-01T12:27:10.600309Z
+Config JSON      : {"date_iso": "2025-12-01T12:27:10.600309Z", "label": "WIDTH_0.3dec_RUN1_main", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 100000011, "total_universes": 10000000, "width_decades": 0.3}
+Config SHA256    : 15f00cba57b16ee6e5b54288ddbe6a5d9947ed1cc83da8ab4729d2d9159f46ce
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±0.3
+seed                  = 100000011
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:2189: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now_iso = datetime.datetime.utcnow().isoformat() + "Z"
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_0.3dec_RUN1_main)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.276
+     Null std bits         : 5.268
+     Null min / max bits   : 419 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.744 σ
+     Total elapsed time    : 37.288 s
+     Overall throughput    :     268181 universes / s
+     Config SHA256         : 15f00cba57b16ee6e5b54288ddbe6a5d9947ed1cc83da8ab4729d2d9159f46ce
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_0.3dec_RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:27:47.889070Z
+Config JSON      : {"date_iso": "2025-12-01T12:27:47.889070Z", "label": "WIDTH_0.3dec_RUN2_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 100000022, "total_universes": 10000000, "width_decades": 0.3}
+Config SHA256    : dea217faed0f82061b99e84d2a366c0aea7e7e47c2312d25cc481f1f5ade6d7e
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±0.3
+seed                  = 100000022
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_0.3dec_RUN2_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.276
+     Null std bits         : 5.269
+     Null min / max bits   : 419 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.740 σ
+     Total elapsed time    : 38.911 s
+     Overall throughput    :     256995 universes / s
+     Config SHA256         : dea217faed0f82061b99e84d2a366c0aea7e7e47c2312d25cc481f1f5ade6d7e
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_0.3dec_RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:28:26.800765Z
+Config JSON      : {"date_iso": "2025-12-01T12:28:26.800765Z", "label": "WIDTH_0.3dec_RUN3_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 100000033, "total_universes": 10000000, "width_decades": 0.3}
+Config SHA256    : 9f20c1b132c2dea7494212a9f2f775ba77019b4c9eac1b4f3364a060512c50f6
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±0.3
+seed                  = 100000033
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_0.3dec_RUN3_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.279
+     Null std bits         : 5.269
+     Null min / max bits   : 421 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.742 σ
+     Total elapsed time    : 42.547 s
+     Overall throughput    :     235036 universes / s
+     Config SHA256         : 9f20c1b132c2dea7494212a9f2f775ba77019b4c9eac1b4f3364a060512c50f6
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_0.3dec — ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: 15f00cba57b16ee6e5b54288ddbe6a5d9947ed1cc83da8ab4729d2d9159f46ce
+  RUN2 config SHA256: dea217faed0f82061b99e84d2a366c0aea7e7e47c2312d25cc481f1f5ade6d7e
+  RUN3 config SHA256: 9f20c1b132c2dea7494212a9f2f775ba77019b4c9eac1b4f3364a060512c50f6
+===============================================================================
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_1.0dec — 3 runs of 10M universes each
+===============================================================================
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_1.0dec_RUN1_main
+Date (UTC)       : 2025-12-01T12:29:09.348676Z
+Config JSON      : {"date_iso": "2025-12-01T12:29:09.348676Z", "label": "WIDTH_1.0dec_RUN1_main", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 200000011, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : 45a667db16c9b3e5e33fb44c68718c59bb21b040cbe371694f556bdba70ee5d1
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±1.0
+seed                  = 200000011
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_1.0dec_RUN1_main)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.317
+     Null std bits         : 5.256
+     Null min / max bits   : 410 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.797 σ
+     Total elapsed time    : 38.316 s
+     Overall throughput    :     260987 universes / s
+     Config SHA256         : 45a667db16c9b3e5e33fb44c68718c59bb21b040cbe371694f556bdba70ee5d1
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_1.0dec_RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:29:47.665698Z
+Config JSON      : {"date_iso": "2025-12-01T12:29:47.665698Z", "label": "WIDTH_1.0dec_RUN2_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 200000022, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : 76b2e5c6b2bc18459ebd1aa15edbe16bf09a211fbbf1cfc39e2bb2b4b7e7a278
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±1.0
+seed                  = 200000022
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_1.0dec_RUN2_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.319
+     Null std bits         : 5.259
+     Null min / max bits   : 413 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.787 σ
+     Total elapsed time    : 38.775 s
+     Overall throughput    :     257901 universes / s
+     Config SHA256         : 76b2e5c6b2bc18459ebd1aa15edbe16bf09a211fbbf1cfc39e2bb2b4b7e7a278
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_1.0dec_RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:30:26.441382Z
+Config JSON      : {"date_iso": "2025-12-01T12:30:26.441382Z", "label": "WIDTH_1.0dec_RUN3_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 200000033, "total_universes": 10000000, "width_decades": 1.0}
+Config SHA256    : b6258b21dfffeb19b1bd0f0959871617d6d8825cefba259492bb22ae21d34295
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±1.0
+seed                  = 200000033
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_1.0dec_RUN3_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.319
+     Null std bits         : 5.261
+     Null min / max bits   : 418 / 475
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -20.780 σ
+     Total elapsed time    : 38.168 s
+     Overall throughput    :     262001 universes / s
+     Config SHA256         : b6258b21dfffeb19b1bd0f0959871617d6d8825cefba259492bb22ae21d34295
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_1.0dec — ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: 45a667db16c9b3e5e33fb44c68718c59bb21b040cbe371694f556bdba70ee5d1
+  RUN2 config SHA256: 76b2e5c6b2bc18459ebd1aa15edbe16bf09a211fbbf1cfc39e2bb2b4b7e7a278
+  RUN3 config SHA256: b6258b21dfffeb19b1bd0f0959871617d6d8825cefba259492bb22ae21d34295
+===============================================================================
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_2.0dec — 3 runs of 10M universes each
+===============================================================================
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_2.0dec_RUN1_main
+Date (UTC)       : 2025-12-01T12:31:04.609913Z
+Config JSON      : {"date_iso": "2025-12-01T12:31:04.609913Z", "label": "WIDTH_2.0dec_RUN1_main", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 300000011, "total_universes": 10000000, "width_decades": 2.0}
+Config SHA256    : fc85e3592387d3dd0442fb48fc561d95656d860cec62d6bcb32de8d9bf6a87a1
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±2.0
+seed                  = 300000011
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_2.0dec_RUN1_main)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.663
+     Null std bits         : 5.221
+     Null min / max bits   : 419 / 476
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -21.004 σ
+     Total elapsed time    : 37.895 s
+     Overall throughput    :     263889 universes / s
+     Config SHA256         : fc85e3592387d3dd0442fb48fc561d95656d860cec62d6bcb32de8d9bf6a87a1
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_2.0dec_RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:31:42.505116Z
+Config JSON      : {"date_iso": "2025-12-01T12:31:42.505116Z", "label": "WIDTH_2.0dec_RUN2_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 300000022, "total_universes": 10000000, "width_decades": 2.0}
+Config SHA256    : fe532a366a7ba05f1f0e5d8eef1dfbedf2fa659702b1ad7391e3a9bd7e76f95c
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±2.0
+seed                  = 300000022
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_2.0dec_RUN2_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.666
+     Null std bits         : 5.221
+     Null min / max bits   : 416 / 476
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -21.005 σ
+     Total elapsed time    : 40.197 s
+     Overall throughput    :     248777 universes / s
+     Config SHA256         : fe532a366a7ba05f1f0e5d8eef1dfbedf2fa659702b1ad7391e3a9bd7e76f95c
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] WIDTH_2.0dec_RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:32:22.702429Z
+Config JSON      : {"date_iso": "2025-12-01T12:32:22.702429Z", "label": "WIDTH_2.0dec_RUN3_independent_seed", "module": "MODULE_6_MDL_WIDTH_ROBUSTNESS", "omp_threads": 2, "seed": 300000033, "total_universes": 10000000, "width_decades": 2.0}
+Config SHA256    : 2dbd6070fa32487086053a1f82bb29d7bf323ffd71bfa6b590876e8d5b988dc9
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+width_decades         = ±2.0
+seed                  = 300000033
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_6_MDL_WIDTH_ROBUSTNESS] GLOBAL MDL NULL SUMMARY (WIDTH_2.0dec_RUN3_independent_seed)
+     Total universes       : 10,000,000
+     Real MDL bits         : 353
+     Null mean bits        : 462.663
+     Null std bits         : 5.220
+     Null min / max bits   : 419 / 476
+     q_max                 : 33554432
+     count(MDL <= real)    : 0 / 10,000,000
+     Empirical p_emp       : 0.000e+00
+     Z-score (Gaussian)    : -21.008 σ
+     Total elapsed time    : 37.000 s
+     Overall throughput    :     270271 universes / s
+     Config SHA256         : 2dbd6070fa32487086053a1f82bb29d7bf323ffd71bfa6b590876e8d5b988dc9
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: WIDTH_2.0dec — ALL 3 RUNS COMPLETED
+  RUN1 config SHA256: fc85e3592387d3dd0442fb48fc561d95656d860cec62d6bcb32de8d9bf6a87a1
+  RUN2 config SHA256: fe532a366a7ba05f1f0e5d8eef1dfbedf2fa659702b1ad7391e3a9bd7e76f95c
+  RUN3 config SHA256: 2dbd6070fa32487086053a1f82bb29d7bf323ffd71bfa6b590876e8d5b988dc9
+===============================================================================
+===============================================================================
+MODULE_6_MDL_WIDTH_ROBUSTNESS: ALL WIDTHS COMPLETED
+Stored in MODULE_6_RESULTS[width_label]['RUNk']
+   width_label ∈ { 'WIDTH_0.3dec', 'WIDTH_1.0dec', 'WIDTH_2.0dec' }
+===============================================================================
+===============================================================================
+MODULE_7_BIG_SNAP_SIN2W_NULL: STARTING 3× BIG SNAP-NULL RUNS FOR sin^2(theta_W) (10M each)
+       (look-elsewhere over all p/q with q ≤ 1000, bits ≤ 20 in [0.15, 0.35])
+===============================================================================
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.15, 0.35]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 60,841
+        first few    : [0.15       0.15005035 0.15005139 0.15005247 0.15005359 0.15005476
+ 0.15005599 0.15005727 0.15005862 0.15006002]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_7_BIG_SNAP_SIN2W_NULL] SETUP: sin^2(theta_W) best rational in band
+      sin^2(theta_W)_real   = 0.231220000589
+      band                  = [0.15, 0.35]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 60,841
+      best rational         = 0.231220657277
+      eps_real              = |real - best| = 6.566880e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_7_BIG_SNAP_SIN2W_NULL] SIN2W_RUN1_main
+Date (UTC)       : 2025-12-01T12:32:59.766385Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:32:59.766385Z", "eps_real": 6.566879953151528e-07, "label": "SIN2W_RUN1_main", "module": "MODULE_7_BIG_SNAP_SIN2W_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 611000000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : 3ff25f08cd3de93221cd93498497e1a0837f8657d349b3ef6ddb8883621e55d9
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+eps_real              = 6.566880e-07
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:2446: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now_iso = datetime.datetime.utcnow().isoformat() + "Z"
+-------------------------------------------------------------------------------
+[MODULE_7_BIG_SNAP_SIN2W_NULL] GLOBAL SNAP NULL SUMMARY (SIN2W_RUN1_main)
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      eps_real                 : 6.566880e-07
+      band                     : [0.15, 0.35]
+      # rationals in family    : 60,841
+      mean d_min               : 2.250e-06
+      min / max d_min          : 1.565e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 3,974,562 / 10,000,000
+      Empirical p_emp          : 3.975e-01
+      Total elapsed time       :  3.185 s
+      Overall throughput       :    3139330 universes / s
+      Config SHA256            : 3ff25f08cd3de93221cd93498497e1a0837f8657d349b3ef6ddb8883621e55d9
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_7_BIG_SNAP_SIN2W_NULL] SIN2W_RUN2_independent_seed
+Date (UTC)       : 2025-12-01T12:33:02.952412Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:33:02.952412Z", "eps_real": 6.566879953151528e-07, "label": "SIN2W_RUN2_independent_seed", "module": "MODULE_7_BIG_SNAP_SIN2W_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 722000000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : ccb4eb6388faae26e986f9899b18edb2465a22dc11d439b0c2bde51808759af7
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+eps_real              = 6.566880e-07
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_7_BIG_SNAP_SIN2W_NULL] GLOBAL SNAP NULL SUMMARY (SIN2W_RUN2_independent_seed)
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      eps_real                 : 6.566880e-07
+      band                     : [0.15, 0.35]
+      # rationals in family    : 60,841
+      mean d_min               : 2.245e-06
+      min / max d_min          : 2.132e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 3,973,857 / 10,000,000
+      Empirical p_emp          : 3.974e-01
+      Total elapsed time       :  2.187 s
+      Overall throughput       :    4573344 universes / s
+      Config SHA256            : ccb4eb6388faae26e986f9899b18edb2465a22dc11d439b0c2bde51808759af7
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_7_BIG_SNAP_SIN2W_NULL] SIN2W_RUN3_independent_seed
+Date (UTC)       : 2025-12-01T12:33:05.139621Z
+Config JSON      : {"band_max": 0.35, "band_min": 0.15, "batch_size": 200000, "bits_max": 20, "date_iso": "2025-12-01T12:33:05.139621Z", "eps_real": 6.566879953151528e-07, "label": "SIN2W_RUN3_independent_seed", "module": "MODULE_7_BIG_SNAP_SIN2W_NULL", "omp_threads": 2, "q_max": 1000, "seed_base": 833000000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : 89a8828f6967d3ed43c5431374cbbace2a5faf1d724773ca475d8ed8f687d5b0
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.15, 0.35]
+x_real                = 0.231220000589
+eps_real              = 6.566880e-07
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_7_BIG_SNAP_SIN2W_NULL] GLOBAL SNAP NULL SUMMARY (SIN2W_RUN3_independent_seed)
+      Total universes          : 10,000,000
+      x_real                   : 0.231220000589
+      eps_real                 : 6.566880e-07
+      band                     : [0.15, 0.35]
+      # rationals in family    : 60,841
+      mean d_min               : 2.237e-06
+      min / max d_min          : 2.760e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 3,971,142 / 10,000,000
+      Empirical p_emp          : 3.971e-01
+      Total elapsed time       :  2.063 s
+      Overall throughput       :    4846563 universes / s
+      Config SHA256            : 89a8828f6967d3ed43c5431374cbbace2a5faf1d724773ca475d8ed8f687d5b0
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_7_BIG_SNAP_SIN2W_NULL: ALL 3 RUNS COMPLETED FOR sin^2(theta_W)
+  RUN1 config SHA256: 3ff25f08cd3de93221cd93498497e1a0837f8657d349b3ef6ddb8883621e55d9
+  RUN2 config SHA256: ccb4eb6388faae26e986f9899b18edb2465a22dc11d439b0c2bde51808759af7
+  RUN3 config SHA256: 89a8828f6967d3ed43c5431374cbbace2a5faf1d724773ca475d8ed8f687d5b0
+===============================================================================
+===============================================================================
+MODULE_8_BIG_SNAP_REGISTRY_SCAN: STARTING BIG SNAP-NULL SCAN FOR REGISTRY SCALARS
+       3 runs per parameter, 10M universes per run
+       bands: ±1 decade around x_real, clipped to [1e-10, 1.0]
+       rational family: q ≤ 1000, bits ≤ 20
+===============================================================================
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0224, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 297,374
+        first few    : [0.02243211 0.0224359  0.02244039 0.02244389 0.02244669 0.02244898
+ 0.0224525  0.02245509 0.02245707 0.02245863]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for CKM/CKM_s12
+      x_real                = 2.242999983360e-01
+      band                  = [0.0224299998336, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 297,374
+      best rational         = 2.242990654206e-01
+      eps_real = |real-best|= 9.329154e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s12_RUN1_main — CKM/CKM_s12
+Date (UTC)       : 2025-12-01T12:33:07.629835Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0224299998336, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:07.629835Z", "eps_real": 9.329154392612171e-07, "label": "CKM_CKM_s12_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s12", "omp_threads": 2, "q_max": 1000, "seed_base": 800111000, "total_universes": 10000000, "x_real": 0.224299998336}
+Config SHA256    : d28084defcef5710f98d7e0b9bd36ba935c58cc442e1d773d7174b70b6f57062
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0224299998336, 1.0]
+x_real                = 2.242999983360e-01
+eps_real              = 9.329154e-07
+# rationals in family = 297,374
+-------------------------------------------------------------------------------
+/tmp/ipython-input-977892401.py:2717: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now_iso = datetime.datetime.utcnow().isoformat() + "Z"
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s12_RUN1_main — CKM/CKM_s12)
+      Total universes          : 10,000,000
+      x_real                   : 2.242999983360e-01
+      eps_real                 : 9.329154e-07
+      band                     : [0.0224299998336, 1.0]
+      # rationals in family    : 297,374
+      mean d_min               : 2.373e-06
+      min / max d_min          : 3.664e-15 / 4.999e-04
+      count(d_min ≤ eps_real)  : 5,386,813 / 10,000,000
+      Empirical p_emp          : 5.387e-01
+      Total elapsed time       :  5.169 s
+      Overall throughput       :    1934769 universes / s
+      Config SHA256            : d28084defcef5710f98d7e0b9bd36ba935c58cc442e1d773d7174b70b6f57062
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s12_RUN2_independent_seed — CKM/CKM_s12
+Date (UTC)       : 2025-12-01T12:33:12.798911Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0224299998336, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:12.798911Z", "eps_real": 9.329154392612171e-07, "label": "CKM_CKM_s12_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s12", "omp_threads": 2, "q_max": 1000, "seed_base": 800222000, "total_universes": 10000000, "x_real": 0.224299998336}
+Config SHA256    : 5ae5eba5e7b19d866bc768cc134086f292237175bce2cf749a1ed229bee8b7ad
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0224299998336, 1.0]
+x_real                = 2.242999983360e-01
+eps_real              = 9.329154e-07
+# rationals in family = 297,374
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s12_RUN2_independent_seed — CKM/CKM_s12)
+      Total universes          : 10,000,000
+      x_real                   : 2.242999983360e-01
+      eps_real                 : 9.329154e-07
+      band                     : [0.0224299998336, 1.0]
+      # rationals in family    : 297,374
+      mean d_min               : 2.368e-06
+      min / max d_min          : 2.761e-13 / 4.999e-04
+      count(d_min ≤ eps_real)  : 5,385,590 / 10,000,000
+      Empirical p_emp          : 5.386e-01
+      Total elapsed time       :  6.465 s
+      Overall throughput       :    1546864 universes / s
+      Config SHA256            : 5ae5eba5e7b19d866bc768cc134086f292237175bce2cf749a1ed229bee8b7ad
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s12_RUN3_independent_seed — CKM/CKM_s12
+Date (UTC)       : 2025-12-01T12:33:19.264082Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0224299998336, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:19.264082Z", "eps_real": 9.329154392612171e-07, "label": "CKM_CKM_s12_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s12", "omp_threads": 2, "q_max": 1000, "seed_base": 800333000, "total_universes": 10000000, "x_real": 0.224299998336}
+Config SHA256    : e6b2e2ee51898dfc93ab33fdd1734328f509b152b406283867fe465287b0f848
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0224299998336, 1.0]
+x_real                = 2.242999983360e-01
+eps_real              = 9.329154e-07
+# rationals in family = 297,374
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s12_RUN3_independent_seed — CKM/CKM_s12)
+      Total universes          : 10,000,000
+      x_real                   : 2.242999983360e-01
+      eps_real                 : 9.329154e-07
+      band                     : [0.0224299998336, 1.0]
+      # rationals in family    : 297,374
+      mean d_min               : 2.374e-06
+      min / max d_min          : 1.004e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 5,385,235 / 10,000,000
+      Empirical p_emp          : 5.385e-01
+      Total elapsed time       :  4.919 s
+      Overall throughput       :    2033017 universes / s
+      Config SHA256            : e6b2e2ee51898dfc93ab33fdd1734328f509b152b406283867fe465287b0f848
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.000394, 0.0394]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 11,982
+        first few    : [0.001      0.001001   0.001002   0.00100301 0.00100402 0.00100503
+ 0.00100604 0.00100705 0.00100806 0.00100908]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for CKM/CKM_s13
+      x_real                = 3.939999959000e-03
+      band                  = [0.00039399999589999997, 0.03939999959]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 11,982
+      best rational         = 3.942181340342e-03
+      eps_real = |real-best|= 2.181381e-06
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s13_RUN1_main — CKM/CKM_s13
+Date (UTC)       : 2025-12-01T12:33:24.193058Z
+Config JSON      : {"band_max": 0.03939999959, "band_min": 0.00039399999589999997, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:24.193058Z", "eps_real": 2.181381341655707e-06, "label": "CKM_CKM_s13_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s13", "omp_threads": 2, "q_max": 1000, "seed_base": 801111000, "total_universes": 10000000, "x_real": 0.003939999959}
+Config SHA256    : c99b8f919d0f797f1bd5422207550db2422f77f2e4d6f8047ad70ea040751549
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.00039399999589999997, 0.03939999959]
+x_real                = 3.939999959000e-03
+eps_real              = 2.181381e-06
+# rationals in family = 11,982
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s13_RUN1_main — CKM/CKM_s13)
+      Total universes          : 10,000,000
+      x_real                   : 3.939999959000e-03
+      eps_real                 : 2.181381e-06
+      band                     : [0.00039399999589999997, 0.03939999959]
+      # rationals in family    : 11,982
+      mean d_min               : 6.007e-06
+      min / max d_min          : 3.496e-13 / 6.060e-04
+      count(d_min ≤ eps_real)  : 8,453,302 / 10,000,000
+      Empirical p_emp          : 8.453e-01
+      Total elapsed time       :  1.078 s
+      Overall throughput       :    9278592 universes / s
+      Config SHA256            : c99b8f919d0f797f1bd5422207550db2422f77f2e4d6f8047ad70ea040751549
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s13_RUN2_independent_seed — CKM/CKM_s13
+Date (UTC)       : 2025-12-01T12:33:25.271262Z
+Config JSON      : {"band_max": 0.03939999959, "band_min": 0.00039399999589999997, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:25.271262Z", "eps_real": 2.181381341655707e-06, "label": "CKM_CKM_s13_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s13", "omp_threads": 2, "q_max": 1000, "seed_base": 801222000, "total_universes": 10000000, "x_real": 0.003939999959}
+Config SHA256    : bad925bef643804d2cf947fce3e1f24c4e4e78e28171a46e25696dc897ec370e
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.00039399999589999997, 0.03939999959]
+x_real                = 3.939999959000e-03
+eps_real              = 2.181381e-06
+# rationals in family = 11,982
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s13_RUN2_independent_seed — CKM/CKM_s13)
+      Total universes          : 10,000,000
+      x_real                   : 3.939999959000e-03
+      eps_real                 : 2.181381e-06
+      band                     : [0.00039399999589999997, 0.03939999959]
+      # rationals in family    : 11,982
+      mean d_min               : 6.016e-06
+      min / max d_min          : 3.400e-13 / 6.060e-04
+      count(d_min ≤ eps_real)  : 8,453,384 / 10,000,000
+      Empirical p_emp          : 8.453e-01
+      Total elapsed time       :  1.198 s
+      Overall throughput       :    8347365 universes / s
+      Config SHA256            : bad925bef643804d2cf947fce3e1f24c4e4e78e28171a46e25696dc897ec370e
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s13_RUN3_independent_seed — CKM/CKM_s13
+Date (UTC)       : 2025-12-01T12:33:26.471969Z
+Config JSON      : {"band_max": 0.03939999959, "band_min": 0.00039399999589999997, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:26.471969Z", "eps_real": 2.181381341655707e-06, "label": "CKM_CKM_s13_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s13", "omp_threads": 2, "q_max": 1000, "seed_base": 801333000, "total_universes": 10000000, "x_real": 0.003939999959}
+Config SHA256    : 49b57138939f773e5fdadf952202155fd118d842b2bbae138b81f699552a563d
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.00039399999589999997, 0.03939999959]
+x_real                = 3.939999959000e-03
+eps_real              = 2.181381e-06
+# rationals in family = 11,982
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s13_RUN3_independent_seed — CKM/CKM_s13)
+      Total universes          : 10,000,000
+      x_real                   : 3.939999959000e-03
+      eps_real                 : 2.181381e-06
+      band                     : [0.00039399999589999997, 0.03939999959]
+      # rationals in family    : 11,982
+      mean d_min               : 6.050e-06
+      min / max d_min          : 3.909e-13 / 6.060e-04
+      count(d_min ≤ eps_real)  : 8,454,695 / 10,000,000
+      Empirical p_emp          : 8.455e-01
+      Total elapsed time       :  2.076 s
+      Overall throughput       :    4816091 universes / s
+      Config SHA256            : 49b57138939f773e5fdadf952202155fd118d842b2bbae138b81f699552a563d
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.00422, 0.422]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 127,124
+        first few    : [0.00422386 0.00422535 0.00422833 0.00423131 0.0042328  0.00423729
+ 0.00424178 0.00424328 0.00424628 0.00424929]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for CKM/CKM_s23
+      x_real                = 4.220000131500e-02
+      band                  = [0.0042200001315, 0.42200001315]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 127,124
+      best rational         = 4.219948849105e-02
+      eps_real = |real-best|= 5.128240e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s23_RUN1_main — CKM/CKM_s23
+Date (UTC)       : 2025-12-01T12:33:28.764419Z
+Config JSON      : {"band_max": 0.42200001315, "band_min": 0.0042200001315, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:28.764419Z", "eps_real": 5.128239514082256e-07, "label": "CKM_CKM_s23_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s23", "omp_threads": 2, "q_max": 1000, "seed_base": 802111000, "total_universes": 10000000, "x_real": 0.042200001315}
+Config SHA256    : 96f50c7fff3b8771298e16a70cb9b50b4dbde21fea35e76382df38d6d2b68700
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0042200001315, 0.42200001315]
+x_real                = 4.220000131500e-02
+eps_real              = 5.128240e-07
+# rationals in family = 127,124
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s23_RUN1_main — CKM/CKM_s23)
+      Total universes          : 10,000,000
+      x_real                   : 4.220000131500e-02
+      eps_real                 : 5.128240e-07
+      band                     : [0.0042200001315, 0.42200001315]
+      # rationals in family    : 127,124
+      mean d_min               : 2.027e-06
+      min / max d_min          : 6.499e-13 / 1.669e-04
+      count(d_min ≤ eps_real)  : 3,123,571 / 10,000,000
+      Empirical p_emp          : 3.124e-01
+      Total elapsed time       :  3.072 s
+      Overall throughput       :    3255647 universes / s
+      Config SHA256            : 96f50c7fff3b8771298e16a70cb9b50b4dbde21fea35e76382df38d6d2b68700
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s23_RUN2_independent_seed — CKM/CKM_s23
+Date (UTC)       : 2025-12-01T12:33:31.837002Z
+Config JSON      : {"band_max": 0.42200001315, "band_min": 0.0042200001315, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:31.837002Z", "eps_real": 5.128239514082256e-07, "label": "CKM_CKM_s23_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s23", "omp_threads": 2, "q_max": 1000, "seed_base": 802222000, "total_universes": 10000000, "x_real": 0.042200001315}
+Config SHA256    : 53b3dbc89871c91ac1bae05660ddabf8746b62cf9332c0e83376c113ad86958f
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0042200001315, 0.42200001315]
+x_real                = 4.220000131500e-02
+eps_real              = 5.128240e-07
+# rationals in family = 127,124
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s23_RUN2_independent_seed — CKM/CKM_s23)
+      Total universes          : 10,000,000
+      x_real                   : 4.220000131500e-02
+      eps_real                 : 5.128240e-07
+      band                     : [0.0042200001315, 0.42200001315]
+      # rationals in family    : 127,124
+      mean d_min               : 2.035e-06
+      min / max d_min          : 8.706e-14 / 1.670e-04
+      count(d_min ≤ eps_real)  : 3,120,225 / 10,000,000
+      Empirical p_emp          : 3.120e-01
+      Total elapsed time       :  2.843 s
+      Overall throughput       :    3516827 universes / s
+      Config SHA256            : 53b3dbc89871c91ac1bae05660ddabf8746b62cf9332c0e83376c113ad86958f
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_s23_RUN3_independent_seed — CKM/CKM_s23
+Date (UTC)       : 2025-12-01T12:33:34.681320Z
+Config JSON      : {"band_max": 0.42200001315, "band_min": 0.0042200001315, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:34.681320Z", "eps_real": 5.128239514082256e-07, "label": "CKM_CKM_s23_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_s23", "omp_threads": 2, "q_max": 1000, "seed_base": 802333000, "total_universes": 10000000, "x_real": 0.042200001315}
+Config SHA256    : f7ad148fb7a1de7fa24b770a9bf793f220a80e6b61c902bcd0370bebdf711dba
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0042200001315, 0.42200001315]
+x_real                = 4.220000131500e-02
+eps_real              = 5.128240e-07
+# rationals in family = 127,124
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_s23_RUN3_independent_seed — CKM/CKM_s23)
+      Total universes          : 10,000,000
+      x_real                   : 4.220000131500e-02
+      eps_real                 : 5.128240e-07
+      band                     : [0.0042200001315, 0.42200001315]
+      # rationals in family    : 127,124
+      mean d_min               : 2.030e-06
+      min / max d_min          : 1.735e-13 / 1.670e-04
+      count(d_min ≤ eps_real)  : 3,119,924 / 10,000,000
+      Empirical p_emp          : 3.120e-01
+      Total elapsed time       :  3.029 s
+      Overall throughput       :    3301385 universes / s
+      Config SHA256            : f7ad148fb7a1de7fa24b770a9bf793f220a80e6b61c902bcd0370bebdf711dba
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0382, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 292,576
+        first few    : [0.03819918 0.03820225 0.03820598 0.03820817 0.03820961 0.03821656
+ 0.03822314 0.03822441 0.0382263  0.03822938]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for CKM/CKM_delta_over_pi
+      x_real                = 3.819718623140e-01
+      band                  = [0.0381971862314, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 292,576
+      best rational         = 3.819742489270e-01
+      eps_real = |real-best|= 2.386613e-06
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_delta_over_pi_RUN1_main — CKM/CKM_delta_over_pi
+Date (UTC)       : 2025-12-01T12:33:38.071906Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0381971862314, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:38.071906Z", "eps_real": 2.386613038640739e-06, "label": "CKM_CKM_delta_over_pi_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_delta_over_pi", "omp_threads": 2, "q_max": 1000, "seed_base": 803111000, "total_universes": 10000000, "x_real": 0.381971862314}
+Config SHA256    : 00d41288099bf753e84aee8ba71095248131efd90e83b394fe2f68b36fbb8574
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0381971862314, 1.0]
+x_real                = 3.819718623140e-01
+eps_real              = 2.386613e-06
+# rationals in family = 292,576
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_delta_over_pi_RUN1_main — CKM/CKM_delta_over_pi)
+      Total universes          : 10,000,000
+      x_real                   : 3.819718623140e-01
+      eps_real                 : 2.386613e-06
+      band                     : [0.0381971862314, 1.0]
+      # rationals in family    : 292,576
+      mean d_min               : 2.395e-06
+      min / max d_min          : 4.130e-13 / 4.997e-04
+      count(d_min ≤ eps_real)  : 8,544,911 / 10,000,000
+      Empirical p_emp          : 8.545e-01
+      Total elapsed time       :  6.311 s
+      Overall throughput       :    1584574 universes / s
+      Config SHA256            : 00d41288099bf753e84aee8ba71095248131efd90e83b394fe2f68b36fbb8574
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_delta_over_pi_RUN2_independent_seed — CKM/CKM_delta_over_pi
+Date (UTC)       : 2025-12-01T12:33:44.383261Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0381971862314, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:44.383261Z", "eps_real": 2.386613038640739e-06, "label": "CKM_CKM_delta_over_pi_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_delta_over_pi", "omp_threads": 2, "q_max": 1000, "seed_base": 803222000, "total_universes": 10000000, "x_real": 0.381971862314}
+Config SHA256    : 206d953021ceff4202135da3b3f9dd422e166ad81eb1cda8debf6af9883b65bf
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0381971862314, 1.0]
+x_real                = 3.819718623140e-01
+eps_real              = 2.386613e-06
+# rationals in family = 292,576
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_delta_over_pi_RUN2_independent_seed — CKM/CKM_delta_over_pi)
+      Total universes          : 10,000,000
+      x_real                   : 3.819718623140e-01
+      eps_real                 : 2.386613e-06
+      band                     : [0.0381971862314, 1.0]
+      # rationals in family    : 292,576
+      mean d_min               : 2.398e-06
+      min / max d_min          : 1.042e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 8,544,236 / 10,000,000
+      Empirical p_emp          : 8.544e-01
+      Total elapsed time       :  4.938 s
+      Overall throughput       :    2025292 universes / s
+      Config SHA256            : 206d953021ceff4202135da3b3f9dd422e166ad81eb1cda8debf6af9883b65bf
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] CKM_CKM_delta_over_pi_RUN3_independent_seed — CKM/CKM_delta_over_pi
+Date (UTC)       : 2025-12-01T12:33:49.321271Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0381971862314, "batch_size": 200000, "bits_max": 20, "category": "CKM", "date_iso": "2025-12-01T12:33:49.321271Z", "eps_real": 2.386613038640739e-06, "label": "CKM_CKM_delta_over_pi_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "CKM_delta_over_pi", "omp_threads": 2, "q_max": 1000, "seed_base": 803333000, "total_universes": 10000000, "x_real": 0.381971862314}
+Config SHA256    : 8962127e54f66d5d5777b3ec73f603cbed330d192fd07c6cfc149936a2135711
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0381971862314, 1.0]
+x_real                = 3.819718623140e-01
+eps_real              = 2.386613e-06
+# rationals in family = 292,576
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (CKM_CKM_delta_over_pi_RUN3_independent_seed — CKM/CKM_delta_over_pi)
+      Total universes          : 10,000,000
+      x_real                   : 3.819718623140e-01
+      eps_real                 : 2.386613e-06
+      band                     : [0.0381971862314, 1.0]
+      # rationals in family    : 292,576
+      mean d_min               : 2.389e-06
+      min / max d_min          : 1.781e-13 / 4.999e-04
+      count(d_min ≤ eps_real)  : 8,543,593 / 10,000,000
+      Empirical p_emp          : 8.544e-01
+      Total elapsed time       :  6.137 s
+      Overall throughput       :    1629572 universes / s
+      Config SHA256            : 8962127e54f66d5d5777b3ec73f603cbed330d192fd07c6cfc149936a2135711
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.00073, 0.073]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 22,193
+        first few    : [0.001      0.001001   0.001002   0.00100301 0.00100402 0.00100503
+ 0.00100604 0.00100705 0.00100806 0.00100908]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for COUPLINGS/alpha
+      x_real                = 7.297352601000e-03
+      band                  = [0.0007297352600999999, 0.07297352601]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 22,193
+      best rational         = 7.299270072993e-03
+      eps_real = |real-best|= 1.917472e-06
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_RUN1_main — COUPLINGS/alpha
+Date (UTC)       : 2025-12-01T12:33:55.484238Z
+Config JSON      : {"band_max": 0.07297352601, "band_min": 0.0007297352600999999, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:33:55.484238Z", "eps_real": 1.9174719927007172e-06, "label": "COUPLINGS_alpha_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha", "omp_threads": 2, "q_max": 1000, "seed_base": 804111000, "total_universes": 10000000, "x_real": 0.007297352601}
+Config SHA256    : fdc2ceb16b9d6cb1173290a5e1c52e8d824da5210d105a7e9a1ec298a7f3acff
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0007297352600999999, 0.07297352601]
+x_real                = 7.297352601000e-03
+eps_real              = 1.917472e-06
+# rationals in family = 22,193
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_RUN1_main — COUPLINGS/alpha)
+      Total universes          : 10,000,000
+      x_real                   : 7.297352601000e-03
+      eps_real                 : 1.917472e-06
+      band                     : [0.0007297352600999999, 0.07297352601]
+      # rationals in family    : 22,193
+      mean d_min               : 2.023e-06
+      min / max d_min          : 6.070e-13 / 2.702e-04
+      count(d_min ≤ eps_real)  : 8,168,803 / 10,000,000
+      Empirical p_emp          : 8.169e-01
+      Total elapsed time       :  1.197 s
+      Overall throughput       :    8356707 universes / s
+      Config SHA256            : fdc2ceb16b9d6cb1173290a5e1c52e8d824da5210d105a7e9a1ec298a7f3acff
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_RUN2_independent_seed — COUPLINGS/alpha
+Date (UTC)       : 2025-12-01T12:33:56.681585Z
+Config JSON      : {"band_max": 0.07297352601, "band_min": 0.0007297352600999999, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:33:56.681585Z", "eps_real": 1.9174719927007172e-06, "label": "COUPLINGS_alpha_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha", "omp_threads": 2, "q_max": 1000, "seed_base": 804222000, "total_universes": 10000000, "x_real": 0.007297352601}
+Config SHA256    : fb7ce43c5a8fbf8f5c56413edd94a4ae2487e2f60783c1c7073597233811b9ef
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0007297352600999999, 0.07297352601]
+x_real                = 7.297352601000e-03
+eps_real              = 1.917472e-06
+# rationals in family = 22,193
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_RUN2_independent_seed — COUPLINGS/alpha)
+      Total universes          : 10,000,000
+      x_real                   : 7.297352601000e-03
+      eps_real                 : 1.917472e-06
+      band                     : [0.0007297352600999999, 0.07297352601]
+      # rationals in family    : 22,193
+      mean d_min               : 2.034e-06
+      min / max d_min          : 3.691e-14 / 2.703e-04
+      count(d_min ≤ eps_real)  : 8,166,702 / 10,000,000
+      Empirical p_emp          : 8.167e-01
+      Total elapsed time       :  1.198 s
+      Overall throughput       :    8345306 universes / s
+      Config SHA256            : fb7ce43c5a8fbf8f5c56413edd94a4ae2487e2f60783c1c7073597233811b9ef
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_RUN3_independent_seed — COUPLINGS/alpha
+Date (UTC)       : 2025-12-01T12:33:57.880499Z
+Config JSON      : {"band_max": 0.07297352601, "band_min": 0.0007297352600999999, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:33:57.880499Z", "eps_real": 1.9174719927007172e-06, "label": "COUPLINGS_alpha_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha", "omp_threads": 2, "q_max": 1000, "seed_base": 804333000, "total_universes": 10000000, "x_real": 0.007297352601}
+Config SHA256    : 11730a30b86da09a59ab7521667f7272573eba37c835491e998be97d5a3ddbe2
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0007297352600999999, 0.07297352601]
+x_real                = 7.297352601000e-03
+eps_real              = 1.917472e-06
+# rationals in family = 22,193
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_RUN3_independent_seed — COUPLINGS/alpha)
+      Total universes          : 10,000,000
+      x_real                   : 7.297352601000e-03
+      eps_real                 : 1.917472e-06
+      band                     : [0.0007297352600999999, 0.07297352601]
+      # rationals in family    : 22,193
+      mean d_min               : 2.020e-06
+      min / max d_min          : 1.038e-13 / 2.702e-04
+      count(d_min ≤ eps_real)  : 8,165,169 / 10,000,000
+      Empirical p_emp          : 8.165e-01
+      Total elapsed time       :  1.195 s
+      Overall throughput       :    8365067 universes / s
+      Config SHA256            : 11730a30b86da09a59ab7521667f7272573eba37c835491e998be97d5a3ddbe2
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0118, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 300,619
+        first few    : [0.01179245 0.01179554 0.01179941 0.01180258 0.01180438 0.01180638
+ 0.01181102 0.01181525 0.01181684 0.01182033]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for COUPLINGS/alpha_s_MZ
+      x_real                = 1.178999988150e-01
+      band                  = [0.0117899998815, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 300,619
+      best rational         = 1.178992497320e-01
+      eps_real = |real-best|= 7.490830e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_s_MZ_RUN1_main — COUPLINGS/alpha_s_MZ
+Date (UTC)       : 2025-12-01T12:33:59.434074Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0117899998815, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:33:59.434074Z", "eps_real": 7.490829528472576e-07, "label": "COUPLINGS_alpha_s_MZ_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha_s_MZ", "omp_threads": 2, "q_max": 1000, "seed_base": 805111000, "total_universes": 10000000, "x_real": 0.117899998815}
+Config SHA256    : 0fe45de1cb6bcdcd507a93c40e6ece1a0cfa743a801d2a1fcf7543eab8992ba1
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0117899998815, 1.0]
+x_real                = 1.178999988150e-01
+eps_real              = 7.490830e-07
+# rationals in family = 300,619
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_s_MZ_RUN1_main — COUPLINGS/alpha_s_MZ)
+      Total universes          : 10,000,000
+      x_real                   : 1.178999988150e-01
+      eps_real                 : 7.490830e-07
+      band                     : [0.0117899998815, 1.0]
+      # rationals in family    : 300,619
+      mean d_min               : 2.360e-06
+      min / max d_min          : 2.168e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 4,482,808 / 10,000,000
+      Empirical p_emp          : 4.483e-01
+      Total elapsed time       :  4.932 s
+      Overall throughput       :    2027388 universes / s
+      Config SHA256            : 0fe45de1cb6bcdcd507a93c40e6ece1a0cfa743a801d2a1fcf7543eab8992ba1
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_s_MZ_RUN2_independent_seed — COUPLINGS/alpha_s_MZ
+Date (UTC)       : 2025-12-01T12:34:04.367137Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0117899998815, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:34:04.367137Z", "eps_real": 7.490829528472576e-07, "label": "COUPLINGS_alpha_s_MZ_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha_s_MZ", "omp_threads": 2, "q_max": 1000, "seed_base": 805222000, "total_universes": 10000000, "x_real": 0.117899998815}
+Config SHA256    : 0b31544d63368c7b1f6bec37c6d56252a303f652f87c3c4552c116f12b0b3595
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0117899998815, 1.0]
+x_real                = 1.178999988150e-01
+eps_real              = 7.490830e-07
+# rationals in family = 300,619
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_s_MZ_RUN2_independent_seed — COUPLINGS/alpha_s_MZ)
+      Total universes          : 10,000,000
+      x_real                   : 1.178999988150e-01
+      eps_real                 : 7.490830e-07
+      band                     : [0.0117899998815, 1.0]
+      # rationals in family    : 300,619
+      mean d_min               : 2.370e-06
+      min / max d_min          : 7.772e-15 / 4.997e-04
+      count(d_min ≤ eps_real)  : 4,484,911 / 10,000,000
+      Empirical p_emp          : 4.485e-01
+      Total elapsed time       :  6.379 s
+      Overall throughput       :    1567765 universes / s
+      Config SHA256            : 0b31544d63368c7b1f6bec37c6d56252a303f652f87c3c4552c116f12b0b3595
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_alpha_s_MZ_RUN3_independent_seed — COUPLINGS/alpha_s_MZ
+Date (UTC)       : 2025-12-01T12:34:10.746100Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0117899998815, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:34:10.746100Z", "eps_real": 7.490829528472576e-07, "label": "COUPLINGS_alpha_s_MZ_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "alpha_s_MZ", "omp_threads": 2, "q_max": 1000, "seed_base": 805333000, "total_universes": 10000000, "x_real": 0.117899998815}
+Config SHA256    : 196c019a2931bf08134084e41f162627c1c845d4d7393ea2a3965c92ca24b120
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0117899998815, 1.0]
+x_real                = 1.178999988150e-01
+eps_real              = 7.490830e-07
+# rationals in family = 300,619
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_alpha_s_MZ_RUN3_independent_seed — COUPLINGS/alpha_s_MZ)
+      Total universes          : 10,000,000
+      x_real                   : 1.178999988150e-01
+      eps_real                 : 7.490830e-07
+      band                     : [0.0117899998815, 1.0]
+      # rationals in family    : 300,619
+      mean d_min               : 2.364e-06
+      min / max d_min          : 1.147e-13 / 4.998e-04
+      count(d_min ≤ eps_real)  : 4,479,589 / 10,000,000
+      Empirical p_emp          : 4.480e-01
+      Total elapsed time       :  4.967 s
+      Overall throughput       :    2013178 universes / s
+      Config SHA256            : 196c019a2931bf08134084e41f162627c1c845d4d7393ea2a3965c92ca24b120
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0231, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 297,169
+        first few    : [0.02312775 0.02312925 0.02313167 0.02313354 0.02313625 0.02313883
+ 0.0231405  0.02314251 0.02314815 0.02315325]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for COUPLINGS/sin2_thetaW
+      x_real                = 2.312200005890e-01
+      band                  = [0.0231220000589, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 297,169
+      best rational         = 2.312206572770e-01
+      eps_real = |real-best|= 6.566880e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_sin2_thetaW_RUN1_main — COUPLINGS/sin2_thetaW
+Date (UTC)       : 2025-12-01T12:34:16.063594Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0231220000589, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:34:16.063594Z", "eps_real": 6.566879953151528e-07, "label": "COUPLINGS_sin2_thetaW_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "sin2_thetaW", "omp_threads": 2, "q_max": 1000, "seed_base": 806111000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : e155cab19a2b347ef394c92d2710b72959058086fd7c8d6bf93a001864e464a1
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0231220000589, 1.0]
+x_real                = 2.312200005890e-01
+eps_real              = 6.566880e-07
+# rationals in family = 297,169
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_sin2_thetaW_RUN1_main — COUPLINGS/sin2_thetaW)
+      Total universes          : 10,000,000
+      x_real                   : 2.312200005890e-01
+      eps_real                 : 6.566880e-07
+      band                     : [0.0231220000589, 1.0]
+      # rationals in family    : 297,169
+      mean d_min               : 2.384e-06
+      min / max d_min          : 1.756e-13 / 4.999e-04
+      count(d_min ≤ eps_real)  : 3,972,232 / 10,000,000
+      Empirical p_emp          : 3.972e-01
+      Total elapsed time       :  6.230 s
+      Overall throughput       :    1605240 universes / s
+      Config SHA256            : e155cab19a2b347ef394c92d2710b72959058086fd7c8d6bf93a001864e464a1
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_sin2_thetaW_RUN2_independent_seed — COUPLINGS/sin2_thetaW
+Date (UTC)       : 2025-12-01T12:34:22.293668Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0231220000589, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:34:22.293668Z", "eps_real": 6.566879953151528e-07, "label": "COUPLINGS_sin2_thetaW_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "sin2_thetaW", "omp_threads": 2, "q_max": 1000, "seed_base": 806222000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : 6028ef505a8444af6fa23561b9d2b7e256ba325fc1f35199ca3499d997e86f9d
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0231220000589, 1.0]
+x_real                = 2.312200005890e-01
+eps_real              = 6.566880e-07
+# rationals in family = 297,169
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_sin2_thetaW_RUN2_independent_seed — COUPLINGS/sin2_thetaW)
+      Total universes          : 10,000,000
+      x_real                   : 2.312200005890e-01
+      eps_real                 : 6.566880e-07
+      band                     : [0.0231220000589, 1.0]
+      # rationals in family    : 297,169
+      mean d_min               : 2.379e-06
+      min / max d_min          : 8.117e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 3,977,184 / 10,000,000
+      Empirical p_emp          : 3.977e-01
+      Total elapsed time       :  5.107 s
+      Overall throughput       :    1958066 universes / s
+      Config SHA256            : 6028ef505a8444af6fa23561b9d2b7e256ba325fc1f35199ca3499d997e86f9d
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] COUPLINGS_sin2_thetaW_RUN3_independent_seed — COUPLINGS/sin2_thetaW
+Date (UTC)       : 2025-12-01T12:34:27.401188Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0231220000589, "batch_size": 200000, "bits_max": 20, "category": "COUPLINGS", "date_iso": "2025-12-01T12:34:27.401188Z", "eps_real": 6.566879953151528e-07, "label": "COUPLINGS_sin2_thetaW_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "sin2_thetaW", "omp_threads": 2, "q_max": 1000, "seed_base": 806333000, "total_universes": 10000000, "x_real": 0.231220000589}
+Config SHA256    : dfca68f45452289b748f6e8b3c67bdb9403e0358e6cb3222a0844a8b6741ae58
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0231220000589, 1.0]
+x_real                = 2.312200005890e-01
+eps_real              = 6.566880e-07
+# rationals in family = 297,169
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (COUPLINGS_sin2_thetaW_RUN3_independent_seed — COUPLINGS/sin2_thetaW)
+      Total universes          : 10,000,000
+      x_real                   : 2.312200005890e-01
+      eps_real                 : 6.566880e-07
+      band                     : [0.0231220000589, 1.0]
+      # rationals in family    : 297,169
+      mean d_min               : 2.372e-06
+      min / max d_min          : 1.479e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 3,973,173 / 10,000,000
+      Empirical p_emp          : 3.973e-01
+      Total elapsed time       :  6.308 s
+      Overall throughput       :    1585308 universes / s
+      Config SHA256            : dfca68f45452289b748f6e8b3c67bdb9403e0358e6cb3222a0844a8b6741ae58
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0326, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 294,265
+        first few    : [0.03264605 0.03264813 0.03265306 0.03265766 0.03265941 0.03266332
+ 0.03266596 0.03266788 0.03267045 0.03267211]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for EW/MW_over_v
+      x_real                = 3.264524171820e-01
+      band                  = [0.032645241718200005, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 294,265
+      best rational         = 3.264516129032e-01
+      eps_real = |real-best|= 8.042788e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MW_over_v_RUN1_main — EW/MW_over_v
+Date (UTC)       : 2025-12-01T12:34:34.080232Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.032645241718200005, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:34:34.080232Z", "eps_real": 8.042787741913138e-07, "label": "EW_MW_over_v_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MW_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 807111000, "total_universes": 10000000, "x_real": 0.326452417182}
+Config SHA256    : a10c7e29fce4e5375ef9193c419a455ba061e91c711464efb2109d55eb0afb5e
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.032645241718200005, 1.0]
+x_real                = 3.264524171820e-01
+eps_real              = 8.042788e-07
+# rationals in family = 294,265
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MW_over_v_RUN1_main — EW/MW_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.264524171820e-01
+      eps_real                 : 8.042788e-07
+      band                     : [0.032645241718200005, 1.0]
+      # rationals in family    : 294,265
+      mean d_min               : 2.375e-06
+      min / max d_min          : 3.397e-14 / 5.000e-04
+      count(d_min ≤ eps_real)  : 4,766,753 / 10,000,000
+      Empirical p_emp          : 4.767e-01
+      Total elapsed time       :  5.002 s
+      Overall throughput       :    1999392 universes / s
+      Config SHA256            : a10c7e29fce4e5375ef9193c419a455ba061e91c711464efb2109d55eb0afb5e
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MW_over_v_RUN2_independent_seed — EW/MW_over_v
+Date (UTC)       : 2025-12-01T12:34:39.082181Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.032645241718200005, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:34:39.082181Z", "eps_real": 8.042787741913138e-07, "label": "EW_MW_over_v_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MW_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 807222000, "total_universes": 10000000, "x_real": 0.326452417182}
+Config SHA256    : d7f5c9f521618f82125efb1ea67926633ebeef8af9f3a6cdb0e8c8631501f3fd
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.032645241718200005, 1.0]
+x_real                = 3.264524171820e-01
+eps_real              = 8.042788e-07
+# rationals in family = 294,265
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MW_over_v_RUN2_independent_seed — EW/MW_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.264524171820e-01
+      eps_real                 : 8.042788e-07
+      band                     : [0.032645241718200005, 1.0]
+      # rationals in family    : 294,265
+      mean d_min               : 2.382e-06
+      min / max d_min          : 3.832e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 4,770,022 / 10,000,000
+      Empirical p_emp          : 4.770e-01
+      Total elapsed time       :  5.596 s
+      Overall throughput       :    1787135 universes / s
+      Config SHA256            : d7f5c9f521618f82125efb1ea67926633ebeef8af9f3a6cdb0e8c8631501f3fd
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MW_over_v_RUN3_independent_seed — EW/MW_over_v
+Date (UTC)       : 2025-12-01T12:34:44.678205Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.032645241718200005, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:34:44.678205Z", "eps_real": 8.042787741913138e-07, "label": "EW_MW_over_v_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MW_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 807333000, "total_universes": 10000000, "x_real": 0.326452417182}
+Config SHA256    : b347c695e7a3596be2c6d9b80420fc2354f43ffcdd1fa6dcc15a788518846aaa
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.032645241718200005, 1.0]
+x_real                = 3.264524171820e-01
+eps_real              = 8.042788e-07
+# rationals in family = 294,265
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MW_over_v_RUN3_independent_seed — EW/MW_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.264524171820e-01
+      eps_real                 : 8.042788e-07
+      band                     : [0.032645241718200005, 1.0]
+      # rationals in family    : 294,265
+      mean d_min               : 2.375e-06
+      min / max d_min          : 1.084e-13 / 4.999e-04
+      count(d_min ≤ eps_real)  : 4,770,122 / 10,000,000
+      Empirical p_emp          : 4.770e-01
+      Total elapsed time       :  5.619 s
+      Overall throughput       :    1779813 universes / s
+      Config SHA256            : b347c695e7a3596be2c6d9b80420fc2354f43ffcdd1fa6dcc15a788518846aaa
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.037, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 292,934
+        first few    : [0.03703704 0.03707415 0.03707518 0.03707627 0.03707743 0.03707865
+ 0.03707995 0.03708134 0.03708282 0.0370844 ]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for EW/MZ_over_v
+      x_real                = 3.703506172840e-01
+      band                  = [0.0370350617284, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 292,934
+      best rational         = 3.703329969728e-01
+      eps_real = |real-best|= 1.762031e-05
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MZ_over_v_RUN1_main — EW/MZ_over_v
+Date (UTC)       : 2025-12-01T12:34:50.649514Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0370350617284, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:34:50.649514Z", "eps_real": 1.7620311245192255e-05, "label": "EW_MZ_over_v_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MZ_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 808111000, "total_universes": 10000000, "x_real": 0.370350617284}
+Config SHA256    : d1c983c83a8021c65100a8ba8afbb2d2329f81e6a2ab4e78c67f649ebbe10013
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0370350617284, 1.0]
+x_real                = 3.703506172840e-01
+eps_real              = 1.762031e-05
+# rationals in family = 292,934
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MZ_over_v_RUN1_main — EW/MZ_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.703506172840e-01
+      eps_real                 : 1.762031e-05
+      band                     : [0.0370350617284, 1.0]
+      # rationals in family    : 292,934
+      mean d_min               : 2.392e-06
+      min / max d_min          : 6.773e-13 / 4.998e-04
+      count(d_min ≤ eps_real)  : 9,828,027 / 10,000,000
+      Empirical p_emp          : 9.828e-01
+      Total elapsed time       :  5.081 s
+      Overall throughput       :    1968292 universes / s
+      Config SHA256            : d1c983c83a8021c65100a8ba8afbb2d2329f81e6a2ab4e78c67f649ebbe10013
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MZ_over_v_RUN2_independent_seed — EW/MZ_over_v
+Date (UTC)       : 2025-12-01T12:34:55.730811Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0370350617284, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:34:55.730811Z", "eps_real": 1.7620311245192255e-05, "label": "EW_MZ_over_v_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MZ_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 808222000, "total_universes": 10000000, "x_real": 0.370350617284}
+Config SHA256    : f4de62f334e7ae12217583e4f138e5e93a03a5d9a54522bdbcbafc85374be749
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0370350617284, 1.0]
+x_real                = 3.703506172840e-01
+eps_real              = 1.762031e-05
+# rationals in family = 292,934
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MZ_over_v_RUN2_independent_seed — EW/MZ_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.703506172840e-01
+      eps_real                 : 1.762031e-05
+      band                     : [0.0370350617284, 1.0]
+      # rationals in family    : 292,934
+      mean d_min               : 2.385e-06
+      min / max d_min          : 1.798e-13 / 4.999e-04
+      count(d_min ≤ eps_real)  : 9,828,306 / 10,000,000
+      Empirical p_emp          : 9.828e-01
+      Total elapsed time       :  6.270 s
+      Overall throughput       :    1594799 universes / s
+      Config SHA256            : f4de62f334e7ae12217583e4f138e5e93a03a5d9a54522bdbcbafc85374be749
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] EW_MZ_over_v_RUN3_independent_seed — EW/MZ_over_v
+Date (UTC)       : 2025-12-01T12:35:02.001690Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0370350617284, "batch_size": 200000, "bits_max": 20, "category": "EW", "date_iso": "2025-12-01T12:35:02.001690Z", "eps_real": 1.7620311245192255e-05, "label": "EW_MZ_over_v_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MZ_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 808333000, "total_universes": 10000000, "x_real": 0.370350617284}
+Config SHA256    : 5777c16278d0c750f30515f16973f9f82f72d4221d09216338c48cffe8fe22f2
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0370350617284, 1.0]
+x_real                = 3.703506172840e-01
+eps_real              = 1.762031e-05
+# rationals in family = 292,934
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (EW_MZ_over_v_RUN3_independent_seed — EW/MZ_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 3.703506172840e-01
+      eps_real                 : 1.762031e-05
+      band                     : [0.0370350617284, 1.0]
+      # rationals in family    : 292,934
+      mean d_min               : 2.391e-06
+      min / max d_min          : 1.250e-12 / 4.999e-04
+      count(d_min ≤ eps_real)  : 9,828,451 / 10,000,000
+      Empirical p_emp          : 9.828e-01
+      Total elapsed time       :  4.995 s
+      Overall throughput       :    2001828 universes / s
+      Config SHA256            : 5777c16278d0c750f30515f16973f9f82f72d4221d09216338c48cffe8fe22f2
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0509, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 288,723
+        first few    : [0.05087015 0.05087209 0.0508744  0.05087719 0.05088063 0.05088266
+ 0.05088496 0.05088757 0.05089059 0.05089409]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for HIGGS/MH_over_v
+      x_real                = 5.086921389820e-01
+      band                  = [0.050869213898200004, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 288,723
+      best rational         = 5.086906141367e-01
+      eps_real = |real-best|= 1.524845e-06
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] HIGGS_MH_over_v_RUN1_main — HIGGS/MH_over_v
+Date (UTC)       : 2025-12-01T12:35:07.362679Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.050869213898200004, "batch_size": 200000, "bits_max": 20, "category": "HIGGS", "date_iso": "2025-12-01T12:35:07.362679Z", "eps_real": 1.5248452677196767e-06, "label": "HIGGS_MH_over_v_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MH_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 809111000, "total_universes": 10000000, "x_real": 0.508692138982}
+Config SHA256    : 0b63931649ce737e14a1c653d46ecade5d14db9d3e6e0e1a6a325cc5f469e2da
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.050869213898200004, 1.0]
+x_real                = 5.086921389820e-01
+eps_real              = 1.524845e-06
+# rationals in family = 288,723
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (HIGGS_MH_over_v_RUN1_main — HIGGS/MH_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 5.086921389820e-01
+      eps_real                 : 1.524845e-06
+      band                     : [0.050869213898200004, 1.0]
+      # rationals in family    : 288,723
+      mean d_min               : 2.398e-06
+      min / max d_min          : 3.688e-13 / 4.998e-04
+      count(d_min ≤ eps_real)  : 7,370,270 / 10,000,000
+      Empirical p_emp          : 7.370e-01
+      Total elapsed time       :  6.197 s
+      Overall throughput       :    1613598 universes / s
+      Config SHA256            : 0b63931649ce737e14a1c653d46ecade5d14db9d3e6e0e1a6a325cc5f469e2da
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] HIGGS_MH_over_v_RUN2_independent_seed — HIGGS/MH_over_v
+Date (UTC)       : 2025-12-01T12:35:13.560646Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.050869213898200004, "batch_size": 200000, "bits_max": 20, "category": "HIGGS", "date_iso": "2025-12-01T12:35:13.560646Z", "eps_real": 1.5248452677196767e-06, "label": "HIGGS_MH_over_v_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MH_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 809222000, "total_universes": 10000000, "x_real": 0.508692138982}
+Config SHA256    : 4ad99ea3225802751bc8ff04e1ac5763eb41ba422599a2ad8ab0c9710fe7dc04
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.050869213898200004, 1.0]
+x_real                = 5.086921389820e-01
+eps_real              = 1.524845e-06
+# rationals in family = 288,723
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (HIGGS_MH_over_v_RUN2_independent_seed — HIGGS/MH_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 5.086921389820e-01
+      eps_real                 : 1.524845e-06
+      band                     : [0.050869213898200004, 1.0]
+      # rationals in family    : 288,723
+      mean d_min               : 2.396e-06
+      min / max d_min          : 2.881e-14 / 4.999e-04
+      count(d_min ≤ eps_real)  : 7,369,224 / 10,000,000
+      Empirical p_emp          : 7.369e-01
+      Total elapsed time       :  4.855 s
+      Overall throughput       :    2059782 universes / s
+      Config SHA256            : 4ad99ea3225802751bc8ff04e1ac5763eb41ba422599a2ad8ab0c9710fe7dc04
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] HIGGS_MH_over_v_RUN3_independent_seed — HIGGS/MH_over_v
+Date (UTC)       : 2025-12-01T12:35:18.415990Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.050869213898200004, "batch_size": 200000, "bits_max": 20, "category": "HIGGS", "date_iso": "2025-12-01T12:35:18.415990Z", "eps_real": 1.5248452677196767e-06, "label": "HIGGS_MH_over_v_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "MH_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 809333000, "total_universes": 10000000, "x_real": 0.508692138982}
+Config SHA256    : ce1813fa3e3db257dfa43fd07d41c30b92de2a47bd055cb078f51ce66474874e
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.050869213898200004, 1.0]
+x_real                = 5.086921389820e-01
+eps_real              = 1.524845e-06
+# rationals in family = 288,723
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (HIGGS_MH_over_v_RUN3_independent_seed — HIGGS/MH_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 5.086921389820e-01
+      eps_real                 : 1.524845e-06
+      band                     : [0.050869213898200004, 1.0]
+      # rationals in family    : 288,723
+      mean d_min               : 2.398e-06
+      min / max d_min          : 6.439e-15 / 4.999e-04
+      count(d_min ≤ eps_real)  : 7,372,826 / 10,000,000
+      Empirical p_emp          : 7.373e-01
+      Total elapsed time       :  6.264 s
+      Overall throughput       :    1596459 universes / s
+      Config SHA256            : ce1813fa3e3db257dfa43fd07d41c30b92de2a47bd055cb078f51ce66474874e
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+[FPK v4] Built rational family for snap tests:
+        band         : [0.0701, 1]
+        q_max        : 1000
+        bits_max     : 20
+        # candidates : 282,857
+        first few    : [0.07013815 0.07014028 0.07014388 0.07014682 0.07014925 0.07015131
+ 0.07015306 0.07015458 0.0701559  0.07015707]
+----------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] SETUP for QUARK_HEAVY/mt_over_v
+      x_real                = 7.013656349180e-01
+      band                  = [0.0701365634918, 1.0]
+      q_max, bits_max       = 1000, 20
+      # rationals in family = 282,857
+      best rational         = 7.013651877133e-01
+      eps_real = |real-best|= 4.472047e-07
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] QUARK_HEAVY_mt_over_v_RUN1_main — QUARK_HEAVY/mt_over_v
+Date (UTC)       : 2025-12-01T12:35:25.029074Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0701365634918, "batch_size": 200000, "bits_max": 20, "category": "QUARK_HEAVY", "date_iso": "2025-12-01T12:35:25.029074Z", "eps_real": 4.472046893910786e-07, "label": "QUARK_HEAVY_mt_over_v_RUN1_main", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "mt_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 810111000, "total_universes": 10000000, "x_real": 0.701365634918}
+Config SHA256    : 1c1f861b12a97cfb166a8682a6038789cbe937e72c0eafda32a1b4be302fa73f
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0701365634918, 1.0]
+x_real                = 7.013656349180e-01
+eps_real              = 4.472047e-07
+# rationals in family = 282,857
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (QUARK_HEAVY_mt_over_v_RUN1_main — QUARK_HEAVY/mt_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 7.013656349180e-01
+      eps_real                 : 4.472047e-07
+      band                     : [0.0701365634918, 1.0]
+      # rationals in family    : 282,857
+      mean d_min               : 2.413e-06
+      min / max d_min          : 7.228e-14 / 4.997e-04
+      count(d_min ≤ eps_real)  : 2,722,876 / 10,000,000
+      Empirical p_emp          : 2.723e-01
+      Total elapsed time       :  4.967 s
+      Overall throughput       :    2013459 universes / s
+      Config SHA256            : 1c1f861b12a97cfb166a8682a6038789cbe937e72c0eafda32a1b4be302fa73f
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] QUARK_HEAVY_mt_over_v_RUN2_independent_seed — QUARK_HEAVY/mt_over_v
+Date (UTC)       : 2025-12-01T12:35:29.996103Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0701365634918, "batch_size": 200000, "bits_max": 20, "category": "QUARK_HEAVY", "date_iso": "2025-12-01T12:35:29.996103Z", "eps_real": 4.472046893910786e-07, "label": "QUARK_HEAVY_mt_over_v_RUN2_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "mt_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 810222000, "total_universes": 10000000, "x_real": 0.701365634918}
+Config SHA256    : 538d24b903ffe067ef2bac34d25de9ece36bfbfca48e4f955a0f40e90fcf36e1
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0701365634918, 1.0]
+x_real                = 7.013656349180e-01
+eps_real              = 4.472047e-07
+# rationals in family = 282,857
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (QUARK_HEAVY_mt_over_v_RUN2_independent_seed — QUARK_HEAVY/mt_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 7.013656349180e-01
+      eps_real                 : 4.472047e-07
+      band                     : [0.0701365634918, 1.0]
+      # rationals in family    : 282,857
+      mean d_min               : 2.431e-06
+      min / max d_min          : 1.280e-13 / 5.000e-04
+      count(d_min ≤ eps_real)  : 2,720,246 / 10,000,000
+      Empirical p_emp          : 2.720e-01
+      Total elapsed time       :  5.147 s
+      Overall throughput       :    1943004 universes / s
+      Config SHA256            : 538d24b903ffe067ef2bac34d25de9ece36bfbfca48e4f955a0f40e90fcf36e1
+-------------------------------------------------------------------------------
+===============================================================================
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] QUARK_HEAVY_mt_over_v_RUN3_independent_seed — QUARK_HEAVY/mt_over_v
+Date (UTC)       : 2025-12-01T12:35:35.143471Z
+Config JSON      : {"band_max": 1.0, "band_min": 0.0701365634918, "batch_size": 200000, "bits_max": 20, "category": "QUARK_HEAVY", "date_iso": "2025-12-01T12:35:35.143471Z", "eps_real": 4.472046893910786e-07, "label": "QUARK_HEAVY_mt_over_v_RUN3_independent_seed", "module": "MODULE_8_BIG_SNAP_REGISTRY_SCAN", "name": "mt_over_v", "omp_threads": 2, "q_max": 1000, "seed_base": 810333000, "total_universes": 10000000, "x_real": 0.701365634918}
+Config SHA256    : 18040e1e9f5e67ef1352dce7142fb480f61083604a190925d1609804a622cbc2
+-------------------------------------------------------------------------------
+Using OMP_NUM_THREADS = 2
+TOTAL_UNIVERSES       = 10,000,000
+BATCH_SIZE            = 200,000
+band                  = [0.0701365634918, 1.0]
+x_real                = 7.013656349180e-01
+eps_real              = 4.472047e-07
+# rationals in family = 282,857
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+[MODULE_8_BIG_SNAP_REGISTRY_SCAN] GLOBAL SNAP NULL SUMMARY (QUARK_HEAVY_mt_over_v_RUN3_independent_seed — QUARK_HEAVY/mt_over_v)
+      Total universes          : 10,000,000
+      x_real                   : 7.013656349180e-01
+      eps_real                 : 4.472047e-07
+      band                     : [0.0701365634918, 1.0]
+      # rationals in family    : 282,857
+      mean d_min               : 2.414e-06
+      min / max d_min          : 5.596e-14 / 4.999e-04
+      count(d_min ≤ eps_real)  : 2,719,383 / 10,000,000
+      Empirical p_emp          : 2.719e-01
+      Total elapsed time       :  5.990 s
+      Overall throughput       :    1669430 universes / s
+      Config SHA256            : 18040e1e9f5e67ef1352dce7142fb480f61083604a190925d1609804a622cbc2
+-------------------------------------------------------------------------------
+===============================================================================
+MODULE_8_BIG_SNAP_REGISTRY_SCAN: ALL PARAMETER SCANS COMPLETED
+  CKM/CKM_s12:
+    RUN1 SHA256: d28084defcef5710f98d7e0b9bd36ba935c58cc442e1d773d7174b70b6f57062
+    RUN2 SHA256: 5ae5eba5e7b19d866bc768cc134086f292237175bce2cf749a1ed229bee8b7ad
+    RUN3 SHA256: e6b2e2ee51898dfc93ab33fdd1734328f509b152b406283867fe465287b0f848
+  CKM/CKM_s13:
+    RUN1 SHA256: c99b8f919d0f797f1bd5422207550db2422f77f2e4d6f8047ad70ea040751549
+    RUN2 SHA256: bad925bef643804d2cf947fce3e1f24c4e4e78e28171a46e25696dc897ec370e
+    RUN3 SHA256: 49b57138939f773e5fdadf952202155fd118d842b2bbae138b81f699552a563d
+  CKM/CKM_s23:
+    RUN1 SHA256: 96f50c7fff3b8771298e16a70cb9b50b4dbde21fea35e76382df38d6d2b68700
+    RUN2 SHA256: 53b3dbc89871c91ac1bae05660ddabf8746b62cf9332c0e83376c113ad86958f
+    RUN3 SHA256: f7ad148fb7a1de7fa24b770a9bf793f220a80e6b61c902bcd0370bebdf711dba
+  CKM/CKM_delta_over_pi:
+    RUN1 SHA256: 00d41288099bf753e84aee8ba71095248131efd90e83b394fe2f68b36fbb8574
+    RUN2 SHA256: 206d953021ceff4202135da3b3f9dd422e166ad81eb1cda8debf6af9883b65bf
+    RUN3 SHA256: 8962127e54f66d5d5777b3ec73f603cbed330d192fd07c6cfc149936a2135711
+  COUPLINGS/alpha:
+    RUN1 SHA256: fdc2ceb16b9d6cb1173290a5e1c52e8d824da5210d105a7e9a1ec298a7f3acff
+    RUN2 SHA256: fb7ce43c5a8fbf8f5c56413edd94a4ae2487e2f60783c1c7073597233811b9ef
+    RUN3 SHA256: 11730a30b86da09a59ab7521667f7272573eba37c835491e998be97d5a3ddbe2
+  COUPLINGS/alpha_s_MZ:
+    RUN1 SHA256: 0fe45de1cb6bcdcd507a93c40e6ece1a0cfa743a801d2a1fcf7543eab8992ba1
+    RUN2 SHA256: 0b31544d63368c7b1f6bec37c6d56252a303f652f87c3c4552c116f12b0b3595
+    RUN3 SHA256: 196c019a2931bf08134084e41f162627c1c845d4d7393ea2a3965c92ca24b120
+  COUPLINGS/sin2_thetaW:
+    RUN1 SHA256: e155cab19a2b347ef394c92d2710b72959058086fd7c8d6bf93a001864e464a1
+    RUN2 SHA256: 6028ef505a8444af6fa23561b9d2b7e256ba325fc1f35199ca3499d997e86f9d
+    RUN3 SHA256: dfca68f45452289b748f6e8b3c67bdb9403e0358e6cb3222a0844a8b6741ae58
+  EW/MW_over_v:
+    RUN1 SHA256: a10c7e29fce4e5375ef9193c419a455ba061e91c711464efb2109d55eb0afb5e
+    RUN2 SHA256: d7f5c9f521618f82125efb1ea67926633ebeef8af9f3a6cdb0e8c8631501f3fd
+    RUN3 SHA256: b347c695e7a3596be2c6d9b80420fc2354f43ffcdd1fa6dcc15a788518846aaa
+  EW/MZ_over_v:
+    RUN1 SHA256: d1c983c83a8021c65100a8ba8afbb2d2329f81e6a2ab4e78c67f649ebbe10013
+    RUN2 SHA256: f4de62f334e7ae12217583e4f138e5e93a03a5d9a54522bdbcbafc85374be749
+    RUN3 SHA256: 5777c16278d0c750f30515f16973f9f82f72d4221d09216338c48cffe8fe22f2
+  HIGGS/MH_over_v:
+    RUN1 SHA256: 0b63931649ce737e14a1c653d46ecade5d14db9d3e6e0e1a6a325cc5f469e2da
+    RUN2 SHA256: 4ad99ea3225802751bc8ff04e1ac5763eb41ba422599a2ad8ab0c9710fe7dc04
+    RUN3 SHA256: ce1813fa3e3db257dfa43fd07d41c30b92de2a47bd055cb078f51ce66474874e
+  QUARK_HEAVY/mt_over_v:
+    RUN1 SHA256: 1c1f861b12a97cfb166a8682a6038789cbe937e72c0eafda32a1b4be302fa73f
+    RUN2 SHA256: 538d24b903ffe067ef2bac34d25de9ece36bfbfca48e4f955a0f40e90fcf36e1
+    RUN3 SHA256: 18040e1e9f5e67ef1352dce7142fb480f61083604a190925d1609804a622cbc2
+===============================================================================
