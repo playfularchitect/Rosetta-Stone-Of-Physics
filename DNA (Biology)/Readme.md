@@ -22,6 +22,8 @@ The central question: **Is genomic composition random, or does it show evidence 
 
 This is a **119-sigma deviation** from null expectation. The genome's CpG distribution is definitively non-random.
 
+The clustering is the key insight - It's not just that there are more lock codons in certain genes, it's that they form contiguous runs of up to 19 consecutive codons. Random distribution wouldn't produce that. The ~90% of lock codons being in multi-codon runs in hyper genes vs ~65% genome-wide... that's structure my friends.
+
 ---
 
 ## Key Metrics Defined
