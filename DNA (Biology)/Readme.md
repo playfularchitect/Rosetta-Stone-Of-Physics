@@ -24,6 +24,10 @@ This is a **119-sigma deviation** from null expectation. The genome's CpG distri
 
 The clustering is the key insight - It's not just that there are more lock codons in certain genes, it's that they form contiguous runs of up to 19 consecutive codons. Random distribution wouldn't produce that. The ~90% of lock codons being in multi-codon runs in hyper genes vs ~65% genome-wide... that's structure my friends.
 
+The correlation structure - GC3, lock fraction, and CpG all co-vary (r ~ 0.8-0.9). Genes high in one are high in all three. This isn't three independent phenomena - it's one underlying constraint expressing through multiple metrics.
+
+CpG enrichment vs suppression - In vertebrates, CpG is suppressed (methylation → deamination → mutation). In E. coli, it's ENRICHED. This suggests CpG serves a functional role in bacteria that's worth preserving against mutational pressure.
+
 ---
 
 ## Key Metrics Defined
