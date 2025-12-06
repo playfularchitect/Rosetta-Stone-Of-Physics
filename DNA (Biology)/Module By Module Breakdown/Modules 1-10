@@ -458,7 +458,7 @@ Modules DNA-L7 through DNA-L20 exist in the codebase but are **commented out** â
 
 ### Why These Were Disabled
 
-These modules likely represent early explorations that were either:
+These modulesrepresent early explorations that were either:
 1. **Superseded** by later, more comprehensive modules (L30-L39)
 2. **Computationally expensive** without sufficient signal
 3. **Exploratory dead-ends** that didn't yield significant findings
@@ -471,7 +471,7 @@ The active modules (L30-L39) consolidate the most informative analyses.
 
 ## DNA-L21 through DNA-L29: Disabled
 
-Similar to Part 2, these modules are commented out in the codebase. The numbering gap suggests iterative development where some approaches were abandoned.
+Similar to Part 2, these modules are commented out in the codebase where some approaches were abandoned.
 
 ---
 
