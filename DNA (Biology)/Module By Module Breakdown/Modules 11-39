@@ -1,0 +1,489 @@
+# Module-by-Module Breakdown: Parts 2-4 (Modules 11-39)
+
+---
+
+# Part 2: Modules 11-20 (Experimental/Disabled)
+
+## Overview
+
+Modules DNA-L7 through DNA-L20 exist in the codebase but are **commented out** — they represent experimental branches that were explored but not included in the final analysis pipeline. Their names reveal the intended investigations:
+
+| Module | Intended Purpose | Status |
+|--------|-----------------|--------|
+| DNA-L7 | Gene-wise CpG/GC lock census | Disabled |
+| DNA-L8 | Codon GC-lock census (CDS-level) | Disabled |
+| DNA-L9 | Codon-position GC lock census | Disabled |
+| DNA-L10 | Gene lock fingerprint cross-comparison | Disabled |
+| DNA-L14 | Intra-gene GC3 lock landscape | Disabled |
+| DNA-L15 | Cross-genome lock conservation | Disabled |
+| DNA-L16 | GC3 lock/unlock edit budget | Disabled |
+| DNA-L17 | Locked codon signatures | Disabled |
+| DNA-L18 | Lock rails inside GC3-hyper genes | Disabled |
+| DNA-L19 | Amino-acid-constrained GC3 lock potential | Disabled |
+| DNA-L20 | Codon-boundary CpG bridges vs GC3 locks | Disabled |
+
+### Why These Were Disabled
+
+These modules represent early explorations that were either:
+1. **Superseded** by later, more comprehensive modules (L30-L39)
+2. **Computationally expensive** without sufficient signal
+3. **Exploratory dead-ends** that didn't yield significant findings
+
+The active modules (L30-L39) consolidate the most informative analyses.
+
+---
+
+# Part 3: Modules 21-30
+
+## DNA-L21 through DNA-L29: Disabled
+
+Similar to Part 2, these modules are commented out in the codebase where some approaches were abandoned.
+
+---
+
+## MODULE DNA-L30 — WITHIN-CDS GC3 & CpG GRADIENTS
+**Lines: ~17100-17480** | **Language: Pure Python**
+
+### Purpose
+First active Python module: analyzes **positional gradients** of GC3 and CpG **within genes** — do the 5' end, middle, and 3' end show different patterns?
+
+### What It Does
+1. Loads genome FASTA and GFF3 annotations
+2. For each valid CDS:
+   - Divides gene into 10 positional bins (0-10%, 10-20%, ..., 90-100%)
+   - Computes GC3 fraction per bin
+   - Computes CpG density per bin
+3. Aggregates across all genes and separately for hyper-GC3 genes
+4. Reports 3-bin profiles (5'/mid/3') for selected genes
+
+### Key Data Structures
+```python
+# Per-CDS metrics
+cds = {
+    "gene": "yagF",
+    "start": 283200,
+    "end": 285167,
+    "strand": "+",
+    "seq": "ATG...",
+    "codons": 656,
+    "gc3": 0.857
+}
+
+# Binned profiles: list of (bin_idx, mid_pos, codons, gc3_frac, cpg_per_kb)
+```
+
+### Biological Question
+**Do genes have compositional boundaries?** The output shows:
+- GC3 is **lower at gene termini** (~0.534) than mid-body (~0.571)
+- CpG shows similar pattern: lower at 5'/3' ends
+- Effect is **amplified in hyper-GC3 genes**
+
+### Key Functions
+```python
+def within_cds_bins_all(genome, cds_list, nbins=10):
+    """Compute GC3 and CpG in positional bins across all CDS."""
+    
+def thirds_profile_for_gene(cds, nbins=3):
+    """Split single CDS into 5'/mid/3' and compute metrics."""
+```
+
+---
+
+# Part 4: Modules 31-39 (Core Analysis Suite)
+
+All modules in this section are **active Python code** that performs the main CDS-level analysis.
+
+---
+
+## MODULE DNA-L31 — WITHIN-CDS GC3, LOCK RAILS & CpG GRADIENTS
+**Lines: ~17485-18090** | **Language: Pure Python**
+
+### Purpose
+Extends L30 by adding **lock codon fraction** to the within-gene positional analysis.
+
+### What It Does
+1. Same 10-bin within-CDS profiling as L30
+2. Additionally computes **lock fraction** per bin
+3. Separates analysis for ALL vs HYPER-GC3 genes
+4. Reports combined GC3 + lock + CpG gradients
+
+### Lock Codon Definition
+```python
+def is_lock_codon(codon: str) -> bool:
+    """
+    Lock codon criteria:
+    - Length 3, valid ACGT
+    - 3rd position is G or C (GC3)
+    - Total GC count >= 2
+    """
+    codon = codon.upper()
+    gc3 = codon[2] in "GC"
+    gc_count = sum(1 for b in codon if b in "GC")
+    return gc3 and gc_count >= 2
+```
+
+### Output Columns
+```
+Bin | mid_pos | codons | GC3_frac | lock_frac | CpG_per_kb
+----+---------+--------+----------+-----------+-----------
+  0 |   0.050 | 123456 |   0.5341 |    0.4012 |     69.52
+```
+
+---
+
+## MODULE DNA-L32 — CODON USAGE vs GC3 & LOCK CONTEXT
+**Lines: ~18095-18355** | **Language: Pure Python**
+
+### Purpose
+Analyzes **codon usage bias** — which synonymous codons are preferred, and how does this differ in hyper-GC3/lock genes?
+
+### What It Does
+1. Computes per-CDS GC3 and lock fractions
+2. Establishes thresholds: hyper-GC3 = mean + 2σ, hyper-lock = mean + 2σ
+3. Builds codon frequency tables for:
+   - All genes
+   - Hyper-GC3 genes only
+   - Hyper-lock genes only
+4. Reports per-amino-acid lock preferences
+
+### Standard Genetic Code Table
+```python
+CODON_TO_AA = {
+    "TTT":"F", "TTC":"F", "TTA":"L", "TTG":"L",
+    "TCT":"S", "TCC":"S", "TCA":"S", "TCG":"S",
+    # ... 64 codons total
+    "GGT":"G", "GGC":"G", "GGA":"G", "GGG":"G",
+}
+```
+
+### Key Finding
+| Amino Acid | Lock Frac (All) | Lock Frac (Hyper-GC3) |
+|------------|-----------------|----------------------|
+| Ala (A) | 0.628 | **0.845** |
+| Gln (Q) | 0.654 | **0.838** |
+| Leu (L) | 0.604 | **0.810** |
+
+Hyper-GC3 genes show **dramatically elevated lock codon usage** for amino acids with GC3-rich synonyms.
+
+---
+
+## MODULE DNA-L33 — HYPER-GC3 & HYPER-LOCK CODON ENRICHMENT
+**Lines: ~18360-18870** | **Language: Pure Python**
+
+### Purpose
+Quantifies **amino acid composition differences** between normal and hyper-lock genes.
+
+### What It Does
+1. Computes amino acid frequencies in:
+   - All genes (baseline)
+   - Hyper-GC3 genes
+   - Hyper-lock genes
+2. Computes enrichment ratios: freq(hyper) / freq(all)
+3. Identifies which amino acids are over/under-represented
+
+### Enrichment Calculation
+```python
+enrichment[aa] = freq_in_hyper / freq_in_all
+
+# enrichment > 1.0 → amino acid is MORE common in hyper genes
+# enrichment < 1.0 → amino acid is LESS common in hyper genes
+```
+
+### Key Finding
+Amino acids with GC-rich codon families (Ala, Arg, Gly, Pro) are **enriched** in hyper-GC3 genes — the compositional bias isn't just codon choice, it's amino acid choice.
+
+---
+
+## MODULE DNA-L34 — CpG DENSITY vs GC3/LOCK CORRELATION
+**Lines: ~18875-19210** | **Language: Pure Python**
+
+### Purpose
+Tests whether CpG enrichment is explained by GC3/lock or represents independent signal.
+
+### What It Does
+1. Computes per-CDS: GC3, lock_frac, CpG_per_kb
+2. Computes Pearson correlations:
+   - corr(CpG, GC3)
+   - corr(CpG, lock_frac)
+   - corr(GC3, lock_frac)
+3. Partial correlation analysis
+
+### Pearson Correlation Implementation
+```python
+def _pearson(x, y):
+    n = len(x)
+    mx, my = sum(x)/n, sum(y)/n
+    num = sum((xi - mx)*(yi - my) for xi, yi in zip(x, y))
+    vx = sum((xi - mx)**2 for xi in x)
+    vy = sum((yi - my)**2 for yi in y)
+    return num / (vx**0.5 * vy**0.5)
+```
+
+---
+
+## MODULE DNA-L35 — LOCK CODON RUNS & CLUSTERING
+**Lines: ~19213-19465** | **Language: Pure Python**
+
+### Purpose
+Analyzes **consecutive lock codon runs** — do lock codons cluster together?
+
+### What It Does
+1. For each CDS, identifies contiguous runs of lock codons
+2. Computes per-CDS metrics:
+   - Number of runs
+   - Longest run length
+   - Mean run length
+3. Builds run-length histograms for all/hyper-GC3/hyper-lock genes
+4. Ranks genes by longest lock run
+
+### Run Detection Algorithm
+```python
+def _compute_run_lengths(lock_flags):
+    """
+    lock_flags: [True, True, False, True, True, True, False, ...]
+    Returns: [2, 3, ...]  (lengths of consecutive True runs)
+    """
+    runs = []
+    current_run = 0
+    for f in lock_flags:
+        if f:
+            current_run += 1
+        else:
+            if current_run > 0:
+                runs.append(current_run)
+            current_run = 0
+    if current_run > 0:
+        runs.append(current_run)
+    return runs
+```
+
+### 🔥 Key Finding
+```
+Mean longest lock-run (ALL CDS)       : 5.8 codons
+Mean longest lock-run (hyper-GC3 CDS) : 10.2 codons
+Mean longest lock-run (hyper-lock CDS): 12.5 codons
+
+Top gene by longest run: yagF (19 consecutive lock codons)
+```
+
+Lock codons don't just occur more often in hyper genes — they **cluster into longer consecutive runs**.
+
+---
+
+## MODULE DNA-L36 — LOCK CODON SPACING & CLUSTERING
+**Lines: ~19467-20020** | **Language: Pure Python**
+
+### Purpose
+Complementary to L35: analyzes **inter-lock distances** (gaps between consecutive lock codons).
+
+### What It Does
+1. For each CDS, computes spacing between consecutive lock codons
+2. Spacing = 0 means adjacent lock codons
+3. Reports:
+   - Mean inter-lock spacing per CDS
+   - Spacing histograms
+   - Correlation: spacing vs GC3, spacing vs lock_frac
+
+### Inter-Lock Spacing Algorithm
+```python
+def _compute_inter_lock_spacings(lock_flags):
+    """
+    Returns list of gaps (in codons) between consecutive lock codons.
+    Adjacent locks → spacing = 0
+    """
+    positions = [i for i, f in enumerate(lock_flags) if f]
+    return [positions[i+1] - positions[i] - 1 
+            for i in range(len(positions)-1)]
+```
+
+### 🔥 Key Finding
+```
+Global mean inter-lock spacing        : 1.28 codons
+Hyper-GC3 mean spacing               : 0.64 codons
+Hyper-lock mean spacing              : 0.56 codons
+
+corr(spacing, GC3_frac)  = -0.79
+corr(spacing, lock_frac) = -0.86
+```
+
+Strong negative correlation: higher GC3/lock → tighter clustering (lower spacing).
+
+---
+
+## MODULE DNA-L37 — LOCK CODON CLUSTER DENSITY & ISOLATION
+**Lines: ~20024-20360** | **Language: Pure Python**
+
+### Purpose
+Distinguishes **clustered** vs **isolated** lock codon usage patterns.
+
+### What It Does
+1. For each CDS, classifies each lock codon as:
+   - **Multi-lock run** (part of run ≥2)
+   - **Singleton** (isolated, run length = 1)
+2. Computes fraction of lock codons in multi-runs vs singletons
+3. Correlates clustering with GC3, lock_frac, CpG
+
+### Key Metrics
+```python
+frac_multi_codons  = lock_codons_in_multi_runs / total_lock_codons
+frac_single_codons = lock_codons_as_singletons / total_lock_codons
+```
+
+### Key Finding
+```
+Fraction in multi-lock runs (ALL CDS)      : 0.65
+Fraction in multi-lock runs (hyper-GC3)    : 0.89
+Fraction in multi-lock runs (hyper-lock)   : 0.91
+
+corr(frac_multi, GC3_frac)  = 0.74
+corr(frac_multi, lock_frac) = 0.82
+```
+
+In hyper genes, **~90% of lock codons are clustered** (not isolated singletons).
+
+---
+
+## MODULE DNA-L38 — LOCK CODON RUN POSITION & TERMINAL ENRICHMENT
+**Lines: ~20365-20545** | **Language: Pure Python**
+
+### Purpose
+Asks: **Where within genes do long lock runs occur?** 5' end? 3' end? Middle?
+
+### What It Does
+1. For each lock run, computes midpoint position within CDS (0 = 5' end, 1 = 3' end)
+2. Categorizes runs by length: 1, 2-3, 4-6, ≥7 codons
+3. Builds positional histograms of run midpoints
+4. Tests for 5'/3' enrichment of long runs (≥5 codons)
+
+### Positional Computation
+```python
+# For a run starting at codon index `start` with length `L`:
+run_midpoint = (start + L/2) / n_codons  # normalized to [0, 1]
+```
+
+### Terminal Zone Definitions
+```python
+FIVE_PRIME_ZONE  = (0.0, 0.2)   # First 20% of gene
+THREE_PRIME_ZONE = (0.8, 1.0)   # Last 20% of gene
+```
+
+### Key Finding
+Long runs are distributed **relatively uniformly** across gene bodies — no strong 5'/3' bias genome-wide. However, specific genes show individual biases.
+
+---
+
+## MODULE DNA-L39 — GENOMIC LOCK/GC3/CpG ISLANDS & GENE-ORDER CLUSTERING
+**Lines: ~21210-21513** | **Language: Pure Python**
+
+### Purpose
+**Capstone module**: identifies contiguous genomic regions where multiple hyper-GC3/lock/CpG genes cluster — "genomic islands" of elevated structure.
+
+### What It Does
+1. Sorts all CDS by genomic position
+2. Identifies contiguous runs of ≥3 genes that are all:
+   - Hyper-GC3, OR
+   - Hyper-lock, OR
+   - Hyper-CpG
+3. Reports island statistics: span (kb), mean metrics, gene names
+4. Builds 20-bin positional profile across genome
+5. Reports neighborhoods around target genes
+
+### Island Detection Algorithm
+```python
+def _find_islands(sorted_cds, flag_key, min_genes=3):
+    """
+    Scan sorted CDS for contiguous runs where flag_key is True.
+    Return islands with ≥ min_genes members.
+    """
+    islands = []
+    i = 0
+    while i < len(sorted_cds):
+        if not sorted_cds[i][flag_key]:
+            i += 1
+            continue
+        # Start of potential island
+        j = i
+        while j < len(sorted_cds) and sorted_cds[j][flag_key]:
+            j += 1
+        n_genes = j - i
+        if n_genes >= min_genes:
+            islands.append({
+                "n_genes": n_genes,
+                "span_bp": end_bp - start_bp,
+                "mean_gc3": mean([d["gc3_frac"] for d in subset]),
+                "mean_lock": mean([d["lock_frac"] for d in subset]),
+                "mean_cpg": mean([d["cpg_per_kb"] for d in subset]),
+                "gene_first": sorted_cds[i]["gene"],
+                "gene_last": sorted_cds[j-1]["gene"],
+            })
+        i = j
+    return islands
+```
+
+### 🔥 Key Finding: The yag* Supercluster
+```
+HYPER-GC3 ISLAND #1:
+  n_genes : 7
+  span    : 9.5 kb
+  range   : 280829 - 290305
+  genes   : yagA → argF
+  mean_GC3: 0.826
+  mean_lock: 0.673
+  mean_CpG: 110.6/kb
+```
+
+This 7-gene island is simultaneously hyper-GC3, hyper-lock, AND hyper-CpG — a **triple lock** that spans nearly 10kb of contiguous genome.
+
+### The phn* Operon
+```
+HYPER-LOCK ISLAND #2:
+  n_genes : 4
+  range   : phnN → phnK
+  
+HYPER-LOCK ISLAND #3:
+  n_genes : 4
+  range   : phnI → phnF
+```
+
+The phosphonate utilization operon shows two distinct hyper-lock islands.
+
+---
+
+## Summary: The Analysis Pipeline
+
+| Module | Focus | Key Metric |
+|--------|-------|------------|
+| **L30** | Within-gene gradients | GC3, CpG by position |
+| **L31** | + Lock rails | Lock fraction by position |
+| **L32** | Codon usage | Per-AA lock preferences |
+| **L33** | AA enrichment | Hyper gene composition |
+| **L34** | CpG correlation | CpG vs GC3/lock |
+| **L35** | Lock runs | Consecutive run lengths |
+| **L36** | Lock spacing | Inter-lock distances |
+| **L37** | Cluster vs isolation | Multi-run vs singleton |
+| **L38** | Run positions | 5'/3' enrichment |
+| **L39** | Genomic islands | Contiguous hyper regions |
+
+---
+
+## Replication Notes
+
+All Python modules share common helper functions that are defined once and reused:
+
+```python
+# Core helpers (defined in each module with try/except fallback)
+load_single_fasta(path)     # Parse FASTA → string
+parse_gff_cds(path)         # Parse GFF3 → list of CDS dicts
+revcomp(seq)                # Reverse complement
+is_lock_codon(codon)        # Lock predicate
+
+# File paths (Colab-specific)
+FASTA_PATH = "/content/ecoli_U00096_3.fna"
+GFF_PATH   = "/content/ecoli_U00096_3.gff"
+```
+
+To replicate:
+1. Download E. coli K-12 MG1655 genome (NC_000913.3 / U00096.3) from NCBI
+2. Download corresponding GFF3 annotation
+3. Update file paths in each module
+4. Run modules sequentially (L30 → L39)
